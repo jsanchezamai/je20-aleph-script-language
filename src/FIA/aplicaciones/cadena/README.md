@@ -3,8 +3,18 @@
 La aplicación implementa una [IA Situada](src/FIA/paradigmas/situada) para modelar una cadena de montaje.
 
 El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enunciado).
-
-- [Modelo](src/FIA/aplicaciones/cadena/cadena-modelo.ts): define una cinta con n posiciones. Una bombilla (2 estados). Un motor (5 estados).
+- [Modelo](src/FIA/aplicaciones/cadena/cadena-modelo.ts): defina y use las siguientes entidades (ver resto del [dominio](https://github.com/jsanchezamai/je20-aleph-script-language/blob/3df71ceeee3adadc9f1a616f63c15b5603eecb2b/src/FIA/i18/labels.ts#L155C20-L155C20)):
+	
+   ```
+   		ENTIDADES: {
+                        tarea: "tarea",
+                        robot: "robot",
+                        objeto: "objeto",
+                        propiedad: "propiedad",
+                        cadena: "cadena",
+                        almacen: "almacen"
+                    }
+   ```  
 - [Estado](src/FIA/aplicaciones/cadena/cadena-estado.ts): arranca la máquina, la mantiene funcionando y la detiene.
 - [Mundo](src/FIA/aplicaciones/cadena/cadena-mundo.ts): instancia para el tiempo de ejecución.
 - [Automata](src/FIA/aplicaciones/cadena/cadena-automata.ts): instanciará el mundo, esperará a su expiración y lo descargará.
@@ -13,6 +23,7 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 
 ## Log de salida Situada
 
+```
 **sistema>** Escoge:
          - [0]: Modelo: FIA
          - [1]: Modelo: FIA_Genesis
@@ -373,6 +384,7 @@ si
 
 # Log Conexionista Red Neuronal (onnx)
 
+```
 sistema> Transfiriendo el prompt a: cadena-app
 cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
 cadena.conexionista.red> Creando la red neuronal...
@@ -391,5 +403,6 @@ sistema> Escoge:
 	 - [5]: Modelo: situada
 	 - [6]: Modelo: conexionista
 	 - [7]: Modelo: cadena-app
+```
 	 - [99]: Not today! ¡Cerrar!, please, bye!
 Escribe:
