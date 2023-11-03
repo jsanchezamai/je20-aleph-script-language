@@ -26,11 +26,6 @@ Para cada pulso del ciclo (movimiento de la cinta), el estado deberá indicar:
 - para cada subciclo de retención en máquina: unidad de trabajo, porcentaje trabajado.
 - unidades de trabajo acabadas
 
-En la implementación actual se incluye:
-
-- [FIA Situada](src/FIA/paradigmas/situada/paradigma.ts): Autómata con funcionalidad eferencia/aferencia (estado de entrada, transición, estado de salida).
-- [Mundo::Cadena Produccion](src/FIA/mundos/cadena-produccion.ts): Contexto de ejecución con: a) pulso absoluto (cuenta de a uno), b) pulso relativo (configurable).
-
 Completar la ejecución implementando con logs la funcionalidad:
 
 >
