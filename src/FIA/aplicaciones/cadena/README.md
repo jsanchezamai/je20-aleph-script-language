@@ -210,7 +210,7 @@ const casos = [
 
         await this.modelo.probar(casos);
 ```
-## Log FIA semántica, red neuronal
+## Log FIA Conexionista, red neuronal
 
 ```
 cadena.simbolica.semantica.red> Se van a lanzar una serie de inferencias sobre la red...:
