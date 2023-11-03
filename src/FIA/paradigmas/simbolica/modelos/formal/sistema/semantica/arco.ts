@@ -1,7 +1,6 @@
-import { IEtiqueta, IEtiquetaDescriptiva, EtiquetaDescriptiva, IEtiquetaEstructural, EtiquetaEstructural } from "./etiqueta";
-import { IEntidad, IEstado, IConcepto, IGrafo } from "./grafo";
-
-
+import { IEtiqueta, IEtiquetaDescriptiva, EtiquetaDescriptiva,
+    IEtiquetaEstructural, EtiquetaEstructural } from "./etiqueta";
+import { IGrafo } from "./grafo";
 
 export interface IArco {
 
@@ -27,7 +26,6 @@ export class ArcoDescriptivo implements IArcoDescriptivo {
     etiqueta = new EtiquetaDescriptiva();
 
 }
-
 
 export interface IArcoEstructural extends IArco {
 

@@ -1,4 +1,4 @@
-import { i18 } from "../../../../../../i18/labels";
+import { i18 } from "../../../../../../i18/aleph-script-i18";
 import { Traductor } from "../../../../../../i18/traductor";
 import { IReglaRed, IInferencia } from "../../../../paradigma";
 import { InferenciaRelacion } from "../../inferencia/relacion/paradigma";

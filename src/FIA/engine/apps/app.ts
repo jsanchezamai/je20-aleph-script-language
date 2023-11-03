@@ -1,14 +1,14 @@
-import { GenesisBlock, iFIA } from "../genesis-block";
-import { i18 } from "../i18/labels";
-import { IACientifica } from "../paradigmas/cientifica/paradigma";
-import { IAConexionista } from "../paradigmas/conexionista/paradigma";
-import { IASimbolica } from "../paradigmas/simbolica/paradigma";
-import { IASituada } from "../paradigmas/situada/paradigma";
-import { agentMessage } from "../thread";
+import { GenesisBlock, iFIA } from "../../genesis-block";
+import { i18 } from "../../i18/aleph-script-i18";
+import { IACientifica } from "../../paradigmas/cientifica/paradigma";
+import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
+import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
+import { FIASituada } from "../../paradigmas/situada/fia-situada";
+import { agentMessage } from "../../thread";
 
 export interface IApp extends iFIA {
 
-    situada: IASituada;
+    situada: FIASituada;
 
     debil: GenesisBlock;
     fuerte: GenesisBlock;
@@ -24,7 +24,7 @@ export class App extends GenesisBlock implements IApp {
 
     runAsync = true;
 
-    situada: IASituada;
+    situada: FIASituada;
 
     debil: GenesisBlock;
     fuerte: GenesisBlock;
@@ -41,7 +41,7 @@ export class App extends GenesisBlock implements IApp {
          */
         this.debil = IACientifica.fiaDebil;
         this.fuerte = IACientifica.fiaFuerte;
-        this.situada = new IASituada();
+        this.situada = new FIASituada();
         this.simbolica = new IASimbolica();
         this.conexionista = new IAConexionista();
 

@@ -1,15 +1,15 @@
 import { GenesisBlock } from "../../../genesis-block";
-import { i18 } from "../../../i18/labels";
+import { i18 } from "../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../thread";
-import { iIASituada, Automata } from '../../../paradigmas/situada/paradigma';
 import { CadenaEstados } from "./cadena-estado";
 import { CadenaAutomata } from "./cadena-automata";
+import { FIASituada, IFIASituada } from "../../../paradigmas/situada/fia-situada";
 
 // export namespace IASituada {
 
     export const TOPE_POSICION = 6;
 
-    export class CadenaFIASituada extends GenesisBlock implements iIASituada {
+    export class CadenaFIASituada extends FIASituada implements IFIASituada {
 
         nombre = i18.APPS.CADENA.SITUADA.NOMBRE;
         runAsync = true;
@@ -21,7 +21,7 @@ import { CadenaAutomata } from "./cadena-automata";
             console.log(agentMessage(this.nombre, i18.SITUADA.SIMULATION_START));
 
             /**
-             * 
+             * * Autómata que representa la cinta transportadora de la cadena de producción
              */
             this.automata.configurar();
             await this.automata.inicializar();

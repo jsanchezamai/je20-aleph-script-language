@@ -1,5 +1,5 @@
-import { i18 } from "./i18/labels";
-import { IMundo } from "./mundos/paradigma";
+import { i18 } from "./i18/aleph-script-i18";
+import { IMundo } from "./mundos/mundo";
 
 export type Any = string;
 

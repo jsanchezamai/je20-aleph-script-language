@@ -1,5 +1,5 @@
-import { CadenaEstados } from "./situada/cadena-estado";
-import { Modelo } from "../../mundos/paradigma";
+import { CadenaEstados } from "../situada/cadena-estado";
+import { Modelo } from "../../../mundos/paradigma";
 
 
 export class CadenaModelo extends Modelo {

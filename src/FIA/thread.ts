@@ -1,6 +1,6 @@
 import { Runtime } from "./engine/kernel/runtime";
 import { iFIA } from "./genesis-block";
-import { i18 } from "./i18/labels";
+import { i18 } from "./i18/aleph-script-i18";
 
 import * as http from "http";
 

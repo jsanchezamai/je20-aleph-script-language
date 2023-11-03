@@ -1,10 +1,10 @@
 import { GenesisBlock } from "../../../genesis-block";
-import { i18 } from "../../../i18/labels";
+import { i18 } from "../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../thread";
-import { IModeloFormal, IModeloRepresentacional, iIASimbolica } from "../../../paradigmas/simbolica/paradigma";
-import { IMundo } from "../../../mundos/paradigma";
+import { IModeloFormal, iIASimbolica } from "../../../paradigmas/simbolica/paradigma";
 import { ISolucion } from "../../../paradigmas/conexionista/paradigma";
 import { IProblema, IRequisitos } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
+import { IMundo } from "../../../mundos/mundo";
 
 // export namespace IASituada {
 

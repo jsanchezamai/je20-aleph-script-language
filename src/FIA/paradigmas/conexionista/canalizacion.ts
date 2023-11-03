@@ -1,5 +1,5 @@
 import * as ort from 'onnxruntime-node'
-import { i18 } from '../../i18/labels';
+import { i18 } from '../../i18/aleph-script-i18';
 import { agentMessage } from '../../thread';
 
 export interface ICanalizacion {

@@ -1,4 +1,4 @@
-import { i18 } from "../../../../../../i18/labels";
+import { i18 } from "../../../../../../i18/aleph-script-i18";
 import { IBaseConocimiento } from "../../../../paradigma";
 import { IArcos, Arcos } from "./arco";
 

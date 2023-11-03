@@ -1,9 +1,9 @@
-import { i18 } from "../../../i18/labels";
+import { i18 } from "../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../thread";
-import { IMundo } from "../../../mundos/paradigma";
 import { IProblema, IRequisitos, ISolucion } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
 import { IAConexionista, iIAConexionista } from "../../../paradigmas/conexionista/paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
+import { IMundo } from "../../../mundos/mundo";
 
 // export namespace IASituada {
 

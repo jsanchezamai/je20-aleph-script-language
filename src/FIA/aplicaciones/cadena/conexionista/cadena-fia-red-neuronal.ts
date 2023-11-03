@@ -1,4 +1,4 @@
-import { i18 } from "../../../i18/labels";
+import { i18 } from "../../../i18/aleph-script-i18";
 import { RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
 import { agentMessage } from "../../../thread";
 import { CadenaFIAConexionista } from "./cadena-fia-conexionista";

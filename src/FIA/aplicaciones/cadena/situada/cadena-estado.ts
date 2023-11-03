@@ -1,6 +1,6 @@
-import { EstadoT } from "../../../paradigmas/situada/paradigma";
-import { TOPE_POSICION } from "./cadena-fia-situada";
-import { CadenaModelo } from "../cadena-modelo";
+import { EstadoT } from "../../../paradigmas/situada/estado";
+import { CadenaModelo } from "../modelo/cadena-modelo";
+
 
 export enum CadenaEstados {
     PARADA = "PARADA",
@@ -17,41 +17,58 @@ export class CadenaEstado<CadenaEstados> extends EstadoT<CadenaEstados> {
     transicion(): void {
 
         switch(this.modelo.motor) {
+
             case CadenaEstados.PARADA:
                 this.modelo.motor = CadenaEstados.ARRANCAR;
-                break;
+               break;
+
             case CadenaEstados.ARRANCAR:
-                this.modelo.motor = CadenaEstados.AVANZAR;
-                break;
+               this.modelo.motor = CadenaEstados.AVANZAR;
+               break;
+
             case CadenaEstados.AVANZAR:
 
-                // Condicionar en función de la aferencia
-                const iluminacion = this.modelo.dia % 2 == 0;
+               /**
+                * Procesar la aferencia
+                **/
 
-                // Construir la eferencia
-                this.modelo.posicion++;
-                this.modelo.iluminacion = iluminacion;
+               // La cinta trabajará con la luz apagada la primera mitad del día
+               // y con la luz encendida la segunda.
+               const iluminacion = this.modelo.dia % 2 == 0;
 
-                // El autómata acabará con tiempo de parar la máquina antes
-                // de que finalice el tiempo del mundo donde opera
-                const tiempoArranque = 2;
-                const tiempoParada = 2;
-                if (this.modelo.posicion === (
-                    this.modelo.muerte - tiempoArranque - tiempoParada
-                )) {
-                    this.modelo.motor = CadenaEstados.PARAR;
-                }
+               /**
+                *  Construir la eferencia
+                **/
+               this.modelo.posicion++;
+               this.modelo.iluminacion = iluminacion;
 
-                break;
+               /**
+                * Construir la condición de salida
+                **/
+
+               // El autómata detendrá la simulación
+               // con tiempo de parar la máquina;
+               // teniendo en cuenta el tiempo de arranque y de parada
+
+               const tiempoArranque = 2;
+               const tiempoParada = 2;
+               if (this.modelo.posicion === (
+                  this.modelo.muerte - tiempoArranque - tiempoParada
+               )) {
+                  this.modelo.motor = CadenaEstados.PARAR;
+               }
+
+               break;
+
             case CadenaEstados.PARAR:
-                this.modelo.posicion = 0;
-                this.modelo.iluminacion = false;
-                this.modelo.motor = CadenaEstados.FUERA_SERVICIO;
-                break;
+               this.modelo.posicion = 0;
+               this.modelo.iluminacion = false;
+               this.modelo.motor = CadenaEstados.FUERA_SERVICIO;
+               break;
+
             default:
-                this.modelo.motor = CadenaEstados.PARADA;
+               this.modelo.iluminacion = false;
+               this.modelo.motor = CadenaEstados.PARADA;
         }
-
     }
-
 }

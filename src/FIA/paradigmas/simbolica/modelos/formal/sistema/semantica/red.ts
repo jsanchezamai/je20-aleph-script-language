@@ -1,13 +1,14 @@
-import { Dominio, IModeloFormal, MotorInferencia } from "../../../../paradigma";
+import { Dominio, IModeloFormal } from "../../../../paradigma";
 import { Formal } from "../../paradigma";
 import { CadenaGrafo } from "../../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica";
-import { i18 } from "../../../../../../i18/labels";
+import { i18 } from "../../../../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../../../../thread";
 import { Traductor } from "../../../../../../i18/traductor";
 import { IGrafo, Grafo } from "./grafo";
 import { ReglaRed } from "./regla";
 import { ArcoEstructural, ArcoDescriptivo } from "./arco";
 import { RelacionEstructural, EtiquetaEstructural, RelacionDescriptiva, EtiquetaDescriptiva } from "./etiqueta";
+import { MotorInferencia } from "./motor-inferencia";
 
 export interface IRedSemantica extends IModeloFormal {
 
@@ -111,7 +112,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
         /**
         * Añadir entidades del arco "parte-de"
-        */7
+        */
 
         Object.keys(red.ARCOS.ESTRUCTURALES.PARTE).forEach(clase_padre => {
 
@@ -289,7 +290,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
         });
 
         /**
-         * Convertir las entidades hoja en hijas de un nodo inciial
+         * Convertir las entidades hoja en hijas de un nodo raíz
          */
         this.base = new Grafo();
 
@@ -307,7 +308,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 arco.destino = e;
                 arco.etiqueta = etiqueta;
                 this.base.arcos.estado.push(arco);
-            });
+        });
 
     }
 
@@ -317,6 +318,9 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.PROBAR_START_LABEL}:${""}`));
 
+            /**
+             *  Encolado de casos a probar
+             * */
             casos.forEach((c, index) => {
 
                 console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.CASO.START_LABEL}:${index}`));
@@ -334,17 +338,26 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             });
 
+            /**
+             *  Arrancar la cola de inferencias
+             * */
             this.motor.arrancar((info) => {
                 console.log(
                     agentMessage(this.nombre,
                         `${i18.APPS.CADENA.TEST.CASO.BODY_LABEL}:${info}`));
             });
 
+            /**
+             *  Capturar evento de parada
+             * */
             this.motor.trasDetenerse(() => {
                 console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.PROBAR_END_LABEL}:${""}`));
                 resolve("> forma.sistema.semantica.paradigma.RedSemantica.probar, finalizó con éxito");
             });
 
+            /**
+             *  Condición de salida
+             * */
             setTimeout(
                 () => reject("forma.sistema.semantica.paradigma.RedSemantica.probar, tiempo expirado!")
                 , 5000

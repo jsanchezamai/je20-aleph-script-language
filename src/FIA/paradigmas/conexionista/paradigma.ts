@@ -1,5 +1,5 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
-import { i18 } from "../../i18/labels";
+import { i18 } from "../../i18/aleph-script-i18";
 import { ICanalizacion } from "./canalizacion";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
 

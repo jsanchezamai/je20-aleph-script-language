@@ -33,7 +33,7 @@ El objetivo, por tanto, será usar programación estructurada, orientada a objet
 
 Buscando los elementos mínimos de este lenguaje, he identificado casos de uso como:
 
-- Modelizar [un mundo](src/FIA/mundos) con agentes y cosas. Ponerlo en marcha y agregarle inercias.
+- Modelizar [un mundo](src/FIA/mundos) con agentes y cosas. Ponerlo en marcha y agregarle inercias. Contexto con un tiempo de ejecución circadiano. Ambiente compartido por todas las FIAs. Único para la aplicación. Los mundos, con estructura fractal, pueden expandirse internamente.
 - Instanciar un [autómata de un tipo concreto de inteligencia](src/FIA/paradigmas) y solicitarle una actuación en ese mundo.
 - Un [motor de ejecución](src/FIA/engine/kernel/runtime.ts) capaz de correrlos.
 

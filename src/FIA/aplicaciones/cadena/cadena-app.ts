@@ -1,8 +1,11 @@
-import { i18 } from "../../i18/labels";
+import { i18 } from "../../i18/aleph-script-i18";
 import { agentMessage } from "../../thread";
-import { App } from "../paradigma";
-import { CadenaFIASituada } from "./situada/cadena-fia-situada";
-import { CadenaFiaRedNeuronal } from "./conexionista/cadena-fia-red-neuronal";
+import { App } from "../../engine/apps/app";
+
+// import { CadenaFIASituada } from "./situada/cadena-fia-situada";
+import { CadenaFIARedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
+// import { CadenaFiaRedNeuronal } from "./conexionista/cadena-fia-red-neuronal";
+
 
 export class CadenaApp extends App {
 
@@ -18,20 +21,19 @@ export class CadenaApp extends App {
         console.log(agentMessage(this.nombre, i18.APPS.CADENA.SIMULATION_START));
 
         /**
+         * APLICACIÓN PARA EL ESTUDIO DEL APRENDIZAJE INTELIGENTE
          *
          */
-        this.situada = new CadenaFIASituada();
-        // this.situada.instanciar();
 
-        // this.simbolica = new CadenaFIARedSemantica();
-
-        this.conexionista = new CadenaFiaRedNeuronal();
-        await this.conexionista.instanciar();
+        // this.situada = new CadenaFIASituada();
+        this.simbolica = new CadenaFIARedSemantica();
+        // this.conexionista = new CadenaFiaRedNeuronal();
 
         const salidas = await Promise.all(
             [
-
-                // this.simbolica.instanciar(),
+                // this.situada.instanciar(),
+                this.simbolica.instanciar(),
+                // this.conexionista.instanciar()
             ]
         );
 

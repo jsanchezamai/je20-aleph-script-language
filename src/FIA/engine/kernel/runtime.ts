@@ -2,12 +2,12 @@
 import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
 import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
-import { IASituada } from "../../paradigmas/situada/paradigma";
 import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
-import { i18 } from "../../i18/labels";
+import { i18 } from "../../i18/aleph-script-i18";
 import { agentMessage, menuOption, systemMessage } from "../../thread";
 import * as readline from 'readline';
 import { CadenaApp } from "../../aplicaciones/cadena/cadena-app";
+import { IASituada } from "../../paradigmas/situada/paradigma";
 
 export const EXIT_PROMPT_INDEX = 99;
 

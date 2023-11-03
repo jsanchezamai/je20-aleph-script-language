@@ -1,5 +1,5 @@
-import { i18 } from "../../../../i18/labels";
-import { Grafo, IGrafo } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo";
+import { i18 } from "../../../../i18/aleph-script-i18";
+import { Grafo } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo";
 import { RedSemantica } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/red";
 import { agentMessage } from "../../../../thread";
 import { CadenaFIASimbolica } from "../cadena-fia-simbolica";

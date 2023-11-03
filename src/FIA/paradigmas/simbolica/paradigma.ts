@@ -1,9 +1,10 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
-import { i18 } from "../../i18/labels";
-import { IMundo } from '../../mundos/paradigma';
+import { i18 } from "../../i18/aleph-script-i18";
+import { IMundo } from "../../mundos/mundo";
 import { ISolucion } from "../conexionista/paradigma";
 import { IFacetas } from "./modelos/conceptual/sistema/marcos";
 import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/paradigma";
+import { IMotorInferencia } from "./modelos/formal/sistema/semantica/motor-inferencia";
 
     /**
      * INFERENCIA
@@ -103,34 +104,6 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
 
     }
 
-    export interface IMotorInferencia extends IDominio {
-        reglas: Inferencia[]
-
-        arrancar(log: (string) => void): void;
-        trasDetenerse(log: (string) => void): void
-    }
-
-    export class MotorInferencia implements IMotorInferencia {
-
-        base: IBaseConocimiento;
-        reglas: Inferencia[] = []
-
-        arrancar(log: (string) => void): void {
-
-            this.reglas.forEach(regla => {
-
-                const inferencia = regla.evaluar();
-
-                log(inferencia);
-
-            })
-        }
-
-        trasDetenerse(log: (string: any) => void): void {
-            log("MotorInferencia.Detenido");
-        }
-
-    }
 
     export interface IEstrategiaControl extends IDominio {
     }
