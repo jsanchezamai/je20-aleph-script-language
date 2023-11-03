@@ -1,4 +1,4 @@
-# App: Simulación cadena de montaje con inteligencia fundamental de tipo Situada
+# App: Simulación cadena de montaje con lenguaje AlephScript usando varios tipos de IA conjugados
 
 La aplicación implementa una [IA Situada](src/FIA/paradigmas/situada) para modelar una cadena de montaje.
 
