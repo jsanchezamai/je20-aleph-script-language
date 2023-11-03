@@ -3,7 +3,7 @@
 La aplicación implementa una [IA Situada](src/FIA/paradigmas/situada) para modelar una cadena de montaje.
 
 El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enunciado).
-- [Modelo](./cadena-modelo.ts): defina y use las siguientes entidades (ver resto del [dominio](https://github.com/jsanchezamai/je20-aleph-script-language/blob/3df71ceeee3adadc9f1a616f63c15b5603eecb2b/src/FIA/i18/labels.ts#L155C20-L155C20)):
+- [Modelo](./cadena-modelo.ts): defina y use las siguientes entidades (ver resto del [dominio](https://github.com/jsanchezamai/je20-aleph-script-language/blob/3df71ceeee3adadc9f1a616f63c15b5603eecb2b/src/FIA/i18/labels.ts#L155C20-L155C20):
 	
    ```
    		ENTIDADES: {
@@ -137,13 +137,13 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 
 # APP: Simulación con FIA Simbólica (mediante red semántica)
 
-- [FIA Simbolica. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica)
+- [FIA Simbolica. Red semántica](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica)
   
 Aunque el grafo de la red semántica puede construirse de distintas manera, se ha implementado una modelización sin código, vía json.
 
 La implementación actual define la red semántica en el [fichero de traducciones i18](src/FIA/i18/labels.ts) ver nodo APPS.CADENA.SIMBOLICA.DOMINIO.
 
-En la inicialización, la [FIA RedSemántica](src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica.ts](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica) interpreta el fichero y monta la red base.
+En la inicialización, la [FIA Red Semántica](./simbolica/formal/cadena-fia-red-semantica.ts) interpreta el fichero y monta la red base.
 
 La red inicializa los nodos hoja y sus arcos principales:
 
@@ -179,7 +179,7 @@ La red inicializa los nodos hoja y sus arcos principales:
 
 ```
 
-Una vez cargada la red, puede usarse el [método probar del modelo](src/FIA/aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica.ts) inferencias con el formato de ejemplo de abajo. Las inferencias se lanzarán una a una.
+Una vez cargada la red, puede usarse el [método probar del modelo](./simbolica/formal/cadena-fia-red-semantica.ts) inferencias con el formato de ejemplo de abajo. Las inferencias se lanzarán una a una.
 
 ```ts
 const casos = [
@@ -213,9 +213,8 @@ const casos = [
 
         await this.modelo.probar(casos);
 ```
-## Log FIA Conexionista, red neuronal
+## Log FIA Semantica
 
-- [FIA Conexionista. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/conexionista)
 ```
 cadena.simbolica.semantica.red> Se van a lanzar una serie de inferencias sobre la red...:
 cadena.simbolica.semantica.red>
@@ -340,6 +339,8 @@ si
 
 # Log Conexionista Red Neuronal (onnx, inferencia de tensores)
 
+- [FIA Conexionista. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/conexionista)
+  
 ```
 sistema> Transfiriendo el prompt a: cadena-app
 cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
