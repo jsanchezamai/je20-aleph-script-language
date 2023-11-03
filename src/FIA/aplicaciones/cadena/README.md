@@ -15,14 +15,15 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
                         almacen: "almacen"
                     }
    ```  
+- [Mundo](src/FIA/aplicaciones/cadena/cadena-mundo.ts): instancia para el tiempo de ejecución. Contexto compartido por todas las FIAs.
+- [Carga de las FIAs](cadena-app.ts): implementa la aplicación.
+
+
+## Log de salida Situada (eferencia/aferencia)
+
 - [Estado](src/FIA/aplicaciones/cadena/cadena-estado.ts): arranca la máquina, la mantiene funcionando y la detiene.
-- [Mundo](src/FIA/aplicaciones/cadena/cadena-mundo.ts): instancia para el tiempo de ejecución.
 - [Automata](src/FIA/aplicaciones/cadena/cadena-automata.ts): instanciará el mundo, esperará a su expiración y lo descargará.
-- [FIA Situada](src/FIA/aplicaciones/cadena/cadena-fia.ts): implementa la aplicación.
-
-
-## Log de salida Situada
-
+  
 ```
 **sistema>** Escoge:
          - [0]: Modelo: FIA
@@ -133,56 +134,7 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 **Autómata CP**> ¡Simulación finalizada!
 ```
 
-# [x] Implementar demo del autómata en [FIA Situada](src/FIA/paradigmas/situada)
-
-En la versión 0.0.1, el menú da acceso a la FIA Situada:
-
-```
-**sistema>** Cargando FIAs disponibles, por favor espera... 
-**sistema>** Escoge:
-         - [0]: Modelo: FIA
-         - [1]: Modelo: FIA_Genesis
-         - [2]: Modelo: debil
-         - [3]: Modelo: fuerte
-         - [4]: Modelo: simbolica
-         - [5]: Modelo: situada                 <============
-         - [6]: Modelo: conexionista
-         - [99]: Not today! ¡Cerrar!, please, bye!
-Escribe: 
-```
-
-La implementación actual implementa "**La Cadena de Montaje**". El autómata de la FIA Situada deberá mantener el **estado** y sus **transiciones** para 50 **unidades de trabajo** que desfilaran por una cadena de montaje con 100 posiciones, a la que están conectadas 5 **máquinas** con retención de unidad de trabajo (sin obstaculizar la cadena) de 2 segundos. Las 5 máquinas ejecutan la misma acción. Pero la nº5 ejecuta además un proceso especial obligado todas las unidades de trabajo.
-
-Para cada pulso del ciclo (movimiento de la cinta), el estado deberá indicar:
-
-- unidades de trabajo en almacen
-- posiciones de la cadena ocupadas por las unidades de trabajo
-- unidades de trabajo retenidas en máquina
-- para cada subciclo de retención en máquina: unidad de trabajo, porcentaje trabajado.
-- unidades de trabajo acabadas
-
-En la implementación actual se incluye:
-
-- [FIA Situada](src/FIA/paradigmas/situada/paradigma.ts): Autómata con funcionalidad eferencia/aferencia (estado de entrada, transición, estado de salida).
-- [Mundo::Cadena Produccion](src/FIA/mundos/cadena-produccion.ts): Contexto de ejecución con: a) pulso absoluto (cuenta de a uno), b) pulso relativo (configurable).
-
-Completar la ejecución implementando con logs la funcionalidad:
-
->
->
-**sistema>** Transfiriendo el prompt a: situada
-**situada>** Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.
-cadena> ¡Mundo iniciado!
-cadena> Hoy es el día: 1
-cadena> Hoy es el día: 2
-cadena> Hoy es el día: 3
-cadena> Hoy es el día: 4
-cadena> ¡Mundo acabado!
-**situada>** Modelo resultante:Modelo base. 10 días; pulso: 1 segundo
-**situada>** Final de ejecución 
-
-
-# APP: Simulación con Red Simbólica.Semantica Red
+# APP: Simulación con FIA Simbólica (mediante red semántica)
 
 Aunque el grafo de la red semántica puede construirse de distintas manera, se ha implementado una modelización sin código, vía json.
 
@@ -258,7 +210,7 @@ const casos = [
 
         await this.modelo.probar(casos);
 ```
-## Log 
+## Log FIA semántica, red neuronal
 
 ```
 cadena.simbolica.semantica.red> Se van a lanzar una serie de inferencias sobre la red...:
@@ -382,7 +334,7 @@ cadena-app> ¡Simulación finalizada!¡La aplicación ha concluído y se cierra!
 si
 ```
 
-# Log Conexionista Red Neuronal (onnx)
+# Log Conexionista Red Neuronal (onnx, inferencia de tensores)
 
 ```
 sistema> Transfiriendo el prompt a: cadena-app
@@ -403,6 +355,6 @@ sistema> Escoge:
 	 - [5]: Modelo: situada
 	 - [6]: Modelo: conexionista
 	 - [7]: Modelo: cadena-app
-```
 	 - [99]: Not today! ¡Cerrar!, please, bye!
 Escribe:
+```
