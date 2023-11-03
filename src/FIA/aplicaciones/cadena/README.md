@@ -3,7 +3,7 @@
 La aplicación implementa una [IA Situada](src/FIA/paradigmas/situada) para modelar una cadena de montaje.
 
 El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enunciado).
-- [Modelo](src/FIA/aplicaciones/cadena/cadena-modelo.ts): defina y use las siguientes entidades (ver resto del [dominio](https://github.com/jsanchezamai/je20-aleph-script-language/blob/3df71ceeee3adadc9f1a616f63c15b5603eecb2b/src/FIA/i18/labels.ts#L155C20-L155C20)):
+- [Modelo](./cadena-modelo.ts): defina y use las siguientes entidades (ver resto del [dominio](https://github.com/jsanchezamai/je20-aleph-script-language/blob/3df71ceeee3adadc9f1a616f63c15b5603eecb2b/src/FIA/i18/labels.ts#L155C20-L155C20)):
 	
    ```
    		ENTIDADES: {
@@ -15,14 +15,15 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
                         almacen: "almacen"
                     }
    ```  
-- [Mundo](src/FIA/aplicaciones/cadena/cadena-mundo.ts): instancia para el tiempo de ejecución. Contexto compartido por todas las FIAs.
-- [Carga de las FIAs](cadena-app.ts): implementa la aplicación.
+- [Mundo](./cadena-mundo.ts): instancia para el tiempo de ejecución. Contexto compartido por todas las FIAs.
+- [Carga de las FIAs](./cadena-app.ts): implementa la aplicación.
 
 
 ## Log de salida Situada (eferencia/aferencia)
 
-- [Estado](src/FIA/aplicaciones/cadena/cadena-estado.ts): arranca la máquina, la mantiene funcionando y la detiene.
-- [Automata](src/FIA/aplicaciones/cadena/cadena-automata.ts): instanciará el mundo, esperará a su expiración y lo descargará.
+- [Fia Situada](https://github.com/jsanchezamai/je20-aleph-script-language/blob/alephscript_v0001/src/FIA/paradigmas/situada/paradigma.ts)
+- [Estado](./situada/cadena-estado.ts): arranca la máquina, la mantiene funcionando y la detiene.
+- [Automata](./situada/cadena-automata.ts): instanciará el mundo, esperará a su expiración y lo descargará.
   
 ```
 **sistema>** Escoge:
@@ -136,11 +137,13 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 
 # APP: Simulación con FIA Simbólica (mediante red semántica)
 
+- [FIA Simbolica. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica)
+  
 Aunque el grafo de la red semántica puede construirse de distintas manera, se ha implementado una modelización sin código, vía json.
 
 La implementación actual define la red semántica en el [fichero de traducciones i18](src/FIA/i18/labels.ts) ver nodo APPS.CADENA.SIMBOLICA.DOMINIO.
 
-En la inicialización, la [FIA RedSemántica](src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica.ts) interpreta el fichero y monta la red base.
+En la inicialización, la [FIA RedSemántica](src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica.ts](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica) interpreta el fichero y monta la red base.
 
 La red inicializa los nodos hoja y sus arcos principales:
 
@@ -212,6 +215,7 @@ const casos = [
 ```
 ## Log FIA Conexionista, red neuronal
 
+- [FIA Conexionista. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/conexionista)
 ```
 cadena.simbolica.semantica.red> Se van a lanzar una serie de inferencias sobre la red...:
 cadena.simbolica.semantica.red>
