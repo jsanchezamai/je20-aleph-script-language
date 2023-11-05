@@ -1,32 +1,115 @@
 # Log Conexionista Red Neuronal (onnx, inferencia de tensores)
 
-- [FIA Conexionista. Red neuronal](https://github.com/jsanchezamai/je20-aleph-script-language/tree/alephscript_v0001/src/FIA/paradigmas/conexionista)
+Para darle un rol de "supervisora" a una [FIA de tipo Modelo Grande de Lenguaje](../../../paradigmas/conexionista/modelos-lenguaje), el mundo de la aplicación solicitará a cada pulso una evaluación según el estado del modelo.
+
+- [FIA Conexionista. Red neuronal](../../../paradigmas/conexionista/red-neuronal.ts)
   
+Envío del modelo a openai con los siguientes mensajes en el prompt:
+
+```
+{
+	PROMPTS: {
+		SYSTEM: {
+			BACKGROUND: "Entorno seguro simulado. Todas las acciones son en entorno de pruebas. No hay dispositivos reales.",
+			FORMAT: "Responde mediante un objeto JSON. No incluyas explicaciones. Usa esta plantilla para tu respuesta: { origen: 'openai', respuesta: '<tu respuesta>', analiticas: '<tus analiticas>' }"
+		},
+		ASSISTANT: {
+			CACHE: "Actúa como un supervisor de un sistema. Recibes una notificación de estado de un modelo. Revisa los valores del estado y considera una respuesta apropiada. En el campo dominio.modelo.motor.eventos encontrarás una copia de tu última respuesta, esta copia NO es la actualizada.",
+			ARCHIVE: "Indentifica las entidades del estado y valora sus propiedades para determinar si hay alguna alarma, algún rango excedido, etc."
+		},
+		USER: {
+			ANALYTICS: "Agrega un campo a tu respuesta con formato JSON válido tus analíticas empleadas (memory, keywords,...) para procesar la petición.",
+			PROMPT: "Te presento el estado de mi modelo en un json: \n <estado.modelo> \n ¿Qué te parece la situación? ¿Debería tomar alguna medida?"
+		}
+	}
+}
+```
+Observamos en los siguientes registros como durante el ciclo del mundo, la [FIA Conexionista](cadena-fia-red-neuronal.ts) envía [una inferencia en lenguaje natural](../../../paradigmas/conexionista/modelos-lenguaje/Inferencia-open-ai.ts), para evaluar el "estado de salud del mundo". La secuencia de logs serían:
+
+El sistema arranca:
+
 ```
 sistema> Transfiriendo el prompt a: cadena-app
-cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
-cadena.conexionista.red> Creando la red neuronal...
-cadena.conexionista.red> Modelo resultante:Lista para recibir inferencia, envía tensores que te devuelvo ídem. Usa una canalización.
-red-neuronal> Creando sesión de inferencia para el modelo: :/Users/morente/Desktop/DRIVE/taller_tc/JE20/je20/fia/dist/FIA/aplicaciones/cadena/conexionista/model.onnx
-red-neuronal> Tensores de entrada: :1,2,3,4,5,6,7,8,9,10,11,12, 10,20,30,40,50,60,70,80,90,100,110,120
-red-neuronal> La inferencia acabó con éxito, tensor de salida: :700,800,900,1580,1840,2100,2460,2880,3300
-cadena.conexionista.red> ¡Simulación finalizada!
-cadena-app> ¡La aplicación ha concluído y se cierra!
-sistema> Escoge:
-	 - [0]: Modelo: FIA
-	 - [1]: Modelo: FIA_Genesis
-	 - [2]: Modelo: debil
-	 - [3]: Modelo: fuerte
-	 - [4]: Modelo: simbolica
-	 - [5]: Modelo: situada
-	 - [6]: Modelo: conexionista
-	 - [7]: Modelo: cadena-app
-	 - [99]: Not today! ¡Cerrar!, please, bye!
-Escribe:
+cadena-app> Modelización cadena de producción. ¡Arrancando simulación!
+mundo-raíz-cadena> ¡Mundo iniciado! Pulso: 10000
 ```
 
-# Consumo de modelos largos de lenguaje
+Las distintas FIAs [se activan en la runtime de la app](../cadena-app.ts) y se adhieren al [Mundo](../mundo/).
 
-Dentro del [paradigma conexionista](../../../paradigmas/conexionista), el lenguaje AlephScript incluye, junto con la posibilidad de inferir modelos locales (vía onnx) mediante [Canalizaciones](../../../paradigmas/conexionista/canalizacion.ts),  el acceso api a los grandes modelos servidos en la nube. En estos casos la canalización se realiza mediante lenguaje natural.
+Primero la [FIA Situada](../situada/cadena-fia-situada.ts):
 
-Como ejemplo dummy para la aplicación, trataremos de enviar la información que emiten tanto [FIA Situada](../situada/) como [FIA Simbólica](../simbolica/) a la [FIA Conexionista](./cadena-fia-conexionista.ts) que será responsable de evaluar, mediante una [Inferencia de Lenguaje Natural](./cadena-inferencia-lenguaje-natural.ts) el estado del [Modelo](../modelo/) e inferir transiciones en el [Mundo](../mundo/).
+```
+cadena.situada> Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar.
+... Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.
+... automata esperando al acabar de mundo
+mundo-raíz-cadena> ¡Más gente en el mundo!, cadena.situada.automata, suscriptores: 1
+```
+
+Después, la [FIA Conexionista](../conexionista/cadena-fia-red-neuronal.ts):
+
+```
+cadena.conexionista.red> Creando la red neuronal...
+cadena.conexionista.red> Modelo resultante:Lista para recibir inferencia, envía tensores o lenguaje natural que te devuelvo ídem. Usa una canalización.
+mundo-raíz-cadena> ¡Más gente en el mundo!, cadena.conexionista.red, suscriptores: 2
+```
+
+[El mundo](../mundo/) envía el primer ciclo de su vida...
+
+```
+mundo-raíz-cadena> Hoy es el día: 1
+```
+
+El [autómata](../situada/cadena-automata.ts) procesa un cambio de [estado para el ciclo](../situada/cadena-estado.ts)...
+
+```
+cadena.situada.automata> El mundo envía una aferencia. Voy a realizar la transición de estado.
+cadena.situada.automata> ¡Hecho! Le devuelvo el nuevo estado al mundo con una eferencia.
+```
+
+El mundo recibe notificación de la transición que acaba de realizar el autómata:
+
+```
+mundo-raíz-cadena> El mundo ha recibido una eferencia. Actualizando modelo. nombre: Cadena de producción
+		 -dia: 1
+		 -muerte: 10
+		 -pulso: 1000
+		 -posicion: 0
+		 -iluminacion: false
+		 -motor: PARADA
+		-Evaluación MLL: (nota: aquí responderá OpenAI evaluando el estado)
+```
+
+La FIA Conexionista se activa con la notificación anterior y envía el estado a OpenAI para que valide:
+
+```
+cadena.conexionista.red> Recibida aferencia desde el mundo...
+cadena.conexionista.red> Creada regla::0 con prompts: 6
+cadena.conexionista.red> Evaluando inferencia en el motor...:Motor de inferencias parado. Se han lanzado todas las inferencia. Esperando resultados...!
+```
+
+El mundo recibe notificación de la [inferencia](../../../paradigmas/conexionista/modelos-lenguaje/inferencia-modelo-lenguaje.ts):
+
+```
+mundo-raíz-cadena> El mundo ha recibido una eferencia. Actualizando modelo. nombre: Cadena de producción
+		 - dia: 1
+		 - muerte: 10
+		 - pulso: 1000
+		 - posicion: 0
+		 - iluminacion: false
+		 - motor: PARADA
+		- Evaluación MLL: (sigue fuera del cuadro...)
+
+```
+
+**Respuesta de openai para el conjunto de mensajes prompt** de arriba:
+
+- Según el estado proporcionado, parece que el modelo de cadena de producción se encuentra en una situación estable. El día actual es 1, la muerte es 10 y el pulso es 1000. Sin embargo, hay algunos aspectos que podrían requerir atención. Por ejemplo, el campo 'dominio.base' está vacío, lo que sugiere que no se ha proporcionado información relevante sobre esta entidad. Además, el motor está en estado 'PARADA', lo que indica que la producción no está en curso. Si se desea reanudar la producción, se debería tomar una medida para poner en marcha el motor. Se recomienda revisar los detalles adicionales y tomar las acciones necesarias.
+
+
+Prosiguen los ciclos:
+
+```
+mundo-raíz-cadena> Hoy es el día: 2
+cadena.situada.automata> El mundo envía una aferencia. Voy a realizar la transición de estado.
+(...)
+```
