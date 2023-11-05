@@ -1,6 +1,7 @@
-import { GenesisBlock, Intencion, Mundo } from "../../genesis-block";
+import { GenesisBlock, Intencion } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
 import { TuringTester } from "../../agents/turing-test";
+import { IMundo } from "../../mundos/mundo";
 
 export namespace IACientifica {
 
@@ -8,7 +9,7 @@ export namespace IACientifica {
 
     fiaFuerte.nombre = i18.CIENTIFICA.FUERTE_LABEL;
     fiaFuerte.razona =
-        (w: Mundo, i: Intencion) => {
+        (w: IMundo | string, i: Intencion) => {
         return "Sí";
     }
     fiaFuerte.imprimir = () => {
@@ -20,7 +21,7 @@ export namespace IACientifica {
 
     fiaDebil.nombre = i18.CIENTIFICA.DEBIL_LABEL;
     fiaDebil.razona =
-        (w: Mundo, i: Intencion) => {
+        (w: IMundo | string, i: Intencion) => {
         return "No";
     }
     fiaDebil.imprimir = () => {

@@ -124,7 +124,7 @@ Sigo en su [README](src/FIA/aplicaciones/cadena/README.md)...
 
 Otro punto de avance será la [Inteligencia Artificial Conexionista](src/FIA/paradigmas/conexionista). El objeto de carga de modelos para el paso de Tensores (ristras de número) queda bien resuelto en onnx estableciéndose como posible estándar a la hora de convertir cualquier fuente de red neuronal a un formato inferible por nuestra aplcación. En eso sentido se agregó tanto el paquete nodo como el web y se trajeron los [ejemplos oficiales onnxjs-ort](src/FIA/engine/onnx).
 
-Además, el [paquete smparty](src/FIA/engine/smartpy) implementa el mismo servicio de carga de modelos.onnx y gestiona una inferencia por llamada.
+Además, el [paquete smartpy](src/FIA/engine/smartpy) implementa el mismo servicio de carga de modelos.onnx y gestiona una inferencia por llamada.
 
 He podido hacer una implementación mínima, al menos para dejar constancia, de la IA Conexionista. El log:
 
@@ -132,7 +132,7 @@ He podido hacer una implementación mínima, al menos para dejar constancia, de 
 sistema> Transfiriendo el prompt a: cadena-app
 cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
 cadena.conexionista.red> Creando la red neuronal...
-cadena.conexionista.red> Modelo resultante: Lista para recibir inferencia, usa una canalación.
+cadena.conexionista.red> Modelo resultante: Lista para recibir inferencia, usa una canalización.
 red-neuronal> Creando sesión de inferencia para el modelo: :/FIA/aplicaciones/cadena/conexionista/model.onnx
 red-neuronal> Tensores de entrada: :1,2,3,4,5,6,7,8,9,10,11,12, 10,20,30,40,50,60,70,80,90,100,110,120
 red-neuronal> La inferencia acabó con éxito, tensor de salida: :700,800,900,1580,1840,2100,2460,2880,3300

@@ -1,4 +1,6 @@
-import { Inferencia, IInferenciaRelacion, IDominio, Dominio, IInferencia, IBaseConocimiento } from "../../../../paradigma";
+import { IBaseConocimiento } from "../../../../../../mundos/base-conocimiento";
+import { IDominio, Dominio } from "../../../../../../mundos/dominio";
+import { Inferencia, IInferenciaRelacion, IInferencia } from "../../../../inferencia";
 import { IGrafo } from "../../sistema/semantica/grafo";
 
 export interface ISolucion {}

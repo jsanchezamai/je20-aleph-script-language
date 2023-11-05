@@ -1,4 +1,4 @@
-import { IReglaObjetoAtributoValor } from "../../../paradigma";
+import { IReglaObjetoAtributoValor } from "../../../regla";
 import { InferenciaConcepto } from "../inferencia/concepto/paradigma";
 
 

@@ -1,4 +1,4 @@
-import { IReglaMarco } from "../../../paradigma";
+import { IReglaMarco } from "../../../regla";
 import { InferenciaConcepto } from "../inferencia/concepto/paradigma";
 
 export interface IPropiedad {}

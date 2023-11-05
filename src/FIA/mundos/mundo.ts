@@ -1,7 +1,7 @@
-import { agentMessage, systemMessage } from "../thread"
+import { agentMessage } from "../thread"
 import { i18 } from "../i18/aleph-script-i18"
 import { Observable, Subject, Subscription } from "rxjs"
-import { IModelo, Modelo } from "./paradigma";
+import { IModelo, Modelo } from "./modelo";
 
 export interface IMundo {
 
@@ -25,8 +25,15 @@ export interface IMundo {
     aferencias: Subscription[];
     agregarAferencia(o: Observable<IMundo>): void;
 
+    alAcabar(nombre: string): Promise<IModelo>;
+
     destructor(): void;
 
+}
+
+export interface AlAcabarCallbackDatos {
+    nombre: string;
+    callback: ((value: IModelo | PromiseLike<IModelo>) => void)
 }
 
 export class Mundo implements IMundo {
@@ -40,17 +47,20 @@ export class Mundo implements IMundo {
     eferencia: Subject<IMundo> = new Subject();
     aferencias: Subscription[] = [];
 
+    alAcabarCallbacks: AlAcabarCallbackDatos[] = [];
+
     constructor() {}
 
     agregarAferencia(o: Observable<IMundo>) {
 
        const s = o.subscribe(m => {
 
-        this.modelo = m.modelo;
-            console.log(agentMessage(this.nombre,
-                i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir());
+            this.modelo = m.modelo;
+                console.log(agentMessage(this.nombre,
+                    i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir());
 
         });
+
         this.aferencias.push(s);
 
     }
@@ -68,11 +78,24 @@ export class Mundo implements IMundo {
 
     }
 
+    async alAcabar(nombre: string = "unknown"): Promise<IModelo> {
+
+        return await new Promise((resolve, reject) => {
+
+            this.alAcabarCallbacks.push({
+                nombre, callback: resolve
+            });
+            console.log(
+                agentMessage(this.nombre, `${i18.MUNDO.NUEVO_SUSCRIPTOR_LABEL}, ${nombre}, suscriptores: ${this.alAcabarCallbacks.map(c => c.nombre).length}`));
+
+        });
+    }
+
     async ciclo(): Promise<IModelo> {
 
         return await new Promise((resolve, reject) => {
 
-            console.log(agentMessage(this.nombre, `${i18.MUNDO.INICIO_LABEL}`));
+            console.log(agentMessage(this.nombre, `${i18.MUNDO.INICIO_LABEL} Pulso: ${this.modelo.pulso}`));
             this.pulsoVital = setInterval(() => this.jornada(resolve, reject), this.modelo.pulso);
 
         });
@@ -109,7 +132,12 @@ export class Mundo implements IMundo {
 
     deponer(intervalo: any) {
 
+        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}, deponer ${this.alAcabarCallbacks.map(c => c.nombre)}`));
+
         clearInterval(intervalo);
+
+        this.alAcabarCallbacks.forEach(c => c.callback(this.modelo));
+
         this.destructor();
 
     }
@@ -117,7 +145,7 @@ export class Mundo implements IMundo {
     destructor() {
 
         this.aferencias.forEach(s => s.unsubscribe());
-        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}`));
+        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}, ${this.alAcabarCallbacks}`));
     }
 
     pulso(): void {
@@ -125,6 +153,7 @@ export class Mundo implements IMundo {
         this.modelo.dia++;
         console.log(agentMessage(this.nombre, `${i18.MUNDO.DIA_LABEL} ${this.modelo.dia}`));
 
+        console.log("Pulso next!")
         this.eferencia.next(this);
 
     }

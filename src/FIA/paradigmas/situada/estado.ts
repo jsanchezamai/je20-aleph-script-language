@@ -1,4 +1,4 @@
-import { IModelo } from "../../mundos/paradigma";
+import { IModelo } from "../../mundos/modelo";
 
 export interface IEstado {
 

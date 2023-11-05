@@ -1,7 +1,7 @@
 import { Subject } from "rxjs";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo, Mundo } from "../../mundos/mundo";
-import { Modelo } from "../../mundos/paradigma";
+import { Modelo } from "../../mundos/modelo";
 import { agentMessage } from "../../thread";
 import { IEstado, IEstadoT, EstadoT } from "./estado";
 
@@ -71,11 +71,14 @@ export class Automata<T> implements IAutomataT<T> {
             * Lanzar eferencia de regreso al mundo
             * */
             console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
+
             this.eferencia.next(this.mundo);
 
         });
 
+        console.log("automata esperando al acabar de mundo")
         // Invocación génesis...
-        await this.mundo.ciclo();
+        await this.mundo.alAcabar(this.nombre);
+        console.log("automata esperando al acabar de mundo: ¡ya!")
     }
 }

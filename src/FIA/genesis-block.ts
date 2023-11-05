@@ -1,19 +1,19 @@
 import { i18 } from "./i18/aleph-script-i18";
-import { IMundo } from "./mundos/mundo";
+import { IMundo, Mundo } from "./mundos/mundo";
 
 export type Any = string;
-
-export type Mundo = Any;
 
 export type Intencion = Any;
 
 export interface iFIA {
 
+    i18: any;
+
     nombre: string;
     runAsync: boolean;
 
     abstrae: (p: IPercepto) => IAprendize;
-    razona: (w: Mundo, i: Intencion) => IAccion;
+    razona: (w: IMundo | string, i: Intencion) => IAccion;
 
     mundo: IMundo;
 
@@ -38,12 +38,13 @@ export interface IAccion {
 }
 
 export class FIA implements iFIA {
+    mundo: IMundo = new Mundo();
+    i18: any;
 
-    mundo: IMundo;
     runAsync = false;
 
     abstrae: (p: IPercepto) => IAprendize;
-    razona: (w: string, i: string) => IAccion;
+    razona: (w: IMundo, i: string) => IAccion;
     nombre = "FIA";
     objetivos: string;
 
@@ -70,7 +71,6 @@ export class FIA implements iFIA {
 
 export class GenesisBlock extends FIA {
 
-    mundo: IMundo;
     abstrae: (p: IPercepto) => IAprendize;
     razona: (w: any, i: any) => IAccion;
     nombre = "FIA_Genesis";

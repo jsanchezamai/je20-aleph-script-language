@@ -3,7 +3,7 @@ import { agentMessage } from "../../../thread";
 import { IProblema, IRequisitos, ISolucion } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
 import { IAConexionista, iIAConexionista } from "../../../paradigmas/conexionista/paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
-import { IMundo } from "../../../mundos/mundo";
+import { IMundo, Mundo } from "../../../mundos/mundo";
 
 // export namespace IASituada {
 

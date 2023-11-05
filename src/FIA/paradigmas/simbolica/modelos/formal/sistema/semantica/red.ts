@@ -1,4 +1,3 @@
-import { Dominio, IModeloFormal } from "../../../../paradigma";
 import { Formal } from "../../paradigma";
 import { CadenaGrafo } from "../../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica";
 import { i18 } from "../../../../../../i18/aleph-script-i18";
@@ -9,6 +8,8 @@ import { ReglaRed } from "./regla";
 import { ArcoEstructural, ArcoDescriptivo } from "./arco";
 import { RelacionEstructural, EtiquetaEstructural, RelacionDescriptiva, EtiquetaDescriptiva } from "./etiqueta";
 import { MotorInferencia } from "./motor-inferencia";
+import { Dominio } from "../../../../../../mundos/dominio";
+import { IModeloFormal } from "../../../../paradigma";
 
 export interface IRedSemantica extends IModeloFormal {
 

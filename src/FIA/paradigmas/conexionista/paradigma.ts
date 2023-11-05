@@ -1,5 +1,7 @@
-import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
+import { GenesisBlock, Intencion, iFIA } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
+import { IMundo } from "../../mundos/mundo";
+import { agentMessage } from "../../thread";
 import { ICanalizacion } from "./canalizacion";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
 
@@ -31,9 +33,13 @@ import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
 
     export class IAConexionista extends GenesisBlock implements iIAConexionista {
 
+        runAsync = true;
+
         modelo: IRedNeuronalArtificial = new RedNeuronalArtificial();
 
         aprendizaje: (p: IAprendizaje) => IRedNeuronalArtificial;
+
+        i18 = i18.CONEXIONISTA.NEURONAL;
 
         async inferencia(c: ICanalizacion): Promise<ISolucion> {
 
@@ -44,7 +50,35 @@ import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
         }
 
         imprimir(): string {
-            return `${i18.CONEXIONISTA.NEURONAL.IDLE}`;
+            return `${this.i18.IDLE}`;
+        }
+
+        async instanciar(): Promise<string> {
+
+            console.log(agentMessage(this.nombre, this.i18.SIMULATION_START));
+
+            console.log(
+                agentMessage(this.nombre, `${this.i18.SIMULATION_BODY}:${this.imprimir()}`)
+            );
+
+            await this.probar();
+
+            console.log(agentMessage(this.nombre, `${this.i18.SIMULATION_END}`));
+            return "";
+        }
+
+        async probar(): Promise<void> {
+
+            const dato_a = Float32Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+            const dato_b = Float32Array.from([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]);
+
+            console.log("T012")
+            await this.modelo.clasificador.canalizacion.canalizarDe2Parametros({
+                modelo: "/Users/morente/Desktop/DRIVE/taller_tc/JE20/je20/fia/dist/FIA/aplicaciones/cadena/conexionista/model.onnx" ,
+                dato_a,
+                dato_b
+            })
+
         }
 
     }
@@ -55,7 +89,7 @@ export namespace IAConexionista {
 
     fiaConexionista.nombre = i18.FIA_CONEXIONISTA_LABEL;
     fiaConexionista.razona =
-        (m: Mundo, i: Intencion) => {
+        (m: IMundo, i: Intencion) => {
         return "No";
     }
 

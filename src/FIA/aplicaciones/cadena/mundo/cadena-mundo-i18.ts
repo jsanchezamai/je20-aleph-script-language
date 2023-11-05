@@ -1,6 +1,8 @@
 
 export const CADENA_MUNDO_i18 = {
     MUNDO: {
+
+        NOMBRE: "mundo-raíz-cadena",
         INICIO_LABEL: "¡Mundo iniciado!",
         FIN_LABEL: "¡Mundo acabado!",
 

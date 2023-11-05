@@ -2,9 +2,11 @@ import { i18 } from "../../i18/aleph-script-i18";
 import { agentMessage } from "../../thread";
 import { App } from "../../engine/apps/app";
 
-// import { CadenaFIASituada } from "./situada/cadena-fia-situada";
-import { CadenaFIARedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
-// import { CadenaFiaRedNeuronal } from "./conexionista/cadena-fia-red-neuronal";
+import { CadenaFIASituada } from "./situada/cadena-fia-situada";
+// import { CadenaFIARedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
+import { CadenaFiaRedNeuronal } from "./conexionista/cadena-fia-red-neuronal";
+import { CadenaModelo } from "./modelo/cadena-modelo";
+import { CadenaMundo } from "./mundo/cadena-mundo";
 
 
 export class CadenaApp extends App {
@@ -21,22 +23,40 @@ export class CadenaApp extends App {
         console.log(agentMessage(this.nombre, i18.APPS.CADENA.SIMULATION_START));
 
         /**
+         * CREACIÓN DEL MUNDO RAÍZ
+         */
+        this.mundo = new CadenaMundo();
+        this.mundo.modelo = new CadenaModelo();
+        this.mundo.nombre = i18.APPS.CADENA.MUNDO.NOMBRE;
+
+        /**
          * APLICACIÓN PARA EL ESTUDIO DEL APRENDIZAJE INTELIGENTE
          *
          */
 
-        // this.situada = new CadenaFIASituada();
-        this.simbolica = new CadenaFIARedSemantica();
-        // this.conexionista = new CadenaFiaRedNeuronal();
+        this.situada = new CadenaFIASituada();
+        this.situada.mundo = this.mundo;
+
+        // this.simbolica = new CadenaFIARedSemantica();
+        // this.simbolica.mundo = this.mundo;
+
+        this.conexionista = new CadenaFiaRedNeuronal();
+        this.conexionista.mundo =  this.mundo;
 
         const salidas = await Promise.all(
             [
-                // this.situada.instanciar(),
-                this.simbolica.instanciar(),
-                // this.conexionista.instanciar()
+                this.mundo.ciclo(),
+                this.situada.instanciar(),
+                // this.simbolica.instanciar(),
+                this.conexionista.instanciar()
             ]
         );
 
-        return `${salidas.join("\n\t - ")}${i18.APPS.CADENA.SIMULATION_END}`;
+        if (typeof salidas == 'object') {
+            return `${i18.APPS.CADENA.SIMULATION_END}`;
+        } else {
+
+        }
+
     }
 }

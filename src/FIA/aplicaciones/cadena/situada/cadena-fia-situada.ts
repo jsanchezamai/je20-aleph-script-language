@@ -7,7 +7,7 @@ import { FIASituada, IFIASituada } from "../../../paradigmas/situada/fia-situada
 
 // export namespace IASituada {
 
-    export const TOPE_POSICION = 6;
+    export const TOPE_POSICION = 10;
 
     export class CadenaFIASituada extends FIASituada implements IFIASituada {
 
@@ -23,6 +23,7 @@ import { FIASituada, IFIASituada } from "../../../paradigmas/situada/fia-situada
             /**
              * * Autómata que representa la cinta transportadora de la cadena de producción
              */
+            this.automata.mundo = this.mundo;
             this.automata.configurar();
             await this.automata.inicializar();
 

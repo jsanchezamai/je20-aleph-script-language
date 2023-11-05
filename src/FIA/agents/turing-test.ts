@@ -2,6 +2,7 @@
 import { Any, iFIA } from "../genesis-block";
 import { agentMessage, systemMessage } from "../thread";
 import { i18 } from "../i18/aleph-script-i18"
+import { IMundo } from "../mundos/mundo";
 
 export type TestResult = Any;
 export type Test = (tested: iFIA) => TestResult;

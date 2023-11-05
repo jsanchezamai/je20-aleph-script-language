@@ -1,5 +1,6 @@
 import { iFIA, GenesisBlock } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
+import { IMundo, Mundo } from "../../mundos/mundo";
 import { agentMessage } from "../../thread";
 import { IAutomata, Automata } from "./automata";
 

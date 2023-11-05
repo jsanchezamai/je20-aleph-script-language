@@ -1,4 +1,4 @@
-import { IInferenciaConcepto, Inferencia } from "../../../../paradigma";
+import { IInferenciaConcepto, Inferencia } from "../../../../inferencia";
 
 
 export class InferenciaConcepto extends Inferencia
