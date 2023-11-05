@@ -52,6 +52,11 @@ export class InferenciaOpenAI<T> extends InferenciaModeloLenguaje<T> {
             return this;
 
         }
+
+        this.dominio.base[this.claveDominio] = {
+            respuesta: "Todo bien."
+        }
+        //return this;
         InferenciaOpenAI.occupy++;
         const response = await this.queryToApi();
         // console.log(agentMessage('InferenciaOpenAI.evaluar', 'raw api response:'), response?.result);

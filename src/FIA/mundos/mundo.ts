@@ -153,7 +153,6 @@ export class Mundo implements IMundo {
         this.modelo.dia++;
         console.log(agentMessage(this.nombre, `${i18.MUNDO.DIA_LABEL} ${this.modelo.dia}`));
 
-        console.log("Pulso next!")
         this.eferencia.next(this);
 
     }

@@ -9,7 +9,7 @@ export class CadenaAutomata<CadenaEstados> extends Automata<CadenaEstados> {
 
     configurar(): void {
 
-        this.mundo.modelo.pulso = 5000;
+        this.mundo.modelo.pulso = 1000;
         this.mundo.modelo.muerte = TOPE_POSICION;
 
         this.estado = new CadenaEstado<CadenaEstados>(this.mundo.modelo);

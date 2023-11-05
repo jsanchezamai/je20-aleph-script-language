@@ -26,8 +26,6 @@ export interface PromptBase {
     }
 }
 
-
-
 export class OpenAiApiMessage implements OpenAiApiMessage {
     role: ChatCompletionRequestMessageRoleEnum;
     content: string;

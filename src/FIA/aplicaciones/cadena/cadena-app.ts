@@ -47,7 +47,7 @@ export class CadenaApp extends App {
             [
                 this.mundo.ciclo(),
                 this.situada.instanciar(),
-                // this.simbolica.instanciar(),
+                //this.simbolica.instanciar(),
                 this.conexionista.instanciar()
             ]
         );
