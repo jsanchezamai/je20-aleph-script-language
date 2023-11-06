@@ -14,6 +14,13 @@ export const i18 = {
     ...ALEPHSCRIPT_i18,
 
     APPS: {
+
+        ME_LABEL: `app.manager.${i18_ME.ME_LABEL}`,
+
+        START: 'App inicia',
+        BODY: 'App ejecutándose',
+        END: 'App acaba',
+
         ...APP_CADENA_i18
     }
 

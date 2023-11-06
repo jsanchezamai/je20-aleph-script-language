@@ -2,6 +2,11 @@ import { IDominio, Dominio } from "./dominio";
 
 export const BASE_MUNDO_PULSO = 10000;
 
+/**
+ * Tuétano de los mundos, los Modelos contienen su información.
+ * o bien mutables funcionando por sí solos,
+ * o bien puros, en cadenas de bloques.
+ */
 export interface IModelo {
 
     nombre: string;

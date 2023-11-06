@@ -1,11 +1,18 @@
-import { iFIA, GenesisBlock } from "../../genesis-block";
+import { iFIA, GenesisBlock, IAccion, IPercepto, IAprendize } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
-import { IMundo, Mundo } from "../../mundos/mundo";
+import { IMundo } from "../../mundos/mundo";
 import { agentMessage } from "../../thread";
 import { IAutomata, Automata } from "./automata";
+import { IEstado } from "./estado";
+import { TablaEstado } from "./tabla-estado";
 
+/**
+ * Unidades de sensores/actuadores con tablas de asociación
+ * o autómatas con máquinas de estado. 
+ */
 export interface IFIASituada extends iFIA {
 
+    tabla: TablaEstado;
     automata: IAutomata;
 
 }
@@ -13,6 +20,8 @@ export interface IFIASituada extends iFIA {
 export class FIASituada extends GenesisBlock implements IFIASituada {
 
     runAsync = true;
+
+    tabla = new TablaEstado();
 
     automata = new Automata();
 
@@ -28,4 +37,18 @@ export class FIASituada extends GenesisBlock implements IFIASituada {
         );
         return `${i18.SITUADA.SIMULATION_END}`;
     }
+
+    razona(m: IMundo, i: IEstado):  IAccion {
+
+        const accion = this.tabla.procesarAferencia(i);
+
+        if (accion) {
+            m.modelo = accion.comoModelo();
+        }
+
+        return accion;
+    }
+
+    abstrae: (p: IPercepto) => IAprendize;
+
 }

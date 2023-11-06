@@ -40,32 +40,4 @@ import { IDominio } from "../../mundos/dominio";
         control: IEstrategiaControl;
     }
 
-    export interface iIASimbolica extends iFIA {
 
-        modelo: IModeloRepresentacional;
-
-        analisis: (p: IProblema) => ISolucion[];
-        sintesis: (r: IRequisitos) => ISolucion;
-        modificacion: (s: ISolucion) => IMundo;
-    }
-
-    export class IASimbolica extends GenesisBlock implements iIASimbolica {
-
-        modelo: IModeloRepresentacional;
-
-        analisis: (p: IProblema) => ISolucion[];
-        sintesis: (r: IRequisitos) => ISolucion;
-        modificacion: (r: ISolucion) => IMundo;
-    }
-
-export namespace IASimbolica {
-
-    export const fiaSimbolica = new IASimbolica();
-
-    fiaSimbolica.nombre = i18.FIA_SIMBOLICA_LABEL;
-    fiaSimbolica.razona =
-        (w: IMundo | string, i: Intencion) => {
-            return "No";
-        }
-
-}

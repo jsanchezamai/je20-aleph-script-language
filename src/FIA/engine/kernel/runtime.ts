@@ -1,16 +1,19 @@
 
 import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
-import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
-import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
 import { i18 } from "../../i18/aleph-script-i18";
 import { agentMessage, menuOption, systemMessage } from "../../thread";
 import * as readline from 'readline';
 import { CadenaApp } from "../../aplicaciones/cadena/cadena-app";
 import { IASituada } from "../../paradigmas/situada/paradigma";
+import { FIAConexionista } from "../../paradigmas/conexionista/fia-conexionista";
+import { FIASimbolica } from "../../paradigmas/simbolica/fia-simbolica";
 
 export const EXIT_PROMPT_INDEX = 99;
 
+/**
+ * Motor de FIAs
+ */
 export class Runtime {
 
     static threads: iFIA[] = [];
@@ -29,9 +32,9 @@ export class Runtime {
         Runtime.threads.push(IACientifica.fiaDebil);
         Runtime.threads.push(IACientifica.fiaFuerte);
 
-        Runtime.threads.push(IASimbolica.fiaSimbolica);
+        Runtime.threads.push(FIASimbolica.fiaSimbolica);
         Runtime.threads.push(IASituada.fiaSituada);
-        Runtime.threads.push(IAConexionista.fiaConexionista);
+        Runtime.threads.push(FIAConexionista.fiaConexionista);
 
         /**
          * APPS

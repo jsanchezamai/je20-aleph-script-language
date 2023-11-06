@@ -2,8 +2,12 @@ import { agentMessage } from "../thread"
 import { i18 } from "../i18/aleph-script-i18"
 import { Observable, Subject, Subscription } from "rxjs"
 import { IModelo, Modelo } from "./modelo";
+import { AS_MUNDO_i18 } from "./mundos-i18";
+import { IDiccionarioI18 } from "../genesis-block";
 
 export interface IMundo {
+
+    i18: IDiccionarioI18;
 
     nombre: string;
     modelo: IModelo;
@@ -37,6 +41,8 @@ export interface AlAcabarCallbackDatos {
 }
 
 export class Mundo implements IMundo {
+
+    i18 = AS_MUNDO_i18;
 
     nombre = "mundo-1";
 

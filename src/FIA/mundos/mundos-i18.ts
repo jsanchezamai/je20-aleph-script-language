@@ -1,3 +1,4 @@
+import { IDiccionarioI18 } from "../genesis-block";
 
 export const AS_MUNDO_i18 = {
     MUNDO: {

@@ -1,10 +1,10 @@
 
-import { Any, iFIA } from "../genesis-block";
-import { agentMessage, systemMessage } from "../thread";
+import { Ignoto, iFIA } from "../genesis-block";
+import { agentMessage } from "../thread";
 import { i18 } from "../i18/aleph-script-i18"
-import { IMundo } from "../mundos/mundo";
+import { IMundo } from '../mundos/mundo';
 
-export type TestResult = Any;
+export type TestResult = Ignoto;
 export type Test = (tested: iFIA) => TestResult;
 
 export interface ITuringTest {
@@ -26,7 +26,7 @@ export class TuringTester implements ITuringTest {
         console.log(agentMessage(tested.nombre, i18.TURING.TEST_START_LABEL));
         console.log(agentMessage(i18.TURING.AGENT, i18.TURING.TEST_LABEL));
         const accion = tested
-            .razona(i18.TURING.TEST_LABEL, "Test");
+            .razona(i18.TURING.TEST_LABEL as unknown as IMundo, "Test");
 
         const veredicto = accion == "Sí" ? accion as TestResult : "No";
         console.log(agentMessage(tested.nombre, veredicto));

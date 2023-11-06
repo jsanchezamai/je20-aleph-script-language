@@ -1,15 +1,15 @@
 import { i18 } from "../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../thread";
 import { IProblema, IRequisitos, ISolucion } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
-import { IAConexionista, iIAConexionista } from "../../../paradigmas/conexionista/paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
-import { IMundo, Mundo } from "../../../mundos/mundo";
+import { IMundo } from "../../../mundos/mundo";
+import { FIAConexionista, IFIAConexionista } from "../../../paradigmas/conexionista/fia-conexionista";
 
 // export namespace IASituada {
 
     export const TOPE_POSICION = 9;
 
-    export class CadenaFIAConexionista extends IAConexionista implements iIAConexionista {
+    export class CadenaFIAConexionista extends FIAConexionista {
 
         modelo: IRedNeuronalArtificial = new RedNeuronalArtificial();
 

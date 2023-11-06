@@ -49,3 +49,6 @@ export class EstadoT<T> extends Estado implements IEstadoT<T> {
     }
 
 }
+
+
+

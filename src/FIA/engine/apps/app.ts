@@ -1,36 +1,33 @@
-import { GenesisBlock, iFIA } from "../../genesis-block";
+import { GenesisBlock, IAprendize, IDiccionarioI18, IPercepto, iFIA } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
+import { IMundo } from "../../mundos/mundo";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
-import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
-import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
+import { FIAConexionista } from "../../paradigmas/conexionista/fia-conexionista";
+import { FIAHibrida } from "../../paradigmas/hibrido/fia-hibrida";
+import { FIASimbolica } from "../../paradigmas/simbolica/fia-simbolica";
 import { FIASituada } from "../../paradigmas/situada/fia-situada";
 import { agentMessage } from "../../thread";
+import { IApp } from "./iapp";
 
-export interface IApp extends iFIA {
+export class App extends FIAHibrida implements IApp {
+    dummy: GenesisBlock;
 
-    situada: FIASituada;
-
-    debil: GenesisBlock;
-    fuerte: GenesisBlock;
-
-    simbolica: IASimbolica;
-    conexionista: IAConexionista;
-
-}
-
-export class App extends GenesisBlock implements IApp {
-
-    nombre = i18.APPS.CADENA.NOMBRE;
+    i18 = i18.APPS;
+    nombre = i18.APPS.ME_LABEL;
 
     runAsync = true;
 
-    situada: FIASituada;
+    objetivos: any[];
+    mundo: IMundo;
 
+    fias = [];
     debil: GenesisBlock;
     fuerte: GenesisBlock;
+    situada: FIASituada;
+    simbolica: FIASimbolica;
+    conexionista: FIAConexionista;
 
-    simbolica: IASimbolica;
-    conexionista: IAConexionista;
+    imprimir: () => string;
 
     async instanciar(): Promise<string> {
 
@@ -42,16 +39,21 @@ export class App extends GenesisBlock implements IApp {
         this.debil = IACientifica.fiaDebil;
         this.fuerte = IACientifica.fiaFuerte;
         this.situada = new FIASituada();
-        this.simbolica = new IASimbolica();
-        this.conexionista = new IAConexionista();
+        this.simbolica = new FIASimbolica();
+        this.conexionista = new FIAConexionista();
 
         await this.situada.instanciar();
 
         console.log(
             agentMessage(this.nombre,
-            `${i18.APPS.CADENA.SIMULATION_BODY}:${""}`)
+            `${this.i18.BODY}:${""}`)
         );
 
         return `${i18.SITUADA.SIMULATION_END}`;
     }
+
+    razona: (mundo: IMundo, i: any) => any;
+
+    abstrae: (p: IPercepto) => IAprendize;
+
 }

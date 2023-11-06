@@ -1,14 +1,14 @@
 import { Aferencia } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
-import { FIASituada } from "./fia-situada"
+import { FIAHibrida } from "./fia-hibrida";
 
-export namespace IASituada {
+export namespace IAHibrida {
 
-    export const fiaSituada = new FIASituada();
+    export const fiaHibrida = new FIAHibrida();
 
-    fiaSituada.nombre = i18.FIA_SITUADA_LABEL;
-    fiaSituada.razona =
+    fiaHibrida.nombre = i18.FIA_SITUADA_LABEL;
+    fiaHibrida.razona =
         (w: IMundo, i: Aferencia) => {
         return "Sí";
     }

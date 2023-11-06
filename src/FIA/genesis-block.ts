@@ -1,52 +1,54 @@
 import { i18 } from "./i18/aleph-script-i18";
 import { IMundo, Mundo } from "./mundos/mundo";
 
-export type Any = string;
+export type Ignoto = any;
 
-export type Intencion = Any;
+export type Intencion = Ignoto;
+export type Aferencia = Ignoto;
+export type Eferencia = Ignoto;
+
+export type Objetivo = Intencion;
+
+export interface IAprendize {}
+
+export interface IPercepto {}
+
+export interface IAccion {}
+
+export interface IDiccionarioI18 {}
 
 export interface iFIA {
 
-    i18: any;
+    i18: IDiccionarioI18;
 
     nombre: string;
+
     runAsync: boolean;
 
-    abstrae: (p: IPercepto) => IAprendize;
-    razona: (w: IMundo | string, i: Intencion) => IAccion;
+    objetivos: Aferencia[];
 
     mundo: IMundo;
-
-    objetivos: Intencion;
 
     imprimir: () => string;
 
     instanciar(): Promise<string>;
 
-}
+    razona: (mundo: IMundo, i: Aferencia) => Eferencia;
 
-export interface IAprendize {
-
-}
-
-export interface IPercepto {
-
-}
-
-export interface IAccion {
+    abstrae: (p: IPercepto) => IAprendize;
 
 }
 
 export class FIA implements iFIA {
-    mundo: IMundo = new Mundo();
-    i18: any;
+
+    nombre = "FIA";
+    i18: IDiccionarioI18;
 
     runAsync = false;
 
-    abstrae: (p: IPercepto) => IAprendize;
-    razona: (w: IMundo, i: string) => IAccion;
-    nombre = "FIA";
-    objetivos: string;
+    objetivos: Objetivo[];
+
+    mundo: IMundo = new Mundo();
 
     imprimir(): string {
         return `${i18.LOOP.NOT_INIT_LABEL}`;
@@ -67,13 +69,24 @@ export class FIA implements iFIA {
         });
     }
 
+    razona(mundo: IMundo, i: Aferencia): Eferencia {
+
+        const eferenciaVacia  = "";
+
+        return eferenciaVacia;
+
+    }
+
+    abstrae: (p: IPercepto) => IAprendize;
 }
 
 export class GenesisBlock extends FIA {
 
+    objetivos = [];
+
     abstrae: (p: IPercepto) => IAprendize;
-    razona: (w: any, i: any) => IAccion;
+
     nombre = "FIA_Genesis";
-    objetivos: string;
+
 
 }

@@ -114,6 +114,8 @@ Llamaré a este [lenguaje AlephScript](src/FIA) y, de momento, se encuentra ya e
 Escribe: 
 ```
 
+![](./AlephScript_UML.png)
+
 # Quincena 1ra
 
 Una vez armado el prototipo de lenguaje (v001), ¿cómo usarlo?
