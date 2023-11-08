@@ -1,7 +1,6 @@
 import { Formal } from "../../paradigma";
-import { CadenaGrafo } from "../../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica";
 import { i18 } from "../../../../../../i18/aleph-script-i18";
-import { agentMessage } from "../../../../../../thread";
+import { agentMessage } from "../../../../../../agentMessage";
 import { Traductor } from "../../../../../../i18/traductor";
 import { IGrafo, Grafo } from "./grafo";
 import { ReglaRed } from "./regla";
@@ -39,7 +38,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             // Opcional: mapeo de valores por defecto
             const entidad = Object.assign(
-                new CadenaGrafo(),
+                new Grafo(),
                 {}
             );
             entidad.nombre = valor;
@@ -63,7 +62,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             const existing = entidades.find(e => e.nombre === clase_hija);
 
-            const grafoHija = existing || new CadenaGrafo();
+            const grafoHija = existing || new Grafo();
             if (existing) {
 
             } else {
@@ -124,7 +123,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             const existing = entidades.find(e => e.nombre === clase_padre);
 
-            const grafoPadre = existing || new CadenaGrafo();
+            const grafoPadre = existing || new Grafo();
             if (existing) {
 
             } else {
@@ -138,7 +137,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
                 const existing2 = entidades.find(e => e.nombre === clase_hijo);
 
-                const grafoHijo = existing2 || new CadenaGrafo();
+                const grafoHijo = existing2 || new Grafo();
                 if (existing2) {
 
                 } else {
@@ -182,7 +181,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             const existing = entidades.find(e => e.nombre === clase_hija);
 
-            const grafoHijo = existing || new CadenaGrafo();
+            const grafoHijo = existing || new Grafo();
             if (existing) {
 
             } else {
@@ -196,7 +195,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
                 const existing2 = entidades.find(e => e.nombre === clase_padre);
 
-                const grafoPadre = existing2 || new CadenaGrafo();
+                const grafoPadre = existing2 || new Grafo();
                 if (existing2) {
 
                 } else {
@@ -235,7 +234,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             const existing = entidades.find(e => e.nombre === clase_padre);
 
-            const grafoPadre = existing || new CadenaGrafo();
+            const grafoPadre = existing || new Grafo();
             if (existing) {
 
             } else {
@@ -261,7 +260,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
                 const existing2 = entidades.find(e => e.nombre === clase_hijo);
 
-                const grafoHijo = existing2 || new CadenaGrafo();
+                const grafoHijo = existing2 || new Grafo();
                 if (existing2) {
 
                 } else {

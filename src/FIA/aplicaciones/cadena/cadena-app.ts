@@ -1,5 +1,5 @@
 import { i18 } from "../../i18/aleph-script-i18";
-import { agentMessage } from "../../thread";
+import { agentMessage } from "../../agentMessage";
 
 import { App } from "../../engine/apps/app";
 import { CadenaModelo } from "./modelo/cadena-modelo";

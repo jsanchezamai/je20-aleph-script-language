@@ -1,7 +1,7 @@
 import { iFIA, GenesisBlock, Intencion } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
-import { agentMessage } from "../../thread";
+import { agentMessage } from "../../agentMessage";
 import { ICanalizacion } from "./canalizacion";
 import { ISolucion, IAprendizaje } from "./paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";

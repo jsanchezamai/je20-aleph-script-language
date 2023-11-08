@@ -2,7 +2,7 @@ import { Subject } from "rxjs";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo, Mundo } from "../../mundos/mundo";
 import { Modelo } from "../../mundos/modelo";
-import { agentMessage } from "../../thread";
+import { agentMessage } from "../../agentMessage";
 import { IEstado, IEstadoT, EstadoT } from "./estado";
 
 export interface IAutomata {

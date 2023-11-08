@@ -1,20 +1,8 @@
 import { Runtime } from "./engine/kernel/runtime";
-import { iFIA } from "./genesis-block";
 import { i18 } from "./i18/aleph-script-i18";
 
 import * as http from "http";
-
-export function systemMessage(message: string) {
-    return `${i18.ME_LABEL}> ${message}`;
-}
-
-export function agentMessage(agent: string, message: string) {
-    return `${agent}> ${message}`;
-}
-
-export function menuOption(message: string) {
-    return `\t - ${message}`;
-}
+import { systemMessage } from "./systemMessage";
 
 const host = 'localhost';
 const port = 8000;

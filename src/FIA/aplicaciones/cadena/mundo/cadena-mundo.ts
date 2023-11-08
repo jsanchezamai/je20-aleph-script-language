@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
 import { i18 } from "../../../i18/aleph-script-i18";
 import { IMundo, Mundo } from "../../../mundos/mundo";
-import { agentMessage } from "../../../thread";
+import { agentMessage } from "../../../agentMessage";
 
 
 export class CadenaMundo extends Mundo {

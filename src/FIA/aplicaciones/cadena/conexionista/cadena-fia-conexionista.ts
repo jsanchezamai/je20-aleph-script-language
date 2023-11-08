@@ -1,5 +1,5 @@
 import { i18 } from "../../../i18/aleph-script-i18";
-import { agentMessage } from "../../../thread";
+import { agentMessage } from "../../../agentMessage";
 import { IProblema, IRequisitos, ISolucion } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
 import { IMundo } from "../../../mundos/mundo";

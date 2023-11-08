@@ -1,6 +1,6 @@
 import { GenesisBlock } from "../../../genesis-block";
 import { i18 } from "../../../i18/aleph-script-i18";
-import { agentMessage } from "../../../thread";
+import { agentMessage } from "../../../agentMessage";
 import { CadenaEstados } from "./cadena-estado";
 import { CadenaAutomata } from "./cadena-automata";
 import { FIASituada, IFIASituada } from "../../../paradigmas/situada/fia-situada";

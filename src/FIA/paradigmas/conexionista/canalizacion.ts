@@ -1,6 +1,6 @@
 import * as ort from 'onnxruntime-node'
 import { i18 } from '../../i18/aleph-script-i18';
-import { agentMessage } from '../../thread';
+import { agentMessage } from "../../agentMessage";
 import { IApiMessage } from './modelos-lenguaje/inferencia-oai';
 import { InferenciaOpenAI } from "./modelos-lenguaje/Inferencia-open-ai";
 

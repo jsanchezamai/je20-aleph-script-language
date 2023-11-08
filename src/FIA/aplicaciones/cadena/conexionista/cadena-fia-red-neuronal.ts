@@ -1,6 +1,6 @@
 import { i18 } from "../../../i18/aleph-script-i18";
 import { RedNeuronalArtificial } from "../../../paradigmas/conexionista/red-neuronal";
-import { agentMessage } from "../../../thread";
+import { agentMessage } from "../../../agentMessage";
 import { CadenaFIAConexionista } from "./cadena-fia-conexionista";
 import { CadenaInferenciaLenguajeNatural as CadenaReglaLenguajeNatural } from "./cadena-inferencia-lenguaje-natural";
 import { ApiState, STATES } from '../../../paradigmas/conexionista/modelos-lenguaje/oai/api';

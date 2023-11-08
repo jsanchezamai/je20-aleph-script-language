@@ -1,10 +1,8 @@
 import { i18 } from "../../../../i18/aleph-script-i18";
-import { Grafo } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo";
 import { RedSemantica } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/red";
-import { agentMessage } from "../../../../thread";
+import { agentMessage } from "../../../../agentMessage";
 import { CadenaFIASimbolica } from "../cadena-fia-simbolica";
-
-export class CadenaGrafo extends Grafo {}
+import { CadenaGrafo } from "./cadena-grafo";
 
 export class CadenaFIARedSemantica extends CadenaFIASimbolica {
 

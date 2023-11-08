@@ -21,6 +21,8 @@ Los manuales de referencia son:
 
 Volveré sobre esta introducción, la concretaré las próximas semanas.
 
+AlephScript es una tecnología pensada para ahondar en esa laya específica dentro del contexto donde se puede decir que la Ingeniería del Conocimiento establece el conjunto de guías, métodos y técnicas para desarollar de manera formal sistemas capaces de resolver problemas, en cierta forma complejos, que no aborda la Ingeniería del Software tradicional y cuyo principal recurso es el tratamiento del conocimiento.
+
 Dicho esto, manos a la obra,...
 
 # Este repositorio: el lenguaje AlephScript
@@ -48,6 +50,8 @@ Además, desde un [punto de vista científico](src/FIA/paradigmas/cientifica), e
 - Fuerte: imita al humano (pasa el [test de turing](src/FIA/agents/turing-test.ts)).
 - Débil: resuelve problemas concretos o limitados.
 
+Desde el punto de vista de la ingeniería del conocimiento, se investigará la implementación de [SBC](./src/FIA/paradigmas/sbc/)s: sistemas basados en conocimiento, por ejemplo: [CommonKADS](./src/FIA/paradigmas/sbc/implementaciones/common-kads/) para el desarrollo de [sistemas](./src/FIA/paradigmas/sbc/implementaciones/common-kads/sistema.ts) y [aplicaciones](./src/FIA/paradigmas/sbc/modelos/disenyo/aplicacion.ts) que corran las FIAs.
+
 El plan de estas dos semanas ha sido montar el setup y arrancar las primeras interfaces. A parte de empezar a conocer los puntos calientes de ambas asignaturas, aquí en el repositorio traje un [preset Typescript NodeJs](package.json), dispuse las intefaces mínimas, un [menú para consola](src/FIA/navigation), el [archivo de traducciones](src/FIA/i18), y armé un primer prototipo del núcleo-nodo principal de este "nuevo" lenguaje sobre Typescript que buscamos. Se trata del [Bloque Génesis](src/FIA/genesis-block.ts) una primera "entidad mínima" de nuestro lenguaje, por ejemplo:
 
 Arrancando [AlephRuntime](src/FIA/engine)...
@@ -70,12 +74,23 @@ Cargando unidades de inteligencia en la runtime:
         const gb = new GenesisBlock();
         Runtime.threads.push(gb);
 
+        /**
+         * BASE
+         */
         Runtime.threads.push(IACientifica.fiaDebil);
         Runtime.threads.push(IACientifica.fiaFuerte);
-        Runtime.threads.push(IASimbolica.fiaSimbolica);
+
+        Runtime.threads.push(FIASimbolica.fiaSimbolica);
         Runtime.threads.push(IASituada.fiaSituada);
-            Runtime.threads.push(IASituadaCadenaProduccion.fiaCadena);
-        Runtime.threads.push(IAConexionista.fiaConexionista);
+        Runtime.threads.push(FIAConexionista.fiaConexionista);
+
+        Runtime.threads.push(new FIA_SBC());
+
+        /**
+         * APPS
+         */
+        const cadenaApp = new CadenaApp();
+        Runtime.threads.push(cadenaApp);
 
     }
 ```
@@ -108,10 +123,12 @@ Llamaré a este [lenguaje AlephScript](src/FIA) y, de momento, se encuentra ya e
          - [2]: Modelo: debil
          - [3]: Modelo: fuerte
          - [4]: Modelo: simbolica
-         - [5]: Modelo: situada                 <============
+         - [5]: Modelo: situada
          - [6]: Modelo: conexionista
+         - [7]: Modelo: sbc
+         - [8]: Modelo: cadena-app              <<=====================
          - [99]: Not today! ¡Cerrar!, please, bye!
-Escribe: 
+Escribe:
 ```
 
 ![](./AlephScript_UML.png)

@@ -6,7 +6,7 @@ import { FIAConexionista } from "../../paradigmas/conexionista/fia-conexionista"
 import { FIAHibrida } from "../../paradigmas/hibrido/fia-hibrida";
 import { FIASimbolica } from "../../paradigmas/simbolica/fia-simbolica";
 import { FIASituada } from "../../paradigmas/situada/fia-situada";
-import { agentMessage } from "../../thread";
+import { agentMessage } from "../../agentMessage";
 import { IApp } from "./iapp";
 
 export class App extends FIAHibrida implements IApp {

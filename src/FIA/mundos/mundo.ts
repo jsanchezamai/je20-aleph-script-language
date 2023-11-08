@@ -1,4 +1,4 @@
-import { agentMessage } from "../thread"
+import { agentMessage } from "../agentMessage";
 import { i18 } from "../i18/aleph-script-i18"
 import { Observable, Subject, Subscription } from "rxjs"
 import { IModelo, Modelo } from "./modelo";
@@ -27,6 +27,7 @@ export interface IMundo {
     eferencia: Subject<IMundo>;
 
     aferencias: Subscription[];
+
     agregarAferencia(o: Observable<IMundo>): void;
 
     alAcabar(nombre: string): Promise<IModelo>;

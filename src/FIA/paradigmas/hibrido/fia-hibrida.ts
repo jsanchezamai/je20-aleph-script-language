@@ -1,7 +1,7 @@
 import { iFIA, GenesisBlock, IAccion, IPercepto, IAprendize } from "../../genesis-block";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
-import { agentMessage } from "../../thread";
+import { agentMessage } from "../../agentMessage";
 import { IFIAConexionista } from "../conexionista/fia-conexionista";
 import { IFIASimbolica } from "../simbolica/fia-simbolica";
 import { IEstado } from "../situada/estado";

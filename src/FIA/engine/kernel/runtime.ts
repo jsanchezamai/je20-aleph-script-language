@@ -2,14 +2,20 @@
 import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
 import { i18 } from "../../i18/aleph-script-i18";
-import { agentMessage, menuOption, systemMessage } from "../../thread";
+import { systemMessage } from "../../systemMessage";
+import { agentMessage } from "../../agentMessage";
 import * as readline from 'readline';
 import { CadenaApp } from "../../aplicaciones/cadena/cadena-app";
 import { IASituada } from "../../paradigmas/situada/paradigma";
 import { FIAConexionista } from "../../paradigmas/conexionista/fia-conexionista";
 import { FIASimbolica } from "../../paradigmas/simbolica/fia-simbolica";
+import { FIA_SBC } from "../../paradigmas/sbc/fia-sbc";
 
 export const EXIT_PROMPT_INDEX = 99;
+
+export function menuOption(message: string) {
+    return `\t - ${message}`;
+}
 
 /**
  * Motor de FIAs
@@ -35,6 +41,8 @@ export class Runtime {
         Runtime.threads.push(FIASimbolica.fiaSimbolica);
         Runtime.threads.push(IASituada.fiaSituada);
         Runtime.threads.push(FIAConexionista.fiaConexionista);
+
+        Runtime.threads.push(new FIA_SBC());
 
         /**
          * APPS

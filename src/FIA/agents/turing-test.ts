@@ -1,6 +1,6 @@
 
 import { Ignoto, iFIA } from "../genesis-block";
-import { agentMessage } from "../thread";
+import { agentMessage } from "../agentMessage";
 import { i18 } from "../i18/aleph-script-i18"
 import { IMundo } from '../mundos/mundo';
 

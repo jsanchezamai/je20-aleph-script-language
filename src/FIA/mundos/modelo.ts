@@ -34,7 +34,7 @@ export interface IModelo {
 
 export class Modelo implements IModelo {
 
-    nombre = "Modelo base. 3 días; pulso: 1 segundo";
+    nombre = "<Modelo Vacío>";
     dia: number = 0;
     muerte: number = 3;
     pulso: number = BASE_MUNDO_PULSO;
