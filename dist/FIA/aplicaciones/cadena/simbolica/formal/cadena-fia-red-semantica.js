@@ -1,32 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CadenaFIARedSemantica = exports.CadenaGrafo = void 0;
-const labels_1 = require("../../../../i18/labels");
-const grafo_1 = require("../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo");
+exports.CadenaFIARedSemantica = void 0;
+const aleph_script_i18_1 = require("../../../../i18/aleph-script-i18");
 const red_1 = require("../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/red");
-const thread_1 = require("../../../../thread");
+const agentMessage_1 = require("../../../../agentMessage");
 const cadena_fia_simbolica_1 = require("../cadena-fia-simbolica");
-class CadenaGrafo extends grafo_1.Grafo {
-}
-exports.CadenaGrafo = CadenaGrafo;
+const cadena_grafo_1 = require("./cadena-grafo");
 class CadenaFIARedSemantica extends cadena_fia_simbolica_1.CadenaFIASimbolica {
     constructor() {
         super();
         this.modelo = new red_1.RedSemantica();
-        this.nombre = labels_1.i18.APPS.CADENA.SIMBOLICA.RED.NOMBRE;
-        const grafo = new CadenaGrafo();
-        this.modelo.nombre = labels_1.i18.APPS.CADENA.SIMBOLICA.SEMANTICA.NOMBRE;
+        this.nombre = aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.RED.NOMBRE;
+        const grafo = new cadena_grafo_1.CadenaGrafo();
+        this.modelo.nombre = aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.SEMANTICA.NOMBRE;
         this.modelo.base = grafo;
     }
     async instanciar() {
-        console.log((0, thread_1.agentMessage)(this.nombre, labels_1.i18.APPS.CADENA.SIMBOLICA.SIMULATION_START));
+        console.log((0, agentMessage_1.agentMessage)(this.nombre, aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.SIMULATION_START));
         await this.cargaRed();
-        console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.SIMULATION_BODY}:${this.imprimir()}`));
+        console.log((0, agentMessage_1.agentMessage)(this.nombre, `${aleph_script_i18_1.i18.APPS.CADENA.SIMULATION_BODY}:${this.imprimir()}`));
         await this.probar();
-        return `${labels_1.i18.APPS.CADENA.SIMBOLICA.SIMULATION_END}`;
+        return `${aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.SIMULATION_END}`;
     }
     async cargaRed() {
-        const red = labels_1.i18.APPS.CADENA.SIMBOLICA.DOMINIO;
+        const red = aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.DOMINIO;
         this.modelo.cargar(red);
     }
     imprimir() {
@@ -37,7 +34,7 @@ class CadenaFIARedSemantica extends cadena_fia_simbolica_1.CadenaFIASimbolica {
         return out;
     }
     async probar() {
-        const red = labels_1.i18.APPS.CADENA.SIMBOLICA.DOMINIO;
+        const red = aleph_script_i18_1.i18.APPS.CADENA.SIMBOLICA.DOMINIO;
         /*
 
             red.ENTIDADES.tarea
@@ -57,29 +54,30 @@ class CadenaFIARedSemantica extends cadena_fia_simbolica_1.CadenaFIASimbolica {
         */
         const casos = [
             {
+                texto: "¿Es robot_1 instancia de robot? ¿Es robot_1 un robot?",
                 instancia: {
                     robot_1: { robot: "robot" }
                 }
             },
             {
+                texto: "¿Es robot_1 una criptoselladora?",
                 subclase: {
                     robot_1: { criptoselladora: "criptoselladora" }
                 }
             },
             {
+                texto: "¿Es el objeto_1 criptosellable?",
                 parte: {
                     propiedad_cripta: { objeto_1: "objeto_1" }
                 }
             },
             {
-                tarea_cadena_robot_objeto: {
-                    encadenar: {
-                        tarea_1: "tarea",
-                        cadena_1: "cadena",
-                        robot_1: "robot",
-                        objeto_1: "objeto",
-                        almacen_1: "almacen"
-                    }
+                texto: "¿Necesita el objeto_1 criptosellado y puede el robot_1 hacerlo?",
+                parte: {
+                    propiedad_cripta: { objeto_1: "objeto_1" }
+                },
+                subclase: {
+                    robot_1: { criptoselladora: "criptoselladora" }
                 }
             }
         ];

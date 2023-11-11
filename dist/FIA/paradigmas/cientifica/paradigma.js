@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IACientifica = void 0;
 const genesis_block_1 = require("../../genesis-block");
-const labels_1 = require("../../i18/labels");
+const aleph_script_i18_1 = require("../../i18/aleph-script-i18");
 const turing_test_1 = require("../../agents/turing-test");
 var IACientifica;
 (function (IACientifica) {
     IACientifica.fiaFuerte = new genesis_block_1.GenesisBlock();
-    IACientifica.fiaFuerte.nombre = labels_1.i18.FIA_CIENTIFICA_FUERTE_LABEL;
+    IACientifica.fiaFuerte.nombre = aleph_script_i18_1.i18.CIENTIFICA.FUERTE_LABEL;
     IACientifica.fiaFuerte.razona =
         (w, i) => {
             return "Sí";
@@ -17,7 +17,7 @@ var IACientifica;
         return `${tester.test(IACientifica.fiaFuerte)}`;
     };
     IACientifica.fiaDebil = new genesis_block_1.GenesisBlock();
-    IACientifica.fiaDebil.nombre = labels_1.i18.FIA_CIENCITICA_DEBIL_LABEL;
+    IACientifica.fiaDebil.nombre = aleph_script_i18_1.i18.CIENTIFICA.DEBIL_LABEL;
     IACientifica.fiaDebil.razona =
         (w, i) => {
             return "No";

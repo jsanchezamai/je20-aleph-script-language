@@ -1,22 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CadenaFIAConexionista = exports.TOPE_POSICION = void 0;
-const labels_1 = require("../../../i18/labels");
-const thread_1 = require("../../../thread");
-const paradigma_1 = require("../../../paradigmas/conexionista/paradigma");
+const aleph_script_i18_1 = require("../../../i18/aleph-script-i18");
+const agentMessage_1 = require("../../../agentMessage");
+const red_neuronal_1 = require("../../../paradigmas/conexionista/red-neuronal");
+const fia_conexionista_1 = require("../../../paradigmas/conexionista/fia-conexionista");
 // export namespace IASituada {
 exports.TOPE_POSICION = 9;
-class CadenaFIAConexionista extends paradigma_1.IAConexionista {
+class CadenaFIAConexionista extends fia_conexionista_1.FIAConexionista {
     constructor() {
         super(...arguments);
-        this.modelo = new paradigma_1.RedNeuronalArtificial();
+        this.modelo = new red_neuronal_1.RedNeuronalArtificial();
         this.runAsync = true;
-        this.nombre = labels_1.i18.APPS.CADENA.CONEXIONISTA.NOMBRE;
+        this.nombre = aleph_script_i18_1.i18.APPS.CADENA.CONEXIONISTA.NOMBRE;
     }
     async instanciar() {
-        console.log((0, thread_1.agentMessage)(this.nombre, labels_1.i18.APPS.CADENA.CONEXIONISTA.SIMULATION_START));
-        console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.SIMULATION_BODY}:${this.modelo}`));
-        return `${labels_1.i18.APPS.CADENA.CONEXIONISTA.SIMULATION_END}`;
+        console.log((0, agentMessage_1.agentMessage)(this.nombre, aleph_script_i18_1.i18.APPS.CADENA.CONEXIONISTA.SIMULATION_START));
+        console.log((0, agentMessage_1.agentMessage)(this.nombre, `${aleph_script_i18_1.i18.APPS.CADENA.SIMULATION_BODY}:${this.modelo}`));
+        return `${aleph_script_i18_1.i18.APPS.CADENA.CONEXIONISTA.SIMULATION_END}`;
     }
 }
 exports.CadenaFIAConexionista = CadenaFIAConexionista;

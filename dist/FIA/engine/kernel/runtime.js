@@ -23,17 +23,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Runtime = exports.EXIT_PROMPT_INDEX = void 0;
+exports.Runtime = exports.menuOption = exports.EXIT_PROMPT_INDEX = void 0;
 const genesis_block_1 = require("../../genesis-block");
 const paradigma_1 = require("../../paradigmas/cientifica/paradigma");
-const paradigma_2 = require("../../paradigmas/simbolica/paradigma");
-const paradigma_3 = require("../../paradigmas/situada/paradigma");
-const paradigma_4 = require("../../paradigmas/conexionista/paradigma");
-const labels_1 = require("../../i18/labels");
-const thread_1 = require("../../thread");
+const aleph_script_i18_1 = require("../../i18/aleph-script-i18");
+const systemMessage_1 = require("../../systemMessage");
+const agentMessage_1 = require("../../agentMessage");
 const readline = __importStar(require("readline"));
 const cadena_app_1 = require("../../aplicaciones/cadena/cadena-app");
+const paradigma_2 = require("../../paradigmas/situada/paradigma");
+const fia_conexionista_1 = require("../../paradigmas/conexionista/fia-conexionista");
+const fia_simbolica_1 = require("../../paradigmas/simbolica/fia-simbolica");
+const fia_sbc_1 = require("../../paradigmas/sbc/fia-sbc");
 exports.EXIT_PROMPT_INDEX = 99;
+function menuOption(message) {
+    return `\t - ${message}`;
+}
+exports.menuOption = menuOption;
+/**
+ * Motor de FIAs
+ */
 class Runtime {
     start() {
         const fia = new genesis_block_1.FIA();
@@ -45,9 +54,10 @@ class Runtime {
          */
         Runtime.threads.push(paradigma_1.IACientifica.fiaDebil);
         Runtime.threads.push(paradigma_1.IACientifica.fiaFuerte);
-        Runtime.threads.push(paradigma_2.IASimbolica.fiaSimbolica);
-        Runtime.threads.push(paradigma_3.IASituada.fiaSituada);
-        Runtime.threads.push(paradigma_4.IAConexionista.fiaConexionista);
+        Runtime.threads.push(fia_simbolica_1.FIASimbolica.fiaSimbolica);
+        Runtime.threads.push(paradigma_2.IASituada.fiaSituada);
+        Runtime.threads.push(fia_conexionista_1.FIAConexionista.fiaConexionista);
+        Runtime.threads.push(new fia_sbc_1.FIA_SBC());
         /**
          * APPS
          */
@@ -62,12 +72,12 @@ class Runtime {
         let app;
         let cpu = 0;
         const waitForUserInput = async () => {
-            console.log((0, thread_1.systemMessage)(`${labels_1.i18.MENU_HEADER_LABEL}`));
+            console.log((0, systemMessage_1.systemMessage)(`${aleph_script_i18_1.i18.MENU_HEADER_LABEL}`));
             Runtime.threads.forEach((t, index) => {
-                console.log((0, thread_1.menuOption)(`[${index}]: Modelo: ${t.nombre}`));
+                console.log(menuOption(`[${index}]: Modelo: ${t.nombre}`));
             });
-            console.log((0, thread_1.menuOption)(`[${exports.EXIT_PROMPT_INDEX}]: ${labels_1.i18.EXIT_PROMT_LABEL}`));
-            rl.question(`${labels_1.i18.MENU_PROMPT_DATA_LABEL}`, async (answer) => {
+            console.log(menuOption(`[${exports.EXIT_PROMPT_INDEX}]: ${aleph_script_i18_1.i18.EXIT_PROMT_LABEL}`));
+            rl.question(`${aleph_script_i18_1.i18.MENU_PROMPT_DATA_LABEL}`, async (answer) => {
                 const index = parseInt(answer);
                 if (isNaN(index)) {
                     console.log("No FIA index given!", answer);
@@ -76,20 +86,20 @@ class Runtime {
                     // try {
                     const fia = Runtime.threads[index];
                     console.clear();
-                    console.log((0, thread_1.systemMessage)(`${labels_1.i18.LOOP.LAUNCH_FIA_LABEL}: ${fia.nombre}`));
+                    console.log((0, systemMessage_1.systemMessage)(`${aleph_script_i18_1.i18.LOOP.LAUNCH_FIA_LABEL}: ${fia.nombre}`));
                     if (fia.runAsync) {
                         const instancia = await fia.instanciar();
-                        console.log((0, thread_1.agentMessage)(fia.nombre, instancia));
+                        console.log((0, agentMessage_1.agentMessage)(fia.nombre, instancia));
                     }
                     else {
-                        console.log((0, thread_1.agentMessage)(fia.nombre, fia.imprimir()));
+                        console.log((0, agentMessage_1.agentMessage)(fia.nombre, fia.imprimir()));
                     }
                     /* } catch(Ex) {
                         console.log("Error running FIA", Ex.message);
                     } */
                 }
                 if (index == exports.EXIT_PROMPT_INDEX) {
-                    console.log((0, thread_1.systemMessage)(`"System closed by user! Bye!"`));
+                    console.log((0, systemMessage_1.systemMessage)(`"System closed by user! Bye!"`));
                     rl.close();
                 }
                 else {
@@ -97,7 +107,7 @@ class Runtime {
                 }
             });
         };
-        console.log((0, thread_1.systemMessage)(`${labels_1.i18.LOOP.LOAD_FIA_LABEL}`));
+        console.log((0, systemMessage_1.systemMessage)(`${aleph_script_i18_1.i18.LOOP.LOAD_FIA_LABEL}`));
         return await waitForUserInput();
     }
 }

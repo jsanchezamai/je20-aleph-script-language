@@ -23,22 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuOption = exports.agentMessage = exports.systemMessage = void 0;
 const runtime_1 = require("./engine/kernel/runtime");
-const labels_1 = require("./i18/labels");
+const aleph_script_i18_1 = require("./i18/aleph-script-i18");
 const http = __importStar(require("http"));
-function systemMessage(message) {
-    return `${labels_1.i18.ME_LABEL}> ${message}`;
-}
-exports.systemMessage = systemMessage;
-function agentMessage(agent, message) {
-    return `${agent}> ${message}`;
-}
-exports.agentMessage = agentMessage;
-function menuOption(message) {
-    return `\t - ${message}`;
-}
-exports.menuOption = menuOption;
+const systemMessage_1 = require("./systemMessage");
 const host = 'localhost';
 const port = 8000;
 const requestListener = (req, res) => {
@@ -48,10 +36,10 @@ const requestListener = (req, res) => {
 const server = http.createServer(requestListener);
 server.on('error', (e) => {
     // Handle Error
-    console.log(console.log("Thread Handle Error:", systemMessage(e.message)));
+    console.log(console.log("Thread Handle Error:", (0, systemMessage_1.systemMessage)(e.message)));
 });
 server.listen(port, async () => {
-    console.log(systemMessage(labels_1.i18.SISTEMA.STARTING_LABEL));
+    console.log((0, systemMessage_1.systemMessage)(aleph_script_i18_1.i18.SISTEMA.STARTING_LABEL));
     const rt = new runtime_1.Runtime();
     rt.start();
     await rt.demo();
