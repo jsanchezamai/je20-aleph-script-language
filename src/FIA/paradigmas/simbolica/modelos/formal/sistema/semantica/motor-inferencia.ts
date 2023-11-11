@@ -33,7 +33,7 @@ export class MotorInferencia implements IMotorInferencia {
             // console.log("\t motor.arrancar, ejecutando: ", regla.claveDominio);
             const inferencia = await regla.evaluar();
 
-            log(inferencia);
+            log(inferencia?.dominio[inferencia?.claveSalida]);
 
             // console.log("\t motor.arrancar, propagando resultado: ", inferencia.dominio.base);
             this.evento.next(inferencia);

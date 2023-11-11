@@ -44,9 +44,9 @@ export class CadenaApp extends App {
         const salidas = await Promise.all(
             [
                 this.mundo.ciclo(),
-                this.situada.instanciar(),
+                //this.situada.instanciar(),
                 this.simbolica.instanciar(),
-                this.conexionista.instanciar()
+                //this.conexionista.instanciar()
             ]
         );
 

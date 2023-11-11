@@ -33,7 +33,14 @@ export interface IGrafo extends IBaseConocimiento {
 
     imprimir(): string;
 
-    encontrar(etiqueta: string, destino: string, camino: IGrafo[]): Promise<IGrafo>;
+    encontrar(b: IBusqueda): Promise<IGrafo>;
+}
+
+export interface IBusqueda {
+    etiqueta: string;
+    destino: string;
+    camino: IGrafo[];
+    encontrado: boolean
 }
 
 export class Grafo implements IGrafo {
@@ -54,36 +61,34 @@ export class Grafo implements IGrafo {
         return out;
     }
 
-    async encontrar(etiqueta: string, destino: string, camino: IGrafo[]): Promise<IGrafo> {
+    async encontrar(b: IBusqueda): Promise<IGrafo> {
 
-        camino.push(this);
+        b.camino.push(this);
 
-        if (this.nombre == destino) {
-            console.log("Objetivo encontrado!", this.nombre);
-            return this;
+        if (this.nombre == b.destino) {
+            b.encontrado = true;
+            return null;
         }
 
         if (this.arcos.estado.length == 0) {
-            console.log("Fin de rama. El destino:", this.nombre, "fallido.");
             return null;
         }
 
         const candidatos = this.arcos.estado
             .map(async a => {
-                console.log(
+                /* console.log(
                     i18.SIMBOLICA.SEMANTICA.BUSQUEDA.COMPARANDO
                         .replace("entidad", a.destino.nombre)
-                        .replace("etiqueta", a.etiqueta.estado.nombre)
-                        .replace("valor", a.etiqueta.estado.valor)
-                );
-                console.log(a.etiqueta.estado)
+                        .replace("etiqueta", a.etiqueta.estado.valor)
+                        .replace("valor", "")
+                ); */
 
             //  && a.etiqueta.estado.nombre === etiqueta
 
-            if (a.destino.nombre == destino) {
+            if (a.destino.nombre == b.destino) {
                 return a.destino;
             } else {
-                return await a.destino.encontrar(etiqueta, destino, camino);
+                return await a.destino.encontrar(b);
             }
         });
 

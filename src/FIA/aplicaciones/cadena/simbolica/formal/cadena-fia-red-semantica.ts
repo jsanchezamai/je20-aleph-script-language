@@ -73,33 +73,74 @@ export class CadenaFIARedSemantica extends CadenaFIASimbolica {
 
         */
 
-        const casos = [
+        const POSITIVOS = [{
+            esperado: true,
+            texto: "¿Es robot_1 instancia de robot? ¿Es robot_1 un robot?",
+            instancia: {
+                robot_1: { robot: "" }
+            }
+        },
+        {
+            esperado: true,
+            texto: "¿Es robot_1 una criptoselladora?",
+            subclase: {
+                robot_1: { criptoselladora: "" }
+            }
+        },
+        {
+            esperado: true,
+            texto: "¿Es el objeto_2 criptosellable?",
+            parte: {
+                propiedad_cripta: { objeto_2: "" }
+            }
+        },
+        {
+            esperado: true,
+            texto: "¿Necesita el objeto_2 criptosellado y puede el robot_1 hacerlo?",
+            parte: {
+                propiedad_cripta: { objeto_2: "" }
+            },
+            subclase: {
+                robot_1: { criptoselladora: "" }
+            }
+        }];
+
+        const NEGATIVOS = [
             {
+                esperado: false,
+                texto: "¿Es robot_1 instancia de cadena? ¿Es robot_1 una cadena?",
                 instancia: {
-                    robot_1: { robot: "robot" }
+                    robot_1: { cadena: "" }
                 }
             },
             {
+                esperado: false,
+                texto: "¿Es robot_4 una criptoselladora?",
                 subclase: {
-                    robot_1: { criptoselladora: "criptoselladora" }
+                    robot_4: { criptoselladora: "" }
                 }
             },
             {
+                esperado: false,
+                texto: "¿Es el objeto_3 criptosellable?",
                 parte: {
-                    propiedad_cripta: { objeto_1: "objeto_1" }
+                    propiedad_cripta: { objeto_3: "" }
                 }
             },
             {
-                tarea_cadena_robot_objeto: {
-                    encadenar : {
-                        tarea_1: "tarea",
-                        cadena_1: "cadena",
-                        robot_1: "robot",
-                        objeto_1: "objeto",
-                        almacen_1: "almacen"
-                    }
+                esperado: false,
+                texto: "¿Necesita el objeto_3 criptosellado y puede el robot_1 hacerlo?",
+                parte: {
+                    propiedad_cripta: { objeto_3: "" }
+                },
+                subclase: {
+                    robot_3: { criptoselladora: "" }
                 }
             }
+        ]
+        const casos = [
+           ...POSITIVOS,
+           ...NEGATIVOS
         ];
 
         await this.modelo.probar(casos);

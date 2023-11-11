@@ -14,12 +14,6 @@ export const CADENA_SIMBOLICA_i18 = {
         SIMULATION_BODY: "Modelo resultante",
         SIMULATION_END: "¡Simulación finalizada!",
 
-        AGREGANDO_ENTIDADES_LABEL: "Agregando entidad: ",
-        AGREGANDO_ARCOS_SUBCLASES_LABEL: "Agregando arco subclase/clase: ",
-        AGREGANDO_ARCOS_PARTE_LABEL: "Agregando arco parte/clase: ",
-        AGREGANDO_ARCOS_INSTANCIA_LABEL: "Agregando arco instancia hija/padre: ",
-        AGREGANDO_ARCOS_DESCRIPTIVOS_LABEL: "Agregando arco descriptivo destino/origen: ",
-
         ...CADENA_DOMINIO_i18,
 
         RED: {

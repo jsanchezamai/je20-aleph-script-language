@@ -3,72 +3,170 @@ import { Traductor } from "../../../../../../i18/traductor";
 import { IInferencia } from "../../../../inferencia";
 import { IReglaRed } from "../../../../regla";
 import { InferenciaRelacion } from "../../inferencia/relacion/paradigma";
+import { Arco, IArco } from "./arco";
+import { IBusqueda, IGrafo } from "./grafo";
+
+export enum TecnicasInferenciaRed {
+
+    equiparacion,
+    herencia,
+
+    instancia,
+    subclase,
+    parte
+
+}
+
+export interface IPregunta {
+
+    esperado: boolean;
+    texto: string;
+    constantes: IGrafo[];
+    variables: IGrafo[];
+    arcos: string[];
+
+}
+
+export interface IApunte {
+
+    tipo: TecnicasInferenciaRed;
+
+    red: IGrafo;
+
+    pregunta: IPregunta;
+
+}
+
+export class Apunte implements IApunte {
+
+    tipo: TecnicasInferenciaRed;
+    red: IGrafo;
+    pregunta: IPregunta;
+
+}
+
+export class ApunteEquiparacion extends Apunte {
+
+    tipo = TecnicasInferenciaRed.equiparacion;
+
+}
+
+export class ApunteHerencia extends Apunte {
+
+    async inferir(a: IApunte) {
+
+        const problemas = a.pregunta.variables.map(async (v, i) => {
+
+            const camino: IGrafo[] = [];
+            const b: IBusqueda = {
+                etiqueta: a.pregunta.arcos[i],
+                destino: a.pregunta.constantes[i].nombre,
+                camino,
+                encontrado: false
+            }
+            let solucion = await v.encontrar(b);
+            while(solucion && !b.encontrado) {
+                solucion = await solucion.encontrar(b);
+            }
+            return b.encontrado;
+        });
+        const parciales = await Promise.all(problemas);
+
+        const solucion = parciales.find(s => s === false) === undefined;
+
+        if (solucion != a.pregunta.esperado) {
+            console.log(parciales)
+            return `\n\t - ¡ERROR! Se esperaba: ${a.pregunta.esperado}, se obtuvo: ${solucion}`;
+        }
+        return `\n\t - Respuesta: ${solucion}`;
+    }
+
+    tipo = TecnicasInferenciaRed.herencia;
+
+}
 
 export class ReglaRed extends InferenciaRelacion implements IReglaRed {
 
+    apunte: IApunte;
+
+    enunciado(): string {
+
+        const p = this?.apunte?.pregunta;
+
+        if (!p) return "No inicializado";
+
+        return `${p.texto} ¿${p.esperado}?: ${i18.SIMBOLICA.SEMANTICA.INFERENCIA_NATURAL_LABEL
+                .replace("<clave", this.tipo.toString())
+                .replace("<constantes>", p.constantes.map(c => c.nombre).join(" - "))
+                .replace("<variables>", p.variables.map(c => c.nombre).join(" - "))
+                .replace("<arcos>", p.arcos.join(" - "))
+                .replace("<entidades>", this.apunte.red.nombre)}`;
+    }
+
     async evaluar(): Promise<IInferencia> {
 
-        const activar = this.activar();
+        this.apunte = this.analizarParametros();
 
-        const tipo = Object.keys(activar.parametros)[0];
+        switch(this.tipo) {
+            case TecnicasInferenciaRed.equiparacion:
 
-        const agentes = Object.keys(activar.parametros[tipo]);
+                const apunteEquiparacion = new ApunteEquiparacion();
+                console.log("¡Acabado!")
 
-        const sujetos = Object
-            .keys(activar.parametros[tipo])
-            .map(parametro => activar.parametros[tipo][parametro])
-            .map(sujeto => {
-                return Object.keys(sujeto);
-            })
-            .flat();
+                break;
+            case TecnicasInferenciaRed.herencia:
 
-        const entidades = activar
-            .contexto
-            .arcos
-            .estado
-            .map(arco => arco.destino)
-            .filter(destino => agentes.concat(sujetos).indexOf(destino.nombre) > -1)
-            .flat();
+                const apunteHerencia = new ApunteHerencia();
+                this.dominio[this.claveSalida] = `${this.enunciado()} \t - ${await apunteHerencia.inferir(this.apunte)}`;
 
-        const traductor = new Traductor();
-
-        console.log(
-            i18.SIMBOLICA.SEMANTICA.REGLA + ">",
-            i18.SIMBOLICA.SEMANTICA.INFERENCIA
-                .replace("<clave>", tipo)
-                .replace("<agentes>", agentes.join(" - "))
-                .replace("<sujetos>", sujetos.join(" - "))
-                .replace("<entidades>", entidades.map(e => e.nombre).join(" - ")),
-        );
-
-        switch(tipo) {
-            case "instancia":
-            case "subclase":
-            case "parte":
-
-                const agente = agentes[0];
-                const sujeto = sujetos[0];
-
-                console.log(
-                    i18.SIMBOLICA.SEMANTICA.REGLA + ">",
-                    i18.SIMBOLICA.SEMANTICA.INFERENCIA_NATURAL_LABEL
-                        .replace("agente", agente)
-                        .replace("sujeto", sujeto)
-                        .replace("arco", tipo),
-                );
-
-                const busqueda_inicio = entidades.find(e => e.nombre === agente);
-                console.log("Empieza la búsqueda en", busqueda_inicio.nombre);
-
-                const camino = [];
-                const buscar = await busqueda_inicio.encontrar(sujeto, tipo, camino);
-
-                console.log("Resultado búsqueda:", buscar?.nombre);
                 break;
             default:
-
-
+                console.log("¡Acabado3!")
+                //
         }
+
         return this;
+    }
+
+    analizarParametros(): IApunte {
+
+        const activar = this.activar();
+        const c = activar.parametros;
+
+        // console.log("Inicia analisis de parametros");
+
+        const texto = c["texto"];
+        const esperado = c["esperado"];
+        const arcos = Object.keys(c).filter(a => a != "texto" && a != "esperado");
+
+        // console.log("01: arcos", arcos);
+
+        const variables = arcos.map(arco => Object.keys(c[arco]).map(variable => { return { arco, variable }})).flat();
+
+        // console.log("02: variables", variables);
+
+        const constantes = variables.map((ct: { arco: string, variable: string }) => c[ct.arco][ct.variable]).map(cl => Object.keys(cl)[0]);
+
+        // console.log("03: constantes", constantes);
+
+        const e = activar.contexto.entidades;
+        const clavesAObjetos = (claves: string[]) => claves
+            .map(cl => { const ee = e.find(i => cl === i.nombre); if (!ee) console.log("no for", cl); return ee});
+
+        return {
+
+            tipo: this.tipo,
+
+            red: activar.contexto.raiz,
+
+            pregunta: {
+                esperado,
+                texto,
+                constantes: clavesAObjetos(constantes),
+                variables: clavesAObjetos(variables.map(v => v.variable)),
+                arcos
+            }
+        }
+
     }
 }

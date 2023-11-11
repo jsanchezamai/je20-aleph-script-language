@@ -52,7 +52,7 @@ export const CADENA_DOMINIO_i18 = {
                     salida: { almacen: "almacen" },
                     basura: { almacen: "almacen"},
 
-                    reponerdor: { reponedor: "reponedor"},
+                    reponedor: { reponedor: "reponedor"},
 
                     robot_1: { criptoselladora: "criptoselladora"},
                     robot_2: { criptoselladora: "criptoselladora"},

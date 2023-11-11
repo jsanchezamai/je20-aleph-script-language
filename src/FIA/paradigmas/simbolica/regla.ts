@@ -4,6 +4,7 @@
 
 import { IInferencia, IInferenciaConcepto, IInferenciaRelacion, IInferenciaAccion } from "./inferencia";
 import { IFacetas } from "./modelos/conceptual/sistema/marcos";
+import { IApunte } from "./modelos/formal/sistema/semantica/regla";
 
  export interface IReglaCondicional extends IInferencia {}
 
@@ -24,7 +25,11 @@ import { IFacetas } from "./modelos/conceptual/sistema/marcos";
  export interface IReglaLogica extends IInferenciaRelacion {}
 
  export interface IReglaRed extends IInferenciaRelacion {
+    apunte: IApunte;
 
+    enunciado(): string;
+
+    analizarParametros(): IApunte;
  }
 
  export interface IReglaDependencia extends IInferenciaRelacion {}

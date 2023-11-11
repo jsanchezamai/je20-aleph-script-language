@@ -2,7 +2,6 @@ import { CADENA_MUNDO_i18 } from "./mundo/cadena-mundo-i18";
 import { CADENA_SITUADA_i18 } from "./situada/cadena-situada-i18";
 import { CADENA_SIMBOLICA_i18 } from "./simbolica/cadena-simbolica-i18";
 import { CADENA_CONEXIONISTA_i18 } from "./conexionista/cadena-conexionista-i18";
-import { IDiccionarioI18 } from "../../genesis-block";
 
 export const APP_CADENA_i18 = {
 
