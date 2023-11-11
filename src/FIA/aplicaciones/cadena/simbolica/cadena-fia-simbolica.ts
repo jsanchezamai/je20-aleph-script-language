@@ -1,9 +1,7 @@
-import { GenesisBlock } from "../../../genesis-block";
 import { i18 } from "../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../agentMessage";
 import { IModeloFormal } from "../../../paradigmas/simbolica/paradigma";
-import { ISolucion } from "../../../paradigmas/conexionista/paradigma";
-import { IProblema, IRequisitos } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
+import { IProblema, IRequisitos, ISolucion } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
 import { IMundo } from "../../../mundos/mundo";
 import { IFIASimbolica, FIASimbolica } from '../../../paradigmas/simbolica/fia-simbolica';
 

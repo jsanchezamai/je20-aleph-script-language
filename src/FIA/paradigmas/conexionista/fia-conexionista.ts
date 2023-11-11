@@ -3,8 +3,9 @@ import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
 import { agentMessage } from "../../agentMessage";
 import { ICanalizacion } from "./canalizacion";
-import { ISolucion, IAprendizaje } from "./paradigma";
 import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
+import { ISolucion } from "./rna/red";
+import { IAprendizaje } from "./rna/entrenar";
 
 /**
  * Redes neuronales y otros gestores de tensores
