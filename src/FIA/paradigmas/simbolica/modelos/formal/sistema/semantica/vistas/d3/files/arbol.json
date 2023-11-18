@@ -68,6 +68,10 @@
 				{
 					"name": "(subclase) objeto",
 					"children": []
+				},
+				{
+					"name": "(parte) objeto_compuesto",
+					"children": []
 				}
 			]
 		},
@@ -77,20 +81,15 @@
 				{
 					"name": "(subclase) objeto",
 					"children": []
-				}
-			]
-		},
-		{
-			"name": "(Terminal) objeto_compuesto",
-			"children": [
+				},
 				{
-					"name": "(subclase) objeto",
+					"name": "(parte) objeto_compuesto",
 					"children": []
 				}
 			]
 		},
 		{
-			"name": "(Terminal) propiedad_cripta",
+			"name": "(Terminal) propiedad_criptosellable",
 			"children": [
 				{
 					"name": "(subclase) propiedad",
@@ -100,11 +99,24 @@
 							"children": []
 						}
 					]
+				},
+				{
+					"name": "(parte) objeto_criptosellable",
+					"children": [
+						{
+							"name": "(subclase) objeto",
+							"children": []
+						},
+						{
+							"name": "(parte) objeto_compuesto",
+							"children": []
+						}
+					]
 				}
 			]
 		},
 		{
-			"name": "(Terminal) propiedad_cadena",
+			"name": "(Terminal) propiedad_parseable",
 			"children": [
 				{
 					"name": "(subclase) propiedad",
@@ -112,6 +124,83 @@
 						{
 							"name": "(parte) objeto",
 							"children": []
+						}
+					]
+				},
+				{
+					"name": "(parte) objeto_parseable",
+					"children": [
+						{
+							"name": "(subclase) objeto",
+							"children": []
+						},
+						{
+							"name": "(parte) objeto_compuesto",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "(Terminal) propiedad_cripta",
+			"children": [
+				{
+					"name": "(subclase) propiedad_criptosellable",
+					"children": [
+						{
+							"name": "(subclase) propiedad",
+							"children": [
+								{
+									"name": "(parte) objeto",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "(parte) objeto_criptosellable",
+							"children": [
+								{
+									"name": "(subclase) objeto",
+									"children": []
+								},
+								{
+									"name": "(parte) objeto_compuesto",
+									"children": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "(Terminal) propiedad_cadena",
+			"children": [
+				{
+					"name": "(subclase) propiedad_parseable",
+					"children": [
+						{
+							"name": "(subclase) propiedad",
+							"children": [
+								{
+									"name": "(parte) objeto",
+									"children": []
+								}
+							]
+						},
+						{
+							"name": "(parte) objeto_parseable",
+							"children": [
+								{
+									"name": "(subclase) objeto",
+									"children": []
+								},
+								{
+									"name": "(parte) objeto_compuesto",
+									"children": []
+								}
+							]
 						}
 					]
 				}
@@ -157,6 +246,10 @@
 					"children": []
 				}
 			]
+		},
+		{
+			"name": "(Terminal) objeto_compuesto",
+			"children": []
 		},
 		{
 			"name": "(Terminal) cadena_1",
@@ -287,6 +380,10 @@
 						{
 							"name": "(subclase) objeto",
 							"children": []
+						},
+						{
+							"name": "(parte) objeto_compuesto",
+							"children": []
 						}
 					]
 				}
@@ -300,6 +397,10 @@
 					"children": [
 						{
 							"name": "(subclase) objeto",
+							"children": []
+						},
+						{
+							"name": "(parte) objeto_compuesto",
 							"children": []
 						}
 					]
@@ -315,6 +416,10 @@
 						{
 							"name": "(subclase) objeto",
 							"children": []
+						},
+						{
+							"name": "(parte) objeto_compuesto",
+							"children": []
 						}
 					]
 				}
@@ -325,12 +430,7 @@
 			"children": [
 				{
 					"name": "(instancia) objeto_compuesto",
-					"children": [
-						{
-							"name": "(subclase) objeto",
-							"children": []
-						}
-					]
+					"children": []
 				}
 			]
 		},

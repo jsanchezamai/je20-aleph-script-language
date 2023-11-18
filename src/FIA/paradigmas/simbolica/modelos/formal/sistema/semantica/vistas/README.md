@@ -2,7 +2,7 @@
 
 En este paquete se ensayan formas de representar visualmente las redes. Se ha configurado como página web estática. Ejecutar el directorio [vistas](.) en un servidor web simple donde poder cargar distintas representaciónes de la Red Semántica. Tanto de sus entidades como de sus arcos.
 
-![](vistas.png)
+![](./docs/vistas.png)
 
 Para facilitar la integración con el visualizador, se establece un [generador](../exportador-red.ts) de [archivos en disco](./d3/files/) en distinto formatos. 
 

@@ -75,6 +75,16 @@ export const CADENA_DOMINIO_i18 = {
                     },
                     objeto: {
                         propiedad: "propiedad"
+                    },
+                    objeto_criptosellable: {
+                        propiedad_criptosellable: { propiedad: "propiedad"}
+                    },
+                    objeto_parseable: {
+                        propiedad_parseable: { propiedad: "propiedad" }
+                    },
+                    objeto_compuesto: {
+                        objeto_criptosellable: "objeto",
+                        objeto_parseable: "objeto"
                     }
                 },
                 SUBCLASE: {
@@ -88,12 +98,14 @@ export const CADENA_DOMINIO_i18 = {
 
                     objeto_criptosellable: { objeto: "objeto" },
                     objeto_parseable: { objeto: "objeto" },
+                    propiedad_criptosellable: { propiedad: "propiedad"},
+                    propiedad_parseable: { propiedad: "propiedad" },
 
-                    objeto_compuesto: { objeto: "objeto" },
 
-                    propiedad_cripta: { propiedad: "propiedad"},
-                    propiedad_cadena: { propiedad: "propiedad"},
-                    propiedad_estado: { propiedad: "propiedad" }}
+                    propiedad_cripta: { propiedad_criptosellable: "propiedad"},
+                    propiedad_cadena: { propiedad_parseable: "propiedad"},
+                    propiedad_estado: { propiedad: "propiedad" }
+                }
             }
         }
     }

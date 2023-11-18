@@ -25,26 +25,35 @@ export class MotorInferencia implements IMotorInferencia {
         this.eventos = this.evento.asObservable();
     }
 
-    arrancar(log: (string) => void): void {
+    async arrancar(log: (string) => void): Promise<void> {
 
-        // console.log("motor.arrancar, reglas: ", this.reglas.length);
-        this.reglas.forEach(async regla => {
+        return new Promise(async (resolve, reject) => {
 
-            // console.log("\t motor.arrancar, ejecutando: ", regla.claveDominio);
-            const inferencia = await regla.evaluar();
+            // console.log("motor.arrancar, reglas: ", this.reglas.length);
 
-            log(inferencia?.dominio[inferencia?.claveSalida]);
+            await Promise.all(this.reglas.map(async regla => {
 
-            // console.log("\t motor.arrancar, propagando resultado: ", inferencia.dominio.base);
-            this.evento.next(inferencia);
+                // console.log("\t motor.arrancar, ejecutando: ", regla.claveDominio);
+                const inferencia = await regla.evaluar();
+
+                log(inferencia?.dominio[inferencia?.claveSalida]);
+
+                this.evento.next(inferencia);
+
+            }))
+            for(const r of this.reglas) this.reglas.pop();
+
+            resolve();
+            this.suscriptores.forEach(s => s())
+            this.suscriptores = [];
 
         });
-        for(const r of this.reglas) this.reglas.pop();
-
     }
 
+    suscriptores = [];
     trasDetenerse(log: (string: any) => void): void {
-        log("MotorInferencia.Detenido");
+
+        this.suscriptores.push(log);
     }
 
 }

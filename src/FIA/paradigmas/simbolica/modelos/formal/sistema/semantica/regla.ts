@@ -66,17 +66,18 @@ export class ApunteHerencia extends Apunte {
             while(solucion && !b.encontrado) {
                 solucion = await solucion.encontrar(b);
             }
-            return b.encontrado;
+
+            return b;
         });
         const parciales = await Promise.all(problemas);
-
-        const solucion = parciales.find(s => s === false) === undefined;
-
-        if (solucion != a.pregunta.esperado) {
-            console.log(parciales)
+        // console.log("PARCI", parciales)
+        const solucion = parciales.find(s => s.encontrado === a.pregunta.esperado);
+        // console.log("PARCI SOL", solucion)
+        if (!solucion) {
+            console.log(a.pregunta.constantes, a.pregunta.variables)
             return `\n\t - ¡ERROR! Se esperaba: ${a.pregunta.esperado}, se obtuvo: ${solucion}`;
         }
-        return `\n\t - Respuesta: ${solucion}`;
+        return `\n\t - Respuesta: ${solucion.camino.map(c => c.imprimir()).join("\t - ")}`;
     }
 
     tipo = TecnicasInferenciaRed.herencia;
@@ -116,7 +117,6 @@ export class ReglaRed extends InferenciaRelacion implements IReglaRed {
 
                 const apunteHerencia = new ApunteHerencia();
                 this.dominio[this.claveSalida] = `${this.enunciado()} \t - ${await apunteHerencia.inferir(this.apunte)}`;
-
                 break;
             default:
                 console.log("¡Acabado3!")

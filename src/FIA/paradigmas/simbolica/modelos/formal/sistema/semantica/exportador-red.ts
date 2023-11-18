@@ -1,4 +1,5 @@
 import { Ignoto } from "../../../../../../genesis-block";
+import { IArco } from "./arco";
 
 import { IGrafo } from "./grafo";
 
@@ -29,14 +30,14 @@ export class Tag {
 
 export class ExportadorDeRed {
 
-    procesarNodo(g: IGrafo, padre: Tag): void {
+    procesarNodo(g: IGrafo, padre: Tag, arco: IArco): void {
 
-        console.log("Grafo", g.nombre, "hijos", g.arcos.estado.length)
-        const li = this.crearLI(padre, `${g.nombre}`);
+        // console.log(g.nombre, "hijos", g.arcos.estado.length)
+        const li = this.crearLI(padre, `${g.nombre} (${ arco ? arco.etiqueta.estado.valor : ""})`);
 
-        const ul = this.crearUL(`Arcos: ${g.arcos.estado.length}`);
+        const ul = this.crearUL(""/*`Arcos: ${g.arcos.estado.length}`*/);
 
-        g.arcos.estado.forEach(a => this.procesarNodo(a.destino, ul));
+        g.arcos.estado.forEach(a => this.procesarNodo(a.destino, ul, a));
 
         li.agregarHijo(ul);
 
@@ -76,7 +77,7 @@ export class ExportadorDeRed {
 
         const ul = this.crearUL(`${g.nombre}. Arcos: ${g.arcos.estado.length}`);
 
-        g.arcos.estado.forEach(a => this.procesarNodo(a.destino, ul));
+        g.arcos.estado.forEach(a => this.procesarNodo(a.destino, ul, null));
 
         return ul.comoHTML();
     }

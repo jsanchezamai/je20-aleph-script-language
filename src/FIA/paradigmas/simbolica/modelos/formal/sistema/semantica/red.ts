@@ -336,48 +336,50 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 this.base.arcos.estado.push(arco);
         });
 
-        this.entidades.push(this.base);
+        const v = new ExportadorDeRed();
+        fs.writeFileSync(__dirname + '/vistas/d3/files/arbol.json', JSON.stringify(v.comoArbolJSON(this.base), null, "\t"));
 
-        /* const v = new ExportadorDeRed();
-        fs.writeFileSync(__dirname + '/arbol.html', v.comoHTMLArbol(this.base));
-        fs.writeFileSync(__dirname + '/view/d3/files/arbol.json', JSON.stringify(v.comoArbolJSON(this.base), null, "\t"));
-        fs.writeFileSync(__dirname + '/view/d3/files/red.json', v.comoListaJSON(this.entidades));
+        this.entidades.push(this.base);
+        fs.writeFileSync(__dirname + '/vistas/d3/red.json', v.comoListaJSON(this.entidades));
+
+        fs.writeFileSync(__dirname + '/vistas/d3/semantica-ul.html', v.comoHTMLArbol(this.base));
+
+        console.log(agentMessage(this.nombre,
+            `
+            - http://localhost:8080/semantica-arbol.html
+            - http://localhost:8080/semantica-grafo.html
+            - http://localhost:8080/semantica-ul.html`
+        ));
+
+        /* 
+        
         console.log(agentMessage(this.nombre, "Escrito el árbol en: " + __dirname)); */
     }
 
-    probar(casos: object[]) {
+    async probar(casos: object[]): Promise<string> {
 
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
 
             console.log(agentMessage(this.nombre, `${this.i18.TEST.PROBAR_START_LABEL}:${""}`));
 
             /**
              *  Encolado de casos a probar
              * */
-            casos.forEach((c, index) => {
+            [casos[2]].forEach((c, index) => {
 
-                console.log(agentMessage(this.nombre, `${this.i18.TEST.CASO.START_LABEL}:${index}`));
+                // console.log(agentMessage(this.nombre, `${this.i18.TEST.CASO.START_LABEL}:${index}`));
 
                 const regla = new ReglaRed();
                 const parametros = new Dominio(c);
 
                 regla.configurarV2(this.entidades, TecnicasInferenciaRed.herencia, this.base, parametros);
 
-                console.log(agentMessage(this.nombre,
+                /*console.log(agentMessage(this.nombre,
                     `${this.i18.TEST.CASO.BUCLE.CREAR_REGLA_LABEL}:${index} con ${regla.imprimir()}`
-                ));
+                ));*/
 
                 this.motor.reglas.push(regla);
 
-            });
-
-            /**
-             *  Arrancar la cola de inferencias
-             * */
-            this.motor.arrancar((info) => {
-                console.log(
-                    agentMessage(this.nombre,
-                        `${this.i18.TEST.CASO.BODY_LABEL} ${info}`));
             });
 
             /**
@@ -396,6 +398,16 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 , 5000
             );
 
+            /**
+             *  Arrancar la cola de inferencias
+             * */
+            await this.motor.arrancar((info) => {
+                console.log(
+                    agentMessage(this.nombre,
+                        `${this.i18.TEST.CASO.BODY_LABEL} 
+                        -  http://localhost:8080/
+                        ${info}`));
+            });
 
         });
 
