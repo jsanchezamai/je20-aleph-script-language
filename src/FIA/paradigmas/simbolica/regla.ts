@@ -3,7 +3,6 @@
      */
 
 import { IInferencia, IInferenciaConcepto, IInferenciaRelacion, IInferenciaAccion } from "./inferencia";
-import { IFacetas } from "./modelos/conceptual/sistema/marcos";
 import { IApunte } from "./modelos/formal/sistema/semantica/regla";
 
  export interface IReglaCondicional extends IInferencia {}
@@ -16,7 +15,6 @@ import { IApunte } from "./modelos/formal/sistema/semantica/regla";
  export interface IReglaObjetoAtributoValor extends IInferenciaConcepto {}
 
  export interface IReglaMarco extends IInferenciaConcepto {
-     facetas: IFacetas
  }
 
  /**

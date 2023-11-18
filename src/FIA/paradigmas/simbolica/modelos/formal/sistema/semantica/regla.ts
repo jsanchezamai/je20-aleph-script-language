@@ -1,9 +1,7 @@
 import { i18 } from "../../../../../../i18/aleph-script-i18";
-import { Traductor } from "../../../../../../i18/traductor";
 import { IInferencia } from "../../../../inferencia";
 import { IReglaRed } from "../../../../regla";
 import { InferenciaRelacion } from "../../inferencia/relacion/paradigma";
-import { Arco, IArco } from "./arco";
 import { IBusqueda, IGrafo } from "./grafo";
 
 export enum TecnicasInferenciaRed {
