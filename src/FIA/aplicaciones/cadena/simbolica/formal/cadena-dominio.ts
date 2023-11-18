@@ -48,11 +48,11 @@ export const CADENA_DOMINIO_i18 = {
 
                     almacen_1: { almacen: "almacen" },
 
-                    entrada: { almacen: "almacen" },
-                    salida: { almacen: "almacen" },
-                    basura: { almacen: "almacen"},
+                    entrada1: { almacen: "almacen" },
+                    salida1: { almacen: "almacen" },
+                    basura1: { almacen: "almacen"},
 
-                    reponedor: { reponedor: "reponedor"},
+                    reponedor1: { reponedor: "reponedor"},
 
                     robot_1: { criptoselladora: "criptoselladora"},
                     robot_2: { criptoselladora: "criptoselladora"},
@@ -65,9 +65,6 @@ export const CADENA_DOMINIO_i18 = {
                     objeto_3: { objeto_parseable: "objeto_parseable"},
                     objeto_4: { objeto_compuesto: "objeto_compuesto"},
 
-                    propiedad_cripta: { propiedad: "propiedad"},
-                    propiedad_cadena: { propiedad: "propiedad"},
-                    propiedad_estado: { propiedad: "propiedad" }
                 },
                 PARTE: {
                     texto: "<clave> tiene la parte: <valor>",
@@ -77,21 +74,13 @@ export const CADENA_DOMINIO_i18 = {
                         tarea_robot_objeto_propiedad: "tarea",
                     },
                     objeto: {
-                        propiedad_estado: "propiedad"
-                    },
-                    objeto_criptosellable: {
-                        propiedad_cripta: "propiedad"
-                    },
-                    objeto_parseable: {
-                        propiedad_cadena: "propiedad"
-                    },
-                    objeto_compuesto: {
-                        objeto_parseable: "objeto",
-                        objeto_criptosellable: "objeto"
+                        propiedad: "propiedad"
                     }
                 },
                 SUBCLASE: {
                     texto: "<clave> es subclase de <valor>",
+
+                    cadena: { robot: "robot" },
 
                     reponedor: { robot: "robot" },
                     criptoselladora: { robot: "robot" },
@@ -100,8 +89,11 @@ export const CADENA_DOMINIO_i18 = {
                     objeto_criptosellable: { objeto: "objeto" },
                     objeto_parseable: { objeto: "objeto" },
 
-                    objeto_compuesto: { objeto: "objeto" }
-                }
+                    objeto_compuesto: { objeto: "objeto" },
+
+                    propiedad_cripta: { propiedad: "propiedad"},
+                    propiedad_cadena: { propiedad: "propiedad"},
+                    propiedad_estado: { propiedad: "propiedad" }}
             }
         }
     }

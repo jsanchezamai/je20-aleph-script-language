@@ -1,5 +1,5 @@
+import fs from 'fs'
 import { Formal } from "../../paradigma";
-import { i18 } from "../../../../../../i18/aleph-script-i18";
 import { agentMessage } from "../../../../../../agentMessage";
 import { Traductor } from "../../../../../../i18/traductor";
 import { IGrafo, Grafo } from "./grafo";
@@ -10,6 +10,7 @@ import { MotorInferencia } from "./motor-inferencia";
 import { Dominio } from "../../../../../../mundos/dominio";
 import { IModeloFormal } from "../../../../paradigma";
 import { AS_SIMBOLICA_i18 } from "../../../../as-simbolica-i18";
+import { ExportadorDeRed } from "./exportador-red";
 
 export interface IRedSemantica extends IModeloFormal {
 
@@ -317,12 +318,14 @@ export class RedSemantica extends Formal implements IRedSemantica {
          */
         this.base = new Grafo();
         this.base.nombre = this.nombre;
-        this.entidades.forEach(
+
+        this.entidades/*.filter(e => e.arcos.estado.length == 0)*/.forEach(
             e =>
             {
                 const relacion = new RelacionEstructural();
 
                 relacion.nombre =  "relacion.raiz";
+                relacion.valor =  "Terminal";
 
                 const etiqueta = new EtiquetaEstructural();
                 etiqueta.estado = relacion;
@@ -333,6 +336,13 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 this.base.arcos.estado.push(arco);
         });
 
+        this.entidades.push(this.base);
+
+        /* const v = new ExportadorDeRed();
+        fs.writeFileSync(__dirname + '/arbol.html', v.comoHTMLArbol(this.base));
+        fs.writeFileSync(__dirname + '/view/d3/files/arbol.json', JSON.stringify(v.comoArbolJSON(this.base), null, "\t"));
+        fs.writeFileSync(__dirname + '/view/d3/files/red.json', v.comoListaJSON(this.entidades));
+        console.log(agentMessage(this.nombre, "Escrito el árbol en: " + __dirname)); */
     }
 
     probar(casos: object[]) {

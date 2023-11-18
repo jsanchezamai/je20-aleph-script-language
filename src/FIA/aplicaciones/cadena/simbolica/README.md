@@ -235,6 +235,8 @@ La FIA le indicaría a la red semántica sus capacidades y la red le aclararía 
 ```
 ### La red semántica
 
+![](../../../paradigmas/simbolica/modelos/formal/sistema/semantica/vistas/docs/red-tree-grafo.png)
+
 Procediendo de forma homóloga a la primera FIA, instalamos esta nueva FIA en la [app](./cadena-app.ts). Como es habitual, todos los textos se configurarán según requerimientos en el conjunto [cadena-simbolica-i18](./cadena-simbolica-i18.ts).
 
 El [método **instanciar** de la FIA](./formal/cadena-fia-red-semantica.ts), en **esta aplicación dummy cargará la red a partir del dominio**. Y, a renglón seguido, **lanzará un juego de pruebas dummy**, haciendo inferencias sobre la relación entre las entidades.
