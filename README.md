@@ -181,3 +181,5 @@ En el log se aprecia la evolución de la app una vez se ha seleccionado simular 
 La estrategia ha sido implementar un [clasificador](src/FIA/paradigmas/conexionista/clasificador.ts) capaz de usar [src/FIA/paradigmas/conexionista/onnx.ts](onnx) para cargar un modelo precompilado que represente una [red neuronal](src/FIA/paradigmas/conexionista/red-neuronal.ts) a la que podamos solicitarle, mediante una [canalización](src/FIA/paradigmas/conexionista/canalizacion.ts), la inferencia de un tensor a partir de otros tensores.
 
 Una vez implementados los elementos del lenguaje AlephScript [agregar a la app de ejemplo una FIA](src/FIA/aplicaciones/cadena/conexionista/cadena-fia-red-neuronal.ts) que los use para inferir a su red neuronal.
+
+Una estructura competente del tipo model-in-the-loop (MiL), software-in-the-loop (SiL) y hardware-in-the-loop (HiL) coherente y continua.
