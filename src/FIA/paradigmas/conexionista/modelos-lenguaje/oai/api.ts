@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 import { IModelo } from "../../../../mundos/modelo";
 
 const auth = require('../../../../../../package.json');
@@ -11,6 +11,10 @@ export enum STATES {
 
 export interface ApiRequest {
 	messages:	 any[];
+}
+
+export interface ChatCompletionRequest extends CreateChatCompletionRequest {
+
 }
 
 export interface ApiReply {
@@ -42,10 +46,10 @@ const configuration = new Configuration({
 });
 
 export class Api {
-	openai: OpenAIApi;
+	openai: OpenAI;
 
   	constructor() {
-		this.openai = new OpenAIApi(configuration);
+		this.openai = new OpenAI(configuration);
   	}
 
 	async send (messages: any[]): Promise<ApiReply> {
