@@ -1,5 +1,4 @@
-import { ChatCompletionRequestMessageRoleEnum } from "openai";
-
+import { ChatCompletionRequestMessageRoleEnum } from "./Inferencia-open-ai";
 
 export interface IApiMessage {
     role: string;

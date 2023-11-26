@@ -1,9 +1,14 @@
-import { ChatCompletionRequestMessageRoleEnum } from "openai";
 import { IBaseConocimiento } from "../../../mundos/base-conocimiento";
 import { Dominio, IDominio } from "../../../mundos/dominio";
 import { InferenciaModeloLenguaje } from "./inferencia-modelo-lenguaje";
 import { Api, ApiState } from "./oai/api";
 import { PromptBase } from "./inferencia-oai";
+
+export enum ChatCompletionRequestMessageRoleEnum {
+    System = 'system',
+    User = 'user',
+    Assistant = 'assistant'
+}
 
 export class InferenciaOpenAI<T> extends InferenciaModeloLenguaje<T> {
 
@@ -26,9 +31,7 @@ export class InferenciaOpenAI<T> extends InferenciaModeloLenguaje<T> {
     }
 
     obtenerPromptBase(b: IBaseConocimiento, datos: PromptBase): T[] {
-
         const roles = ChatCompletionRequestMessageRoleEnum;
-
         return [
             { role: roles.System, content: datos.system.background },
             { role: roles.System, content: datos.system.format },

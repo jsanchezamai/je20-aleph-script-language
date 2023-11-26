@@ -13,10 +13,6 @@ export interface ApiRequest {
 	messages:	 any[];
 }
 
-export interface ChatCompletionRequest extends CreateChatCompletionRequest {
-
-}
-
 export interface ApiReply {
 	ok:	 boolean;
 	data: string;
@@ -41,9 +37,9 @@ export const IA_PARAMS = {
 	frequency_penalty: 0.0,
 	n: 1,
 }
-const configuration = new Configuration({
+const configuration = /*new Configuration(*/{
 	apiKey: auth.openai.key
-});
+};
 
 export class Api {
 	openai: OpenAI;
@@ -56,11 +52,11 @@ export class Api {
 		try {
 
 			 // console.log("Prompting", messages);
-			const completion = await this.openai.createChatCompletion({
+			const completion = await this.openai.chat.completions.create({
 				...IA_PARAMS,
 				messages
 			});
-			const data = completion.data.choices[0].message.content;
+			const data = completion.choices[0].message.content;
 			return {
 				ok: true,
 				data
