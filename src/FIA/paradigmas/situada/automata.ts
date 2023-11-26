@@ -76,7 +76,6 @@ export class Automata<T> implements IAutomataT<T> {
 
         });
 
-        console.log("automata esperando al acabar de mundo")
         // Invocación génesis...
         await this.mundo.alAcabar(this.nombre);
         console.log("automata esperando al acabar de mundo: ¡ya!")

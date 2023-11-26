@@ -10,6 +10,7 @@ import { IASituada } from "../../paradigmas/situada/paradigma";
 import { FIAConexionista } from "../../paradigmas/conexionista/fia-conexionista";
 import { FIASimbolica } from "../../paradigmas/simbolica/fia-simbolica";
 import { FIA_SBC } from "../../paradigmas/sbc/fia-sbc";
+import { IdeApp } from "../../aplicaciones/ide/semilla/semilla-app";
 
 export const EXIT_PROMPT_INDEX = 99;
 
@@ -49,6 +50,9 @@ export class Runtime {
          */
         const cadenaApp = new CadenaApp();
         Runtime.threads.push(cadenaApp);
+
+        const ideApp = new IdeApp();
+        Runtime.threads.push(ideApp);
 
     }
 

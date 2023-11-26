@@ -1,5 +1,6 @@
 import { APP_CADENA_i18 } from '../aplicaciones/cadena/cadena-app-i18';
 import { ALEPHSCRIPT_i18 } from '../paradigmas/alephscript-i18';
+import { AS_APP_IDE_i18 } from '../aplicaciones/ide/semilla/ide-app-i18';
 
 export const i18_ME = {
 
@@ -21,7 +22,8 @@ export const i18 = {
         BODY: 'App ejecutándose',
         END: 'App acaba',
 
-        ...APP_CADENA_i18
+        ...APP_CADENA_i18,
+        ...AS_APP_IDE_i18
     }
 
 }

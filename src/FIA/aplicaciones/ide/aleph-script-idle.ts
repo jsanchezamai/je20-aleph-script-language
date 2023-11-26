@@ -1,75 +1,71 @@
 // AlephScriptIDE.ts
 interface AlephScriptIDE {
-  currentState: string;
-  createProject(): void;
-  designProject(): void;
-  buildProject(): void;
-  runProject(): void;
+	currentState: string;
+	createProject(): void;
+	designProject(): void;
+	buildProject(): void;
+	runProject(): void;
 }
 
 class AlephScriptIDEImpl implements AlephScriptIDE {
-  currentState: string;
-  projectName: string;
-  calculatorOperations: string[];
 
-  constructor() {
-    this.currentState = "crear proyecto";
-    this.projectName = "";
-    this.calculatorOperations = [];
-  }
+	currentState: string;
+	projectName: string;
+	calculatorOperations: string[];
 
-  createProject(): void {
-    console.log("Estado actual: crear proyecto");
+	constructor() {
+		this.currentState = "crear proyecto";
+		this.projectName = "";
+		this.calculatorOperations = [];
+	}
 
-    // Solicitar el nombre del proyecto
-    this.projectName = "Calculadora";
+	createProject(): void {
+	console.log("Estado actual: crear proyecto");
 
-    console.log(`Nombre del proyecto: ${this.projectName}`);
+	// Solicitar el nombre del proyecto
+	this.projectName = "Calculadora";
 
-    // Solicitar las operaciones de la calculadora
-    this.calculatorOperations = ["sumar", "restar", "multiplicar", "dividir"];
+	console.log(`Nombre del proyecto: ${this.projectName}`);
 
-    console.log("Operaciones de la calculadora:");
-    this.calculatorOperations.forEach((operation) => {
-      console.log(`- ${operation}`);
-    });
+	// Solicitar las operaciones de la calculadora
+	this.calculatorOperations = ["sumar", "restar", "multiplicar", "dividir"];
 
-    // Cambiar al estado "diseñar proyecto"
-    this.currentState = "diseñar proyecto";
-    console.log("Cambiando al estado: diseñar proyecto");
-  }
+	console.log("Operaciones de la calculadora:");
+	this.calculatorOperations.forEach((operation) => {
+		console.log(`- ${operation}`);
+	});
 
-  designProject(): void {
-    console.log("Estado actual: diseñar proyecto");
+	// Cambiar al estado "diseñar proyecto"
+	this.currentState = "diseñar proyecto";
+		console.log("Cambiando al estado: diseñar proyecto");
+	}
 
-    // Lógica para diseñar el proyecto
+	designProject(): void {
+	console.log("Estado actual: diseñar proyecto");
 
-    // Cambiar al estado "construir proyecto"
-    this.currentState = "construir proyecto";
-    console.log("Cambiando al estado: construir proyecto");
-  }
+	// Lógica para diseñar el proyecto
 
-  buildProject(): void {
-    console.log("Estado actual: construir proyecto");
+	// Cambiar al estado "construir proyecto"
+	this.currentState = "construir proyecto";
+		console.log("Cambiando al estado: construir proyecto");
+	}
 
-    // Lógica para construir el proyecto
+	buildProject(): void {
+		console.log("Estado actual: construir proyecto");
 
-    // Cambiar al estado "ejecutar proyecto"
-    this.currentState = "ejecutar proyecto";
-    console.log("Cambiando al estado: ejecutar proyecto");
-  }
+		// Lógica para construir el proyecto
 
-  runProject(): void {
-    console.log("Estado actual: ejecutar proyecto");
+		// Cambiar al estado "ejecutar proyecto"
+		this.currentState = "ejecutar proyecto";
+		console.log("Cambiando al estado: ejecutar proyecto");
+	}
 
-    // Lógica para ejecutar el proyecto
-    console.log("El proyecto de la calculadora está en funcionamiento.");
-    console.log("Puedes realizar cálculos utilizando las operaciones definidas.");
-  }
+	runProject(): void {
+		console.log("Estado actual: ejecutar proyecto");
+
+		// Lógica para ejecutar el proyecto
+		console.log("El proyecto de la calculadora está en funcionamiento.");
+		console.log("Puedes realizar cálculos utilizando las operaciones definidas.");
+	}
 }
-
 const ide = new AlephScriptIDEImpl();
-ide.createProject();
-ide.designProject();
-ide.buildProject();
-ide.runProject();

@@ -15,7 +15,7 @@ export interface ApiRequest {
 
 export interface ApiReply {
 	ok:	 boolean;
-	data: string;
+	data: any;
 }
 
 export interface ApiState {
@@ -46,6 +46,8 @@ export class Api {
 
   	constructor() {
 		this.openai = new OpenAI(configuration);
+
+		this.openai.apiKey = auth.openai.key;
   	}
 
 	async send (messages: any[]): Promise<ApiReply> {
@@ -76,4 +78,3 @@ export class Api {
 		}
 	}
 }
-

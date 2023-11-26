@@ -30,6 +30,8 @@ export interface IModelo {
 
     imprimir(): string;
 
+    estado: any;
+
 }
 
 export class Modelo implements IModelo {
@@ -39,6 +41,7 @@ export class Modelo implements IModelo {
     muerte: number = 3;
     pulso: number = BASE_MUNDO_PULSO;
     dominio = new Dominio({});
+    estado;
 
     imprimir(): string {
         return Object

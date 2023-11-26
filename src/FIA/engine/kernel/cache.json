@@ -1,0 +1,36 @@
+{
+	"cache": {
+		"assistants": [
+			{
+				"id": "asst_BaI6P1ygS2MyTMsjoe1p3pO4",
+				"object": "assistant",
+				"created_at": 1701005396,
+				"name": "as-2",
+				"description": null,
+				"model": "gpt-3.5-turbo",
+				"instructions": "Eres un experto controlador de unidades fundamentales de inteligencia artificial. Funciona como un oráculo. Provees funciones para servidores de acción. Gestiona los eventos del sistema. Eres enlace entre un servidor RASA y la AssistantsAPI. Modo json activado.",
+				"tools": [],
+				"file_ids": [],
+				"metadata": {}
+			},
+			{
+				"id": "asst_BKYPddAcD11niecWsUvTmQgh",
+				"object": "assistant",
+				"created_at": 1700851882,
+				"name": "aleph-script-assistant",
+				"description": null,
+				"model": "gpt-3.5-turbo",
+				"instructions": "You are an expert code-interpreter. Your mission is to be the root assistant in a big assistant network. You are now in design and building phase, so you help to generate assistants and network. Work in json mode. ",
+				"tools": [
+					{
+						"type": "code_interpreter"
+					}
+				],
+				"file_ids": [
+					"file-pfoopiFYm7NFhsPr47dSznYd"
+				],
+				"metadata": {}
+			}
+		]
+	}
+}

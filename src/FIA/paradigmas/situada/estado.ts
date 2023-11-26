@@ -30,6 +30,7 @@ export class Estado implements IEstado {
     }
 
     transicion(e: IEstado): void {
+        console.log("transicion base");
         this.modelo = e.comoModelo();
     }
 
