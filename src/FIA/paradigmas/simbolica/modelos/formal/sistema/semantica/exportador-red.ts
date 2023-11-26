@@ -1,4 +1,4 @@
-import { Ignoto } from "../../../../../../genesis-block";
+import { Ignoto } from "../../../../../../Intencion";
 import { IArco } from "./arco";
 
 import { IGrafo } from "./grafo";

@@ -4,5 +4,6 @@ export interface IModeloConceptual  {
 
     uml: IUMLModelo;
 
+    comoJSON(): object;
 
 }

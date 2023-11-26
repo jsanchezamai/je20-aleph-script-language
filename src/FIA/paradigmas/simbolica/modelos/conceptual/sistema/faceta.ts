@@ -1,4 +1,4 @@
-import { Ignoto } from "../../../../../genesis-block";
+import { Ignoto } from "../../../../../Intencion";
 
 export type Tipo = Ignoto;
 export type Valor = Ignoto;

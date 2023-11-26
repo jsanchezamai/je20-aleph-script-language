@@ -53,7 +53,12 @@ export class CKNivelConceptual implements ICKNivelConceptual {
 
         return {
             conocimiento: this.conocimiento,
-            ...estudio.modelo.dominio.base
+            ...estudio.modelo.dominio.base,
+            comoJSON: () => {
+                return {
+                    conocimiento: this.conocimiento.imprimir()
+                }
+            }
         }  as ICKModeloConceptual
 
     }
@@ -75,9 +80,22 @@ export class CKNivelConceptual implements ICKNivelConceptual {
 
         return {
             comunicacion: this.comunicacion,
-            ...estudio.modelo.dominio.base
+            ...estudio.modelo.dominio.base,
+            comoJSON: () => {
+                return {
+                    comunicacion: this.comunicacion.imprimir()
+                }
+            }
         } as IModeloComunicaciones
 
+    }
+
+    comoJSON(): any {
+
+        return {
+            conocimiento: this.conocimiento.imprimir(),
+            comunicacion: this.comunicacion.imprimir(),
+        }
     }
 
 }

@@ -39,7 +39,7 @@ export interface ICKNivelContextual extends ICKNivel {
     estudioViabilidad(m: IModelo): IAlternativa[];
     estudioImpactoYMejoras(a: IAlternativa[]): IObjetivo;
 
-    recursos(): IRecurso;
+    recursos(): IRecurso[];
     conclusiones(): IFormularioOTA1;
 
 }
@@ -104,7 +104,8 @@ export class CKNivelContextual implements ICKNivelContextual {
 
         return {
             ...this,
-            conclusiones: this.conclusiones
+            conclusiones: this.conclusiones,
+            comoJSON: this.comoJSON
         }
 
     }
@@ -134,19 +135,29 @@ export class CKNivelContextual implements ICKNivelContextual {
 
 
     }
+
+    comoJSON(): object {
+
+        return {
+            organizacion: this.organizacion.imprimir(),
+            tareas: this.tareas.imprimir(),
+            agentes: this.agentes.imprimir(),
+            recursos: this.recursos?.name,
+            conclusiones: this.conclusiones().imprimir()
+        }
+    }
 }
 
-export interface IRecurso {}
+export interface IRecurso {
+    nombre?: string;
+}
 
 export interface IAlternativa extends ICKNivelContextual {
-
-    recursos: () => IRecurso[];
 
 }
 
 export class Alternativa extends CKNivelContextual implements IAlternativa {
 
     nombre = "alternativa";
-
 
 }

@@ -1,4 +1,4 @@
-import { Aferencia } from "../../genesis-block";
+import { Aferencia } from "../../Intencion";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
 import { FIAHibrida } from "./fia-hibrida";

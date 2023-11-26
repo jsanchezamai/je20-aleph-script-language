@@ -1,5 +1,5 @@
 import { IDiccionarioI18 } from "../../../../genesis-block";
-import { IModelo } from "../../../../mundos/modelo";
+import { IModelo, Modelo } from '../../../../mundos/modelo';
 import { agentMessage } from "../../../../agentMessage";
 import { AS_COMMON_KADS_I18 } from "./as-common-kads-i18";
 import { ISistema, SistemaRuntime } from "./sistema";
@@ -8,9 +8,11 @@ import { ICKNivelConceptual, CKNivelConceptual, ICKModeloConceptual } from "./ni
 import { IAlternativa, IObjetivo, ICKNivelContextual, CKNivelContextual, Alternativa } from "./nivel/nivel-contextual";
 import { IModeloComunicaciones } from "./modelos/comunicacion/modelo-comunicaciones";
 import { IEstadoT, EstadoT } from "./estado";
+import { RTCache } from "../../../../engine/kernel/rt-cache";
 
 const fi18 = AS_COMMON_KADS_I18.COMMON_KADS.CK;
 export enum CKFases {
+    Nivel = "",
     NivelContextual = fi18.FASES.CONTEXTUAL.NOMBRE as any,
     NivelConceptual = fi18.FASES.CONCEPTUAL.NOMBRE as any,
     NivelArtefactual = fi18.FASES.DISENYO.NOMBRE as any,
@@ -18,8 +20,12 @@ export enum CKFases {
 }
 
 export interface IEspecificacion {
+
     conceptual: ICKModeloConceptual,
     comunicacion: IModeloComunicaciones
+
+    comoJSON: () => Object;
+
 }
 
 export interface IFase {
@@ -64,6 +70,8 @@ export interface ICK {
     monitorizacion(f: IFase): Promise<IEstadoT<IModelo>>;
 }
 
+export const CKCACHE_Clave = "CJKCACHE";
+
 export class CK implements ICK {
 
     i18 = AS_COMMON_KADS_I18.COMMON_KADS.CK;
@@ -78,35 +86,61 @@ export class CK implements ICK {
 
     async instanciar(m: IModelo): Promise<IEstadoT<IModelo>> {
 
-        console.log(agentMessage(this.nombre, this.i18.CABECERA));
+        return new Promise(async (resolve, reject) => {
+            console.log(agentMessage(this.nombre, this.i18.CABECERA));
 
-        let fase: IFase = {
+            let fase: IFase = {
 
-            fase: CKFases.NivelContextual,
-            estado: new EstadoT<IModelo>(m),
+                fase: CKFases.Nivel,
+                estado: new EstadoT<IModelo>(m),
 
-            alternativas: [],
+                alternativas: [],
 
-            objetivo: null,
-            especificacion: null,
+                objetivo: null,
+                especificacion: null,
 
-            sistema: null,
+                sistema: null,
 
-            imprimir: () => `${this.i18.CONSTRUCCION}${this}`,
+                imprimir: () => `${this.i18.CONSTRUCCION}${this}`,
 
-        };
+            };
 
-        this.modeloOrganizacion(fase);
-        this.modeloConceptual(fase);
-        this.modeloDisenyo(fase);
+            const claves = (f) => {
 
-        return await this.monitorizacion(fase);
+                if (typeof f == "object") {
+                    return Object.keys(f).map(claves(f)).join("/");
+                }
+                return f;
+            }
+
+            const c = await this.ciclo(fase);
+            c.modelo.dominio.base[CKCACHE_Clave] = {
+
+                fase: fase.fase,
+
+                estado: fase.estado.comoModelo().estado,
+
+                alternativas: fase.alternativas.map(a => a.comoJSON()),
+
+                objetivo: fase.objetivo.comoJSON(),
+
+                especificacion: fase.especificacion.comoJSON(),
+
+                sistema: fase.sistema.comoJSON()
+            }
+
+            resolve(c);
+        })
 
     }
 
     modeloOrganizacion(f: IFase): IFase {
 
         f.fase = CKFases.NivelContextual;
+
+        console.log(agentMessage(this.nombre,
+            `${this.i18.FASES.CONTEXTUAL.NOMBRE}`
+        ));
 
         f.alternativas = this.nivel1.estudioViabilidad(f.estado.comoModelo());
         console.log(agentMessage(this.nombre,
@@ -132,6 +166,10 @@ export class CK implements ICK {
 
         f.fase = CKFases.NivelConceptual;
 
+        console.log(agentMessage(this.nombre,
+            `${this.i18.FASES.CONCEPTUAL.NOMBRE}`
+        ));
+
         const conceptual = this.nivel2.modeloConocimiento(f.objetivo.conclusiones());
         console.log(agentMessage(this.nombre,
             `${this.i18.FASES.CONCEPTUAL.CONOCIMIENTO}:
@@ -145,7 +183,13 @@ export class CK implements ICK {
 
         f.especificacion = {
             conceptual,
-            comunicacion
+            comunicacion,
+            comoJSON: () => {
+                return {
+                    conceptual: conceptual.comoJSON(),
+                    comunicacion: comunicacion.comoJSON()
+                }
+            }
         }
         console.log(agentMessage(this.nombre, `${this.i18.FASES.CONCEPTUAL.ESPECIFICACION}`));
 
@@ -157,6 +201,10 @@ export class CK implements ICK {
     modeloDisenyo(f: IFase): IFase {
 
         f.fase = CKFases.NivelArtefactual;
+
+        console.log(agentMessage(this.nombre,
+            `${this.i18.FASES.DISENYO.NOMBRE}`
+        ));
 
         f.sistema = this.nivel3.sistema(f.especificacion);
         console.log(agentMessage(this.nombre,
@@ -175,7 +223,11 @@ export class CK implements ICK {
         return new Promise(async (resolve, reject) => {
 
             f.fase = CKFases.Monitorizacion;
-            console.log(agentMessage(this.nombre, this.i18.EJECUCION.CABECERA));
+
+            console.log(agentMessage(this.nombre,
+                `${this.i18.EJECUCION.CABECERA}`
+            ));
+
             try {
                 const c = new SistemaRuntime(f.sistema);
                 c.monitor.subscribe(notificacion => {
@@ -195,4 +247,32 @@ export class CK implements ICK {
         });
     }
 
+    async ciclo(f: IFase): Promise<IEstadoT<IModelo>> {
+
+        return new Promise(async (resolve, reject) => {
+
+            switch(f.fase) {
+                case CKFases.Nivel:
+                    f = this.modeloOrganizacion(f);
+                    await this.ciclo(f);
+                    break;
+                case CKFases.NivelContextual:
+                    f = this.modeloConceptual(f);
+                    await this.ciclo(f);
+                    break;
+                case CKFases.NivelConceptual:
+                    f = this.modeloDisenyo(f);
+                    await this.ciclo(f);
+                    break;
+                case CKFases.NivelArtefactual:
+                    const r = await this.monitorizacion(f);
+                    await this.ciclo(f);
+                    break;
+                case CKFases.Monitorizacion:
+                default:
+                    f.fase = CKFases.Nivel;
+            }
+            resolve(f.estado);
+        })
+    }
 }

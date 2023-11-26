@@ -4,6 +4,7 @@ import { EstadoT } from "../../../../../situada/estado";
 import { AS_COMMON_KADS_I18 } from "../../as-common-kads-i18";
 
 export interface IAplicacion {
+    comoJSON(): unknown;
 
     nombre: string;
     iniciar(estado: EstadoT<IModelo>): Promise<EstadoT<IModelo>>;
@@ -26,6 +27,10 @@ export class Aplicacion implements IAplicacion {
         console.log(agentMessage(this.nombre, `${this.i18.PIE}`));
         return estado;
 
+    }
+
+    comoJSON(): unknown {
+        return this.nombre;
     }
 
 }

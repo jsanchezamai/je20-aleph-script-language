@@ -1,4 +1,5 @@
-import { iFIA, GenesisBlock, Intencion } from "../../genesis-block";
+import { iFIA, GenesisBlock } from "../../genesis-block";
+import { Intencion } from "../../Intencion";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
 import { agentMessage } from "../../agentMessage";

@@ -1,5 +1,6 @@
 import { agentMessage } from "../../../agentMessage";
 import { App } from "../../../engine/apps/app";
+import { FIA_SBC } from "../../../paradigmas/sbc/fia-sbc";
 import { IDEModelo } from "./modelo/ide-modelo";
 import { IDEMundo } from "./mundo/ide-mundo";
 import { IDEEstados } from "./situada/ide-estado";
@@ -10,6 +11,7 @@ export class IdeApp extends App {
     i18 = this.i18.IDE;
 
     runAsync: true;
+    sbc: FIA_SBC;
 
     constructor() {
         super();
@@ -34,10 +36,13 @@ export class IdeApp extends App {
         this.situada = new IDEFIASituada();
         this.situada.mundo = this.mundo;
 
+        this.sbc = new FIA_SBC();
+
         const salidas = await Promise.all(
             [
                 this.mundo.ciclo(),
-                this.situada.instanciar()
+                await this.situada.instanciar(),
+                await this.sbc.instanciarE()
             ]
         );
 

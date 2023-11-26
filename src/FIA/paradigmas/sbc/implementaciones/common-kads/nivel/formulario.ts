@@ -24,8 +24,8 @@ export class Formulario implements IFormulario {
 
     imprimir(): string {
 
-        const estado = this.dominio
-            .base[Estudio.claveDominio]
+        const estado = (this.dominio
+            .base[Estudio.claveDominio] || [])
             .map(m => m.nombre)
             .join(" - ");
 

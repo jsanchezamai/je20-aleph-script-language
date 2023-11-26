@@ -16,14 +16,14 @@ export const AS_COMMON_KADS_I18 = {
             FASES: {
                 CONTEXTUAL: {
                     NOMBRE: "Nivel Contextual",
-                    VIABILIDAD: "Realizado estudio de viabilidad",
-                    IMPACTO: " Realizado estudio de impacto y mejoras",
+                    VIABILIDAD: " NCx.01 Realizado estudio de viabilidad",
+                    IMPACTO: " NCx.02 Realizado estudio de impacto y mejoras",
                 },
                 CONCEPTUAL: {
                     NOMBRE: "Nivel Conceptual",
-                    CONOCIMIENTO: "Realizado modelo de conocimiento",
-                    COMUNICACIONES: "Realizado modelo de comunicaciones",
-                    ESPECIFICACION: "¡Especificación realizada!",
+                    CONOCIMIENTO: " NC.01 Realizado modelo de conocimiento",
+                    COMUNICACIONES: "NC.02 Realizado modelo de comunicaciones",
+                    ESPECIFICACION: "NC.03 ¡Especificación realizada!",
                     UML: "UML",
                     CML: "CML"
                 },

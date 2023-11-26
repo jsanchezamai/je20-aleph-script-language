@@ -19,6 +19,8 @@ export interface IUMLModelo {
 
     imprimir(): string;
 
+    comoJSON(): Object;
+
 }
 
 export class UML implements IUML {
@@ -33,7 +35,15 @@ export class UML implements IUML {
 
         return {
             dominio,
-            imprimir: () => AS_COMMON_KADS_I18.COMMON_KADS.CK.FASES.CONCEPTUAL.UML
+            imprimir: () => AS_COMMON_KADS_I18.COMMON_KADS.CK.FASES.CONCEPTUAL.UML,
+            comoJSON: this.comoJSON
+        }
+    }
+
+    comoJSON(): Object
+    {
+        return {
+            uml: AS_COMMON_KADS_I18.COMMON_KADS.CK.FASES.CONCEPTUAL.UML
         }
     }
 

@@ -12,6 +12,8 @@ import { IDisenyo } from "./modelos/disenyo/disenyo";
 
 export interface ISistema  {
 
+    comoJSON(): object;
+
     disenyo: IDisenyo;
 
     arquitectura: IArquitectura;
@@ -53,6 +55,7 @@ export class SistemaRuntime implements ISistemaRuntime {
             const estado = new EstadoT<IModelo>(new Modelo());
             try {
                 await this.sistema.aplicacion.iniciar(estado);
+
                 resolve(estado);
 
             } catch(ex) {

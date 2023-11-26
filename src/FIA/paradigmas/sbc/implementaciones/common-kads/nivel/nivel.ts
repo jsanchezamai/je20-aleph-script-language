@@ -14,6 +14,9 @@ export class Vacio extends Modelo {
 export interface ICKNivel {
 
     formularios: () => IFormulario[];
+
+    comoJSON(): object;
+
 }
 
 

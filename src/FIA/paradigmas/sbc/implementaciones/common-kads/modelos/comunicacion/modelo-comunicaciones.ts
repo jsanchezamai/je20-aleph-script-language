@@ -10,4 +10,6 @@ export interface IModeloComunicaciones {
     plan: IPlan,
     transacciones: ITransaccion[],
     intercambio: IIntercambio[]
+
+    comoJSON: () => object;
 }

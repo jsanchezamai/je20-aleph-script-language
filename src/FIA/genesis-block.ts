@@ -1,11 +1,7 @@
+import { Intencion, Aferencia, Eferencia } from "./Intencion";
+import { RTCache } from "./engine/kernel/rt-cache";
 import { i18 } from "./i18/aleph-script-i18";
 import { IMundo, Mundo } from "./mundos/mundo";
-
-export type Ignoto = any;
-
-export type Intencion = Ignoto;
-export type Aferencia = Ignoto;
-export type Eferencia = Ignoto;
 
 export type Objetivo = Intencion;
 
@@ -37,9 +33,13 @@ export interface iFIA {
 
     abstrae: (p: IPercepto) => IAprendize;
 
+    cache: RTCache;
+
 }
 
 export class FIA implements iFIA {
+
+    cache: RTCache = new RTCache();
 
     nombre = "FIA";
     i18: IDiccionarioI18;

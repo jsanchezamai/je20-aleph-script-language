@@ -1,4 +1,4 @@
-import { Ignoto } from "../../genesis-block";
+import { Ignoto } from "../../Intencion";
 import { Gramatica } from "./gramatica";
 import { Lexer } from "./lexico";
 import { Parser } from "./parser";

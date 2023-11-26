@@ -9,6 +9,7 @@ import { IComponentes } from "./componentes";
 import { IPlataforma } from "./plataforma";
 
 export interface IDisenyo extends ICKModelo {
+    comoJSON(): unknown;
 
     arquitectura(e: IEspecificacion): IArquitectura;
     plataforma(e: IEspecificacion): IPlataforma;
@@ -32,6 +33,10 @@ export class Disenyo extends CKModelo implements IDisenyo {
             new Formulario("DM-3"),
             new Formulario("DM-4"),
         ];
+    }
+
+    comoJSON(): unknown {
+        return this.formularios.map(f => f.nombre);
     }
 
     arquitectura(e: IEspecificacion): IArquitectura {

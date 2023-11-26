@@ -1,4 +1,5 @@
-import { GenesisBlock, Intencion, iFIA } from "../../genesis-block";
+import { GenesisBlock, iFIA } from "../../genesis-block";
+import { Intencion } from "../../Intencion";
 import { i18 } from "../../i18/aleph-script-i18";
 import { IMundo } from "../../mundos/mundo";
 import { IProblema, IRequisitos, ISolucion } from "./modelos/formal/inferencia/relacion/paradigma";
