@@ -1,17 +1,18 @@
 import { agentMessage } from "../../../agentMessage";
 import { App } from "../../../engine/apps/app";
-import { FIA_SBC } from "../../../paradigmas/sbc/fia-sbc";
+
 import { IDEModelo } from "./modelo/ide-modelo";
 import { IDEMundo } from "./mundo/ide-mundo";
 import { IDEEstados } from "./situada/ide-estado";
 import { IDEFIASituada } from "./situada/ide-fia-situada";
+import { IDE_SBC } from "./situada/ide-sbc";
 
 export class IdeApp extends App {
 
     i18 = this.i18.IDE;
 
     runAsync: true;
-    sbc: FIA_SBC;
+    sbc: IDE_SBC;
 
     constructor() {
         super();
@@ -28,7 +29,7 @@ export class IdeApp extends App {
 
         this.mundo.modelo = new IDEModelo();
         this.mundo.modelo.pulso = 1000;
-        this.mundo.modelo.muerte = 1;
+        this.mundo.modelo.muerte = 4;
         this.mundo.modelo.estado = IDEEstados.PARADA;
 
         this.mundo.nombre = this.i18.MUNDO.NOMBRE;
@@ -36,21 +37,22 @@ export class IdeApp extends App {
         this.situada = new IDEFIASituada();
         this.situada.mundo = this.mundo;
 
-        this.sbc = new FIA_SBC();
+        this.sbc = new IDE_SBC();
+        this.sbc.mundo = this.mundo;
 
-        const salidas = await Promise.all(
+        const salidas = await Promise.allSettled(
             [
                 this.mundo.ciclo(),
-                await this.situada.instanciar(),
-                await this.sbc.instanciarE()
+                this.situada.instanciar(),
+                this.sbc.instanciarC(),
             ]
         );
 
-        if (typeof salidas == 'object') {
-            return `${this.i18.SIMULATION_END}`;
-        } else {
-
-        }
-
+        return salidas.map(f => {
+            if (typeof f == 'object') {
+                return `${this.i18.SIMULATION_END}`;
+            } else {
+            }
+        }).join(" - ")
     }
 }

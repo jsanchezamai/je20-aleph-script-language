@@ -1,4 +1,3 @@
-import { noop } from "rxjs";
 import { Ignoto } from "../../Intencion";
 import { Dominio, IDominio } from "../../mundos/dominio";
 import * as fs from "fs";
@@ -34,7 +33,7 @@ export class RTCache {
         try {
             fs.writeFileSync(__dirname + '/cache.json', JSON.stringify(
                 { cache : this.dominio.base }, null, "\t"));
-            console.log("Cache escrita en", __dirname + '/cache.json' /*, this.dominio.base*/);
+            // console.log("Cache escrita en", __dirname + '/cache.json' /*, this.dominio.base*/);
         } catch(ex) {
             console.log("Error al guardar cache", ex)
         }
@@ -49,6 +48,8 @@ export class RTCache {
         const data: any = fs.readFileSync(__dirname + '/cache.json');
 
         this.dominio.base = JSON.parse(data || {})?.cache || {};
+
+        console.log("Leida cache de: ", __dirname + '/cache.json');
 
     }
 

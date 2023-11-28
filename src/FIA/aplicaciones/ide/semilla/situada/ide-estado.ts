@@ -1,8 +1,11 @@
 import { agentMessage } from "../../../../agentMessage";
 import { RTCache } from "../../../../engine/kernel/rt-cache";
-import { Trainer, Trainer_key } from '../../../../paradigmas/conexionista/modelos-lenguaje/oai/asisstant';
+import { Trainer } from '../../../../paradigmas/conexionista/modelos-lenguaje/oai/asisstant';
+import { IDE_clave, Trainer_clave } from "../../../../paradigmas/conexionista/modelos-lenguaje/oai/Trainer_key";
 import { EstadoT } from "../../../../paradigmas/situada/estado";
+import { AlephScriptIDEImpl } from "../../aleph-script-idle";
 import { IDEModelo } from "../modelo/ide-modelo";
+import { SBC_CK } from '../../../../paradigmas/sbc/implementaciones/common-kads/fia-sbc-ck';
 
 export enum IDEEstados {
 	PARADA = "PARADA",
@@ -27,19 +30,31 @@ export class IDEEstado<IDEEstados> extends EstadoT<IDEEstados> {
 				const c = new RTCache();
 				c.recuperar();
 
-				const as = c.leerLista(Trainer_key);
+				const as = c.leerLista(Trainer_clave);
 
 				if (as.length > 0) {
-					this.modelo.estado = IDEEstados.ARRANCAR;
 					console.log(agentMessage(this.modelo.nombre, "Autómata listo." + new Trainer().imprimir(as)));
 				} else {
 					const s = new Trainer();
 					const r = await s.run([]);
 					if (r.ok) {
-						c.guardar(Trainer_key, r.data);
+						c.guardar(Trainer_clave, r.data);
 						c.persistir();
 					}
 				}
+				this.modelo.estado = IDEEstados.ARRANCAR;
+				break;
+			case IDEEstados.ARRANCAR:
+
+				const ide = new AlephScriptIDEImpl();
+
+				console.log("Guardar en la clave IDE el ide", IDE_clave, ide.imprimir())
+				this.modelo.dominio.base[IDE_clave] = ide;
+
+				this.modelo.estado = IDEEstados.AVANZAR;
+				break;
+
+			case IDEEstados.AVANZAR:
 				break;
 			default:
 				console.log(agentMessage(this.modelo.nombre, "Paso 0: " + this.modelo.estado));

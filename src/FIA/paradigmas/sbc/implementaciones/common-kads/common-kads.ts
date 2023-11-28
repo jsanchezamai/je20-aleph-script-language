@@ -8,7 +8,11 @@ import { ICKNivelConceptual, CKNivelConceptual, ICKModeloConceptual } from "./ni
 import { IAlternativa, IObjetivo, ICKNivelContextual, CKNivelContextual, Alternativa } from "./nivel/nivel-contextual";
 import { IModeloComunicaciones } from "./modelos/comunicacion/modelo-comunicaciones";
 import { IEstadoT, EstadoT } from "./estado";
-import { RTCache } from "../../../../engine/kernel/rt-cache";
+
+import * as fs from 'fs';
+import * as path from 'path';
+import { createGenerator, createParser, Config, TypeFormatter } from 'ts-json-schema-generator';
+
 
 const fi18 = AS_COMMON_KADS_I18.COMMON_KADS.CK;
 export enum CKFases {
@@ -68,9 +72,11 @@ export interface ICK {
     modeloDisenyo(f: IFase): IFase;
 
     monitorizacion(f: IFase): Promise<IEstadoT<IModelo>>;
+
 }
 
 export const CKCACHE_Clave = "CJKCACHE";
+
 
 export class CK implements ICK {
 
@@ -275,4 +281,62 @@ export class CK implements ICK {
             resolve(f.estado);
         })
     }
+
+    
+    obtenerSchemaReferencia(): any {
+
+        const keys = Reflect.ownKeys(CK.prototype);
+
+        console.log("the e", this.generarEsquema())
+		return keys;
+	}
+
+    async generarEsquema() {
+        const configuracion: Config = {
+          path: path.resolve(__dirname, 'test.ts'),
+          tsconfig: "/Users/morente/Desktop/DRIVE/taller_tc/JE20/je20/fia/tsconfig.json",
+          type: '*',
+          jsDoc: 'extended',
+          expose: 'all',
+        };
+
+        const generator = createGenerator(configuracion);
+
+        const esquema = generator.createSchema(configuracion.type);
+
+        return esquema.definitions;
+
+      }
 }
+
+import { BaseType, Definition, FunctionType, SubTypeFormatter } from "ts-json-schema-generator";
+
+export class MyFunctionTypeFormatter implements SubTypeFormatter {
+    // You can skip this line if you don't need childTypeFormatter
+    public constructor(private childTypeFormatter: TypeFormatter) {}
+    getChildren(type: BaseType): BaseType[] {
+        return []
+    }
+
+    public supportsType(type: FunctionType): boolean {
+        return type instanceof FunctionType;
+    }
+
+    public getDefinition(type: FunctionType): Definition {
+        // Return a custom schema for the function property.
+        // TODO
+        return {
+            type: "object",
+            properties: {
+                isFunction: {
+                    type: "boolean",
+                    const: true,
+                },
+            },
+        };
+    }
+
+
+}
+
+

@@ -152,7 +152,7 @@ export class Mundo implements IMundo {
     destructor() {
 
         this.aferencias.forEach(s => s.unsubscribe());
-        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}, ${this.alAcabarCallbacks}`));
+        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}, destruir `));
     }
 
     pulso(): void {
