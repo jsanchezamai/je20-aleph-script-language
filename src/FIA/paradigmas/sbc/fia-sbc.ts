@@ -7,10 +7,11 @@ import { IModelo } from "../../mundos/modelo";
 import { IEstadoT } from "../situada/estado";
 import { RTCache } from "../../engine/kernel/rt-cache";
 import { Asistentizador } from "../../aplicaciones/ide/aleph-script-idle";
+import { IMundo } from "../../mundos/mundo";
 
 export interface FIA_SBC extends iFIA {
 
-    instanciarE(): Promise<IEstadoT<IModelo>>;
+    instanciarE(m: IMundo): Promise<IEstadoT<IModelo>>;
 
 }
 
@@ -22,7 +23,7 @@ export class FIA_SBC extends GenesisBlock implements iFIA {
 
     nombre = this.i18.NOMBRE;
 
-    async instanciarE(): Promise<IEstadoT<IModelo>> {
+    async instanciarE(m: IMundo): Promise<IEstadoT<IModelo>> {
 
         return new Promise(async (resolve, reject) => {
 
@@ -30,21 +31,21 @@ export class FIA_SBC extends GenesisBlock implements iFIA {
             // try {
                 const ck = new SBC_CK();
 
-                const as = new Asistentizador(ck.commonkads);
-                as.examinarClase();
+                // TODO const as = new Asistentizador(ck.commonkads);
+                // TODO as.examinarClase();
 
                 const ch = new RTCache();
                 let c = ch.leer(CKCACHE_Clave);
 
-                if (c) {
+                if (c && c.fase !== "") {
                     resolve(c);
                     console.log(agentMessage(this.nombre, "Cacheado! " + this.i18.PIE));
                     return;
                 }
 
-                const resultado = await ck.instanciar();
+                const resultado = await ck.instanciar(m);
 
-                this.cache.guardar(CKCACHE_Clave, resultado.comoModelo().dominio.base[CKCACHE_Clave]);
+                this.cache.guardar(CKCACHE_Clave, resultado?.comoModelo().dominio.base[CKCACHE_Clave]);
                 this.cache.persistir();
 
                 console.log(agentMessage(this.nombre, this.i18.PIE));

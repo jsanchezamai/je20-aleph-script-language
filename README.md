@@ -1,3 +1,7 @@
+English version available, please request.
+
+Nota: Se ha codificado el software usando spanish-like intencionalmente. Se dispone version anglosajona.
+
 Sábado, 25 de noviembre de 2024.
 
 En el contexto del proyecto [JE2.0](https://jsanchezamai.github.io/je20/), para un final de grado; en el marco de las asignaturas TLP y FIA, [aleph-script](https://github.com/jsanchezamai/je20-aleph-script-language) supone un intento (dummy, naife) de crear un lenguaje para desarrollar y operar aplicaciones de inteligencia artificial. 

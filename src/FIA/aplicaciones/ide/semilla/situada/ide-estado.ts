@@ -5,7 +5,7 @@ import { IDE_clave, Trainer_clave } from "../../../../paradigmas/conexionista/mo
 import { EstadoT } from "../../../../paradigmas/situada/estado";
 import { AlephScriptIDEImpl } from "../../aleph-script-idle";
 import { IDEModelo } from "../modelo/ide-modelo";
-import { SBC_CK } from '../../../../paradigmas/sbc/implementaciones/common-kads/fia-sbc-ck';
+import { IDE_SBC } from "./ide-sbc";
 
 export enum IDEEstados {
 	PARADA = "PARADA",
@@ -36,7 +36,7 @@ export class IDEEstado<IDEEstados> extends EstadoT<IDEEstados> {
 					console.log(agentMessage(this.modelo.nombre, "Autómata listo." + new Trainer().imprimir(as)));
 				} else {
 					const s = new Trainer();
-					const r = await s.run([]);
+					const r = await s.list([]);
 					if (r.ok) {
 						c.guardar(Trainer_clave, r.data);
 						c.persistir();

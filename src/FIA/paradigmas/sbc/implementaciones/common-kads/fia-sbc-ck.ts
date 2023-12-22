@@ -1,7 +1,7 @@
 import { agentMessage } from "../../../../agentMessage";
 import { IDiccionarioI18 } from "../../../../genesis-block";
 import { IModelo } from "../../../../mundos/modelo";
-import { Mundo } from "../../../../mundos/mundo";
+import { IMundo, Mundo } from "../../../../mundos/mundo";
 import { AS_COMMON_KADS_I18 } from "./as-common-kads-i18";
 import { CK, IFase } from "./common-kads";
 import { IEstadoT } from "./estado";
@@ -12,7 +12,7 @@ export interface ISBC_CK {
 
     i18: IDiccionarioI18;
 
-    instanciar(): Promise<IEstadoT<IModelo>>;
+    instanciar(m: IMundo): Promise<IEstadoT<IModelo>>;
 
 }
 
@@ -24,16 +24,16 @@ export class SBC_CK implements ISBC_CK  {
 
     commonkads = new CK();
 
-    async instanciar(): Promise<IEstadoT<IModelo>> {
+    async instanciar(mundo: IMundo): Promise<IEstadoT<IModelo>> {
 
         return new Promise(async (resolve, reject) => {
 
             console.log(agentMessage(this.nombre, this.i18.CABECERA));
             // try {
-                const m = new Mundo();
+
                 const resultado = await this
                     .commonkads
-                    .instanciar(m.modelo);
+                    .instanciar(mundo);
 
                 resolve(resultado);
 

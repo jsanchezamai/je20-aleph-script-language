@@ -9,8 +9,6 @@ import { IAlternativa, IObjetivo, ICKNivelContextual, CKNivelContextual, Alterna
 import { IModeloComunicaciones } from "./modelos/comunicacion/modelo-comunicaciones";
 import { IEstadoT, EstadoT } from "./estado";
 
-import * as fs from 'fs';
-import * as path from 'path';
 import { createGenerator, createParser, Config, TypeFormatter } from 'ts-json-schema-generator';
 
 
@@ -22,6 +20,16 @@ export enum CKFases {
     NivelArtefactual = fi18.FASES.DISENYO.NOMBRE as any,
     Monitorizacion = fi18.EJECUCION.NOMBRE as any
 }
+
+const etiqueta = "Explica en qué consiste el formulario de CommonKADS con nombre: ID. ";
+const campo = "{ nombre: string, descripcion: string }";
+const formulario = " { formulario { tipo: 'commonKADS', 'id': <id>,  campos_habituales: [" + campo + "] }";
+const texto = "Devuelve { descripcion: '<formato markdown>' formulario: '" + formulario + "'}";
+export const SolicitarExplicarFormulario = etiqueta + "Modo JSON activado, responde solo con el JSON. " + texto;
+
+const etiquetaR = "Acompaña al usuario para rellenar el formulario: ID";
+const textoR = "Una vez el usuario ha rellenado todos los campos, responde llamando a la función ProcesarFormulario(formulario)";
+export const SolicitarRellenarFormulario = etiquetaR + "Modo JSON activado, responde solo con el JSON. " + textoR;
 
 export interface IEspecificacion {
 
@@ -47,7 +55,15 @@ export interface IFase {
     sistema: ISistema;
 
     imprimir(): string;
+
+    llamada?: Subscription;
+
+    solicitar?: Subject<IFase>;
+
+    esperando?: boolean;
 }
+
+export const CK_FASE_clave = "CK_FASE_clave";
 
 /**
  * Knowledge Acquisition and Design Structuring
@@ -65,7 +81,7 @@ export interface ICK {
     nivel2: ICKNivelConceptual;
     nivel3: ICKNivelArtefactual;
 
-    instanciar(m: IModelo): Promise<IEstadoT<IModelo>>;
+    instanciar(m: IMundo): Promise<IEstadoT<IModelo>>;
 
     modeloOrganizacion(f: IFase): IFase;
     modeloConceptual(f: IFase): IFase;
@@ -73,6 +89,7 @@ export interface ICK {
 
     monitorizacion(f: IFase): Promise<IEstadoT<IModelo>>;
 
+    imprimirFase(f: IFase): any;
 }
 
 export const CKCACHE_Clave = "CJKCACHE";
@@ -90,52 +107,60 @@ export class CK implements ICK {
 
     constructor() {}
 
-    async instanciar(m: IModelo): Promise<IEstadoT<IModelo>> {
+    inited: false;
+
+    async instanciar(m: IMundo, ide?: AlephScriptIDE): Promise<IEstadoT<IModelo>> {
 
         return new Promise(async (resolve, reject) => {
-            console.log(agentMessage(this.nombre, this.i18.CABECERA));
 
-            let fase: IFase = {
+            let c;
+            let fase: IFase;
 
-                fase: CKFases.Nivel,
-                estado: new EstadoT<IModelo>(m),
+            m.elMundoAcabara.subscribe(s => resolve(fase?.estado));
 
-                alternativas: [],
+            const e = m.eferencia.subscribe(async m => {
 
-                objetivo: null,
-                especificacion: null,
+                e.unsubscribe();
 
-                sistema: null,
+                console.log(agentMessage(this.nombre, this.i18.CABECERA));
 
-                imprimir: () => `${this.i18.CONSTRUCCION}${this}`,
+                const rt = new RTCache();
+                fase = rt.leer(CK_FASE_clave);
 
-            };
+                fase = fase || {
 
-            const claves = (f) => {
+                    fase: CKFases.Nivel,
+                    estado: new EstadoT<IModelo>(m.modelo),
 
-                if (typeof f == "object") {
-                    return Object.keys(f).map(claves(f)).join("/");
+                    alternativas: [],
+
+                    objetivo: null,
+                    especificacion: null,
+
+                    sistema: null,
+
+                    imprimir: () => this.imprimirFase(fase),
+
+                };
+
+                ide = m.modelo.dominio.base[IDE_clave]
+
+                if (ide) {
+
+                    const s = ide.actionServer.subscribe(f => {
+                        rt.guardar(CK_FASE_clave, this.comoJSON(f));
+                    });
+
+                    c = await this.cicloAsync(fase, ide.actionServerS);
+                    s.unsubscribe();
+                } else {
+                    c = await this.ciclo(fase);
                 }
-                return f;
-            }
 
-            const c = await this.ciclo(fase);
-            c.modelo.dominio.base[CKCACHE_Clave] = {
+                c.modelo.dominio.base[CKCACHE_Clave] = this.comoJSON(fase);
 
-                fase: fase.fase,
-
-                estado: fase.estado.comoModelo().estado,
-
-                alternativas: fase.alternativas.map(a => a.comoJSON()),
-
-                objetivo: fase.objetivo.comoJSON(),
-
-                especificacion: fase.especificacion.comoJSON(),
-
-                sistema: fase.sistema.comoJSON()
-            }
-
-            resolve(c);
+                resolve(c);
+            });
         })
 
     }
@@ -154,6 +179,10 @@ export class CK implements ICK {
              ${f.alternativas[0].organizacion.imprimir()}`
         ));
 
+        if (f.alternativas.length == 1) {
+            f.esperando = true;
+        }
+
         f.objetivo = this.nivel1.estudioImpactoYMejoras(f.alternativas);
         console.log(agentMessage(this.nombre,
             `${this.i18.FASES.CONTEXTUAL.IMPACTO}:
@@ -164,6 +193,7 @@ export class CK implements ICK {
         console.log(agentMessage(this.nombre,
             `${this.i18.CONSTRUCCION}: ${f.fase}: ${f.objetivo.conclusiones().imprimir()}`));
 
+        f.solicitar.next(f);
         return f;
 
     }
@@ -282,19 +312,97 @@ export class CK implements ICK {
         })
     }
 
-    
+    imprimirFase(f: IFase): any {
+
+        switch(f.fase) {
+            case CKFases.Nivel:
+                return null;
+
+            case CKFases.NivelContextual:
+                return SolicitarExplicarFormulario.replace("ID", this.nivel1.organizacion.formularios[0].nombre);
+                break;
+            case CKFases.NivelConceptual:
+                return JSON.stringify(this.nivel2.comoJSON());
+                break;
+            case CKFases.NivelArtefactual:
+                return JSON.stringify(this.nivel3.comoJSON());
+                break;
+            case CKFases.Monitorizacion:
+            default:
+                return "";
+        }
+
+    }
+
+    comoJSON(fase: IFase) {
+        return {
+
+            fase: fase.fase,
+
+            estado: fase.estado.comoModelo().estado,
+
+            alternativas: fase.alternativas.map(a => a.comoJSON()),
+
+            objetivo: fase.objetivo?.comoJSON(),
+
+            especificacion: fase.especificacion?.comoJSON(),
+
+            sistema: fase.sistema?.comoJSON()
+        }
+    }
+
+    async cicloAsync(fase: IFase, llamada: Subject<IFase>): Promise<IEstadoT<IModelo>> {
+
+        return new Promise(async (resolve, reject) => {
+
+            fase.solicitar = llamada;
+
+            const s = llamada.asObservable().subscribe(async f => {
+
+                console.log(agentMessage(this.nombre, "AVANCE DE ESTADO: " + f.fase + " Esperando: " + f.esperando ));
+
+                if (f.esperando) {
+                    return;
+                }
+
+                switch(f.fase) {
+                    case CKFases.Nivel:
+                        f = this.modeloOrganizacion(f);
+                        break;
+                    case CKFases.NivelContextual:
+                        f = this.modeloConceptual(f);
+                        break;
+                    case CKFases.NivelConceptual:
+                        f = this.modeloDisenyo(f);
+                        break;
+                    case CKFases.NivelArtefactual:
+                        const r = await this.monitorizacion(f);
+                        break;
+                    case CKFases.Monitorizacion:
+                    default:
+                        if (f.llamada) f.llamada.unsubscribe();
+                        resolve(f.estado);
+                        f.fase = CKFases.Nivel;
+                }
+            })
+            fase.llamada = s;
+            llamada.next(fase);
+        })
+    }
+
+    // TODO
     obtenerSchemaReferencia(): any {
 
         const keys = Reflect.ownKeys(CK.prototype);
 
-        console.log("the e", this.generarEsquema())
 		return keys;
 	}
 
+    // TODO
     async generarEsquema() {
         const configuracion: Config = {
           path: path.resolve(__dirname, 'test.ts'),
-          tsconfig: "/Users/morente/Desktop/DRIVE/taller_tc/JE20/je20/fia/tsconfig.json",
+          tsconfig: "<path>tsconfig.json",
           type: '*',
           jsDoc: 'extended',
           expose: 'all',
@@ -306,10 +414,17 @@ export class CK implements ICK {
 
         return esquema.definitions;
 
-      }
+    }
+
 }
 
 import { BaseType, Definition, FunctionType, SubTypeFormatter } from "ts-json-schema-generator";
+import { Observable, Subject, Subscription } from "rxjs";
+import { AlephScriptIDE } from "../../../../aplicaciones/ide/aleph-script-idle";
+import { IDE_clave } from "../../../conexionista/modelos-lenguaje/oai/Trainer_key";
+import { RTCache } from "../../../../engine/kernel/rt-cache";
+import path from "path";
+import { IMundo } from "../../../../mundos/mundo";
 
 export class MyFunctionTypeFormatter implements SubTypeFormatter {
     // You can skip this line if you don't need childTypeFormatter

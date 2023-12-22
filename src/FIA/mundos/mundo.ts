@@ -34,6 +34,8 @@ export interface IMundo {
 
     destructor(): void;
 
+    elMundoAcabara: Observable<IMundo>;
+
 }
 
 export interface AlAcabarCallbackDatos {
@@ -55,6 +57,9 @@ export class Mundo implements IMundo {
     aferencias: Subscription[] = [];
 
     alAcabarCallbacks: AlAcabarCallbackDatos[] = [];
+
+    elMundoAcabaraS: Subject<IMundo> = new Subject();
+    elMundoAcabara: Observable<IMundo> = this.elMundoAcabaraS.asObservable();
 
     constructor() {}
 
@@ -138,6 +143,8 @@ export class Mundo implements IMundo {
     }
 
     deponer(intervalo: any) {
+
+        this.elMundoAcabaraS.next(this);
 
         console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}, deponer ${this.alAcabarCallbacks.map(c => c.nombre)}`));
 

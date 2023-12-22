@@ -5,6 +5,7 @@ import * as fs from "fs";
 export class RTCache {
 
     dominio: IDominio = new Dominio({});
+    archivo: string = '/cache.json';
 
     constructor() {
         this.recuperar();
@@ -31,7 +32,7 @@ export class RTCache {
     persistir() {
 
         try {
-            fs.writeFileSync(__dirname + '/cache.json', JSON.stringify(
+            fs.writeFileSync(__dirname + this.archivo, JSON.stringify(
                 { cache : this.dominio.base }, null, "\t"));
             // console.log("Cache escrita en", __dirname + '/cache.json' /*, this.dominio.base*/);
         } catch(ex) {
@@ -42,14 +43,14 @@ export class RTCache {
 
     recuperar() {
 
-        if (!fs.existsSync(__dirname + '/cache.json')) {
+        if (!fs.existsSync(__dirname + this.archivo)) {
             this.persistir();
         }
-        const data: any = fs.readFileSync(__dirname + '/cache.json');
+        const data: any = fs.readFileSync(__dirname + this.archivo);
 
         this.dominio.base = JSON.parse(data || {})?.cache || {};
 
-        console.log("Leida cache de: ", __dirname + '/cache.json');
+        // console.log("Leida cache de: ", __dirname + '/cache.json');
 
     }
 

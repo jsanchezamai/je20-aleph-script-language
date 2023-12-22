@@ -2,6 +2,7 @@ import { IDominio } from "../../../../../mundos/dominio";
 import { IModelo, Modelo } from "../../../../../mundos/modelo";
 import { Estudio } from "../../../estudio";
 import { IAgente, Agente } from "../modelos/agentes/agente";
+import { ICKModelo } from "../modelos/ck-modelo";
 import { IOrganizacion, Organizacion } from "../modelos/organizacion/organizacion";
 import { ITarea, Tarea } from "../modelos/tareas/tarea";
 import { Formulario, IFormulario } from "./formulario";
@@ -136,7 +137,13 @@ export class CKNivelContextual implements ICKNivelContextual {
 
     }
 
-    comoJSON(): object {
+    comoJSON(): {
+        organizacion: any,
+        tareas:  any,
+        agentes:  any,
+        recursos:  any,
+        conclusiones:  any
+    } {
 
         return {
             organizacion: this.organizacion.imprimir(),

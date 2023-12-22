@@ -21,8 +21,16 @@ export class IDE_SBC extends FIA_SBC {
                     console.log(agentMessage(this.nombre, "Activando en IDE: Projecto actual: " + ide.imprimir()));
 
                     m.modelo.dominio.base[IDE_clave].arrancado = true;
-                    ide.motor();
-                    const em = await super.instanciarE();
+
+                    const resultados = Promise.allSettled(
+                        [
+                            ide.motor(),
+                            super.instanciarE(this.mundo)
+                        ]
+                    );
+
+                    const em = resultados[1];
+                    ide.arrancado = false;
 
                     resolve(em);
                 } else {

@@ -3,6 +3,7 @@ import { i18 } from "./i18/aleph-script-i18";
 
 import * as http from "http";
 import { systemMessage } from "./systemMessage";
+import { UnificadorGeneral } from "./paradigmas/logica/unificador/unificacion-general";
 
 const host = 'localhost';
 const port = 8000;
@@ -25,6 +26,10 @@ server.listen(port, async () => {
 
     console.log(systemMessage(i18.SISTEMA.STARTING_LABEL));
 
+    const u = new UnificadorGeneral();
+    u.probar();
+    // u.probarNoUnificable();
+    return;
     const rt = new Runtime();
     rt.start();
     await rt.demo();
