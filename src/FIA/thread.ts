@@ -3,11 +3,10 @@ import { i18 } from "./i18/aleph-script-i18";
 
 import * as http from "http";
 import { systemMessage } from "./systemMessage";
-import { UnificadorGeneral } from "./paradigmas/logica/unificador/unificacion-general";
+import { PC1, PC2 } from "./aplicaciones/cadena/simbolica/mock-base-experta";
+import { CabeceraPC } from "./paradigmas/simbolica/modelos/formal/sistema/base-experta/dominio/Cabecera";
+import { Aferencia, CargadorBaseExperta as CargadorBaseExperta } from "./paradigmas/simbolica/modelos/formal/sistema/base-experta/cargador";
 
-const u = new UnificadorGeneral();
-u.probar();
-// u.probarNoUnificable();
 const host = 'localhost';
 const port = 8000;
 
@@ -28,6 +27,21 @@ server.on('error', (e) => {
 server.listen(port, async () => {
 
     console.log(systemMessage(i18.SISTEMA.STARTING_LABEL));
+
+    const procesador = new CargadorBaseExperta({
+      cabecera: CabeceraPC,
+      lineas: [PC1, PC2],
+      red: null
+    });
+
+    const GuidSensor = "temperatura";
+    const Lectura = 50;
+
+    const estado: Aferencia = {
+      GuidSensor,
+      Lectura
+    }
+    procesador.aferencia(estado);
 
     const rt = new Runtime();
     rt.start();

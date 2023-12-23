@@ -88,18 +88,258 @@
 		"genesis": {
 			"id": "genesis",
 			"estado": {
-				"Unificador": [
+				"Procesador estado": [
 					{
-						"estado": "Unificando A y B: A=(a, X, f(g(Y))), B=(Z, f(Z), f(U))",
-						"fecha": "2023-12-02T18:29:44.329Z"
+						"estado": "Analizando Cabecera",
+						"fecha": "2023-12-23T21:26:16.321Z"
 					},
 					{
-						"estado": "Unificacion de A y B = C A=(a, X, f(g(Y))), B=(Z, f(Z), f(U)), =()",
-						"fecha": "2023-12-02T18:29:44.332Z"
+						"estado": "\t - Cabecera: componente",
+						"fecha": "2023-12-23T21:26:16.322Z"
+					},
+					{
+						"estado": "\t - Cabecera: alteracion",
+						"fecha": "2023-12-23T21:26:16.322Z"
+					},
+					{
+						"estado": "\t - Cabecera: tipos",
+						"fecha": "2023-12-23T21:26:16.323Z"
+					},
+					{
+						"estado": "\t - Cabecera: valores",
+						"fecha": "2023-12-23T21:26:16.324Z"
+					},
+					{
+						"estado": "\t - Cabecera: sensores",
+						"fecha": "2023-12-23T21:26:16.326Z"
+					},
+					{
+						"estado": "\t\t 0 - Crear guid",
+						"fecha": "2023-12-23T21:26:16.327Z"
+					},
+					{
+						"estado": "\t\t 0 - Almacenar",
+						"fecha": "2023-12-23T21:26:16.328Z"
+					},
+					{
+						"estado": "\t\t 1 - Crear guid",
+						"fecha": "2023-12-23T21:26:16.329Z"
+					},
+					{
+						"estado": "\t\t 1 - Almacenar",
+						"fecha": "2023-12-23T21:26:16.330Z"
+					},
+					{
+						"estado": "\t - Cabecera: diagnosticos",
+						"fecha": "2023-12-23T21:26:16.330Z"
+					},
+					{
+						"estado": "Analizando Cuerpo",
+						"fecha": "2023-12-23T21:26:16.331Z"
+					},
+					{
+						"estado": "\t 0 - Linea: Componente",
+						"fecha": "2023-12-23T21:26:16.331Z"
+					},
+					{
+						"estado": "\t 0 - Linea: Alteracion",
+						"fecha": "2023-12-23T21:26:16.332Z"
+					},
+					{
+						"estado": "\t 0 - Linea: Tipo",
+						"fecha": "2023-12-23T21:26:16.333Z"
+					},
+					{
+						"estado": "\t 0 - Linea: Valores",
+						"fecha": "2023-12-23T21:26:16.333Z"
+					},
+					{
+						"estado": "\t\t 0 - Agregar valor",
+						"fecha": "2023-12-23T21:26:16.334Z"
+					},
+					{
+						"estado": "\t\t 1 - Agregar valor",
+						"fecha": "2023-12-23T21:26:16.334Z"
+					},
+					{
+						"estado": "\t 0 - Linea: sensores",
+						"fecha": "2023-12-23T21:26:16.335Z"
+					},
+					{
+						"estado": "\t\t 0 - Crear regla de sensor",
+						"fecha": "2023-12-23T21:26:16.336Z"
+					},
+					{
+						"estado": "\t\t\t 0 - Crear guid criterio",
+						"fecha": "2023-12-23T21:26:16.336Z"
+					},
+					{
+						"estado": "\t\t\t 0 - Almacenar criterio",
+						"fecha": "2023-12-23T21:26:16.337Z"
+					},
+					{
+						"estado": "\t\t 1 - Crear regla de sensor",
+						"fecha": "2023-12-23T21:26:16.337Z"
+					},
+					{
+						"estado": "\t\t\t 1 - Crear guid criterio",
+						"fecha": "2023-12-23T21:26:16.338Z"
+					},
+					{
+						"estado": "\t\t\t 1 - Almacenar criterio",
+						"fecha": "2023-12-23T21:26:16.339Z"
+					},
+					{
+						"estado": "\t 0 - Linea: Diagnósticos",
+						"fecha": "2023-12-23T21:26:16.341Z"
+					},
+					{
+						"estado": "\t\t 0 - Agregar diagnóstico",
+						"fecha": "2023-12-23T21:26:16.341Z"
+					},
+					{
+						"estado": "\t\t 1 - Agregar diagnóstico",
+						"fecha": "2023-12-23T21:26:16.342Z"
+					},
+					{
+						"estado": "\t 1 - Linea: Componente",
+						"fecha": "2023-12-23T21:26:16.342Z"
+					},
+					{
+						"estado": "\t 1 - Linea: Alteracion",
+						"fecha": "2023-12-23T21:26:16.345Z"
+					},
+					{
+						"estado": "\t 1 - Linea: Tipo",
+						"fecha": "2023-12-23T21:26:16.345Z"
+					},
+					{
+						"estado": "\t 1 - Linea: Valores",
+						"fecha": "2023-12-23T21:26:16.346Z"
+					},
+					{
+						"estado": "\t\t 0 - Agregar valor",
+						"fecha": "2023-12-23T21:26:16.348Z"
+					},
+					{
+						"estado": "\t 1 - Linea: sensores",
+						"fecha": "2023-12-23T21:26:16.348Z"
+					},
+					{
+						"estado": "\t\t 0 - Crear regla de sensor",
+						"fecha": "2023-12-23T21:26:16.349Z"
+					},
+					{
+						"estado": "\t\t\t 0 - Crear guid criterio",
+						"fecha": "2023-12-23T21:26:16.349Z"
+					},
+					{
+						"estado": "\t\t\t 0 - Almacenar criterio",
+						"fecha": "2023-12-23T21:26:16.349Z"
+					},
+					{
+						"estado": "\t\t 1 - Crear regla de sensor",
+						"fecha": "2023-12-23T21:26:16.350Z"
+					},
+					{
+						"estado": "\t\t\t 1 - Crear guid criterio",
+						"fecha": "2023-12-23T21:26:16.350Z"
+					},
+					{
+						"estado": "\t\t\t 1 - Almacenar criterio",
+						"fecha": "2023-12-23T21:26:16.351Z"
+					},
+					{
+						"estado": "\t 1 - Linea: Diagnósticos",
+						"fecha": "2023-12-23T21:26:16.352Z"
+					},
+					{
+						"estado": "\t\t 0 - Agregar diagnóstico",
+						"fecha": "2023-12-23T21:26:16.352Z"
+					},
+					{
+						"estado": "\t\t 1 - Agregar diagnóstico",
+						"fecha": "2023-12-23T21:26:16.355Z"
+					},
+					{
+						"estado": "Iniciando Aferencia",
+						"fecha": "2023-12-23T21:26:16.357Z"
+					},
+					{
+						"estado": "\t - Buscando sensor",
+						"fecha": "2023-12-23T21:26:16.357Z"
+					},
+					{
+						"estado": "\t\t - Sensor temperatura/dGVtcGVyYXR1cmE",
+						"fecha": "2023-12-23T21:26:16.358Z"
+					},
+					{
+						"estado": "\t - Buscando reglas",
+						"fecha": "2023-12-23T21:26:16.358Z"
+					},
+					{
+						"estado": "\t\t - Reglas encontradas: 2",
+						"fecha": "2023-12-23T21:26:16.359Z"
+					},
+					{
+						"estado": "Procesando criterios",
+						"fecha": "2023-12-23T21:26:16.359Z"
+					},
+					{
+						"estado": "\t\t - Positivos encontrados: 2",
+						"fecha": "2023-12-23T21:26:16.360Z"
+					},
+					{
+						"estado": "Positivos encontrados",
+						"fecha": "2023-12-23T21:26:16.361Z"
+					},
+					{
+						"estado": "\t - Lineas afectadas: 2",
+						"fecha": "2023-12-23T21:26:16.361Z"
+					},
+					{
+						"estado": "\t\t - CPU/Temperatura fuera de rango/F01-sistema-ventilacion, diag: 2",
+						"fecha": "2023-12-23T21:26:16.362Z"
+					},
+					{
+						"estado": "\t\t\t - 0: Diag1",
+						"fecha": "2023-12-23T21:26:16.362Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-apagar-ventilador",
+						"fecha": "2023-12-23T21:26:16.363Z"
+					},
+					{
+						"estado": "\t\t\t\t - 1: F01-iniciar-procesos-mantenimiento",
+						"fecha": "2023-12-23T21:26:16.363Z"
+					},
+					{
+						"estado": "\t\t\t - 1: Diag2",
+						"fecha": "2023-12-23T21:26:16.364Z"
+					},
+					{
+						"estado": "\t\t - CPU/Temperatura fuera de rango/F02-sistema-ventilacion, diag: 2",
+						"fecha": "2023-12-23T21:26:16.364Z"
+					},
+					{
+						"estado": "\t\t\t - 0: Diag1",
+						"fecha": "2023-12-23T21:26:16.365Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-encender-ventilador",
+						"fecha": "2023-12-23T21:26:16.366Z"
+					},
+					{
+						"estado": "\t\t\t - 1: Diag2",
+						"fecha": "2023-12-23T21:26:16.367Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-apagar-procesos-mantenimiento",
+						"fecha": "2023-12-23T21:26:16.367Z"
 					}
 				]
 			},
-			"fecha": "2023-12-02T18:29:42.399Z"
+			"fecha": "2023-12-23T21:26:15.522Z"
 		}
 	}
 }
