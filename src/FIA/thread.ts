@@ -34,6 +34,8 @@ server.listen(port, async () => {
       red: null
     });
 
+    await procesador.crearBase();
+
     const GuidSensor = "temperatura";
     const Lectura = 50;
 
@@ -41,7 +43,7 @@ server.listen(port, async () => {
       GuidSensor,
       Lectura
     }
-    procesador.aferencia(estado);
+    // procesador.aferencia(estado);
 
     const rt = new Runtime();
     rt.start();

@@ -3,11 +3,12 @@ import { Api, ApiReply } from "./api";
 import { ThreadCreateParams } from "openai/resources/beta/threads/threads";
 import { agentMessage } from "../../../../agentMessage";
 import { RTCache } from "../../../../engine/kernel/rt-cache";
-import { threadId } from "worker_threads";
 
-export class Trainer extends Api {
+export class AsistenteApi extends Api {
 
 	nombre = "oraculo-assistant-api";
+	cache = new RTCache();
+	usando = false;
 
 	async asistente(ASOracleAs: Partial<Assistant>): Promise<ApiReply> {
 
@@ -77,9 +78,6 @@ export class Trainer extends Api {
 		`;
 	}
 
-	cache = new RTCache();
-
-	usando = false;
 	async crearHilo(params: {assistant_id: string, solicitud: string }): Promise<ApiReply> {
 
 		return new Promise(async (resolve, reject) => {
@@ -95,7 +93,7 @@ export class Trainer extends Api {
 								"role": "user",
 								"content": params.solicitud,
 								"file_ids": []
-							  }
+							}
 						]
 					}
 

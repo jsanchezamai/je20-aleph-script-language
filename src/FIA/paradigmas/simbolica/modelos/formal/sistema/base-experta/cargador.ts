@@ -4,6 +4,7 @@ import { Base, COLUMNAS, PC1 } from "./dominio/base";
 import { error } from "console";
 import { Buffer } from "buffer";
 import { Linea, LineaExterna } from "./dominio/Linea";
+import { AlephIDE } from "./aleph-ide";
 
 export type Guid = string;
 export type GuidSensor = Guid;
@@ -26,7 +27,8 @@ export const i18_PROCESADOR_ESTADO_AS = {
     CARGA: {
         CABECERA: "Analizando Cabecera",
         CUERPO: "Analizando Cuerpo",
-        ERROR: "Error al procesar la cabecera. Ver ejemplo, formato esperado..."
+        ERROR: "Error al procesar la cabecera. Ver ejemplo, formato esperado...",
+        CALCULO_FUNCIONES: "Calculando funciones de criterio"
     },
     AFERENCIA: {
         INICIO: "Iniciando Aferencia",
@@ -43,67 +45,8 @@ export const i18_PROCESADOR_ESTADO_AS = {
     }
 }
 
-
 export class CargadorBaseExperta {
-
-    aferencia(estado: Aferencia) {
-
-        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.INICIO));
-
-        console.log(agentMessage(this.nombre, `\t - ${this.i18.AFERENCIA.IDENTIFICACION_SENSOR}`));
-        const sensor = this.recuperar(this.sensores_tabla, estado.GuidSensor);
-
-        console.log(agentMessage(this.nombre, `\t\t - Sensor ${estado.GuidSensor}/${sensor}`));
-        if (!sensor) {
-            console.log(agentMessage(this.nombre, this.i18.AFERENCIA.ERROR_ID_S));
-            console.log(this.sensores_tabla);
-        }
-        console.log(agentMessage(this.nombre, `\t - ${this.i18.AFERENCIA.BUSCANDO_REGLAS}`));
-        const indiceSensor = this.sensores.findIndex(s => s.guidSensor === sensor);
-
-        const reglas = this.dominio.red.lineas
-            .filter(l => {
-                if (l.sensores) {
-                    return l.sensores[indiceSensor].length > 0
-                }
-            return false;
-        });
-        console.log(agentMessage(this.nombre, `\t\t - Reglas encontradas: ${reglas.length}`));
-
-        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.PROCESANDO_CRITERIOS));
-        const positivos = reglas.filter(r => {
-
-            const resultados: boolean[] = [];
-            r.sensores.forEach(c => {
-                const functionCriterio = this.sensores_funciones_tabla.get(c);
-                const resultado = functionCriterio(estado.Lectura);
-                resultados.push(resultado);
-            })
-            return resultados.filter(r => r === true).length > 0;
-        })
-
-        console.log(agentMessage(this.nombre, `\t\t - Positivos encontrados: ${positivos.length}`));
-
-        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.POSITIVOS));
-        console.log(agentMessage(this.nombre, `\t - Lineas afectadas: ${positivos.length}`));
-
-        positivos.forEach(p => {
-            console.log(agentMessage(this.nombre,
-                `\t\t - ${p.componente}/${p.alteracion}/${p.tipo}, diag: ${p.diagnosticos.length}`));
-
-            p.diagnosticos.forEach((d, i) => {
-
-                const guidDiagnostico = this.diagnosticos[i];
-                const diagnostico = this.diagnosticos_tabla.get(guidDiagnostico);
-                console.log(agentMessage(this.nombre, `\t\t\t - ${i}: ${diagnostico}`));
-                d.forEach((pasoGuid, ip) => {
-                    const paso = this.diagnosticos_pasos_tabla.get(pasoGuid);
-                    console.log(agentMessage(this.nombre, `\t\t\t\t - ${ip}: ${paso}`));
-                })
-            })
-        })
-
-    }
+    ide: AlephIDE = new AlephIDE;
 
     componente: GuidExterno;
     alteracion: GuidExterno;
@@ -134,37 +77,54 @@ export class CargadorBaseExperta {
     nombre = this.i18.NOMBRE;
 
     constructor(public dominio: Base) {
-        this.crearBase();
+
     }
 
-    crearBase() {
+    async crearBase(): Promise<boolean> {
 
-        console.log(agentMessage(this.nombre, this.i18.CARGA.CABECERA));
+        return new Promise(async (resolve, reject) => {
+            console.log(agentMessage(this.nombre, this.i18.CARGA.CABECERA));
 
-        try {
-            this.cargarCabecera();
-        } catch (error) {
-            console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
-            console.log(agentMessage(this.nombre, error.message));
-            console.log(CabeceraPC);
-        }
+            try {
+                this.cargarCabecera();
+            } catch (error) {
+                console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
+                console.log(agentMessage(this.nombre, error.message));
+                console.log(CabeceraPC);
+            }
 
-        console.log(agentMessage(this.nombre, this.i18.CARGA.CUERPO));
+            console.log(agentMessage(this.nombre, this.i18.CARGA.CUERPO));
 
-        try {
-            this.cargarLineas();
-        } catch (error) {
-            console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
-            console.log(agentMessage(this.nombre, error.message));
-            console.log(PC1);
-        }
-        // console.log(this.dominio.red);
-        // console.log(this.componentes);
-        // console.log(this.alteraciones);
-        // console.log(this.valores);
-        // console.log(this.dominio.red.lineas);
-        // console.log(this.dominio.red.lineas.map(l => l.diagnosticos));
-        // console.log(this.dominio.red.lineas[0].diagnosticos);
+            try {
+                this.cargarLineas();
+            } catch (error) {
+                console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
+                console.log(agentMessage(this.nombre, error.message));
+                console.log(PC1);
+            }
+            // console.log(this.dominio.red);
+            // console.log(this.componentes);
+            // console.log(this.alteraciones);
+            // console.log(this.valores);
+            // console.log(this.dominio.red.lineas);
+            // console.log(this.dominio.red.lineas.map(l => l.diagnosticos));
+            // console.log(this.dominio.red.lineas[0].diagnosticos);
+
+            console.log(agentMessage(this.nombre, this.i18.CARGA.CALCULO_FUNCIONES));
+
+            try {
+                this.ide.inicializar();
+                const criterios = this.sensores_criterios_tabla.values();
+                console.log(criterios)
+                await this.crearFunciones(criterios);
+            } catch (error) {
+                console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
+                console.log(agentMessage(this.nombre, error.message));
+                console.log(PC1);
+            }
+
+            resolve(true);
+        })
     }
 
     cargarCabecera() {
@@ -263,15 +223,15 @@ export class CargadorBaseExperta {
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Componente`));
         let clave = this.agregarOrecuperar(this.componentes, l[COLUMNAS.componente]);
-        linea.componente = l[COLUMNAS.componente];
+        linea.componente = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Alteracion`));
         clave = this.agregarOrecuperar(this.alteraciones, l[COLUMNAS.alteracion]);
-        linea.alteracion = l[COLUMNAS.alteracion];
+        linea.alteracion = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Tipo`));
         clave = this.agregarOrecuperar(this.tipos, l[COLUMNAS.tipo]);
-        linea.tipo = l[COLUMNAS.tipo];
+        linea.tipo = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Valores`));
         l[COLUMNAS.valores].forEach((v, i) => {
@@ -323,7 +283,7 @@ export class CargadorBaseExperta {
 
         let existente = this.recuperar(map, valor);
         if (existente) return existente;
-
+        // console.log("Buscar valor en mapa, no encontrado", valor, map)
         const clave = this.crearGuid(valor);
         // console.log(map)
         map.set(clave, valor);
@@ -350,6 +310,159 @@ export class CargadorBaseExperta {
     crearGuidObjeto(datos: object): Guid {
         return Buffer.from(JSON.stringify(datos), 'binary').toString('base64').replace(/\=/g, "")
     }
+
+    /*
+     * Método de aferencia:
+     * Una vez importada la lista de criterios por sensor cuyas condiciones
+     * están expresadas en lenguaje natural, solicitar al asistente una
+     * conversión a funciones ts.
+     *
+     * VIA EN ESTUDIO
+     *
+     * Ejemplo de retorno:
+     *
+     * Prompt:
+     *      "Dada una lista de especificaciones en lenguaje natural,
+     *      devuelve una lista de funciones en typescript que las implementen.
+     *      Las funciones se llamarán todas igual: FuncionCriterio.
+     *      Modo JSON.
+     *      Devuelve el campo 'funciones' con un Array válida de strings
+     *      con el código listo para ejecutar con la instrucción eval.
+     *      Cada posición de la lista debe ser el código de la función
+     *      con cabecera correcta dentro de un string. Lista de especificaciones:
+     *      ["tendencia decreciente con pérdida del 20% sobre Nmax",
+     *      "tendencia creciente con pérdida del 80% sobre Nmin"]
+     *
+     * CHATGPT 3.5
+     *
+     *      "Las funciones en TypeScript correspondientes a las especificaciones
+     *      proporcionadas son:\\n\\n1. Función para `tendencia decreciente`
+     *      con pérdida del `20%` sobre `Nmax`:
+     *
+     * \\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {
+     * \\n    return Nmax * (1 - 0.2) < Nmax;\\n}\\n```
+     * \\n\\n2. Función para `tendencia decreciente` con pérdida del `80%` sobre `Nmax`:
+     * \\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {
+     * \\n    return Nmax * (1 - 0.8) < Nmax;\\n}\\n```
+     * \\n\\n3. Función para `tendencia creciente` con ganancia del `20%` sobre `Nmin`:
+     * \\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {
+     * \\n    return Nmin * (1 + 0.2) > Nmin;\\n}\\n```
+     * \\n\\n4. Función para `tendencia creciente` con ganancia del `80%` sobre `Nmin`:
+     * \\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {
+     * \\n    return Nmin * (1 + 0.8) > Nmin;\\n}
+     * \\n```\\n\\nEstas funciones pueden ser ejecutadas usando la instrucción `eval`
+     * en un entorno de ejecución de TypeScript.\"
+     * 
+     * VIA EN ESTUDIO Y REFINAMIENTO
+     */
+    async crearFunciones(guidCriterios: IterableIterator<GuidExterno>): Promise<any> {
+
+        return new Promise(async (resolve, reject ) => {
+            let mensaje = "Dada una lista de especificaciones en lenguaje natural, devuelve una lista de funciones en typescript que las implementen. Las funciones se llamarán todas igual: FuncionCriterio. Modo JSON. Devuelve el campo 'funciones' con un Array válida de strings con el código listo para ejecutar con la instrucción eval. Cada posición de la lista debe ser el código de la función con cabecera correcta dentro de un string. Lista de especificaciones: [";
+
+            for(const g of guidCriterios) {
+                mensaje += `'${g}',`;
+            }
+            mensaje = mensaje.slice(0, -1); // Remove last comma
+            mensaje += "]"
+            console.log(">>>>>>", mensaje)
+
+            const claveFunciones = "claveFunciones";
+            const funcionesCacheadas = this.ide.cache.leerLista(claveFunciones)
+
+            if (funcionesCacheadas && funcionesCacheadas.length > 0) {
+                console.log("Las funciones", funcionesCacheadas)
+                resolve(true);
+            }
+
+            const res = await this.ide.trainer.crearHilo(
+                {
+                    assistant_id: this.ide.assistant.id,
+                    solicitud: mensaje
+                });
+
+            if (res.ok) {
+                console.log();
+                console.log();
+                console.log();
+
+                console.log("OPENAPI:", res.data)
+                console.log();
+                console.log();
+                console.log();
+
+                const data = res.data.data.map(m => m.content.map(mm => JSON.stringify(mm)));
+                console.log(agentMessage(this.nombre, res.data));
+                console.log(agentMessage(this.nombre, data));
+                console.log(data)
+
+                this.ide.cache.guardar(claveFunciones, data);
+                this.ide.cache.persistir();
+            } else {
+                console.log(agentMessage(this.nombre, res.data));
+                console.log(res)
+            }
+            resolve(true);
+        })
+
+    }
+
+    aferencia(estado: Aferencia) {
+
+        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.INICIO));
+
+        console.log(agentMessage(this.nombre, `\t - ${this.i18.AFERENCIA.IDENTIFICACION_SENSOR}`));
+        const sensor = this.recuperar(this.sensores_tabla, estado.GuidSensor);
+
+        console.log(agentMessage(this.nombre, `\t\t - Sensor ${estado.GuidSensor}/${sensor}`));
+        if (!sensor) {
+            console.log(agentMessage(this.nombre, this.i18.AFERENCIA.ERROR_ID_S));
+            console.log(this.sensores_tabla);
+        }
+        console.log(agentMessage(this.nombre, `\t - ${this.i18.AFERENCIA.BUSCANDO_REGLAS}`));
+        const indiceSensor = this.sensores.findIndex(s => s.guidSensor === sensor);
+
+        const reglas = this.dominio.red.lineas
+            .filter(l => {
+                if (l.sensores) {
+                    return l.sensores[indiceSensor].length > 0
+                }
+            return false;
+        });
+        console.log(agentMessage(this.nombre, `\t\t - Reglas encontradas: ${reglas.length}`));
+
+        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.PROCESANDO_CRITERIOS));
+        const positivos = reglas.filter(r => {
+
+            const resultados: boolean[] = [];
+            r.sensores.forEach(c => {
+                const functionCriterio = this.sensores_funciones_tabla.get(c);
+                const resultado = functionCriterio(estado.Lectura);
+                resultados.push(resultado);
+            })
+            return resultados.filter(r => r === true).length > 0;
+        })
+
+        console.log(agentMessage(this.nombre, `\t\t - Positivos encontrados: ${positivos.length}`));
+
+        console.log(agentMessage(this.nombre, this.i18.AFERENCIA.POSITIVOS));
+        console.log(agentMessage(this.nombre, `\t - Lineas afectadas: ${positivos.length}`));
+
+        positivos.forEach(p => {
+            console.log(agentMessage(this.nombre,
+                `\t\t - ${p.componente}/${p.alteracion}/${p.tipo}, diag: ${p.diagnosticos.length}`));
+
+            p.diagnosticos.forEach((d, i) => {
+
+                const guidDiagnostico = this.diagnosticos[i];
+                const diagnostico = this.diagnosticos_tabla.get(guidDiagnostico);
+                console.log(agentMessage(this.nombre, `\t\t\t - ${i}: ${diagnostico}`));
+                d.forEach((pasoGuid, ip) => {
+                    const paso = this.diagnosticos_pasos_tabla.get(pasoGuid);
+                    console.log(agentMessage(this.nombre, `\t\t\t\t - ${ip}: ${paso}`));
+                })
+            })
+        })
+
+    }
 }
-
-

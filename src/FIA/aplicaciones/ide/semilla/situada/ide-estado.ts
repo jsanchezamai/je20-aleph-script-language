@@ -1,11 +1,10 @@
 import { agentMessage } from "../../../../agentMessage";
 import { RTCache } from "../../../../engine/kernel/rt-cache";
-import { Trainer } from '../../../../paradigmas/conexionista/modelos-lenguaje/oai/asisstant';
+import { AsistenteApi } from '../../../../paradigmas/conexionista/modelos-lenguaje/oai/asisstant';
 import { IDE_clave, Trainer_clave } from "../../../../paradigmas/conexionista/modelos-lenguaje/oai/Trainer_key";
 import { EstadoT } from "../../../../paradigmas/situada/estado";
 import { AlephScriptIDEImpl } from "../../aleph-script-idle";
 import { IDEModelo } from "../modelo/ide-modelo";
-import { IDE_SBC } from "./ide-sbc";
 
 export enum IDEEstados {
 	PARADA = "PARADA",
@@ -33,9 +32,9 @@ export class IDEEstado<IDEEstados> extends EstadoT<IDEEstados> {
 				const as = c.leerLista(Trainer_clave);
 
 				if (as.length > 0) {
-					console.log(agentMessage(this.modelo.nombre, "Autómata listo." + new Trainer().imprimir(as)));
+					console.log(agentMessage(this.modelo.nombre, "Autómata listo." + new AsistenteApi().imprimir(as)));
 				} else {
-					const s = new Trainer();
+					const s = new AsistenteApi();
 					const r = await s.list([]);
 					if (r.ok) {
 						c.guardar(Trainer_clave, r.data);

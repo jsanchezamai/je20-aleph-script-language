@@ -1,12 +1,12 @@
 import { Assistant } from "openai/resources/beta/assistants/assistants";
-import { ASOracleAs, Trainer_clave } from "../../paradigmas/conexionista/modelos-lenguaje/oai/Trainer_key";
-import { RTCache } from "../../engine/kernel/rt-cache";
-import { agentMessage } from "../../agentMessage";
 import { Observable, Subject } from "rxjs";
-import { IFase } from "../../paradigmas/sbc/implementaciones/common-kads/common-kads";
-import { IDiccionarioI18 } from "../../genesis-block";
-import { AS_IDE_i18 } from "./aleph-script-idle-i18";
-import { AsistenteApi } from '../../paradigmas/conexionista/modelos-lenguaje/oai/asisstant';
+import { agentMessage } from "../../../../../../agentMessage";
+import { AS_IDE_i18 } from "../../../../../../aplicaciones/ide/aleph-script-idle-i18";
+import { RTCache } from "../../../../../../engine/kernel/rt-cache";
+import { IDiccionarioI18 } from "../../../../../../genesis-block";
+import { Trainer_clave, ASOracleAs } from "../../../../../conexionista/modelos-lenguaje/oai/Trainer_key";
+import { AsistenteApi } from "../../../../../conexionista/modelos-lenguaje/oai/asisstant";
+import { IFase } from "../../../../../sbc/implementaciones/common-kads/common-kads";
 
 export interface AlephScriptIDE {
 
@@ -25,7 +25,7 @@ export interface AlephScriptIDE {
 	imprimir: () => void;
 }
 
-export class AlephScriptIDEImpl implements AlephScriptIDE {
+export class AlephIDE implements AlephScriptIDE {
 
 	i18 = AS_IDE_i18;
 	nombre = this.i18.IDE.NOMBRE;
@@ -43,15 +43,34 @@ export class AlephScriptIDEImpl implements AlephScriptIDE {
 
 	constructor() {
 
-		const c = new RTCache();
-		this.assistant = (c.leer(Trainer_clave) as Assistant[])
-			.find(a => a.id === ASOracleAs.id);
-
-		console.log(agentMessage(this.assistant.name, this.assistant.name ? "¡Listo!" :  "Error al inicializar IDE!"));
 		this.actionServerS = new Subject<IFase>();
 		this.actionServer = this.actionServerS.asObservable();
 
+        this.cache.recuperar();
+
 	}
+
+    async inicializar() {
+
+        const as = this.cache.leerLista(Trainer_clave);
+        console.log(">>>>", as)
+        if (as.length > 0) {
+            console.log(agentMessage(this.nombre, "Autómata listo." + new AsistenteApi().imprimir(as)));
+        } else {
+            const s = new AsistenteApi();
+            const r = await s.list([]);
+            if (r.ok) {
+                this.cache.guardar(Trainer_clave, r.data);
+                this.cache.persistir();
+            } else {
+                console.log(agentMessage(this.nombre, `Error al recuperar lista de asistentes ${r.data}`));
+            }
+        }
+
+		this.assistant = as.find(a => a.id === ASOracleAs.id);
+		console.log(agentMessage(this.assistant.name, this.assistant.name ? "¡Listo!" :  "Error al inicializar IDE!"));
+
+    }
 
 	motor() {
 

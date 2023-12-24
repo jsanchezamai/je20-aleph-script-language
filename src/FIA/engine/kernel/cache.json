@@ -91,255 +91,206 @@
 				"Procesador estado": [
 					{
 						"estado": "Analizando Cabecera",
-						"fecha": "2023-12-23T21:26:16.321Z"
+						"fecha": "2023-12-23T23:22:03.795Z"
 					},
 					{
 						"estado": "\t - Cabecera: componente",
-						"fecha": "2023-12-23T21:26:16.322Z"
+						"fecha": "2023-12-23T23:22:03.797Z"
 					},
 					{
 						"estado": "\t - Cabecera: alteracion",
-						"fecha": "2023-12-23T21:26:16.322Z"
+						"fecha": "2023-12-23T23:22:03.800Z"
 					},
 					{
 						"estado": "\t - Cabecera: tipos",
-						"fecha": "2023-12-23T21:26:16.323Z"
+						"fecha": "2023-12-23T23:22:03.800Z"
 					},
 					{
 						"estado": "\t - Cabecera: valores",
-						"fecha": "2023-12-23T21:26:16.324Z"
+						"fecha": "2023-12-23T23:22:03.802Z"
 					},
 					{
 						"estado": "\t - Cabecera: sensores",
-						"fecha": "2023-12-23T21:26:16.326Z"
+						"fecha": "2023-12-23T23:22:03.804Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear guid",
-						"fecha": "2023-12-23T21:26:16.327Z"
+						"fecha": "2023-12-23T23:22:03.805Z"
 					},
 					{
 						"estado": "\t\t 0 - Almacenar",
-						"fecha": "2023-12-23T21:26:16.328Z"
+						"fecha": "2023-12-23T23:22:03.806Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear guid",
-						"fecha": "2023-12-23T21:26:16.329Z"
+						"fecha": "2023-12-23T23:22:03.807Z"
 					},
 					{
 						"estado": "\t\t 1 - Almacenar",
-						"fecha": "2023-12-23T21:26:16.330Z"
+						"fecha": "2023-12-23T23:22:03.808Z"
 					},
 					{
 						"estado": "\t - Cabecera: diagnosticos",
-						"fecha": "2023-12-23T21:26:16.330Z"
+						"fecha": "2023-12-23T23:22:03.809Z"
 					},
 					{
 						"estado": "Analizando Cuerpo",
-						"fecha": "2023-12-23T21:26:16.331Z"
+						"fecha": "2023-12-23T23:22:03.810Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Componente",
-						"fecha": "2023-12-23T21:26:16.331Z"
+						"fecha": "2023-12-23T23:22:03.811Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Alteracion",
-						"fecha": "2023-12-23T21:26:16.332Z"
+						"fecha": "2023-12-23T23:22:03.812Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Tipo",
-						"fecha": "2023-12-23T21:26:16.333Z"
+						"fecha": "2023-12-23T23:22:03.813Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Valores",
-						"fecha": "2023-12-23T21:26:16.333Z"
+						"fecha": "2023-12-23T23:22:03.814Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-23T21:26:16.334Z"
+						"fecha": "2023-12-23T23:22:03.815Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar valor",
-						"fecha": "2023-12-23T21:26:16.334Z"
+						"fecha": "2023-12-23T23:22:03.816Z"
 					},
 					{
 						"estado": "\t 0 - Linea: sensores",
-						"fecha": "2023-12-23T21:26:16.335Z"
+						"fecha": "2023-12-23T23:22:03.817Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-23T21:26:16.336Z"
+						"fecha": "2023-12-23T23:22:03.819Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-23T21:26:16.336Z"
+						"fecha": "2023-12-23T23:22:03.819Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-23T21:26:16.337Z"
+						"fecha": "2023-12-23T23:22:03.820Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-23T21:26:16.337Z"
+						"fecha": "2023-12-23T23:22:03.822Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-23T21:26:16.338Z"
+						"fecha": "2023-12-23T23:22:03.823Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-23T21:26:16.339Z"
+						"fecha": "2023-12-23T23:22:03.824Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Diagnósticos",
-						"fecha": "2023-12-23T21:26:16.341Z"
+						"fecha": "2023-12-23T23:22:03.826Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-23T21:26:16.341Z"
+						"fecha": "2023-12-23T23:22:03.829Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-23T21:26:16.342Z"
+						"fecha": "2023-12-23T23:22:03.831Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Componente",
-						"fecha": "2023-12-23T21:26:16.342Z"
+						"fecha": "2023-12-23T23:22:03.833Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Alteracion",
-						"fecha": "2023-12-23T21:26:16.345Z"
+						"fecha": "2023-12-23T23:22:03.836Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Tipo",
-						"fecha": "2023-12-23T21:26:16.345Z"
+						"fecha": "2023-12-23T23:22:03.837Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Valores",
-						"fecha": "2023-12-23T21:26:16.346Z"
+						"fecha": "2023-12-23T23:22:03.837Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-23T21:26:16.348Z"
+						"fecha": "2023-12-23T23:22:03.838Z"
 					},
 					{
 						"estado": "\t 1 - Linea: sensores",
-						"fecha": "2023-12-23T21:26:16.348Z"
+						"fecha": "2023-12-23T23:22:03.840Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-23T21:26:16.349Z"
+						"fecha": "2023-12-23T23:22:03.841Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-23T21:26:16.349Z"
+						"fecha": "2023-12-23T23:22:03.842Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-23T21:26:16.349Z"
+						"fecha": "2023-12-23T23:22:03.843Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-23T21:26:16.350Z"
+						"fecha": "2023-12-23T23:22:03.844Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-23T21:26:16.350Z"
+						"fecha": "2023-12-23T23:22:03.845Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-23T21:26:16.351Z"
+						"fecha": "2023-12-23T23:22:03.846Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Diagnósticos",
-						"fecha": "2023-12-23T21:26:16.352Z"
+						"fecha": "2023-12-23T23:22:03.847Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-23T21:26:16.352Z"
+						"fecha": "2023-12-23T23:22:03.848Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-23T21:26:16.355Z"
+						"fecha": "2023-12-23T23:22:03.850Z"
 					},
 					{
-						"estado": "Iniciando Aferencia",
-						"fecha": "2023-12-23T21:26:16.357Z"
-					},
+						"estado": "Calculando funciones de criterio",
+						"fecha": "2023-12-23T23:22:03.852Z"
+					}
+				],
+				"ide": [
 					{
-						"estado": "\t - Buscando sensor",
-						"fecha": "2023-12-23T21:26:16.357Z"
-					},
+						"estado": "Autómata listo.Asistentes: 2\n\t\t\t\n\t --> Asistente: as-2, gpt-3.5-turbo, \n Eres un experto controlador de unidades fundamentales de inteligencia artificial. Funciona como un oráculo. Provees funciones para servidores de acción. Gestiona los eventos del sistema. Eres enlace entre un servidor RASA y la AssistantsAPI. Modo json activado.\n\t\t\t\n\t\t\t\n\t\t\n\t --> Asistente: aleph-script-assistant, gpt-3.5-turbo, \n You are an expert code-interpreter. Your mission is to be the root assistant in a big assistant network. You are now in design and building phase, so you help to generate assistants and network. Work in json mode. \n\t\t\t\n\t\t --> code_interpreter\n\t\t\t\n\t\t --> file-pfoopiFYm7NFhsPr47dSznYd\n\t\t\n\t\t",
+						"fecha": "2023-12-23T23:22:03.858Z"
+					}
+				],
+				"aleph-script-assistant": [
 					{
-						"estado": "\t\t - Sensor temperatura/dGVtcGVyYXR1cmE",
-						"fecha": "2023-12-23T21:26:16.358Z"
-					},
-					{
-						"estado": "\t - Buscando reglas",
-						"fecha": "2023-12-23T21:26:16.358Z"
-					},
-					{
-						"estado": "\t\t - Reglas encontradas: 2",
-						"fecha": "2023-12-23T21:26:16.359Z"
-					},
-					{
-						"estado": "Procesando criterios",
-						"fecha": "2023-12-23T21:26:16.359Z"
-					},
-					{
-						"estado": "\t\t - Positivos encontrados: 2",
-						"fecha": "2023-12-23T21:26:16.360Z"
-					},
-					{
-						"estado": "Positivos encontrados",
-						"fecha": "2023-12-23T21:26:16.361Z"
-					},
-					{
-						"estado": "\t - Lineas afectadas: 2",
-						"fecha": "2023-12-23T21:26:16.361Z"
-					},
-					{
-						"estado": "\t\t - CPU/Temperatura fuera de rango/F01-sistema-ventilacion, diag: 2",
-						"fecha": "2023-12-23T21:26:16.362Z"
-					},
-					{
-						"estado": "\t\t\t - 0: Diag1",
-						"fecha": "2023-12-23T21:26:16.362Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-apagar-ventilador",
-						"fecha": "2023-12-23T21:26:16.363Z"
-					},
-					{
-						"estado": "\t\t\t\t - 1: F01-iniciar-procesos-mantenimiento",
-						"fecha": "2023-12-23T21:26:16.363Z"
-					},
-					{
-						"estado": "\t\t\t - 1: Diag2",
-						"fecha": "2023-12-23T21:26:16.364Z"
-					},
-					{
-						"estado": "\t\t - CPU/Temperatura fuera de rango/F02-sistema-ventilacion, diag: 2",
-						"fecha": "2023-12-23T21:26:16.364Z"
-					},
-					{
-						"estado": "\t\t\t - 0: Diag1",
-						"fecha": "2023-12-23T21:26:16.365Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-encender-ventilador",
-						"fecha": "2023-12-23T21:26:16.366Z"
-					},
-					{
-						"estado": "\t\t\t - 1: Diag2",
-						"fecha": "2023-12-23T21:26:16.367Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-apagar-procesos-mantenimiento",
-						"fecha": "2023-12-23T21:26:16.367Z"
+						"estado": "¡Listo!",
+						"fecha": "2023-12-23T23:22:03.859Z"
 					}
 				]
 			},
-			"fecha": "2023-12-23T21:26:15.522Z"
-		}
+			"fecha": "2023-12-23T23:22:02.655Z"
+		},
+		"claveFunciones": [
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Las funciones en TypeScript correspondientes a las especificaciones proporcionadas son:\\n\\n1. Función para `tendencia decreciente` con pérdida del `20%` sobre `Nmax`:\\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {\\n    return Nmax * (1 - 0.2) < Nmax;\\n}\\n```\\n\\n2. Función para `tendencia decreciente` con pérdida del `80%` sobre `Nmax`:\\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {\\n    return Nmax * (1 - 0.8) < Nmax;\\n}\\n```\\n\\n3. Función para `tendencia creciente` con ganancia del `20%` sobre `Nmin`:\\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {\\n    return Nmin * (1 + 0.2) > Nmin;\\n}\\n```\\n\\n4. Función para `tendencia creciente` con ganancia del `80%` sobre `Nmin`:\\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {\\n    return Nmin * (1 + 0.8) > Nmin;\\n}\\n```\\n\\nEstas funciones pueden ser ejecutadas usando la instrucción `eval` en un entorno de ejecución de TypeScript.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Para convertir las especificaciones en lenguaje natural a funciones en TypeScript, podemos seguir los siguientes pasos:\\n\\n1. Definir una función general llamada `FuncionCriterio` que acepte los parámetros necesarios.\\n2. Analizar las especificaciones y extraer la información relevante, como si la tendencia es decreciente o creciente, el porcentaje de pérdida o ganancia, y el valor máximo o mínimo.\\n3. Utilizar la información extraída para construir las funciones en TypeScript.\\n\\nA continuación, implementaremos este proceso y generaremos las funciones en TypeScript correspondientes a las especificaciones proporcionadas.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Dada una lista de especificaciones en lenguaje natural, devuelve una lista de funciones en typescript que las implementen. Las funciones se llamarán todas igual: FuncionCriterio. Modo JSON. Devuelve el campo 'funciones' con un Array válida de strings con el código listo para ejecutar con la instrucción eval. Cada posición de la lista debe ser el código de la función con cabecera correcta dentro de un string. Lista de especificaciones: ['tendencia decreciente con pérdida del 20% Nmax','tendencia decreciente con pérdida del 80% Nmax','tendencia creciente con ganancia del 20% Nmin','tendencia creciente con ganancia del 80% Nmin']\",\"annotations\":[]}}"
+			]
+		]
 	}
 }

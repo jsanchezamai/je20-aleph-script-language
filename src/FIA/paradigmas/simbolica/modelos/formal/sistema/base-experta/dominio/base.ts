@@ -4,7 +4,7 @@ import { TablaDiagnosticos } from "./TablaDiagnosticos"
 import { TablaSensores } from "./TablaSensores"
 import { TablaTipos } from "./TablaTipos"
 import { TablaValoraciones } from "./TablaValoraciones"
-import { TablaValores } from "../TablaValores"
+import { TablaValores } from "./TablaValores"
 
 export type Base = {
     red: {
