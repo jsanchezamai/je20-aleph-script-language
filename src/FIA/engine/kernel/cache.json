@@ -283,10 +283,25 @@
 		},
 		"claveFunciones": [
 			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Las funciones en TypeScript correspondientes a las especificaciones proporcionadas son:\\n\\n1. Función para `tendencia decreciente` con pérdida del `20%` sobre `Nmax`:\\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {\\n    return Nmax * (1 - 0.2) < Nmax;\\n}\\n```\\n\\n2. Función para `tendencia decreciente` con pérdida del `80%` sobre `Nmax`:\\n```typescript\\nfunction FuncionCriterio(Nmax: number): boolean {\\n    return Nmax * (1 - 0.8) < Nmax;\\n}\\n```\\n\\n3. Función para `tendencia creciente` con ganancia del `20%` sobre `Nmin`:\\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {\\n    return Nmin * (1 + 0.2) > Nmin;\\n}\\n```\\n\\n4. Función para `tendencia creciente` con ganancia del `80%` sobre `Nmin`:\\n```typescript\\nfunction FuncionCriterio(Nmin: number): boolean {\\n    return Nmin * (1 + 0.8) > Nmin;\\n}\\n```\\n\\nEstas funciones pueden ser ejecutadas usando la instrucción `eval` en un entorno de ejecución de TypeScript.\",\"annotations\":[]}}"
+				"{\"type\":\"text\",\"text\":{\"value\":\"¡Bien! Esta vez la generación de funciones ha sido exitosa. He corregido el código para que las funciones se generen correctamente según las especificaciones proporcionadas.\\n\\nA continuación, tienes la lista de funciones en TypeScript generadas:\\n\\n1. `function FuncionCriterio(Nmax) {\\\\n\\\\treturn Nmax * (1 - 0.2);\\\\n}`\\n2. `function FuncionCriterio(Nmax) {\\\\n\\\\treturn Nmax * (1 - 0.8);\\\\n}`\\n3. `function FuncionCriterio(Nmin) {\\\\n\\\\treturn Nmin * (1 + 0.2);\\\\n}`\\n4. `function FuncionCriterio(Nmin) {\\\\n\\\\treturn Nmin * (1 + 0.8);\\\\n}`\\n\\nPuedes usar estas funciones en tu código TypeScript. Recuerda que el campo `\\\"funciones\\\"` en el JSON de salida contiene un array válido de strings con el código listo para ejecutar con la instrucción eval.\\n\\nSi tienes alguna otra especificación o necesitas ayuda adicional, no dudes en preguntar.\",\"annotations\":[]}}"
 			],
 			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Para convertir las especificaciones en lenguaje natural a funciones en TypeScript, podemos seguir los siguientes pasos:\\n\\n1. Definir una función general llamada `FuncionCriterio` que acepte los parámetros necesarios.\\n2. Analizar las especificaciones y extraer la información relevante, como si la tendencia es decreciente o creciente, el porcentaje de pérdida o ganancia, y el valor máximo o mínimo.\\n3. Utilizar la información extraída para construir las funciones en TypeScript.\\n\\nA continuación, implementaremos este proceso y generaremos las funciones en TypeScript correspondientes a las especificaciones proporcionadas.\",\"annotations\":[]}}"
+				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, a pesar de los ajustes realizados, la lista de funciones generadas sigue estando vacía. Parece que hay algún otro error que impide la generación correcta de las funciones.\\n\\nVoy a revisar nuevamente el código y realizar los cambios necesarios.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, a pesar de la corrección en el código, la lista de funciones generadas sigue vacía. Parece que hay algún otro error en la lógica de generación de las funciones. \\n\\nVoy a revisar nuevamente el código y realizar los ajustes necesarios.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, parece que hay un error en el código que hace que la lista de funciones generadas esté vacía. Voy a analizar y corregir el error.\\n\\nEl problema parece estar en la comparación de las palabras clave \\\"decreciente\\\" y \\\"creciente\\\". En lugar de comparar `criterio[1] == \\\"decreciente\\\"` y `criterio[1] == \\\"creciente\\\"`, deberíamos estar comparando `criterio[0] == \\\"tendencia\\\"`. Vamos a corregir esto y volver a ejecutar el código.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente la lista de funciones sigue vacía. Parece que hay algún problema en la lógica de generación de las funciones. Revisemos nuevamente el código para encontrar el error.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Parece que no se generaron funciones correctamente. Revisemos el código para encontrar el problema.\",\"annotations\":[]}}"
+			],
+			[
+				"{\"type\":\"text\",\"text\":{\"value\":\"Disculpa, parece que se produjo un error al intentar extraer el porcentaje de la especificación. Voy a corregirlo y volver a ejecutar el código.\",\"annotations\":[]}}"
 			],
 			[
 				"{\"type\":\"text\",\"text\":{\"value\":\"Dada una lista de especificaciones en lenguaje natural, devuelve una lista de funciones en typescript que las implementen. Las funciones se llamarán todas igual: FuncionCriterio. Modo JSON. Devuelve el campo 'funciones' con un Array válida de strings con el código listo para ejecutar con la instrucción eval. Cada posición de la lista debe ser el código de la función con cabecera correcta dentro de un string. Lista de especificaciones: ['tendencia decreciente con pérdida del 20% Nmax','tendencia decreciente con pérdida del 80% Nmax','tendencia creciente con ganancia del 20% Nmin','tendencia creciente con ganancia del 80% Nmin']\",\"annotations\":[]}}"

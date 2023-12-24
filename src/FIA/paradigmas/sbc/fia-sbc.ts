@@ -6,7 +6,6 @@ import { CKCACHE_Clave } from "./implementaciones/common-kads/common-kads";
 import { IModelo } from "../../mundos/modelo";
 import { IEstadoT } from "../situada/estado";
 import { RTCache } from "../../engine/kernel/rt-cache";
-import { Asistentizador } from "../../aplicaciones/ide/Asistentizador";
 import { IMundo } from "../../mundos/mundo";
 
 export interface FIA_SBC extends iFIA {
