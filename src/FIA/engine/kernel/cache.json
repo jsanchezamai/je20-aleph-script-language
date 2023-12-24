@@ -91,217 +91,262 @@
 				"Procesador estado": [
 					{
 						"estado": "Analizando Cabecera",
-						"fecha": "2023-12-23T23:22:03.795Z"
+						"fecha": "2023-12-24T13:17:29.919Z"
 					},
 					{
 						"estado": "\t - Cabecera: componente",
-						"fecha": "2023-12-23T23:22:03.797Z"
+						"fecha": "2023-12-24T13:17:29.920Z"
 					},
 					{
 						"estado": "\t - Cabecera: alteracion",
-						"fecha": "2023-12-23T23:22:03.800Z"
+						"fecha": "2023-12-24T13:17:29.921Z"
 					},
 					{
-						"estado": "\t - Cabecera: tipos",
-						"fecha": "2023-12-23T23:22:03.800Z"
+						"estado": "\t - Cabecera: tipos_tabla",
+						"fecha": "2023-12-24T13:17:29.921Z"
 					},
 					{
 						"estado": "\t - Cabecera: valores",
-						"fecha": "2023-12-23T23:22:03.802Z"
+						"fecha": "2023-12-24T13:17:29.921Z"
 					},
 					{
 						"estado": "\t - Cabecera: sensores",
-						"fecha": "2023-12-23T23:22:03.804Z"
+						"fecha": "2023-12-24T13:17:29.922Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear guid",
-						"fecha": "2023-12-23T23:22:03.805Z"
+						"fecha": "2023-12-24T13:17:29.923Z"
 					},
 					{
 						"estado": "\t\t 0 - Almacenar",
-						"fecha": "2023-12-23T23:22:03.806Z"
+						"fecha": "2023-12-24T13:17:29.923Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear guid",
-						"fecha": "2023-12-23T23:22:03.807Z"
+						"fecha": "2023-12-24T13:17:29.924Z"
 					},
 					{
 						"estado": "\t\t 1 - Almacenar",
-						"fecha": "2023-12-23T23:22:03.808Z"
+						"fecha": "2023-12-24T13:17:29.925Z"
 					},
 					{
 						"estado": "\t - Cabecera: diagnosticos",
-						"fecha": "2023-12-23T23:22:03.809Z"
+						"fecha": "2023-12-24T13:17:29.925Z"
 					},
 					{
 						"estado": "Analizando Cuerpo",
-						"fecha": "2023-12-23T23:22:03.810Z"
+						"fecha": "2023-12-24T13:17:29.926Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Componente",
-						"fecha": "2023-12-23T23:22:03.811Z"
+						"fecha": "2023-12-24T13:17:29.927Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Alteracion",
-						"fecha": "2023-12-23T23:22:03.812Z"
+						"fecha": "2023-12-24T13:17:29.928Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Tipo",
-						"fecha": "2023-12-23T23:22:03.813Z"
+						"fecha": "2023-12-24T13:17:29.928Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Valores",
-						"fecha": "2023-12-23T23:22:03.814Z"
+						"fecha": "2023-12-24T13:17:29.928Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-23T23:22:03.815Z"
+						"fecha": "2023-12-24T13:17:29.929Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar valor",
-						"fecha": "2023-12-23T23:22:03.816Z"
+						"fecha": "2023-12-24T13:17:29.929Z"
 					},
 					{
 						"estado": "\t 0 - Linea: sensores",
-						"fecha": "2023-12-23T23:22:03.817Z"
+						"fecha": "2023-12-24T13:17:29.930Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-23T23:22:03.819Z"
+						"fecha": "2023-12-24T13:17:29.930Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-23T23:22:03.819Z"
+						"fecha": "2023-12-24T13:17:29.931Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-23T23:22:03.820Z"
+						"fecha": "2023-12-24T13:17:29.932Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-23T23:22:03.822Z"
+						"fecha": "2023-12-24T13:17:29.932Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-23T23:22:03.823Z"
+						"fecha": "2023-12-24T13:17:29.933Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-23T23:22:03.824Z"
+						"fecha": "2023-12-24T13:17:29.934Z"
 					},
 					{
 						"estado": "\t 0 - Linea: Diagnósticos",
-						"fecha": "2023-12-23T23:22:03.826Z"
+						"fecha": "2023-12-24T13:17:29.935Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-23T23:22:03.829Z"
+						"fecha": "2023-12-24T13:17:29.936Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-23T23:22:03.831Z"
+						"fecha": "2023-12-24T13:17:29.938Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Componente",
-						"fecha": "2023-12-23T23:22:03.833Z"
+						"fecha": "2023-12-24T13:17:29.940Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Alteracion",
-						"fecha": "2023-12-23T23:22:03.836Z"
+						"fecha": "2023-12-24T13:17:29.942Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Tipo",
-						"fecha": "2023-12-23T23:22:03.837Z"
+						"fecha": "2023-12-24T13:17:29.942Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Valores",
-						"fecha": "2023-12-23T23:22:03.837Z"
+						"fecha": "2023-12-24T13:17:29.943Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-23T23:22:03.838Z"
+						"fecha": "2023-12-24T13:17:29.944Z"
 					},
 					{
 						"estado": "\t 1 - Linea: sensores",
-						"fecha": "2023-12-23T23:22:03.840Z"
+						"fecha": "2023-12-24T13:17:29.945Z"
 					},
 					{
 						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-23T23:22:03.841Z"
+						"fecha": "2023-12-24T13:17:29.945Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-23T23:22:03.842Z"
+						"fecha": "2023-12-24T13:17:29.946Z"
 					},
 					{
 						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-23T23:22:03.843Z"
+						"fecha": "2023-12-24T13:17:29.947Z"
 					},
 					{
 						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-23T23:22:03.844Z"
+						"fecha": "2023-12-24T13:17:29.948Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-23T23:22:03.845Z"
+						"fecha": "2023-12-24T13:17:29.949Z"
 					},
 					{
 						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-23T23:22:03.846Z"
+						"fecha": "2023-12-24T13:17:29.949Z"
 					},
 					{
 						"estado": "\t 1 - Linea: Diagnósticos",
-						"fecha": "2023-12-23T23:22:03.847Z"
+						"fecha": "2023-12-24T13:17:29.950Z"
 					},
 					{
 						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-23T23:22:03.848Z"
+						"fecha": "2023-12-24T13:17:29.950Z"
 					},
 					{
 						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-23T23:22:03.850Z"
+						"fecha": "2023-12-24T13:17:29.951Z"
 					},
 					{
-						"estado": "Calculando funciones de criterio",
-						"fecha": "2023-12-23T23:22:03.852Z"
-					}
-				],
-				"ide": [
+						"estado": "Iniciando Aferencia",
+						"fecha": "2023-12-24T13:17:29.952Z"
+					},
 					{
-						"estado": "Autómata listo.Asistentes: 2\n\t\t\t\n\t --> Asistente: as-2, gpt-3.5-turbo, \n Eres un experto controlador de unidades fundamentales de inteligencia artificial. Funciona como un oráculo. Provees funciones para servidores de acción. Gestiona los eventos del sistema. Eres enlace entre un servidor RASA y la AssistantsAPI. Modo json activado.\n\t\t\t\n\t\t\t\n\t\t\n\t --> Asistente: aleph-script-assistant, gpt-3.5-turbo, \n You are an expert code-interpreter. Your mission is to be the root assistant in a big assistant network. You are now in design and building phase, so you help to generate assistants and network. Work in json mode. \n\t\t\t\n\t\t --> code_interpreter\n\t\t\t\n\t\t --> file-pfoopiFYm7NFhsPr47dSznYd\n\t\t\n\t\t",
-						"fecha": "2023-12-23T23:22:03.858Z"
-					}
-				],
-				"aleph-script-assistant": [
+						"estado": "\t - Buscando sensor",
+						"fecha": "2023-12-24T13:17:29.952Z"
+					},
 					{
-						"estado": "¡Listo!",
-						"fecha": "2023-12-23T23:22:03.859Z"
+						"estado": "\t\t - Sensor temperatura/dGVtcGVyYXR1cmE",
+						"fecha": "2023-12-24T13:17:29.953Z"
+					},
+					{
+						"estado": "\t - Buscando reglas",
+						"fecha": "2023-12-24T13:17:29.954Z"
+					},
+					{
+						"estado": "\t\t - Reglas encontradas: 2",
+						"fecha": "2023-12-24T13:17:29.955Z"
+					},
+					{
+						"estado": "Procesando criterios",
+						"fecha": "2023-12-24T13:17:29.957Z"
+					},
+					{
+						"estado": "\t\t - Positivos encontrados: 2",
+						"fecha": "2023-12-24T13:17:29.960Z"
+					},
+					{
+						"estado": "Positivos encontrados",
+						"fecha": "2023-12-24T13:17:29.961Z"
+					},
+					{
+						"estado": "\t - Lineas afectadas: 2",
+						"fecha": "2023-12-24T13:17:29.962Z"
+					},
+					{
+						"estado": "\t\t - CPU/F01-sistema-ventilacion/Temperatura fuera de rango, diag: 2",
+						"fecha": "2023-12-24T13:17:29.963Z"
+					},
+					{
+						"estado": "\t\t\t - 0: Diag1",
+						"fecha": "2023-12-24T13:17:29.963Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-apagar-ventilador",
+						"fecha": "2023-12-24T13:17:29.964Z"
+					},
+					{
+						"estado": "\t\t\t\t - 1: F01-iniciar-procesos-mantenimiento",
+						"fecha": "2023-12-24T13:17:29.964Z"
+					},
+					{
+						"estado": "\t\t\t - 1: Diag2",
+						"fecha": "2023-12-24T13:17:29.965Z"
+					},
+					{
+						"estado": "\t\t - CPU/F02-sistema-ventilacion/Temperatura fuera de rango, diag: 2",
+						"fecha": "2023-12-24T13:17:29.965Z"
+					},
+					{
+						"estado": "\t\t\t - 0: Diag1",
+						"fecha": "2023-12-24T13:17:29.965Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-encender-ventilador",
+						"fecha": "2023-12-24T13:17:29.966Z"
+					},
+					{
+						"estado": "\t\t\t - 1: Diag2",
+						"fecha": "2023-12-24T13:17:29.966Z"
+					},
+					{
+						"estado": "\t\t\t\t - 0: F01-apagar-procesos-mantenimiento",
+						"fecha": "2023-12-24T13:17:29.967Z"
 					}
 				]
 			},
-			"fecha": "2023-12-23T23:22:02.655Z"
+			"fecha": "2023-12-24T13:17:28.668Z"
 		},
 		"claveFunciones": [
 			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"¡Bien! Esta vez la generación de funciones ha sido exitosa. He corregido el código para que las funciones se generen correctamente según las especificaciones proporcionadas.\\n\\nA continuación, tienes la lista de funciones en TypeScript generadas:\\n\\n1. `function FuncionCriterio(Nmax) {\\\\n\\\\treturn Nmax * (1 - 0.2);\\\\n}`\\n2. `function FuncionCriterio(Nmax) {\\\\n\\\\treturn Nmax * (1 - 0.8);\\\\n}`\\n3. `function FuncionCriterio(Nmin) {\\\\n\\\\treturn Nmin * (1 + 0.2);\\\\n}`\\n4. `function FuncionCriterio(Nmin) {\\\\n\\\\treturn Nmin * (1 + 0.8);\\\\n}`\\n\\nPuedes usar estas funciones en tu código TypeScript. Recuerda que el campo `\\\"funciones\\\"` en el JSON de salida contiene un array válido de strings con el código listo para ejecutar con la instrucción eval.\\n\\nSi tienes alguna otra especificación o necesitas ayuda adicional, no dudes en preguntar.\",\"annotations\":[]}}"
+				"{\"type\":\"text\",\"text\":{\"value\":\"Aquí tienes el código TypeScript generado para implementar las funciones solicitadas:\\n\\n```typescript\\nfunction FuncionCriterio(valor: number): boolean {\\n    return valor >= (1 - 20) * Nmax;\\n}\\n\\nfunction FuncionCriterio(valor: number): boolean {\\n    return valor >= (1 - 80) * Nmax;\\n}\\n\\nfunction FuncionCriterio(valor: number): boolean {\\n    return valor >= 20;\\n}\\n\\nfunction FuncionCriterio(valor: number): boolean {\\n    return valor >= 80;\\n}\\n```\\n\\nPuedes ejecutar este código en un entorno TypeScript para obtener los resultados deseados. Recuerda reemplazar la variable `Nmax` por el valor correspondiente en tu implementación real.\\n\\nSi necesitas el código en formato JSON, aquí tienes el resultado:\\n\\n```json\\n{\\n  \\\"funciones\\\": [\\n    \\\"function FuncionCriterio(valor: number): boolean {\\\\n    return valor >= (1 - 20) * Nmax;\\\\n}\\\\n\\\",\\n    \\\"function FuncionCriterio(valor: number): boolean {\\\\n    return valor >= (1 - 80) * Nmax;\\\\n}\\\\n\\\",\\n    \\\"function FuncionCriterio(valor: number): boolean {\\\\n    return valor >= 20;\\\\n}\\\\n\\\",\\n    \\\"function FuncionCriterio(valor: number): boolean {\\\\n    return valor >= 80;\\\\n}\\\\n\\\"\\n  ]\\n}\\n```\\n\\nEspero que esto sea lo que estabas buscando. Si tienes alguna otra pregunta, no dudes en hacerla.\",\"annotations\":[]}}"
 			],
 			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, a pesar de los ajustes realizados, la lista de funciones generadas sigue estando vacía. Parece que hay algún otro error que impide la generación correcta de las funciones.\\n\\nVoy a revisar nuevamente el código y realizar los cambios necesarios.\",\"annotations\":[]}}"
-			],
-			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, a pesar de la corrección en el código, la lista de funciones generadas sigue vacía. Parece que hay algún otro error en la lógica de generación de las funciones. \\n\\nVoy a revisar nuevamente el código y realizar los ajustes necesarios.\",\"annotations\":[]}}"
-			],
-			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente, parece que hay un error en el código que hace que la lista de funciones generadas esté vacía. Voy a analizar y corregir el error.\\n\\nEl problema parece estar en la comparación de las palabras clave \\\"decreciente\\\" y \\\"creciente\\\". En lugar de comparar `criterio[1] == \\\"decreciente\\\"` y `criterio[1] == \\\"creciente\\\"`, deberíamos estar comparando `criterio[0] == \\\"tendencia\\\"`. Vamos a corregir esto y volver a ejecutar el código.\",\"annotations\":[]}}"
-			],
-			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Lamentablemente la lista de funciones sigue vacía. Parece que hay algún problema en la lógica de generación de las funciones. Revisemos nuevamente el código para encontrar el error.\",\"annotations\":[]}}"
-			],
-			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Parece que no se generaron funciones correctamente. Revisemos el código para encontrar el problema.\",\"annotations\":[]}}"
-			],
-			[
-				"{\"type\":\"text\",\"text\":{\"value\":\"Disculpa, parece que se produjo un error al intentar extraer el porcentaje de la especificación. Voy a corregirlo y volver a ejecutar el código.\",\"annotations\":[]}}"
+				"{\"type\":\"text\",\"text\":{\"value\":\"Entendido. Voy a generar el código TypeScript para implementar esas funciones. Primero, necesitamos definir el formato en el que se espera recibir las especificaciones y en qué formato se devolverán las funciones implementadas.\\n\\nEl formato de entrada será una lista de especificaciones en lenguaje natural en forma de cadena de texto. El formato de salida será un objeto JSON con un campo llamado \\\"funciones\\\" que contendrá un array de strings con el código TypeScript de las funciones.\\n\\nA continuación, generaré el código TypeScript para implementar las funciones solicitadas.\",\"annotations\":[]}}"
 			],
 			[
 				"{\"type\":\"text\",\"text\":{\"value\":\"Dada una lista de especificaciones en lenguaje natural, devuelve una lista de funciones en typescript que las implementen. Las funciones se llamarán todas igual: FuncionCriterio. Modo JSON. Devuelve el campo 'funciones' con un Array válida de strings con el código listo para ejecutar con la instrucción eval. Cada posición de la lista debe ser el código de la función con cabecera correcta dentro de un string. Lista de especificaciones: ['tendencia decreciente con pérdida del 20% Nmax','tendencia decreciente con pérdida del 80% Nmax','tendencia creciente con ganancia del 20% Nmin','tendencia creciente con ganancia del 80% Nmin']\",\"annotations\":[]}}"

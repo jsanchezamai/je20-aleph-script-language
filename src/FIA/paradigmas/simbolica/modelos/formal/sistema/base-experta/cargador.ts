@@ -1,26 +1,15 @@
 import { agentMessage } from "../../../../../../agentMessage";
-import { CabeceraPC } from "./dominio/Cabecera";
-import { Base, COLUMNAS, PC1 } from "./dominio/base";
+
 import { error } from "console";
 import { Buffer } from "buffer";
-import { Linea, LineaExterna } from "./dominio/Linea";
+
 import { AlephIDE } from "./aleph-ide";
 
-export type Guid = string;
-export type GuidSensor = Guid;
-export type GuidExterno = string;
-export type FuncionCriterio = (...args) => boolean;
+import { Base, COLUMNAS, CabeceraPC, Linea, LineaExterna } from "./dominio/arbol";
+import { PC1 } from "./dominio/ejemplo";
+import { GuidExterno, Guid, Valor, CriteriosSensor, FuncionCriterio, Diagnostico, Aferencia } from "./dominio/tipos";
 
-type CriteriosSensor = { guidSensor: GuidSensor, guidRegulador: Guid };
-export type Sensor = any;
-export type Valor = Guid;
-export type Paso = Guid;
-export type Diagnostico = Guid;
-export type DiagnosticoLinea = Paso[];
 
-type Telemetria = number;
-export type Lectura = Telemetria;
-export type Aferencia = { GuidSensor: GuidSensor, Lectura: Lectura };
 
 export const i18_PROCESADOR_ESTADO_AS = {
     NOMBRE: "Procesador estado",
@@ -46,15 +35,16 @@ export const i18_PROCESADOR_ESTADO_AS = {
 }
 
 export class CargadorBaseExperta {
+
     ide: AlephIDE = new AlephIDE;
 
     componente: GuidExterno;
     alteracion: GuidExterno;
     tipo: GuidExterno;
 
-    componentes: Map<Guid, any> = new Map();
-    alteraciones: Map<Guid, any> = new Map();
-    tipos: Map<Guid, any> = new Map();
+    componentes_tabla: Map<Guid, any> = new Map();
+    alteraciones_tabla: Map<Guid, any> = new Map();
+    tipos_tabla: Map<Guid, any> = new Map();
 
     valores: Valor[] = [];
     valores_tabla: Map<Guid, GuidExterno> = new Map();
@@ -103,26 +93,26 @@ export class CargadorBaseExperta {
                 console.log(PC1);
             }
             // console.log(this.dominio.red);
-            // console.log(this.componentes);
-            // console.log(this.alteraciones);
+            // console.log(this.componentes_tabla);
+            // console.log(this.alteraciones_tabla);
             // console.log(this.valores);
             // console.log(this.dominio.red.lineas);
             // console.log(this.dominio.red.lineas.map(l => l.diagnosticos));
             // console.log(this.dominio.red.lineas[0].diagnosticos);
 
-            console.log(agentMessage(this.nombre, this.i18.CARGA.CALCULO_FUNCIONES));
-
+/*
             try {
+                console.log(agentMessage(this.nombre, this.i18.CARGA.CALCULO_FUNCIONES));
                 this.ide.inicializar();
                 const criterios = this.sensores_criterios_tabla.values();
                 console.log(criterios)
-                await this.crearFunciones(criterios);
+                // await this.crearFunciones(criterios);
             } catch (error) {
                 console.log(agentMessage(this.nombre, this.i18.CARGA.ERROR));
                 console.log(agentMessage(this.nombre, error.message));
                 console.log(PC1);
             }
-
+*/
             resolve(true);
         })
     }
@@ -135,7 +125,7 @@ export class CargadorBaseExperta {
         console.log(agentMessage(this.nombre, "\t - Cabecera: alteracion"));
         this.alteracion = this.dominio.cabecera[COLUMNAS.alteracion];
 
-        console.log(agentMessage(this.nombre, "\t - Cabecera: tipos"));
+        console.log(agentMessage(this.nombre, "\t - Cabecera: tipos_tabla"));
         this.tipo = this.dominio.cabecera[COLUMNAS.tipo];
 
         console.log(agentMessage(this.nombre, "\t - Cabecera: valores"));
@@ -222,15 +212,15 @@ export class CargadorBaseExperta {
         linea.Guid = this.crearGuid(i.toString());
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Componente`));
-        let clave = this.agregarOrecuperar(this.componentes, l[COLUMNAS.componente]);
+        let clave = this.agregarOrecuperar(this.componentes_tabla, l[COLUMNAS.componente]);
         linea.componente = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Alteracion`));
-        clave = this.agregarOrecuperar(this.alteraciones, l[COLUMNAS.alteracion]);
+        clave = this.agregarOrecuperar(this.alteraciones_tabla, l[COLUMNAS.alteracion]);
         linea.alteracion = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Tipo`));
-        clave = this.agregarOrecuperar(this.tipos, l[COLUMNAS.tipo]);
+        clave = this.agregarOrecuperar(this.tipos_tabla, l[COLUMNAS.tipo]);
         linea.tipo = clave;
 
         console.log(agentMessage(this.nombre, `\t ${i} - Linea: Valores`));
@@ -449,8 +439,13 @@ export class CargadorBaseExperta {
         console.log(agentMessage(this.nombre, `\t - Lineas afectadas: ${positivos.length}`));
 
         positivos.forEach(p => {
+
+            const c = this.componentes_tabla.get(p.componente);
+            const t = this.tipos_tabla.get(p.tipo);
+            const a = this.alteraciones_tabla.get(p.alteracion);
+
             console.log(agentMessage(this.nombre,
-                `\t\t - ${p.componente}/${p.alteracion}/${p.tipo}, diag: ${p.diagnosticos.length}`));
+                `\t\t - ${c}/${t}/${a}, diag: ${p.diagnosticos.length}`));
 
             p.diagnosticos.forEach((d, i) => {
 
