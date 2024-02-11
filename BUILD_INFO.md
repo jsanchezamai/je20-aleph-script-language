@@ -109,11 +109,23 @@ Readed file { id: 'NotInitedModel', domain: [], commonKADSforms: { forms: [] } }
 
 ## AS Framework
 
+### AS Framework Node-Red instance
+
 [](src/as-framework)
 
 ![](./build_info_pics/AS_FRAMEWORK.png)
+
 ![](./build_info_pics/AS_FRAMEWORK_1.png)
+
+![](./build_info_pics/AS_FRAMEWORK_WIRED.png)
+
 ![](./build_info_pics/AS_FRAMEWORK_LOOP.png)
+
+![](./build_info_pics/master-screen-schema.png)
+
+![](./build_info_pics/developer-screen-schema.png)
+
+![](./build_info_pics/operator-screen-schema.png)
 
 ## AS Runtime
 
