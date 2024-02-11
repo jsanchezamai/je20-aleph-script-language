@@ -1,0 +1,15 @@
+{
+    "name": "as-framework",
+    "description": "Imports AS Seeds and builds AS Apps for AS Runtime.",
+    "version": "0.0.1",
+    "dependencies": {
+        "@inductiv/node-red-openai-api": "0.3.7",
+        "node-red-contrib-rasa-actionserver": "1.3.0"
+    },
+    "node-red": {
+        "settings": {
+            "flowFile": "as_framework.json",
+            "credentialsFile": "as_framework_cred.json"
+        }
+    }
+}

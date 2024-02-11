@@ -21,3 +21,8 @@ Basic dummy set is by default:
 
 Auth schema: [domain.data.schema.auth.json](./domain.data.schema.auth.json).
 
+## Using AS-FRAMEWORK to build Assistant rasa-like yaml files 
+
+![](../../../../build_info_pics/master-screen-schema.png)
+
+![](../../../../build_info_pics/master-screen-load-data.png)

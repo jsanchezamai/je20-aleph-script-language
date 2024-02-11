@@ -1,0 +1,3700 @@
+[
+    {
+        "id": "22a5c7233e9e1774",
+        "type": "tab",
+        "label": "OnBOARD",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3efebe813eeb35a3",
+        "type": "subflow",
+        "name": "PROJECT DESIGNER",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "813353586ed2f20c"
+                    },
+                    {
+                        "id": "3553b57d70a8146a"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1200,
+                "y": 540,
+                "wires": [
+                    {
+                        "id": "eede0fe30a8d4384",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "5ecac4284319a8ad",
+        "type": "subflow",
+        "name": "INTERFACES ADAPTER",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "7ce4623e22aed186"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 720,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "8b2ba89db7dab528",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6bbc9dbfcc0becb9",
+        "type": "subflow",
+        "name": "OPERATOR_SCREEN",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "4d459365c76e13d2"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 480,
+                "y": 560,
+                "wires": []
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "59e44772b8b19ac2",
+        "type": "subflow",
+        "name": "AS FK Server",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "74a3df67b6a11cf7",
+        "type": "subflow",
+        "name": "AS IA Client",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "e35f898e6e51402b",
+        "type": "group",
+        "z": "22a5c7233e9e1774",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7cb129db92a7e201",
+            "651075f2053363bf",
+            "c3aee54b9c212d35",
+            "c0342135668b93ee",
+            "62da434d15a06984",
+            "206c26188c71951a",
+            "47952521ce2c8ac8",
+            "4762d4c2829ac892",
+            "a808bdd9c44231e8",
+            "304bdc112221950c",
+            "7c4bca2531a0c0d5",
+            "d4fc3c2953df6f7a",
+            "50e0fec5e8c09975",
+            "084c1cf41b886bfd",
+            "95b984c35e2791fa",
+            "a64f63a4fe63a6d5",
+            "059c7ca93e09542a",
+            "3b88bbd67f62cbba",
+            "02b5b2ab5e3a5b27",
+            "bbb69373d3cf4068",
+            "13afe9cdff1c3d2f",
+            "ef3b99cc29f77cf8",
+            "462ec13bbb1e8a70",
+            "8e6131065fac525e",
+            "9c9fe7fa062c8836",
+            "e61635f2e9c3725f",
+            "c7c101748c950662",
+            "60b9c560866c7c4d",
+            "04efa87e0f31f704",
+            "6fd91ee460128c52",
+            "5bcd1a45581eb879",
+            "3d3026f3daa9a255",
+            "49cbaa6fcb9ba022",
+            "f3b5a6580efec40f",
+            "473430abab162c29",
+            "1bd4496c18f38e26",
+            "fdf06eae80ddc085",
+            "60995437c2734b26",
+            "f282baccc2d57160",
+            "9ee16a9c6a409441",
+            "30fce7985aa12579",
+            "2316e4d48d787f4d",
+            "b37cf8f510a0b1f8",
+            "7587708c8bbcdf25"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 1292,
+        "h": 682
+    },
+    {
+        "id": "6b6f22b29168c1fa",
+        "type": "group",
+        "z": "22a5c7233e9e1774",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "bb58b62da194711a",
+            "35a186cc633a144b",
+            "f658b176e499657c",
+            "1efbfecc1c2d21eb",
+            "7def126f624a51fe",
+            "baaff00b4fb136ff",
+            "baa806a31968cb17"
+        ],
+        "x": 104,
+        "y": 959,
+        "w": 422,
+        "h": 402
+    },
+    {
+        "id": "16130664feafb270",
+        "type": "group",
+        "z": "3efebe813eeb35a3",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "813353586ed2f20c",
+            "7d7aae35e6462acd",
+            "3ac60b1cf5749896",
+            "a0703223808f6b0b",
+            "6617cf271245d20c",
+            "9f56c832096bd94f",
+            "13ed3a4e113fe455",
+            "81487f4a983cf008",
+            "4692c49af212a395",
+            "46fd123e6ca660c5",
+            "e5409f93c48713b5",
+            "eede0fe30a8d4384",
+            "6603c83b15809a80",
+            "073e1cd1f8495b1f",
+            "0a0cb50d27551656",
+            "60e0f18637ba3fe4",
+            "fe6a29eb571bc7ca",
+            "6a1766f298f9abd9",
+            "b62cff3956aa718f",
+            "b163473a404768cb",
+            "f05fde08a71c70b3",
+            "6d362d68c183e6d0",
+            "60961223d79ce57a",
+            "2536616b2b105e3a",
+            "5654e0dd23771058",
+            "7e7503099f40f6b7"
+        ],
+        "x": 44,
+        "y": 99,
+        "w": 1568,
+        "h": 1388
+    },
+    {
+        "id": "482c0eec8a035bee",
+        "type": "group",
+        "z": "5ecac4284319a8ad",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7ce4623e22aed186",
+            "a76d94495c2e1e5e",
+            "51a4aaf754c39d2d",
+            "2d7b690f15cd2d68",
+            "8b2ba89db7dab528",
+            "f4a13d897a7a0981",
+            "7dc55dd59e0f1a6a",
+            "42f48434a71a2a81"
+        ],
+        "x": 94,
+        "y": 79,
+        "w": 632,
+        "h": 202
+    },
+    {
+        "id": "7bc96376eedc5df5",
+        "type": "group",
+        "z": "6bbc9dbfcc0becb9",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4d459365c76e13d2",
+            "56e8b01b968cfb87",
+            "6cfbdb3188b240da",
+            "84e4e44b816d7d34",
+            "2b1e384841488996",
+            "3d40d9c97a36b0cb",
+            "99ec132972cec00b",
+            "e8029b7059b34ecc",
+            "8f195a6cd3c2bb3c",
+            "09c56823878714ae"
+        ],
+        "x": 44,
+        "y": 79,
+        "w": 988,
+        "h": 428
+    },
+    {
+        "id": "60961223d79ce57a",
+        "type": "group",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6576592ee425e344",
+            "aedb7b34ec643837",
+            "0817e54d3369cce4"
+        ],
+        "x": 734,
+        "y": 499,
+        "w": 212,
+        "h": 242
+    },
+    {
+        "id": "721a16705d277d3c",
+        "type": "group",
+        "z": "59e44772b8b19ac2",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8facd5d108c52d74",
+            "317c9f8eeb7b47d0",
+            "d67c3002a9caa591",
+            "d788a45157bb4b93",
+            "f43a7615de8ba84d",
+            "066634013babd91c",
+            "0c6f67d31f3b4c51",
+            "2796f125a994960c",
+            "e23d3386cefcf7b7",
+            "d85b124a3bbd8ec2",
+            "1d3089c70d0796ca"
+        ],
+        "x": 74,
+        "y": 59,
+        "w": 792,
+        "h": 462
+    },
+    {
+        "id": "017ac4aba19658a9",
+        "type": "group",
+        "z": "74a3df67b6a11cf7",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ca4735ab06df55d7",
+            "ca60ffed2e11d1ca",
+            "c0f065053a3abc5d",
+            "bd7ad76ece636095",
+            "6ae35abdc07f0d1a",
+            "63f0895f11bf5481",
+            "533dd44f013b890e",
+            "434fcfad1ddb4616",
+            "af1a9dc24a1004ec"
+        ],
+        "x": 74,
+        "y": 39,
+        "w": 712,
+        "h": 282
+    },
+    {
+        "id": "1219e15595a0609a",
+        "type": "group",
+        "z": "74a3df67b6a11cf7",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "02d0bffd4c168cd2",
+            "3520789a629a34e3"
+        ],
+        "x": 74,
+        "y": 399,
+        "w": 412,
+        "h": 82
+    },
+    {
+        "id": "2b1e384841488996",
+        "type": "group",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7c0abaceaecddfa8",
+            "9208e642e5bc4a38",
+            "dc51ec030a4c7239",
+            "952f521f1ff0ee20",
+            "98b497ac74b16107"
+        ],
+        "x": 134,
+        "y": 279,
+        "w": 472,
+        "h": 202
+    },
+    {
+        "id": "3d40d9c97a36b0cb",
+        "type": "group",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "098a3dd41a5831f1",
+            "0209345d46a57204",
+            "5c775c5dbb7947dc",
+            "593cea2f16fede84",
+            "149b50cab04b149e"
+        ],
+        "x": 664,
+        "y": 259,
+        "w": 342,
+        "h": 222
+    },
+    {
+        "id": "b163473a404768cb",
+        "type": "group",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "097e478b03cf93a0",
+            "0157cc31eb56f499",
+            "2469fc395f856ba4",
+            "f808188b0fbfb241",
+            "6ad1c92afb1be00a",
+            "3cdd1f03f893f0d2",
+            "fbbde6f9aec1aaa4",
+            "5d05c6b18fac5b96",
+            "0a18d168f34db917",
+            "7943f3fe5551336f",
+            "ef3d26e141fc909d",
+            "eb47819a06de7406"
+        ],
+        "x": 644,
+        "y": 1159,
+        "w": 942,
+        "h": 302
+    },
+    {
+        "id": "6cfcae0c75e911dd",
+        "type": "ui_tab",
+        "z": "3efebe813eeb35a3",
+        "name": "PROJECT_BUILDER",
+        "icon": "book",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "98037bb0633058a9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f1b1c5b935753852",
+        "type": "ui_group",
+        "z": "3efebe813eeb35a3",
+        "name": "Estructured data LOADER (domain.data.schema/auth)",
+        "tab": "6cfcae0c75e911dd",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "813353586ed2f20c",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "INIT_ADMIN_DESKTOP",
+        "func": "if (!msg.payload.project) {\n    msg.payload.project = { state:\"NO_INIT\" };\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "b62cff3956aa718f"
+            ]
+        ]
+    },
+    {
+        "id": "7d7aae35e6462acd",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "BUILD_SEMANTIC_NETWORK",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    domain: { \n        root: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "6617cf271245d20c"
+            ]
+        ]
+    },
+    {
+        "id": "3ac60b1cf5749896",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "BUILD FRAME_BOOK",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    book: { \n        story: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 360,
+        "wires": [
+            [
+                "9f56c832096bd94f",
+                "46fd123e6ca660c5"
+            ]
+        ]
+    },
+    {
+        "id": "a0703223808f6b0b",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "LOAD_COMMON_KADS_FORMS",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    CADSforms: { \n        network: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "7d7aae35e6462acd"
+            ]
+        ]
+    },
+    {
+        "id": "097e478b03cf93a0",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "APP_JSON_DOMAIN",
+        "func": "msg.payload.project = { state:\"LOADED\" };\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 1340,
+        "wires": [
+            [
+                "2469fc395f856ba4",
+                "fbbde6f9aec1aaa4"
+            ]
+        ]
+    },
+    {
+        "id": "6617cf271245d20c",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "APP_YAML_DOMAIN",
+        "func": "msg.payload.yaml.push({\n    job: new Date(),\n    CADSforms: { \n        network: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "13ed3a4e113fe455"
+            ]
+        ]
+    },
+    {
+        "id": "9f56c832096bd94f",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "APP_YAML_FRAMEBOOK",
+        "func": "msg.payload.yaml.push({\n    job: new Date(),\n    CADSforms: { \n        network: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 360,
+        "wires": [
+            [
+                "81487f4a983cf008"
+            ]
+        ]
+    },
+    {
+        "id": "13ed3a4e113fe455",
+        "type": "yaml",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "property": "payload",
+        "name": "",
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [
+                "3ac60b1cf5749896"
+            ]
+        ]
+    },
+    {
+        "id": "81487f4a983cf008",
+        "type": "yaml",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "property": "payload",
+        "name": "",
+        "x": 1050,
+        "y": 360,
+        "wires": [
+            [
+                "eede0fe30a8d4384"
+            ]
+        ]
+    },
+    {
+        "id": "3cdd1f03f893f0d2",
+        "type": "json",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1230,
+        "y": 1200,
+        "wires": [
+            [
+                "6ad1c92afb1be00a"
+            ]
+        ]
+    },
+    {
+        "id": "4692c49af212a395",
+        "type": "json",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1050,
+        "y": 400,
+        "wires": [
+            [
+                "eede0fe30a8d4384"
+            ]
+        ]
+    },
+    {
+        "id": "46fd123e6ca660c5",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "APP_JSON_ANOTATED_DATASETS",
+        "func": "msg.payload.yaml.push({\n    job: new Date(),\n    CADSforms: { \n        network: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "4692c49af212a395"
+            ]
+        ]
+    },
+    {
+        "id": "e5409f93c48713b5",
+        "type": "link out",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [],
+        "x": 1205,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "eede0fe30a8d4384",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "BUNDLE",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 380,
+        "wires": [
+            [
+                "e5409f93c48713b5",
+                "073e1cd1f8495b1f"
+            ]
+        ]
+    },
+    {
+        "id": "0157cc31eb56f499",
+        "type": "file in",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "domain.data.schema.json",
+        "filename": "/Users/morente/Desktop/THEIA_PATH/taller_tc/JE20/je20/fia/src/as-seed/guest/corpus/domain.data.schema.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1030,
+        "y": 1200,
+        "wires": [
+            [
+                "3cdd1f03f893f0d2"
+            ]
+        ]
+    },
+    {
+        "id": "6603c83b15809a80",
+        "type": "link in",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "link in 11",
+        "links": [],
+        "x": 85,
+        "y": 140,
+        "wires": [
+            [
+                "813353586ed2f20c"
+            ]
+        ]
+    },
+    {
+        "id": "073e1cd1f8495b1f",
+        "type": "file",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "",
+        "filename": "",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1180,
+        "y": 240,
+        "wires": [
+            [
+                "60e0f18637ba3fe4"
+            ]
+        ]
+    },
+    {
+        "id": "0a0cb50d27551656",
+        "type": "watch",
+        "z": "3efebe813eeb35a3",
+        "d": true,
+        "g": "16130664feafb270",
+        "name": "",
+        "files": "",
+        "recursive": "",
+        "x": 1130,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60e0f18637ba3fe4",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "AS PROJECT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c768c6527728ee68",
+        "type": "html",
+        "z": "3efebe813eeb35a3",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "",
+        "ret": "html",
+        "as": "single",
+        "x": 1030,
+        "y": 620,
+        "wires": [
+            [
+                "a897273968de54ef"
+            ]
+        ]
+    },
+    {
+        "id": "a897273968de54ef",
+        "type": "yaml",
+        "z": "3efebe813eeb35a3",
+        "property": "payload",
+        "name": "",
+        "x": 1070,
+        "y": 680,
+        "wires": [
+            [
+                "2536616b2b105e3a"
+            ]
+        ]
+    },
+    {
+        "id": "2536616b2b105e3a",
+        "type": "file",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "",
+        "filename": "",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1100,
+        "y": 740,
+        "wires": [
+            [
+                "7e7503099f40f6b7"
+            ]
+        ]
+    },
+    {
+        "id": "5654e0dd23771058",
+        "type": "watch",
+        "z": "3efebe813eeb35a3",
+        "d": true,
+        "g": "16130664feafb270",
+        "name": "",
+        "files": "",
+        "recursive": "",
+        "x": 1410,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e7503099f40f6b7",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "AS APP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "6576592ee425e344",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "60961223d79ce57a",
+        "name": "EXPORT_APP",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    app: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 540,
+        "wires": [
+            [
+                "aedb7b34ec643837"
+            ]
+        ]
+    },
+    {
+        "id": "aedb7b34ec643837",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "60961223d79ce57a",
+        "name": "TRAIN_APP",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    app: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 620,
+        "wires": [
+            [
+                "0817e54d3369cce4"
+            ]
+        ]
+    },
+    {
+        "id": "0817e54d3369cce4",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "60961223d79ce57a",
+        "name": "PACKAGE_APP",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    app: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 700,
+        "wires": [
+            [
+                "c768c6527728ee68"
+            ]
+        ]
+    },
+    {
+        "id": "3553b57d70a8146a",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "name": "AS PROJECT DESIGNER",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "fe6a29eb571bc7ca",
+        "type": "switch",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "project.STATE",
+        "property": "payload.project.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "NO_INIT",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "LOADED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BUILDED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BUNDLED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PACKAGED",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 260,
+        "y": 680,
+        "wires": [
+            [
+                "f05fde08a71c70b3",
+                "6d362d68c183e6d0"
+            ],
+            [
+                "6d362d68c183e6d0"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6a1766f298f9abd9",
+        "type": "link in",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "link in 15",
+        "links": [
+            "b62cff3956aa718f",
+            "fbbde6f9aec1aaa4",
+            "7a8258d2184872d2"
+        ],
+        "x": 115,
+        "y": 680,
+        "wires": [
+            [
+                "fe6a29eb571bc7ca"
+            ]
+        ]
+    },
+    {
+        "id": "b62cff3956aa718f",
+        "type": "link out",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "link out 22",
+        "mode": "link",
+        "links": [
+            "6a1766f298f9abd9",
+            "f2da6f5a5533f68e"
+        ],
+        "x": 495,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2469fc395f856ba4",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "AS PROJECT LOADER IMPORTER",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "f808188b0fbfb241",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "STEP_IN",
+        "func": "msg.step = msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1200,
+        "wires": [
+            [
+                "0157cc31eb56f499"
+            ]
+        ]
+    },
+    {
+        "id": "6ad1c92afb1be00a",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "STEP_OUT",
+        "func": "msg.step.domain = {\n    ...msg.step.domain,\n    schema: msg.payload,\n};\nmsg.payload = msg.step;\n\ndelete msg.step;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 1200,
+        "wires": [
+            [
+                "ef3d26e141fc909d"
+            ]
+        ]
+    },
+    {
+        "id": "5d05c6b18fac5b96",
+        "type": "link in",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "link in 16",
+        "links": [
+            "f05fde08a71c70b3",
+            "f9daec724e3b9708"
+        ],
+        "x": 685,
+        "y": 1200,
+        "wires": [
+            [
+                "f808188b0fbfb241"
+            ]
+        ]
+    },
+    {
+        "id": "f05fde08a71c70b3",
+        "type": "link out",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "link out 23",
+        "mode": "link",
+        "links": [
+            "5d05c6b18fac5b96",
+            "3328e46f569fe8c5"
+        ],
+        "x": 325,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fbbde6f9aec1aaa4",
+        "type": "link out",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "link out 24",
+        "mode": "link",
+        "links": [
+            "6a1766f298f9abd9",
+            "f2da6f5a5533f68e"
+        ],
+        "x": 1425,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "6d362d68c183e6d0",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "AS PROJECT STATE",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "0a18d168f34db917",
+        "type": "json",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1270,
+        "y": 1260,
+        "wires": [
+            [
+                "eb47819a06de7406"
+            ]
+        ]
+    },
+    {
+        "id": "7943f3fe5551336f",
+        "type": "file in",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "domain.data.schema.auth.json",
+        "filename": "/Users/morente/Desktop/THEIA_PATH/taller_tc/JE20/je20/fia/src/as-seed/guest/corpus/domain.data.schema.auth.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1050,
+        "y": 1260,
+        "wires": [
+            [
+                "0a18d168f34db917"
+            ]
+        ]
+    },
+    {
+        "id": "ef3d26e141fc909d",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "STEP_IN",
+        "func": "msg.step = msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1260,
+        "wires": [
+            [
+                "7943f3fe5551336f"
+            ]
+        ]
+    },
+    {
+        "id": "eb47819a06de7406",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "b163473a404768cb",
+        "name": "STEP_OUT",
+        "func": "msg.step.domain = {\n    ...msg.step.domain,\n    auth: msg.payload,\n};\nmsg.payload = msg.step;\n\ndelete msg.step;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 1260,
+        "wires": [
+            [
+                "097e478b03cf93a0"
+            ]
+        ]
+    },
+    {
+        "id": "e0e5b74380eae7a0",
+        "type": "switch",
+        "z": "3efebe813eeb35a3",
+        "name": "project.STATE",
+        "property": "payload.project.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "NO_INIT",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "LOADED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BUILDED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "BUNDLED",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PACKAGED",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 460,
+        "y": 1120,
+        "wires": [
+            [],
+            [
+                "868e24bc22c13fbc",
+                "b5529e262d0f8e01"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f2da6f5a5533f68e",
+        "type": "link in",
+        "z": "3efebe813eeb35a3",
+        "name": "link in 17",
+        "links": [
+            "b62cff3956aa718f",
+            "fbbde6f9aec1aaa4"
+        ],
+        "x": 195,
+        "y": 1320,
+        "wires": [
+            [
+                "e0e5b74380eae7a0",
+                "532b115c97cbf42d",
+                "8e775054208dc584"
+            ]
+        ]
+    },
+    {
+        "id": "f9daec724e3b9708",
+        "type": "link out",
+        "z": "3efebe813eeb35a3",
+        "name": "link out 25",
+        "mode": "link",
+        "links": [
+            "5d05c6b18fac5b96"
+        ],
+        "x": 525,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "868e24bc22c13fbc",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "name": "msg.payload.domain.schema.rows",
+        "func": "msg.step = msg.payload;\n\nlet rows = msg.payload.domain.schema.Model.rows;\n\nrows = rows.map(r => {\n    const data = {\n    entity: r.type,\n    pk: r.pk ,\n    fk: r.fk || '-',\n    data: r.data.nombre\n    };\n    return data;\n})\nmsg.payload = rows;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 980,
+        "wires": [
+            [
+                "0bec7054131b549f",
+                "f92a9371d3c09859"
+            ]
+        ]
+    },
+    {
+        "id": "0bec7054131b549f",
+        "type": "ui_table",
+        "z": "3efebe813eeb35a3",
+        "group": "f1b1c5b935753852",
+        "name": "domain.data.schema",
+        "order": 0,
+        "width": "12",
+        "height": "16",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1240,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "f92a9371d3c09859",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "name": "msg.payload.domain.schema.rows",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "8e775054208dc584",
+        "type": "debug",
+        "z": "3efebe813eeb35a3",
+        "name": "DEBUG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "4579911d8726318a",
+        "type": "ui_table",
+        "z": "3efebe813eeb35a3",
+        "group": "f1b1c5b935753852",
+        "name": "domain.data.schema.auth",
+        "order": 0,
+        "width": "12",
+        "height": "16",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1250,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "b5529e262d0f8e01",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "name": "msg.payload.domain.schema.auth.rows",
+        "func": "msg.step = msg.payload;\n\nlet rows = msg.payload.domain.auth.Model.rows;\n\nrows = rows.map(r => {\n    const data = {\n    entity: r.type,\n    pk: r.pk ,\n    fk: r.fk || '-',\n    data: JSON.stringify(r.data)\n    };\n    return data;\n})\nmsg.payload = rows;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1040,
+        "wires": [
+            [
+                "4579911d8726318a"
+            ]
+        ]
+    },
+    {
+        "id": "532b115c97cbf42d",
+        "type": "ui_text",
+        "z": "3efebe813eeb35a3",
+        "group": "f1b1c5b935753852",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "{{msg.payload.project.state}}",
+        "label": "msg.payload.project.state",
+        "format": "{{msg.payload.project.state}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 440,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "7ce4623e22aed186",
+        "type": "function",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "INIT_OWNER_DESKTOP",
+        "func": "return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a76d94495c2e1e5e",
+        "type": "function",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "BUILD_WORLD_NAVIGATOR",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    navigator: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "8b2ba89db7dab528"
+            ]
+        ]
+    },
+    {
+        "id": "51a4aaf754c39d2d",
+        "type": "function",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "BUILD_WORLD_MONITOR",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    monitor: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "8b2ba89db7dab528"
+            ]
+        ]
+    },
+    {
+        "id": "2d7b690f15cd2d68",
+        "type": "function",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "BUILD_WORLD_DESKBOARD",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    desk: { \n        yaml: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "8b2ba89db7dab528"
+            ]
+        ]
+    },
+    {
+        "id": "8b2ba89db7dab528",
+        "type": "function",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "APP_YAML_FRAMEBOOK",
+        "func": "msg.payload.yaml.push({\n    job: new Date(),\n    CADSforms: { \n        network: \"\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4a13d897a7a0981",
+        "type": "html",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "",
+        "ret": "html",
+        "as": "single",
+        "x": 510,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7dc55dd59e0f1a6a",
+        "type": "yaml",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "property": "payload",
+        "name": "",
+        "x": 630,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42f48434a71a2a81",
+        "type": "link in",
+        "z": "5ecac4284319a8ad",
+        "g": "482c0eec8a035bee",
+        "name": "link in 13",
+        "links": [],
+        "x": 135,
+        "y": 120,
+        "wires": [
+            [
+                "7ce4623e22aed186"
+            ]
+        ]
+    },
+    {
+        "id": "4d459365c76e13d2",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "INIT_OPERATOR_DESKTOP",
+        "func": "return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "e8029b7059b34ecc"
+            ]
+        ]
+    },
+    {
+        "id": "56e8b01b968cfb87",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "RUN_WORLD_NAVIGATOR",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    navigator: { \n        yaml: \"OPERATOR_ACCESS_NAVIGATOR\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 120,
+        "wires": [
+            [
+                "09c56823878714ae"
+            ]
+        ]
+    },
+    {
+        "id": "6cfbdb3188b240da",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "RUN_WORLD_MONITOR",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    monitor: { \n        yaml: \"OPERATOR_ACCESS_MONITOR\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "8f195a6cd3c2bb3c"
+            ]
+        ]
+    },
+    {
+        "id": "84e4e44b816d7d34",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "RUN_WORLD_DESKBOARD",
+        "func": "msg.payload.jobs.push({\n    job: new Date(),\n    desk: { \n        yaml: \"OPERATOR_ACCESS_DESKBOARD\",\n        children: [] \n    }\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "6cfbdb3188b240da"
+            ]
+        ]
+    },
+    {
+        "id": "7c0abaceaecddfa8",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "2b1e384841488996",
+        "name": "MONITOR",
+        "func": "const monitor = {\n    viewer: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "9208e642e5bc4a38",
+                "98b497ac74b16107"
+            ]
+        ]
+    },
+    {
+        "id": "9208e642e5bc4a38",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "2b1e384841488996",
+        "name": "DASHBOARD",
+        "func": "const dashboard = {\n    desk: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "dc51ec030a4c7239"
+            ]
+        ]
+    },
+    {
+        "id": "dc51ec030a4c7239",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "2b1e384841488996",
+        "name": "SCADA NETWORK",
+        "func": "const network = {\n    signal: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "7c0abaceaecddfa8"
+            ]
+        ]
+    },
+    {
+        "id": "952f521f1ff0ee20",
+        "type": "link in",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "2b1e384841488996",
+        "name": "link in 8",
+        "links": [
+            "8f195a6cd3c2bb3c"
+        ],
+        "x": 205,
+        "y": 440,
+        "wires": [
+            [
+                "7c0abaceaecddfa8"
+            ]
+        ]
+    },
+    {
+        "id": "98b497ac74b16107",
+        "type": "link out",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "2b1e384841488996",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [],
+        "x": 515,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "098a3dd41a5831f1",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "3d40d9c97a36b0cb",
+        "name": "NAVIGATOR",
+        "func": "const navigaor = {\n    routes: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 380,
+        "wires": [
+            [
+                "0209345d46a57204",
+                "149b50cab04b149e"
+            ]
+        ]
+    },
+    {
+        "id": "0209345d46a57204",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "3d40d9c97a36b0cb",
+        "name": "MAP",
+        "func": "const map = {\n    directory: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 300,
+        "wires": [
+            [
+                "5c775c5dbb7947dc"
+            ]
+        ]
+    },
+    {
+        "id": "5c775c5dbb7947dc",
+        "type": "function",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "3d40d9c97a36b0cb",
+        "name": "BIM MODEL",
+        "func": "const model = {\n    scene: {\n        id: 0,\n        children: [],\n        hologram: null\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 300,
+        "wires": [
+            [
+                "098a3dd41a5831f1"
+            ]
+        ]
+    },
+    {
+        "id": "593cea2f16fede84",
+        "type": "link in",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "3d40d9c97a36b0cb",
+        "name": "link in 9",
+        "links": [
+            "09c56823878714ae"
+        ],
+        "x": 705,
+        "y": 440,
+        "wires": [
+            [
+                "098a3dd41a5831f1"
+            ]
+        ]
+    },
+    {
+        "id": "149b50cab04b149e",
+        "type": "link out",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "3d40d9c97a36b0cb",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [],
+        "x": 955,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "99ec132972cec00b",
+        "type": "link in",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "link in 12",
+        "links": [],
+        "x": 85,
+        "y": 120,
+        "wires": [
+            [
+                "4d459365c76e13d2"
+            ]
+        ]
+    },
+    {
+        "id": "e8029b7059b34ecc",
+        "type": "switch",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "INTERFACE",
+        "property": "payload.interface",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BIM",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "SCADA",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "56e8b01b968cfb87"
+            ],
+            [
+                "84e4e44b816d7d34"
+            ]
+        ]
+    },
+    {
+        "id": "8f195a6cd3c2bb3c",
+        "type": "link out",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "link out 17",
+        "mode": "link",
+        "links": [
+            "952f521f1ff0ee20"
+        ],
+        "x": 645,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "09c56823878714ae",
+        "type": "link out",
+        "z": "6bbc9dbfcc0becb9",
+        "g": "7bc96376eedc5df5",
+        "name": "link out 18",
+        "mode": "link",
+        "links": [
+            "593cea2f16fede84"
+        ],
+        "x": 955,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1208cc9ae47b0232",
+        "type": "comment",
+        "z": "59e44772b8b19ac2",
+        "name": "AS FRAMEWORK SERVER",
+        "info": "",
+        "x": 190,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8facd5d108c52d74",
+        "type": "http response",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "317c9f8eeb7b47d0",
+        "type": "websocket in",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "d788a45157bb4b93"
+            ]
+        ]
+    },
+    {
+        "id": "d67c3002a9caa591",
+        "type": "websocket out",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "",
+        "x": 770,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d788a45157bb4b93",
+        "type": "function",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "CHANNELS_POOL",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "f43a7615de8ba84d"
+            ]
+        ]
+    },
+    {
+        "id": "f43a7615de8ba84d",
+        "type": "function",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "STREAM_PROCESSOR",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "066634013babd91c"
+            ]
+        ]
+    },
+    {
+        "id": "066634013babd91c",
+        "type": "function",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "TRACKER_STORE",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "0c6f67d31f3b4c51"
+            ]
+        ]
+    },
+    {
+        "id": "0c6f67d31f3b4c51",
+        "type": "function",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "LOCK_STORE",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "d67c3002a9caa591",
+                "8facd5d108c52d74",
+                "e23d3386cefcf7b7",
+                "d85b124a3bbd8ec2"
+            ]
+        ]
+    },
+    {
+        "id": "2796f125a994960c",
+        "type": "link in",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "link in 10",
+        "links": [],
+        "x": 115,
+        "y": 100,
+        "wires": [
+            [
+                "d788a45157bb4b93"
+            ]
+        ]
+    },
+    {
+        "id": "e23d3386cefcf7b7",
+        "type": "link out",
+        "z": "59e44772b8b19ac2",
+        "g": "721a16705d277d3c",
+        "name": "link out 12",
+        "mode": "link",
+        "links": [],
+        "x": 615,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d85b124a3bbd8ec2",
+        "type": "mqtt out",
+        "z": "59e44772b8b19ac2",
+        "d": true,
+        "g": "721a16705d277d3c",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "x": 790,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1d3089c70d0796ca",
+        "type": "http in",
+        "z": "59e44772b8b19ac2",
+        "d": true,
+        "g": "721a16705d277d3c",
+        "name": "",
+        "url": "",
+        "method": "get",
+        "upload": false,
+        "x": 170,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "becec60fe7a7f1b6",
+        "type": "comment",
+        "z": "74a3df67b6a11cf7",
+        "name": "RASA ACTION SERVER INFERENCE",
+        "info": "",
+        "x": 230,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0e535ba886a0ec5a",
+        "type": "comment",
+        "z": "74a3df67b6a11cf7",
+        "name": "OPENAPI ASSISTANTS API INFERENCE",
+        "info": "",
+        "x": 240,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ca4735ab06df55d7",
+        "type": "simrasa",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "INIT",
+        "action": "TEST",
+        "errtocatch": false,
+        "slots": [
+            {
+                "slotname": "",
+                "slotname-type": "str",
+                "slotvalue": "",
+                "slotvalue-type": "str"
+            }
+        ],
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "bd7ad76ece636095"
+            ]
+        ]
+    },
+    {
+        "id": "ca60ffed2e11d1ca",
+        "type": "setslots",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "text": "",
+        "addcheck": false,
+        "slots": [
+            {
+                "slotname": "",
+                "slotname-type": null,
+                "slotvalue": "",
+                "slotvalue-type": null
+            }
+        ],
+        "senderr": false,
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "c0f065053a3abc5d"
+            ]
+        ]
+    },
+    {
+        "id": "c0f065053a3abc5d",
+        "type": "sendtext",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "position": "0",
+        "positionType": "num",
+        "text": "",
+        "textType": "str",
+        "senderr": false,
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "af1a9dc24a1004ec"
+            ]
+        ]
+    },
+    {
+        "id": "bd7ad76ece636095",
+        "type": "init",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "ca60ffed2e11d1ca"
+            ]
+        ]
+    },
+    {
+        "id": "6ae35abdc07f0d1a",
+        "type": "finish",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "533dd44f013b890e"
+            ]
+        ]
+    },
+    {
+        "id": "63f0895f11bf5481",
+        "type": "sendbuttons",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "position": "0",
+        "positionType": "num",
+        "text": "",
+        "textType": "str",
+        "addmode": "no",
+        "senderr": false,
+        "buttons": [
+            {
+                "title": "",
+                "title-type": null,
+                "payload": "",
+                "payload-type": null
+            }
+        ],
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "6ae35abdc07f0d1a"
+            ]
+        ]
+    },
+    {
+        "id": "533dd44f013b890e",
+        "type": "http request",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "434fcfad1ddb4616"
+            ]
+        ]
+    },
+    {
+        "id": "434fcfad1ddb4616",
+        "type": "debug",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "CALL: AS RT - LOG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "log",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "af1a9dc24a1004ec",
+        "type": "sendextra",
+        "z": "74a3df67b6a11cf7",
+        "g": "017ac4aba19658a9",
+        "name": "",
+        "position": "0",
+        "positionType": "num",
+        "text": "",
+        "textType": "str",
+        "image": "",
+        "imageType": "str",
+        "attachment": "",
+        "attachmentType": "str",
+        "senderr": false,
+        "x": 660,
+        "y": 120,
+        "wires": [
+            [
+                "63f0895f11bf5481"
+            ]
+        ]
+    },
+    {
+        "id": "02d0bffd4c168cd2",
+        "type": "function",
+        "z": "74a3df67b6a11cf7",
+        "g": "1219e15595a0609a",
+        "name": "SESSION_EVENT",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3520789a629a34e3",
+        "type": "OpenAI API",
+        "z": "74a3df67b6a11cf7",
+        "d": true,
+        "g": "1219e15595a0609a",
+        "name": "",
+        "service": "",
+        "method": "",
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "02d0bffd4c168cd2"
+            ]
+        ]
+    },
+    {
+        "id": "7cb129db92a7e201",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "VIGILANTE",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "206c26188c71951a"
+            ]
+        ]
+    },
+    {
+        "id": "651075f2053363bf",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "AUTH MANAGER",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 100,
+        "wires": [
+            [
+                "47952521ce2c8ac8",
+                "5bcd1a45581eb879",
+                "f3b5a6580efec40f"
+            ]
+        ]
+    },
+    {
+        "id": "c3aee54b9c212d35",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "ROLE MANAGER",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "304bdc112221950c"
+            ]
+        ]
+    },
+    {
+        "id": "c0342135668b93ee",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "ASISTENTE SCADA",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 600,
+        "wires": [
+            [
+                "60b9c560866c7c4d",
+                "04efa87e0f31f704",
+                "49cbaa6fcb9ba022"
+            ]
+        ]
+    },
+    {
+        "id": "62da434d15a06984",
+        "type": "inject",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "Unknown user",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"role\":\"user\",\"id\":null}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "7cb129db92a7e201"
+            ]
+        ]
+    },
+    {
+        "id": "206c26188c71951a",
+        "type": "switch",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "651075f2053363bf"
+            ],
+            [
+                "c3aee54b9c212d35",
+                "6fd91ee460128c52"
+            ]
+        ]
+    },
+    {
+        "id": "47952521ce2c8ac8",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "FORM AUTH IN (RANDOM SIGNER)",
+        "func": "const array = [\"GUEST\", \"OPERATOR\", \"OWNER\", \"ADMIN\"];\n\nif (!Array.isArray(array) || array.length === 0) {\n    array = []; // Return -1 if the input is not an array or if the array is empty\n}\n  \nconst role =  Math.floor(Math.random() * array.length); // Generate a random index within the bounds of the array length\n\nconst alphabet = 'abcdefghijklmnopqrstuvwxyz'; // Define the alphabet\nlet name = '';\n\nfor (let i = 0; i < role; i++) {\n    const randomIndex = Math.floor(Math.random() * alphabet.length); // Generate a random index within the bounds of the alphabet length\n    name += alphabet[randomIndex]; // Append a random character from the alphabet to the word\n}\n  \nmsg.payload.id = {\n    role: array[role],\n    name\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 100,
+        "wires": [
+            [
+                "a808bdd9c44231e8"
+            ]
+        ]
+    },
+    {
+        "id": "4762d4c2829ac892",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 1",
+        "links": [
+            "a808bdd9c44231e8"
+        ],
+        "x": 445,
+        "y": 160,
+        "wires": [
+            [
+                "206c26188c71951a"
+            ]
+        ]
+    },
+    {
+        "id": "a808bdd9c44231e8",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "4762d4c2829ac892"
+        ],
+        "x": 1245,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "304bdc112221950c",
+        "type": "switch",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "",
+        "property": "payload.id.role",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "GUEST",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OWNER",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OPERATOR",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ADMIN",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 950,
+        "y": 260,
+        "wires": [
+            [
+                "7c4bca2531a0c0d5"
+            ],
+            [
+                "a64f63a4fe63a6d5"
+            ],
+            [
+                "084c1cf41b886bfd"
+            ],
+            [
+                "3b88bbd67f62cbba"
+            ]
+        ]
+    },
+    {
+        "id": "7c4bca2531a0c0d5",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "GUEST",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 200,
+        "wires": [
+            [
+                "bbb69373d3cf4068"
+            ]
+        ]
+    },
+    {
+        "id": "d4fc3c2953df6f7a",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "VISITA GUIADA",
+        "func": "msg.payload.history = {\n    action: 'TOUR'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "c0342135668b93ee"
+            ]
+        ]
+    },
+    {
+        "id": "50e0fec5e8c09975",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "TRANSFERENCIA DE LA VISITA A DEPARTAMENTO",
+        "func": "msg.payload.history = {\n    action: 'CONTACT',\n    contact: {\n            from: msg.payload.id,\n            to: null\n        }\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 660,
+        "wires": [
+            [
+                "c0342135668b93ee"
+            ]
+        ]
+    },
+    {
+        "id": "084c1cf41b886bfd",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "OPERATOR",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 280,
+        "wires": [
+            [
+                "ef3b99cc29f77cf8"
+            ]
+        ]
+    },
+    {
+        "id": "95b984c35e2791fa",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "PRODUCT USER",
+        "func": "msg.payload.history = {\n    action: 'INIT_OPERATOR_DESKTOP',\n    operator: {\n            id: msg.payload.id,\n        }\n    }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 520,
+        "wires": [
+            [
+                "fdf06eae80ddc085"
+            ]
+        ]
+    },
+    {
+        "id": "a64f63a4fe63a6d5",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "OWNER",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 240,
+        "wires": [
+            [
+                "13afe9cdff1c3d2f"
+            ]
+        ]
+    },
+    {
+        "id": "059c7ca93e09542a",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "DEVELOPER_BUILDER",
+        "func": "msg.payload.history = {\n    action: 'INIT_OWNER_DESKTOP',\n    owner: {\n            id: msg.payload.id,\n        }\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "1bd4496c18f38e26"
+            ]
+        ]
+    },
+    {
+        "id": "3b88bbd67f62cbba",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "ADMIN",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 320,
+        "wires": [
+            [
+                "462ec13bbb1e8a70"
+            ]
+        ]
+    },
+    {
+        "id": "02b5b2ab5e3a5b27",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "PRODUCT DESIGNER",
+        "func": "msg.payload.history = {\n    action: 'INIT_ADMIN_DESKTOP',\n    admin: {\n            id: msg.payload.id,\n        }\n    }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "473430abab162c29"
+            ]
+        ]
+    },
+    {
+        "id": "bbb69373d3cf4068",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "8e6131065fac525e"
+        ],
+        "x": 1285,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "13afe9cdff1c3d2f",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "9c9fe7fa062c8836"
+        ],
+        "x": 1285,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ef3b99cc29f77cf8",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "e61635f2e9c3725f"
+        ],
+        "x": 1285,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "462ec13bbb1e8a70",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "c7c101748c950662"
+        ],
+        "x": 1285,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8e6131065fac525e",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 2",
+        "links": [
+            "bbb69373d3cf4068"
+        ],
+        "x": 325,
+        "y": 640,
+        "wires": [
+            [
+                "d4fc3c2953df6f7a",
+                "50e0fec5e8c09975"
+            ]
+        ]
+    },
+    {
+        "id": "9c9fe7fa062c8836",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 3",
+        "links": [
+            "13afe9cdff1c3d2f"
+        ],
+        "x": 225,
+        "y": 460,
+        "wires": [
+            [
+                "059c7ca93e09542a"
+            ]
+        ]
+    },
+    {
+        "id": "e61635f2e9c3725f",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 4",
+        "links": [
+            "ef3b99cc29f77cf8"
+        ],
+        "x": 345,
+        "y": 520,
+        "wires": [
+            [
+                "95b984c35e2791fa"
+            ]
+        ]
+    },
+    {
+        "id": "c7c101748c950662",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 5",
+        "links": [
+            "462ec13bbb1e8a70"
+        ],
+        "x": 115,
+        "y": 400,
+        "wires": [
+            [
+                "02b5b2ab5e3a5b27"
+            ]
+        ]
+    },
+    {
+        "id": "60b9c560866c7c4d",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "AS SESSION",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.id",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "04efa87e0f31f704",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "AS CONSOLE_TIMELINE",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.history",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6fd91ee460128c52",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "CALL: AS ROLE MANAGER",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.id",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5bcd1a45581eb879",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "CALL: AS RECEPTION",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3d3026f3daa9a255",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link in 6",
+        "links": [],
+        "x": 205,
+        "y": 160,
+        "wires": [
+            [
+                "7cb129db92a7e201"
+            ]
+        ]
+    },
+    {
+        "id": "49cbaa6fcb9ba022",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "39205bccab9ba5a1",
+            "0831882311454d83"
+        ],
+        "x": 1085,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "bb58b62da194711a",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "TOUR",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1000,
+        "wires": [
+            [
+                "35a186cc633a144b"
+            ]
+        ]
+    },
+    {
+        "id": "35a186cc633a144b",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "CONTACT_TRANSFERENCE",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e40f1db81c01fd6",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "name": "SESSION_COUNTER",
+        "func": "msg.payload.history = {\n    ... msg.payload.history,\n    session: {\n        start: new Date(),\n        calendar: []\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 780,
+        "wires": [
+            [
+                "8ef6df6f82d72144"
+            ]
+        ]
+    },
+    {
+        "id": "39205bccab9ba5a1",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "name": "link in 7",
+        "links": [
+            "49cbaa6fcb9ba022",
+            "30fce7985aa12579",
+            "2316e4d48d787f4d",
+            "b37cf8f510a0b1f8"
+        ],
+        "x": 95,
+        "y": 780,
+        "wires": [
+            [
+                "2e40f1db81c01fd6"
+            ]
+        ]
+    },
+    {
+        "id": "8ef6df6f82d72144",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "name": "SESSION_EVENT",
+        "func": "const session = msg.payload.history.session;\n\nsession.calendar.push({\n    time: new Date(),\n    event: msg.payload.history.action\n});\n\nmsg.payload.history = {\n    ... msg.payload.history,\n    session\n}\n\nconst PC = flow.get(\"PC\") || {};\nPC.sessions = PC.sessions || [];\n\nPC.sessions.push(msg.payload.history);\n\nflow.set(\"PC\", PC);\n\nmsg.log = PC;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 780,
+        "wires": [
+            [
+                "b69d7f8bc6047aab",
+                "92ced93626a75d78",
+                "cb8a6f69df76a781",
+                "5882bfa378fab5e6"
+            ]
+        ]
+    },
+    {
+        "id": "b69d7f8bc6047aab",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "baaff00b4fb136ff"
+        ],
+        "x": 715,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "92ced93626a75d78",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "name": "CALL: AS RUNTIME",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.history.session",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "cb8a6f69df76a781",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "name": "CALL: AS RT - POOL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.history.session.calendar",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "f658b176e499657c",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "AGENTE_ESPECIALIZADO_2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1efbfecc1c2d21eb",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "AGENTE_ESPECIALIZADO_3",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1200,
+        "wires": [
+            [
+                "baa806a31968cb17"
+            ]
+        ]
+    },
+    {
+        "id": "7def126f624a51fe",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "AGENTE_ESPECIALIZADO_1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5882bfa378fab5e6",
+        "type": "debug",
+        "z": "22a5c7233e9e1774",
+        "name": "CALL: AS RT - LOG",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "log",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1e76cc4362dca80c",
+        "type": "comment",
+        "z": "22a5c7233e9e1774",
+        "name": "RUNTIME MAIN SUBSCRIPTION/EVENT LOOP",
+        "info": "",
+        "x": 320,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "9ee16a9c6a409441",
+        "type": "comment",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "RUNTIME APPS LOOP",
+        "info": "",
+        "x": 200,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f282baccc2d57160",
+        "type": "comment",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "DEVELOPMENT IDE",
+        "info": "",
+        "x": 410,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "60995437c2734b26",
+        "type": "comment",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "PROJECT DESIGNER",
+        "info": "",
+        "x": 200,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f3b5a6580efec40f",
+        "type": "function",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "FORM AUTH IN (AZURE IDENTITY PROVIDER)",
+        "func": "const array = [\"GUEST\", \"OPERATOR\", \"OWNER\", \"ADMIN\"];\n\nif (!Array.isArray(array) || array.length === 0) {\n    array = []; // Return -1 if the input is not an array or if the array is empty\n}\n  \nconst role =  Math.floor(Math.random() * array.length); // Generate a random index within the bounds of the array length\n\nconst alphabet = 'abcdefghijklmnopqrstuvwxyz'; // Define the alphabet\nlet name = '';\n\nfor (let i = 0; i < role; i++) {\n    const randomIndex = Math.floor(Math.random() * alphabet.length); // Generate a random index within the bounds of the alphabet length\n    name += alphabet[randomIndex]; // Append a random character from the alphabet to the word\n}\n  \nmsg.payload.id = {\n    role: array[role],\n    name\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "baaff00b4fb136ff",
+        "type": "link in",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "link in 14",
+        "links": [
+            "b69d7f8bc6047aab"
+        ],
+        "x": 145,
+        "y": 1000,
+        "wires": [
+            [
+                "bb58b62da194711a"
+            ]
+        ]
+    },
+    {
+        "id": "baa806a31968cb17",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "6b6f22b29168c1fa",
+        "name": "link out 16",
+        "mode": "link",
+        "links": [],
+        "x": 425,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "473430abab162c29",
+        "type": "subflow:3efebe813eeb35a3",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "",
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "30fce7985aa12579"
+            ]
+        ]
+    },
+    {
+        "id": "1bd4496c18f38e26",
+        "type": "subflow:5ecac4284319a8ad",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "",
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "2316e4d48d787f4d"
+            ]
+        ]
+    },
+    {
+        "id": "fdf06eae80ddc085",
+        "type": "subflow:6bbc9dbfcc0becb9",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "",
+        "x": 740,
+        "y": 520,
+        "wires": [
+            [
+                "b37cf8f510a0b1f8"
+            ]
+        ]
+    },
+    {
+        "id": "32ae06c7c7ec49d3",
+        "type": "comment",
+        "z": "22a5c7233e9e1774",
+        "name": "AS APP Hello World",
+        "info": "",
+        "x": 190,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "30fce7985aa12579",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 19",
+        "mode": "link",
+        "links": [
+            "39205bccab9ba5a1",
+            "0831882311454d83"
+        ],
+        "x": 905,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2316e4d48d787f4d",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 20",
+        "mode": "link",
+        "links": [
+            "39205bccab9ba5a1",
+            "0831882311454d83"
+        ],
+        "x": 905,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b37cf8f510a0b1f8",
+        "type": "link out",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "link out 21",
+        "mode": "link",
+        "links": [
+            "39205bccab9ba5a1",
+            "0831882311454d83"
+        ],
+        "x": 905,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "7587708c8bbcdf25",
+        "type": "inject",
+        "z": "22a5c7233e9e1774",
+        "g": "e35f898e6e51402b",
+        "name": "Admin user",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":{\"role\":\"ADMIN\",\"name\":\"djn\"}}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "7cb129db92a7e201"
+            ]
+        ]
+    }
+]
