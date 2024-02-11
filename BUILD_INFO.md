@@ -46,6 +46,67 @@ This SDK allows to map monitoring and desking of machines to be consumed (or not
 
 ![](./build_info_pics/AS_SEED.png)
 
+```
+sistema> Arrancando el sistema
+AS_SEED: main sequence
+AS_SEED: main sequence.Init
+Creating app folder {
+  id: 'BoilerPlateApp',
+  baseFolder: ' AlephScriptApps',
+  configFolder: 'in/config'
+}
+Consuming config files
+         - Read config folder  AlephScriptApps/in/config
+         - Read file config.aleph
+         - Applying config file 0 config.aleph {
+  id: 'BoilerPlateApp',
+  baseFolder: ' AlephScriptApps',
+  configFolder: 'in/config',
+  chensFolder: 'in/chen',
+  collectionsFolder: 'in/nonsql',
+  dataFolder: 'in/data',
+  appFolder: 'out/bundle'
+}
+Opened seed!
+AS_SEED: main sequence. Loading source files
+         - Loading source files. Found chen files: 0
+         - Loading source files. Found collection file: 0
+         - Loading source files. Found data file: 0
+Executing loaders:
+         - Executing loaders. Loaded chen domains: 0
+                 - Loader for file in/chen
+         - Executing loaders. Loaded collection domains: 0
+                 - Loader for file in/nonsql
+         - Executing loaders. Loaded chen domains: 0
+                 - Loader for file in/data
+         - Write  AlephScriptApps/out/bundle/Domain_0001.aleph
+Readed file [ 'Network 0 --> ,,' ]
+         - STORE logs 0 {
+  build: { timestamp: 2024-02-11T00:54:19.408Z, app: 'BoilerPlateApp' },
+  state: 200,
+  error: 'Stored'
+}
+AS_SEED: main sequence. Training...
+         - trained! {
+  id: 'NotInitedModel',
+  domain: [],
+  commonKADSforms: AppCommonKADS { forms: [] }
+}
+AS_SEED: main sequence. Compiling...
+Writing target  AlephScriptApps/out/bundle/Build_0001.aleph
+Readed file { id: 'NotInitedModel', domain: [], commonKADSforms: { forms: [] } }
+         - Compilation logs 0 {
+  build: {
+    timestamp: 2024-02-11T00:54:19.411Z,
+    app: 'BoilerPlateApp',
+    model: 'NotInitedModel'
+  },
+  state: 200,
+  error: 'Compiled'
+}
+
+```
+
 ## AS Framework
 
 [](src/as-framework)

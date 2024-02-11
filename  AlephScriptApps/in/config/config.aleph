@@ -1,0 +1,9 @@
+{
+	"id": "BoilerPlateApp",
+	"baseFolder": " AlephScriptApps",
+	"configFolder": "in/config",
+	"chensFolder": "in/chen",
+	"collectionsFolder": "in/nonsql",
+	"dataFolder": "in/data",
+	"appFolder": "out/bundle"
+}

@@ -4,6 +4,7 @@ import { i18 } from "./i18/aleph-script-i18";
 import * as http from "http";
 import { systemMessage } from "./systemMessage";
 import { BaseExpertaSimulacion } from "./paradigmas/simbolica/modelos/formal/sistema/base-experta/simuacion";
+import { AlephScriptBoilerplate } from "../as-seed/guest/main";
 
 const host = 'localhost';
 const port = 8000;
@@ -26,10 +27,13 @@ server.listen(port, async () => {
 
     console.log(systemMessage(i18.SISTEMA.STARTING_LABEL));
 
-    await BaseExpertaSimulacion();
+    /* await BaseExpertaSimulacion();
 
     const rt = new Runtime();
     rt.start();
-    await rt.demo();
+    await rt.demo();*/
+
+    const b = new AlephScriptBoilerplate();
+    b.main();
 
 });
