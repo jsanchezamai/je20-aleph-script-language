@@ -258,7 +258,14 @@
             "60961223d79ce57a",
             "2536616b2b105e3a",
             "5654e0dd23771058",
-            "7e7503099f40f6b7"
+            "7e7503099f40f6b7",
+            "5b0e8633134294e7",
+            "532b115c97cbf42d",
+            "868e24bc22c13fbc",
+            "b5529e262d0f8e01",
+            "f92a9371d3c09859",
+            "0bec7054131b549f",
+            "4579911d8726318a"
         ],
         "x": 44,
         "y": 99,
@@ -1196,7 +1203,6 @@
         "y": 680,
         "wires": [
             [
-                "f05fde08a71c70b3",
                 "6d362d68c183e6d0"
             ],
             [
@@ -1330,8 +1336,8 @@
             "5d05c6b18fac5b96",
             "3328e46f569fe8c5"
         ],
-        "x": 325,
-        "y": 460,
+        "x": 485,
+        "y": 660,
         "wires": []
     },
     {
@@ -1363,8 +1369,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 500,
+        "x": 460,
+        "y": 580,
         "wires": []
     },
     {
@@ -1487,7 +1493,9 @@
         "x": 460,
         "y": 1120,
         "wires": [
-            [],
+            [
+                "5b0e8633134294e7"
+            ],
             [
                 "868e24bc22c13fbc",
                 "b5529e262d0f8e01"
@@ -1511,8 +1519,8 @@
         "wires": [
             [
                 "e0e5b74380eae7a0",
-                "532b115c97cbf42d",
-                "8e775054208dc584"
+                "8e775054208dc584",
+                "532b115c97cbf42d"
             ]
         ]
     },
@@ -1533,6 +1541,7 @@
         "id": "868e24bc22c13fbc",
         "type": "function",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "name": "msg.payload.domain.schema.rows",
         "func": "msg.step = msg.payload;\n\nlet rows = msg.payload.domain.schema.Model.rows;\n\nrows = rows.map(r => {\n    const data = {\n    entity: r.type,\n    pk: r.pk ,\n    fk: r.fk || '-',\n    data: r.data.nombre\n    };\n    return data;\n})\nmsg.payload = rows;\n\nreturn msg;",
         "outputs": 1,
@@ -1541,7 +1550,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
+        "x": 800,
         "y": 980,
         "wires": [
             [
@@ -1554,6 +1563,7 @@
         "id": "0bec7054131b549f",
         "type": "ui_table",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "group": "f1b1c5b935753852",
         "name": "domain.data.schema",
         "order": 0,
@@ -1562,14 +1572,15 @@
         "columns": [],
         "outputs": 0,
         "cts": false,
-        "x": 1240,
-        "y": 1040,
+        "x": 1440,
+        "y": 880,
         "wires": []
     },
     {
         "id": "f92a9371d3c09859",
         "type": "debug",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "name": "msg.payload.domain.schema.rows",
         "active": true,
         "tosidebar": true,
@@ -1579,8 +1590,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1200,
-        "y": 940,
+        "x": 1140,
+        "y": 980,
         "wires": []
     },
     {
@@ -1604,6 +1615,7 @@
         "id": "4579911d8726318a",
         "type": "ui_table",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "group": "f1b1c5b935753852",
         "name": "domain.data.schema.auth",
         "order": 0,
@@ -1612,14 +1624,15 @@
         "columns": [],
         "outputs": 0,
         "cts": false,
-        "x": 1250,
-        "y": 1080,
+        "x": 1450,
+        "y": 980,
         "wires": []
     },
     {
         "id": "b5529e262d0f8e01",
         "type": "function",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "name": "msg.payload.domain.schema.auth.rows",
         "func": "msg.step = msg.payload;\n\nlet rows = msg.payload.domain.auth.Model.rows;\n\nrows = rows.map(r => {\n    const data = {\n    entity: r.type,\n    pk: r.pk ,\n    fk: r.fk || '-',\n    data: JSON.stringify(r.data)\n    };\n    return data;\n})\nmsg.payload = rows;\n\nreturn msg;",
         "outputs": 1,
@@ -1628,7 +1641,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
+        "x": 860,
         "y": 1040,
         "wires": [
             [
@@ -1640,6 +1653,7 @@
         "id": "532b115c97cbf42d",
         "type": "ui_text",
         "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
         "group": "f1b1c5b935753852",
         "order": 2,
         "width": 0,
@@ -1649,9 +1663,31 @@
         "format": "{{msg.payload.project.state}}",
         "layout": "row-left",
         "className": "",
-        "x": 440,
-        "y": 900,
+        "x": 280,
+        "y": 820,
         "wires": []
+    },
+    {
+        "id": "5b0e8633134294e7",
+        "type": "function",
+        "z": "3efebe813eeb35a3",
+        "g": "16130664feafb270",
+        "name": "empty",
+        "func": "msg.payload = [];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 860,
+        "wires": [
+            [
+                "0bec7054131b549f",
+                "4579911d8726318a"
+            ]
+        ]
     },
     {
         "id": "7ce4623e22aed186",

@@ -147,3 +147,11 @@ Readed file { id: 'NotInitedModel', domain: [], commonKADSforms: { forms: [] } }
 ## AS SDKs SCADA Interface
 
 [](src/as-sdks/scada)
+
+
+## Using AS-FRAMEWORK to build Assistant rasa-like yaml files 
+
+![](./build_info_pics/master-screen-schema.png)
+
+![](./build_info_pics/master-screen-load-data-0-no-init.png)
+![](./build_info_pics/master-screen-load-data-1-loaded.png)

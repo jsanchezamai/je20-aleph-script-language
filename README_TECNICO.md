@@ -183,3 +183,9 @@ La estrategia ha sido implementar un [clasificador](src/FIA/paradigmas/conexioni
 Una vez implementados los elementos del lenguaje AlephScript [agregar a la app de ejemplo una FIA](src/FIA/aplicaciones/cadena/conexionista/cadena-fia-red-neuronal.ts) que los use para inferir a su red neuronal.
 
 Una estructura competente del tipo model-in-the-loop (MiL), software-in-the-loop (SiL) y hardware-in-the-loop (HiL) coherente y continua.
+
+## AS Framework half-no-code IDE
+
+![](./build_info_pics/AS_FK_IDE.png)
+
+![](./build_info_pics/master-screen-load-data-1-loaded.png)

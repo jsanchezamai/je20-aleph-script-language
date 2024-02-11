@@ -25,4 +25,5 @@ Auth schema: [domain.data.schema.auth.json](./domain.data.schema.auth.json).
 
 ![](../../../../build_info_pics/master-screen-schema.png)
 
-![](../../../../build_info_pics/master-screen-load-data.png)
+![](../../../../build_info_pics/master-screen-load-data-0-no-init.png)
+![](../../../../build_info_pics/master-screen-load-data-1-loaded.png)
