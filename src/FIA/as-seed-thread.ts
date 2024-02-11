@@ -27,10 +27,13 @@ server.listen(port, async () => {
 
     console.log(systemMessage(i18.SISTEMA.STARTING_LABEL));
 
-    /* await BaseExpertaSimulacion(); */
+    /* await BaseExpertaSimulacion();
 
     const rt = new Runtime();
     rt.start();
-    await rt.demo();
+    await rt.demo();*/
+
+    const b = new AlephScriptBoilerplate();
+    b.main();
 
 });

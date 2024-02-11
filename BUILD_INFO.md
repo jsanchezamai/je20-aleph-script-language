@@ -2,6 +2,10 @@
 
 ## AS Seed
 
+![](build_info_pics/as-fk-ui-flow5.png)
+
+
+
 It is a **npm-package-library** for npm-apps over NodeJs. It allows to create "seeds" for AlephScript Apps.
 
 An App is exportable like a bundle with CommonKADS forms, using JSON format.
@@ -39,6 +43,22 @@ It is a Typescript superset kit that allows matching monitoring and desking of m
 This SDK allows to map monitoring and desking of machines to be consumed (or not, standalone) in AlephScript BIM Apps as a part of the world content.
 
 # AlephScript Bundle
+
+
+## AS Seed Admin Project designer: Load Structured Data
+
+![](build_info_pics/as-fk-ui-flow4.png)
+
+![](build_info_pics/as-fk-ui-flow3.png)
+
+## AS Seed Admin Project designer: Build and train networks and frame books
+
+![](build_info_pics/as-fk-ui-flow2.png)
+
+## AS Seed Admin Project designer: Compile and bundle to YAML Rasa Stories libraries
+
+![](build_info_pics/as-fk-ui-flow1.png)
+
 
 ## AS Seed
 
@@ -155,3 +175,11 @@ Readed file { id: 'NotInitedModel', domain: [], commonKADSforms: { forms: [] } }
 
 ![](./build_info_pics/master-screen-load-data-0-no-init.png)
 ![](./build_info_pics/master-screen-load-data-1-loaded.png)
+
+## COMING  AlephScript Framework IDE server
+
+[FIA/aplicaciones/ide](./src/FIA/aplicaciones/ide/semilla/README.md)
+
+# Sistemas basados en Conocimiento SBC
+
+[./src/FIA/paradigmas/sbc/README.md](./src/FIA/paradigmas/sbc/README.md)
