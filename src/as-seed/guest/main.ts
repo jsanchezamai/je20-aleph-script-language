@@ -3,9 +3,9 @@ import { ChenLoader } from "../as-importers/chen-loader";
 import { CollectionLoader } from '../as-importers/collection-loader';
 import { DataLoader } from '../as-importers/data-loader';
 import { IDatabaseSnapshot } from "../as-importers/loader";
-import { AsSeed, DEFAULT_CONFIG } from "../as-seed";
+import { AsSeed } from "../as-seed";
 import { Log } from "../core/compiler";
-import { AppDirectory, IFilePath, SourceFilesDirectory } from "../core/file-model";
+import { AppDirectory, IFilePath } from "../core/file-model";
 import { Model } from "../core/model";
 import { ISemanticNetworkModel } from "../core/semantic-network-model";
 
