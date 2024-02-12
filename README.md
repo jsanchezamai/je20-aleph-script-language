@@ -6,6 +6,17 @@ Estado de construcción (build status): Falso.
 
 AlephScript es un lenguaje de operativa para conectar a una ranura virtual en las placas madres de los PCs convencionales las modernas interfaces BIM/SCADA; de modo que los usuarios puedan usarlas (conversacionalmente) junto al resto de periféricos.
 
+Ventaja y desventaja del desarrollo contra interfaces se encuentra en el aspecto "bien definido" de estas. Al final, deberá construirse una modelización para el lenguaje capaz de interactuar según la definición. BIM o SCADA, ambas interfaces proveen un domino y un histórico de estados (diferencial) para operar con el usuario.
+
+En el vertiginoso tren de las IA generativas, y, de lleno en las que aquí atañen: las converacionales multimodal, hoy día se está recomendando públicamente dos premisas:
+
+- Trabajar con datos sintéticos en lugar de muestrados (no argumentamos aquí)
+- CD/CI bucle continuo, generativo semántico.
+
+En el paradigma tradicional o convencional en el que las IA generativas han llegado para ponerlo todo patas arriba, los desarrolladores intentaban saltar la distancia entre sus laboratorios y sus códigos compilados a binario escritos en lenguajes de más o menos altura (más o menos necesidad de interpretación y/o traducción) antes de la compilación corriendo en máquinas (virtuales) en cualquier punto de la faz terrestre. Escindida (por el bucle CD/CI) esa distancia, los desarradores hoy puedan hacer "algo" más en el "tiempo de ejecución" que, simplemente, hacer debug. Ese "algo" más, a todas luces, es "aprender". La reflexión, capacidad de un algoritmo de evolucionar creando nuevo código, es una característica instrínsica a cualquier lenguaje, y, de ella, parte ese "algo".
+
+En un proyecto CDD, comunmente, siguiendo aquellos dos principios, serán bots menores de propósito general quienes se sumen a los usuarios tras la publicación del producto mínimo viable a la hora de expandir y podar el árbol de caminos conversacionales "felices". El aprendizaje, en la forma de recoleción-anotación-entrenamiento, se producirá, como decimos, semánticamente.
+
 
 Histórico:
 
