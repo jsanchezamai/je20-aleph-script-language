@@ -1,6 +1,7 @@
 import { IModelo, Modelo } from "../../../../../../mundos/modelo";
 import { Formulario, IFormulario } from "../../nivel/formulario";
 import { ICKModelo, CKModelo } from "../ck-modelo";
+import { FormularioTM1 } from "./formulario-TM-01";
 
 export interface ITarea extends ICKModelo {
 
@@ -17,7 +18,7 @@ export class Tarea extends CKModelo implements ITarea {
         super();
 
         this.formularios = [
-            new Formulario("TM-1"),
+            new FormularioTM1(),
             new Formulario("TM-2"),
         ];
     }

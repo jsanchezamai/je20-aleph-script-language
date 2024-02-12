@@ -31,6 +31,7 @@ export class UML implements IUML {
 
         const modelo = new Modelo();
         const dominio = new Dominio(modelo);
+
         dominio.base["Common.Kads.uml"] = {};
 
         return {

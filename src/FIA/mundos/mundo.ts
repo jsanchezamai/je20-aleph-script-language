@@ -67,9 +67,9 @@ export class Mundo implements IMundo {
 
        const s = o.subscribe(m => {
 
-            this.modelo = m.modelo;
+            /* this.modelo = m.modelo;
                 console.log(agentMessage(this.nombre,
-                    i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir());
+                    i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir()); */
 
         });
 

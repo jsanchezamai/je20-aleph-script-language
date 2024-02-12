@@ -32,7 +32,7 @@ export class IDEEstado<IDEEstados> extends EstadoT<IDEEstados> {
 				const as = c.leerLista(Trainer_clave);
 
 				if (as.length > 0) {
-					console.log(agentMessage(this.modelo.nombre, "Autómata listo." + new AsistenteApi().imprimir(as)));
+					console.log(agentMessage(this.modelo.nombre, "Autómata listo ide-estado transicion." /*+ new AsistenteApi().imprimir(as)*/));
 				} else {
 					const s = new AsistenteApi();
 					const r = await s.list([]);

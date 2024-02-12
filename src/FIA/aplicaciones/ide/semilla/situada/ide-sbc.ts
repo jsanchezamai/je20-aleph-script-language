@@ -30,7 +30,7 @@ export class IDE_SBC extends FIA_SBC {
                     );
 
                     const em = resultados[1];
-                    ide.arrancado = false;
+                    ide.arrancado = true;
 
                     resolve(em);
                 } else {

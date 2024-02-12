@@ -41,6 +41,18 @@ export class RTCache {
 
     }
 
+    persistirRuta() {
+        try {
+            fs.writeFileSync(this.archivo, JSON.stringify(
+                this.dominio.base, null, "\t"));
+            // console.log("Cache escrita en", __dirname + '/cache.json' /*, this.dominio.base*/);
+        } catch(ex) {
+            console.log("Error al guardar cache", ex)
+        }
+
+
+    }
+
     recuperar() {
 
         if (!fs.existsSync(__dirname + this.archivo)) {
@@ -51,6 +63,14 @@ export class RTCache {
         this.dominio.base = JSON.parse(data || {})?.cache || {};
 
         // console.log("Leida cache de: ", __dirname + '/cache.json');
+
+    }
+
+    recuperRuta(archivo: string) {
+
+        const data: any = fs.readFileSync(archivo);
+
+        return JSON.parse(data);
 
     }
 

@@ -1,15 +1,15 @@
 import { IDiccionarioI18 } from "../../../../genesis-block";
-import { IModelo, Modelo } from '../../../../mundos/modelo';
+import { IModelo } from '../../../../mundos/modelo';
 import { agentMessage } from "../../../../agentMessage";
 import { AS_COMMON_KADS_I18 } from "./as-common-kads-i18";
 import { ISistema, SistemaRuntime } from "./sistema";
 import { ICKNivelArtefactual, CKNivelArtefactual } from "./nivel/nivel-artefactual";
 import { ICKNivelConceptual, CKNivelConceptual, ICKModeloConceptual } from "./nivel/nivel-conceptual";
-import { IAlternativa, IObjetivo, ICKNivelContextual, CKNivelContextual, Alternativa } from "./nivel/nivel-contextual";
+import { IAlternativa, IObjetivo, ICKNivelContextual, CKNivelContextual } from "./nivel/nivel-contextual";
 import { IModeloComunicaciones } from "./modelos/comunicacion/modelo-comunicaciones";
 import { IEstadoT, EstadoT } from "./estado";
 
-import { createGenerator, createParser, Config, TypeFormatter } from 'ts-json-schema-generator';
+import { createGenerator, Config, TypeFormatter } from 'ts-json-schema-generator';
 
 
 const fi18 = AS_COMMON_KADS_I18.COMMON_KADS.CK;
@@ -94,6 +94,8 @@ export interface ICK {
 
 export const CKCACHE_Clave = "CJKCACHE";
 
+export const EXTERNAL_CACHE = "EXTERNAL_CACHE";
+
 
 export class CK implements ICK {
 
@@ -123,10 +125,10 @@ export class CK implements ICK {
                 e.unsubscribe();
 
                 console.log(agentMessage(this.nombre, this.i18.CABECERA));
-
                 const rt = new RTCache();
                 fase = rt.leer(CK_FASE_clave);
 
+                console.log("/******************** CARGA OBJETO FASE **************************** */")
                 fase = fase || {
 
                     fase: CKFases.Nivel,
@@ -143,7 +145,8 @@ export class CK implements ICK {
 
                 };
 
-                ide = m.modelo.dominio.base[IDE_clave]
+                console.log("/******************** CARGA DEL IDE **************************** */")
+                ide = m.modelo.dominio.base[IDE_clave];
 
                 if (ide) {
 
@@ -151,13 +154,19 @@ export class CK implements ICK {
                         rt.guardar(CK_FASE_clave, this.comoJSON(f));
                     });
 
+                    console.log("ADD TO IDE ACTION SERVER!!!!")
                     c = await this.cicloAsync(fase, ide.actionServerS);
+                    console.log("FIN ADD TO IDE ACTION SERVER!!!!", m.modelo.dominio.base[IDE_clave])
                     s.unsubscribe();
                 } else {
+                    console.log("NO IDE!!!!", m.modelo.dominio.base[IDE_clave])
                     c = await this.ciclo(fase);
                 }
 
-                c.modelo.dominio.base[CKCACHE_Clave] = this.comoJSON(fase);
+                /**
+                 * LAST CALL TO MODEL STORAGE AFTER FINISHED FULL PROCESS
+                 */
+                console.log("/******************** FINALIZA EL COMMON KADS **************************** */")
 
                 resolve(c);
             });
@@ -167,6 +176,9 @@ export class CK implements ICK {
 
     modeloOrganizacion(f: IFase): IFase {
 
+        console.log("/******************** MODELO DE ORGANIZACION **************************** */")
+        // console.log(f.estado.modelo);
+
         f.fase = CKFases.NivelContextual;
 
         console.log(agentMessage(this.nombre,
@@ -174,6 +186,7 @@ export class CK implements ICK {
         ));
 
         f.alternativas = this.nivel1.estudioViabilidad(f.estado.comoModelo());
+
         console.log(agentMessage(this.nombre,
             `${this.i18.FASES.CONTEXTUAL.VIABILIDAD}:
              ${f.alternativas[0].organizacion.imprimir()}`
@@ -191,8 +204,7 @@ export class CK implements ICK {
         ));
 
         console.log(agentMessage(this.nombre,
-            `${this.i18.CONSTRUCCION}: ${f.fase}: ${f.objetivo.conclusiones().imprimir()}`));
-
+            `${this.i18.CONSTRUCCION}: ${f.fase}: ${f.objetivo.conclusiones(f.estado.comoModelo()).imprimir()}`));
         f.solicitar.next(f);
         return f;
 
@@ -202,11 +214,16 @@ export class CK implements ICK {
 
         f.fase = CKFases.NivelConceptual;
 
+        console.log("/******************** MODELO DE CONCEPTUAL **************************** */")
+        console.log(f.objetivo.ota.dominio.base[Estudio.claveDominio])
+
+        console.log("/******************** MODELO DE CONCEPTUAL **************************** */")
+
         console.log(agentMessage(this.nombre,
             `${this.i18.FASES.CONCEPTUAL.NOMBRE}`
         ));
 
-        const conceptual = this.nivel2.modeloConocimiento(f.objetivo.conclusiones());
+        const conceptual = this.nivel2.modeloConocimiento(f.objetivo.ota);
         console.log(agentMessage(this.nombre,
             `${this.i18.FASES.CONCEPTUAL.CONOCIMIENTO}:
              ${conceptual.conocimiento.imprimir()}, ${conceptual.uml.imprimir()}, ${conceptual.cml.imprimir()}.`
@@ -227,9 +244,22 @@ export class CK implements ICK {
                 }
             }
         }
-        console.log(agentMessage(this.nombre, `${this.i18.FASES.CONCEPTUAL.ESPECIFICACION}`));
 
+        console.log(agentMessage(this.nombre, `${this.i18.FASES.CONCEPTUAL.ESPECIFICACION}`));
         console.log(agentMessage(this.nombre, `${this.i18.CONSTRUCCION}: ${f.fase}`));
+
+
+        const cache = new RTCache();
+        cache.recuperar();
+
+        const c = new RTCache();
+        c.archivo = CONST_CORPUS_PATH + 'corpus/sbc.kads.app.json';
+
+        const snapshot = (cache.dominio.base[CKCACHE_Clave]) as IFase;
+        snapshot.fase = f.fase;
+
+        c.dominio.base = snapshot;
+        c.persistirRuta();
 
         return f;
     }
@@ -359,7 +389,7 @@ export class CK implements ICK {
 
             const s = llamada.asObservable().subscribe(async f => {
 
-                console.log(agentMessage(this.nombre, "AVANCE DE ESTADO: " + f.fase + " Esperando: " + f.esperando ));
+                console.log(agentMessage(this.nombre, "AVANCE DE ESTADO: " + (f.fase || ' -- ') + " Esperando: " + ( f.esperando || ' -- ' )));
 
                 if (f.esperando) {
                     return;
@@ -419,12 +449,13 @@ export class CK implements ICK {
 }
 
 import { BaseType, Definition, FunctionType, SubTypeFormatter } from "ts-json-schema-generator";
-import { Observable, Subject, Subscription } from "rxjs";
-import { AlephScriptIDE } from "../../../../aplicaciones/ide/aleph-script-idle";
+import { Subject, Subscription } from "rxjs";
+import { AlephScriptIDE, CONST_CORPUS_PATH } from "../../../../aplicaciones/ide/aleph-script-idle";
 import { IDE_clave } from "../../../conexionista/modelos-lenguaje/oai/Trainer_key";
 import { RTCache } from "../../../../engine/kernel/rt-cache";
 import path from "path";
 import { IMundo } from "../../../../mundos/mundo";
+import { Estudio } from "../../estudio";
 
 export class MyFunctionTypeFormatter implements SubTypeFormatter {
     // You can skip this line if you don't need childTypeFormatter

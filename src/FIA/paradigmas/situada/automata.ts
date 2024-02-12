@@ -52,7 +52,7 @@ export class Automata<T> implements IAutomataT<T> {
 
         this.mundo.eferencia.subscribe((m) => {
 
-            console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.RECEPCION_AFERENCIA_LABEL));
+            // console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.RECEPCION_AFERENCIA_LABEL));
 
             /**
             * Procesar aferencia: Modelo (m)
@@ -70,7 +70,7 @@ export class Automata<T> implements IAutomataT<T> {
             /**
             * Lanzar eferencia de regreso al mundo
             * */
-            console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
+            // console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
 
             this.eferencia.next(this.mundo);
 

@@ -28,6 +28,7 @@ export class SBC_CK implements ISBC_CK  {
 
         return new Promise(async (resolve, reject) => {
 
+            console.log("/******************** EMPIEZA **************************** */")
             console.log(agentMessage(this.nombre, this.i18.CABECERA));
             // try {
 

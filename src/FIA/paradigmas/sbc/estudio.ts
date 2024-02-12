@@ -18,6 +18,9 @@ export class Estudio implements IEstudio {
 
     estudiar(f: IFormulario): IEstudio {
 
+        // const domain = this.modelo.dominio.base[EXTERNAL_CACHE].domain['Model']['rows'];
+
+        // console.log("Estudiar formulario", f.nombre)
         if (!Array.isArray(f.dominio.base[this.claveDominio])) {
             f.dominio.base[this.claveDominio] = [];
         }

@@ -1,6 +1,8 @@
 import { Dominio, IDominio } from "../../../../../mundos/dominio";
 import { Estudio } from "../../../estudio";
 
+export const FORM_KEY = "FORM_KEY";
+
 export interface IFormulario {
 
     nombre: string;
@@ -16,10 +18,11 @@ export class Formulario implements IFormulario {
 
     dominio: IDominio = new Dominio({});
 
-    constructor(public nombre: string = "F-01") {};
+    constructor(public nombre: string = "F-01") {
+        this.dominio.base[FORM_KEY] = {};
+    };
 
     rellenar(d: IDominio) {
-        this.dominio = d;
     }
 
     imprimir(): string {

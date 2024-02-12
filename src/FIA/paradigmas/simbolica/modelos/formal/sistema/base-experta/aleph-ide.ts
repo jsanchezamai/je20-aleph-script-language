@@ -55,7 +55,7 @@ export class AlephIDE implements AlephScriptIDE {
         const as = this.cache.leerLista(Trainer_clave);
         console.log(">>>>", as)
         if (as.length > 0) {
-            console.log(agentMessage(this.nombre, "Autómata listo." + new AsistenteApi().imprimir(as)));
+            console.log(agentMessage(this.nombre, "Autómata listo." /* + new AsistenteApi().imprimir(as) */));
         } else {
             const s = new AsistenteApi();
             const r = await s.list([]);

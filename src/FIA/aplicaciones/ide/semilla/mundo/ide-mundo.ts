@@ -13,8 +13,8 @@ export class IDEMundo extends Mundo {
         const s = o.subscribe(m => {
 
             this.modelo = m.modelo;
-            console.log(agentMessage(this.nombre,
-                i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir());
+            /* console.log(agentMessage(this.nombre,
+                i18.MUNDO.AFERENCIA.RECEPCION_LABEL), this.modelo.imprimir()); */
 
         });
 

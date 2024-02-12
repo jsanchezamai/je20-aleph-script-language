@@ -47,17 +47,30 @@ This SDK allows to map monitoring and desking of machines to be consumed (or not
 
 ## AS Seed Admin Project designer: Load Structured Data
 
+![](build_info_pics/as-fk-ui-flow6.png)
+
+
+## AS Seed Admin Project designer: "Do the CommonKADS app creation assisted flow"
+
+### Contextual Level
+
 ![](build_info_pics/as-fk-ui-flow4.png)
+
+### IA (Conversational) assisted KADS loop
 
 ![](build_info_pics/as-fk-ui-flow3.png)
 
-## AS Seed Admin Project designer: Build and train networks and frame books
+### OTA-1 FORM
 
 ![](build_info_pics/as-fk-ui-flow2.png)
 
-## AS Seed Admin Project designer: Compile and bundle to YAML Rasa Stories libraries
+### Application bundle project file
 
 ![](build_info_pics/as-fk-ui-flow1.png)
+
+## AS Seed Admin Project designer: Compile and bundle to YAML Rasa Stories libraries
+
+pending
 
 
 ## AS Seed

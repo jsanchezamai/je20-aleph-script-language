@@ -88,258 +88,190 @@
 		"genesis": {
 			"id": "genesis",
 			"estado": {
-				"Procesador estado": [
+				"IDE-app": [
 					{
-						"estado": "Analizando Cabecera",
-						"fecha": "2023-12-30T16:38:29.865Z"
+						"estado": "¡Arrancando simulación!",
+						"fecha": "2024-02-12T17:14:57.377Z"
 					},
 					{
-						"estado": "\t - Cabecera: componente",
-						"fecha": "2023-12-30T16:38:29.867Z"
+						"estado": "¡La simulación ha concluído y se cierra! - ¡La simulación ha concluído y se cierra! - ¡La simulación ha concluído y se cierra!",
+						"fecha": "2024-02-12T17:15:08.405Z"
+					}
+				],
+				"mundo-raíz-ide": [
+					{
+						"estado": "¡Mundo iniciado! Pulso: 1000",
+						"fecha": "2024-02-12T17:14:57.381Z"
 					},
 					{
-						"estado": "\t - Cabecera: alteracion",
-						"fecha": "2023-12-30T16:38:29.868Z"
+						"estado": "¡Más gente en el mundo!, ide.situada, suscriptores: 1",
+						"fecha": "2024-02-12T17:14:57.383Z"
 					},
 					{
-						"estado": "\t - Cabecera: tipos_tabla",
-						"fecha": "2023-12-30T16:38:29.869Z"
+						"estado": "Hoy es el día: 1",
+						"fecha": "2024-02-12T17:14:58.383Z"
 					},
 					{
-						"estado": "\t - Cabecera: valores",
-						"fecha": "2023-12-30T16:38:29.869Z"
+						"estado": "Hoy es el día: 2",
+						"fecha": "2024-02-12T17:14:59.383Z"
 					},
 					{
-						"estado": "\t - Cabecera: sensores",
-						"fecha": "2023-12-30T16:38:29.870Z"
+						"estado": "Hoy es el día: 3",
+						"fecha": "2024-02-12T17:15:00.384Z"
 					},
 					{
-						"estado": "\t\t 0 - Crear guid",
-						"fecha": "2023-12-30T16:38:29.871Z"
+						"estado": "Hoy es el día: 4",
+						"fecha": "2024-02-12T17:15:01.395Z"
 					},
 					{
-						"estado": "\t\t 0 - Almacenar",
-						"fecha": "2023-12-30T16:38:29.872Z"
+						"estado": "Hoy es el día: 5",
+						"fecha": "2024-02-12T17:15:02.394Z"
 					},
 					{
-						"estado": "\t\t 1 - Crear guid",
-						"fecha": "2023-12-30T16:38:29.873Z"
+						"estado": "Hoy es el día: 6",
+						"fecha": "2024-02-12T17:15:03.396Z"
 					},
 					{
-						"estado": "\t\t 1 - Almacenar",
-						"fecha": "2023-12-30T16:38:29.873Z"
+						"estado": "Hoy es el día: 7",
+						"fecha": "2024-02-12T17:15:04.397Z"
 					},
 					{
-						"estado": "\t - Cabecera: diagnosticos",
-						"fecha": "2023-12-30T16:38:29.874Z"
+						"estado": "Hoy es el día: 8",
+						"fecha": "2024-02-12T17:15:05.397Z"
 					},
 					{
-						"estado": "Analizando Cuerpo",
-						"fecha": "2023-12-30T16:38:29.876Z"
+						"estado": "Hoy es el día: 9",
+						"fecha": "2024-02-12T17:15:06.397Z"
 					},
 					{
-						"estado": "\t 0 - Linea: Componente",
-						"fecha": "2023-12-30T16:38:29.881Z"
+						"estado": "Hoy es el día: 10",
+						"fecha": "2024-02-12T17:15:07.398Z"
 					},
 					{
-						"estado": "\t 0 - Linea: Alteracion",
-						"fecha": "2023-12-30T16:38:29.882Z"
+						"estado": "¡Mundo acabado!, deponer ide.situada",
+						"fecha": "2024-02-12T17:15:08.400Z"
 					},
 					{
-						"estado": "\t 0 - Linea: Tipo",
-						"fecha": "2023-12-30T16:38:29.885Z"
+						"estado": "¡Mundo acabado!, destruir ",
+						"fecha": "2024-02-12T17:15:08.401Z"
+					}
+				],
+				"ide.situada": [
+					{
+						"estado": "Hola soy un autómata situado.",
+						"fecha": "2024-02-12T17:14:57.382Z"
 					},
 					{
-						"estado": "\t 0 - Linea: Valores",
-						"fecha": "2023-12-30T16:38:29.886Z"
+						"estado": "Modelo resultante.\n:modelo-ide",
+						"fecha": "2024-02-12T17:15:08.404Z"
+					}
+				],
+				"fia.sbc": [
+					{
+						"estado": "Efectuando sus al mundo",
+						"fecha": "2024-02-12T17:14:57.384Z"
 					},
 					{
-						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-30T16:38:29.886Z"
+						"estado": "Activando en IDE: Projecto actual: AlephScriptIDE_Proyecto_1",
+						"fecha": "2024-02-12T17:14:59.389Z"
 					},
 					{
-						"estado": "\t\t 1 - Agregar valor",
-						"fecha": "2023-12-30T16:38:29.888Z"
+						"estado": "Lanzando un sistema basado en conocimiento de tipo CommonKADS...",
+						"fecha": "2024-02-12T17:14:59.392Z"
 					},
 					{
-						"estado": "\t 0 - Linea: sensores",
-						"fecha": "2023-12-30T16:38:29.889Z"
+						"estado": "¡Cerrando SBC!",
+						"fecha": "2024-02-12T17:15:08.404Z"
+					}
+				],
+				"modelo-ide": [
+					{
+						"estado": "Autómata listo ide-estado transicion.",
+						"fecha": "2024-02-12T17:14:58.386Z"
+					}
+				],
+				"aleph-script-assistant": [
+					{
+						"estado": "¡Listo!",
+						"fecha": "2024-02-12T17:14:59.388Z"
 					},
 					{
-						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-30T16:38:29.890Z"
+						"estado": "¡Listo para recibir peticiones de ayuda!",
+						"fecha": "2024-02-12T17:14:59.390Z"
+					}
+				],
+				"fia.sbc.common.kads": [
+					{
+						"estado": "Hola, voy a generar un app siguiendo la metodología Common KADS. 3..., 2..., 1..., ¡lanzando!",
+						"fecha": "2024-02-12T17:14:59.393Z"
 					},
 					{
-						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-30T16:38:29.892Z"
+						"estado": "¡Finalizado!",
+						"fecha": "2024-02-12T17:15:08.403Z"
+					}
+				],
+				"common.kads": [
+					{
+						"estado": "Ejecutaré 3 fases de construcción. Y, a continuación, monitorizaré la aplicación derivada. ¡Vamos!",
+						"fecha": "2024-02-12T17:15:00.386Z"
 					},
 					{
-						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-30T16:38:29.895Z"
+						"estado": "AVANCE DE ESTADO:  --  Esperando:  -- ",
+						"fecha": "2024-02-12T17:15:00.393Z"
 					},
 					{
-						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-30T16:38:29.896Z"
+						"estado": "Nivel Contextual",
+						"fecha": "2024-02-12T17:15:00.395Z"
 					},
 					{
-						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-30T16:38:29.897Z"
+						"estado": " NCx.01 Realizado estudio de viabilidad:\n             \t\t -AS_OM-01:[modelo-ide]\n\t\t\t -OM-2:[modelo-ide]\n\t\t\t -OM-3:[modelo-ide]\n\t\t\t -OM-4:[modelo-ide]\n\t\t\t -OM-5:[modelo-ide]",
+						"fecha": "2024-02-12T17:15:00.396Z"
 					},
 					{
-						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-30T16:38:29.899Z"
+						"estado": " NCx.02 Realizado estudio de impacto y mejoras:\n             \t\t -AS_TM-01:[modelo-ide]\n\t\t\t -TM-2:[modelo-ide],\n             \t\t -AS_AM-01:[modelo-ide]",
+						"fecha": "2024-02-12T17:15:00.397Z"
 					},
 					{
-						"estado": "\t 0 - Linea: Diagnósticos",
-						"fecha": "2023-12-30T16:38:29.899Z"
+						"estado": "Período de construcción. Acabada fase: : Nivel Contextual: OTA-1:[modelo-ide - AS_OM-01 - OM-2 - OM-3 - OM-4 - OM-5 - AS_TM-01 - TM-2 - AS_AM-01]",
+						"fecha": "2024-02-12T17:15:00.401Z"
 					},
 					{
-						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-30T16:38:29.900Z"
+						"estado": "AVANCE DE ESTADO: Nivel Contextual Esperando:  -- ",
+						"fecha": "2024-02-12T17:15:00.402Z"
 					},
 					{
-						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-30T16:38:29.901Z"
+						"estado": "Nivel Conceptual",
+						"fecha": "2024-02-12T17:15:00.404Z"
 					},
 					{
-						"estado": "\t 1 - Linea: Componente",
-						"fecha": "2023-12-30T16:38:29.902Z"
+						"estado": " NC.01 Realizado modelo de conocimiento:\n             \t\t -KM-1:[<Modelo Vacío>], UML, CML.",
+						"fecha": "2024-02-12T17:15:00.415Z"
 					},
 					{
-						"estado": "\t 1 - Linea: Alteracion",
-						"fecha": "2023-12-30T16:38:29.902Z"
+						"estado": "NC.02 Realizado modelo de comunicaciones:\n             \t\t -CM-1:[ -  -  - <Modelo Vacío>]\n\t\t\t -CM-2:[ -  -  - <Modelo Vacío>]",
+						"fecha": "2024-02-12T17:15:00.417Z"
 					},
 					{
-						"estado": "\t 1 - Linea: Tipo",
-						"fecha": "2023-12-30T16:38:29.903Z"
+						"estado": "NC.03 ¡Especificación realizada!",
+						"fecha": "2024-02-12T17:15:00.418Z"
 					},
 					{
-						"estado": "\t 1 - Linea: Valores",
-						"fecha": "2023-12-30T16:38:29.903Z"
+						"estado": "Período de construcción. Acabada fase: : Nivel Conceptual",
+						"fecha": "2024-02-12T17:15:00.419Z"
+					}
+				],
+				"ide": [
+					{
+						"estado": "AS FK CK PROCESS REQUEST:  -- ",
+						"fecha": "2024-02-12T17:15:00.389Z"
 					},
 					{
-						"estado": "\t\t 0 - Agregar valor",
-						"fecha": "2023-12-30T16:38:29.904Z"
-					},
-					{
-						"estado": "\t 1 - Linea: sensores",
-						"fecha": "2023-12-30T16:38:29.905Z"
-					},
-					{
-						"estado": "\t\t 0 - Crear regla de sensor",
-						"fecha": "2023-12-30T16:38:29.907Z"
-					},
-					{
-						"estado": "\t\t\t 0 - Crear guid criterio",
-						"fecha": "2023-12-30T16:38:29.908Z"
-					},
-					{
-						"estado": "\t\t\t 0 - Almacenar criterio",
-						"fecha": "2023-12-30T16:38:29.909Z"
-					},
-					{
-						"estado": "\t\t 1 - Crear regla de sensor",
-						"fecha": "2023-12-30T16:38:29.909Z"
-					},
-					{
-						"estado": "\t\t\t 1 - Crear guid criterio",
-						"fecha": "2023-12-30T16:38:29.910Z"
-					},
-					{
-						"estado": "\t\t\t 1 - Almacenar criterio",
-						"fecha": "2023-12-30T16:38:29.910Z"
-					},
-					{
-						"estado": "\t 1 - Linea: Diagnósticos",
-						"fecha": "2023-12-30T16:38:29.911Z"
-					},
-					{
-						"estado": "\t\t 0 - Agregar diagnóstico",
-						"fecha": "2023-12-30T16:38:29.911Z"
-					},
-					{
-						"estado": "\t\t 1 - Agregar diagnóstico",
-						"fecha": "2023-12-30T16:38:29.912Z"
-					},
-					{
-						"estado": "Iniciando Aferencia",
-						"fecha": "2023-12-30T16:38:29.914Z"
-					},
-					{
-						"estado": "\t - Buscando sensor",
-						"fecha": "2023-12-30T16:38:29.915Z"
-					},
-					{
-						"estado": "\t\t - Sensor temperatura/dGVtcGVyYXR1cmE",
-						"fecha": "2023-12-30T16:38:29.916Z"
-					},
-					{
-						"estado": "\t - Buscando reglas",
-						"fecha": "2023-12-30T16:38:29.917Z"
-					},
-					{
-						"estado": "\t\t - Reglas encontradas: 2",
-						"fecha": "2023-12-30T16:38:29.917Z"
-					},
-					{
-						"estado": "Procesando criterios",
-						"fecha": "2023-12-30T16:38:29.918Z"
-					},
-					{
-						"estado": "\t\t - Positivos encontrados: 2",
-						"fecha": "2023-12-30T16:38:29.919Z"
-					},
-					{
-						"estado": "Positivos encontrados",
-						"fecha": "2023-12-30T16:38:29.919Z"
-					},
-					{
-						"estado": "\t - Lineas afectadas: 2",
-						"fecha": "2023-12-30T16:38:29.920Z"
-					},
-					{
-						"estado": "\t\t - CPU/F01-sistema-ventilacion/Temperatura fuera de rango, diag: 2",
-						"fecha": "2023-12-30T16:38:29.921Z"
-					},
-					{
-						"estado": "\t\t\t - 0: Diag1",
-						"fecha": "2023-12-30T16:38:29.922Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-apagar-ventilador",
-						"fecha": "2023-12-30T16:38:29.929Z"
-					},
-					{
-						"estado": "\t\t\t\t - 1: F01-iniciar-procesos-mantenimiento",
-						"fecha": "2023-12-30T16:38:29.930Z"
-					},
-					{
-						"estado": "\t\t\t - 1: Diag2",
-						"fecha": "2023-12-30T16:38:29.931Z"
-					},
-					{
-						"estado": "\t\t - CPU/F02-sistema-ventilacion/Temperatura fuera de rango, diag: 2",
-						"fecha": "2023-12-30T16:38:29.931Z"
-					},
-					{
-						"estado": "\t\t\t - 0: Diag1",
-						"fecha": "2023-12-30T16:38:29.932Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-encender-ventilador",
-						"fecha": "2023-12-30T16:38:29.933Z"
-					},
-					{
-						"estado": "\t\t\t - 1: Diag2",
-						"fecha": "2023-12-30T16:38:29.934Z"
-					},
-					{
-						"estado": "\t\t\t\t - 0: F01-apagar-procesos-mantenimiento",
-						"fecha": "2023-12-30T16:38:29.935Z"
+						"estado": "AS FK CK PROCESS REQUEST: Nivel Contextual",
+						"fecha": "2024-02-12T17:15:00.402Z"
 					}
 				]
 			},
-			"fecha": "2023-12-30T16:38:06.886Z"
+			"fecha": "2024-02-12T17:14:54.097Z"
 		},
 		"claveFunciones": [
 			[
