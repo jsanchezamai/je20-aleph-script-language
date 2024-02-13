@@ -17,7 +17,7 @@ export class DataLoader extends StructuredDataLoader {
     }
 
     train(
-        networks: SemanticNetworkModel[],
+        networks: ISemanticNetworkModel[],
         snapshot: IDatabaseSnapshot): ICommonKADSLibrary {
         return new AppCommonKADS();
     }

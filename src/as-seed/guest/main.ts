@@ -3,6 +3,7 @@ import { ChenLoader } from "../as-importers/chen-loader";
 import { CollectionLoader } from '../as-importers/collection-loader';
 import { DataLoader } from '../as-importers/data-loader';
 import { IDatabaseSnapshot } from "../as-importers/loader";
+import { TreeLoader } from "../as-importers/tree-loader";
 import { AsSeed } from "../as-seed";
 import { Log } from "../core/compiler";
 import { AppDirectory, IFilePath } from "../core/file-model";
@@ -12,7 +13,7 @@ import { ISemanticNetworkModel } from "../core/semantic-network-model";
 
 export class AlephScriptBoilerplate {
 
-    seed = new AsSeed();
+    seed: AsSeed;
 
     app: AppDirectory = {
         "id": "BoilerPlateApp",
@@ -24,6 +25,10 @@ export class AlephScriptBoilerplate {
     private networks: ISemanticNetworkModel[] = [];
     private snapshot: IDatabaseSnapshot = new Model();
     private appBundle: AppModelBundle;
+
+    constructor() {
+        this.seed = new AsSeed(this.app);
+    }
 
     /**
      * Execute once in App lifecyce: create the seed
@@ -50,6 +55,11 @@ export class AlephScriptBoilerplate {
 
         console.log("AS_SEED: main sequence. Loading source files");
 
+        console.log("\t - Loading source tree. Found chen tree: 2");
+
+        const treeLoader: TreeLoader = new TreeLoader(this.seed);
+        const treeFile: IFilePath = this.app.treeFolder;
+
         console.log("\t - Loading source files. Found chen files: 2");
 
         const chenLoader: ChenLoader = new ChenLoader(this.seed);
@@ -67,6 +77,9 @@ export class AlephScriptBoilerplate {
 
         console.log("Executing loaders:");
 
+        console.log("\t - Executing loaders. Loaded tree domains: 2,", treeFile);
+        const treeNet = this.seed.runLoader(treeLoader, treeFile);
+
         console.log("\t - Executing loaders. Loaded chen domains: 2");
         const chenNet = this.seed.runLoader(chenLoader, chenFile);
 
@@ -76,7 +89,7 @@ export class AlephScriptBoilerplate {
         console.log("\t - Executing loaders. Loaded chen domains: 2");
         const dataNet = this.seed.runLoader(dataLoader, dataFile);
 
-        const logs = this.seed.runStore(this.app, [chenNet, collectionNet, dataNet]);
+        const logs = this.seed.runStore(this.app, [treeNet, chenNet, collectionNet, dataNet]);
 
         logs.logs.forEach(
             (l: Log, index: number) => console.log("\t - STORE logs", index, l));

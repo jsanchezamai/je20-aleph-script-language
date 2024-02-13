@@ -15,9 +15,11 @@ export const DEFAULT_CONFIG: AppDirectory = {
 	"id": "BoilerPlateApp",
 	"baseFolder": " AlephScriptApps",
 	"configFolder": "in/config",
-	"chensFolder": "in/chen",
-	"collectionsFolder": "in/nonsql",
-	"dataFolder": "in/data",
+	"chensFolder": "in/chen/domain.data.relational.scada.json",
+	"collectionsFolder": "in/chen/domain.relational.scada.auth.json",
+	"dataFolder": "in/data/data.json",
+    "treeFolder": "in/tree/compressed-tree.json",
+
 	"appFolder": "out/bundle"
 }
 
@@ -57,6 +59,10 @@ export interface AsSeed {
 }
 
 export class AsSeed implements AsSeed {
+
+    constructor(public app: AppDirectory) {
+
+    }
 
     runIniter(app: AppDirectory) {
 
@@ -99,7 +105,7 @@ export class AsSeed implements AsSeed {
                 ...appDirectory
             }
 
-            if ( !fs.existsSync(app.chensFolder)) {
+            /*if ( !fs.existsSync(app.chensFolder)) {
                 fs.mkdirSync(
                     path.join(
                         app.baseFolder,
@@ -129,7 +135,10 @@ export class AsSeed implements AsSeed {
                         app.baseFolder,
                         app.appFolder),
                     { recursive: true});
-            }
+            } */
+
+            this.app = app;
+
         })
 
         return app;
@@ -141,7 +150,22 @@ export class AsSeed implements AsSeed {
         file: IFilePath
     ): ISemanticNetworkModel {
 
-        loader.import(file);
+        // console.log("--------------vvvvvvvvvv-----------------")
+        // console.log("-------------------------------")
+        // console.log("-------------------------------")
+
+        // console.log(this.app)
+        // console.log(">>" + this.app.baseFolder)
+        // console.log(">>" + file)
+        const p = path.join(this.app.baseFolder, file);
+        console.log(">> runLoader de as-seed" + p);
+
+
+        // console.log("-------------------------------")
+        // console.log("-------------------------------")
+        // console.log("--------------vvvvvvvv-----------------")
+
+        loader.import(p);
 
         return loader.network;
     }
@@ -173,12 +197,13 @@ export class AsSeed implements AsSeed {
                 `Domain_${RELEASE_DATE}.aleph`
             );
             const content = [networks || []
-                ].map((n, index) => `Network ${index} --> ${n}`);
+                ]/* .map((n, index) => `Network ${index} --> ${n}`)*/;
 
             try {
 
                 console.log("\t - Write " + target);
-                fs.writeFileSync(target, JSON.stringify(content));
+                fs.writeFileSync(target, JSON.stringify({
+                    domain: content }, null, "\t"));
 
                 log.state = API_ERROR_ID.OK;
                 log.error = "Stored"

@@ -3,8 +3,6 @@ import { RedSemantica } from "../../../../paradigmas/simbolica/modelos/formal/si
 import { agentMessage } from "../../../../agentMessage";
 import { CadenaFIASimbolica } from "../cadena-fia-simbolica";
 import { CadenaGrafo } from "./cadena-grafo";
-import { resolve } from "path";
-import { rejects } from "assert";
 
 export class CadenaFIARedSemantica extends CadenaFIASimbolica {
 

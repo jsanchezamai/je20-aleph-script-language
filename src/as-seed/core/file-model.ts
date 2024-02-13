@@ -56,4 +56,9 @@ export type AppDirectory = {
      * Final Output directory for exchanging data with AS Framework
      */
     appFolder?: IFilePath;
+
+    /**
+     * Contains relation table with compressed tree (branches are segments of fk)
+     */
+    treeFolder?: IFilePath;
 };
