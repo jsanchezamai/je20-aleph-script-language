@@ -14,8 +14,8 @@ export class TreeModel extends Model implements IModel  {
 
 export interface ITreeNode extends IBaseConocimiento {
 
-    nombre: string;
-
+    pk: string;
+    data: any;
     hijos: ITreeNode[];
 
 }
@@ -28,7 +28,8 @@ export class TreeLoader extends StructuredDataLoader {
         super.import(Tree_file);
 
         this.network.bosque = {
-            nombre: "Base",
+            pk: "Base",
+            data: {},
             hijos: []
         }
 
@@ -42,12 +43,15 @@ export class TreeLoader extends StructuredDataLoader {
 
         this.network.index.forEach(r => {
 
-            console.log("Loop for row <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-            console.log("The path", r.fk)
-            console.log("The current state", this.network.bosque)
-            this.recursiveRow((r.fk?.split("/").reverse() || []), tree);
-            console.log("The final state", this.network.bosque)
-            console.log("Loop for row <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+            if (r.type == "Accion") console.log("The path", r)
+            // console.log("The current state", this.network.bosque)
+            if (r.fk) {
+                r.fk += r.pk + "/";
+            }
+            const rs = r.fk ? r.fk?.split("/").reverse() || [] : r.pk.split("/");
+            this.recursiveRow(r.type, rs, r.data, tree);
+            // console.log("The final state", this.network.bosque)
+            // console.log("Loop for row <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
 
         })
 
@@ -62,30 +66,40 @@ export class TreeLoader extends StructuredDataLoader {
         return super.export();
     }
 
-    recursiveRow(rfk: string[], tree: ITreeNode): ITreeNode {
+    recursiveRow(rpk: string, rfk: string[], data: any, tree: ITreeNode): ITreeNode {
 
         const segment = rfk.pop();
 
+        if (rpk == "Accion") {
+            console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        }
+
         if (!segment) {
+            if (rpk == "Accion") {
+                console.log("SALIR", tree)
+            }
             return tree;
         }
 
         const child = tree.hijos.find(h => {
-            console.log("comparanddo", h.nombre, segment)
-            return h.nombre == segment
+            // console.log("comparanddo", h.pk, segment)
+            return h.pk == segment
         });
         if (child) {
-            console.log("encontrado", segment)
-            return this.recursiveRow(rfk, child);
+            // console.log("encontrado", segment)
+            return this.recursiveRow(rpk, rfk, data, child);
         } else {
-            console.log("no encontrado", segment)
             const nuevo = {
-                nombre: segment,
+                pk: segment,
+                data,
                 hijos: []
             }
+
+            if (rpk == "Accion") {
+                console.log("NUEVO HIJO", nuevo, tree)
+            }
             tree.hijos.push(nuevo);
-            console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Tras nuevo", tree);
-            return this.recursiveRow(rfk, nuevo);
+            return this.recursiveRow(rpk, rfk, data, nuevo);
         }
 
     }

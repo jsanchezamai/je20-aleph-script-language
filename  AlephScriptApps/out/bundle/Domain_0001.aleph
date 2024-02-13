@@ -14,52 +14,48 @@
 					{
 						"type": "Habitacion",
 						"pk": "Habitacion101",
-						"fk": "Edificio1/",
+						"fk": "Edificio1/Habitacion101/",
 						"data": {
-							"numero": 101
+							"nombre": "101"
+						}
+					},
+					{
+						"type": "Habitacion",
+						"pk": "Habitacion102",
+						"fk": "Edificio1/Habitacion102/",
+						"data": {
+							"nombre": "102"
 						}
 					},
 					{
 						"type": "Mueble",
-						"pk": "Escritorio1",
-						"fk": "Edificio1/Habitacion101/",
+						"pk": "Mueble101",
+						"fk": "Edificio1/Habitacion101/Mueble101/",
 						"data": {
-							"tipo": "Escritorio",
-							"descripcion": "Escritorio de madera con cajones"
+							"nombre": "Mueble A"
 						}
 					},
 					{
 						"type": "Mueble",
-						"pk": "Armario1",
-						"fk": "Edificio1/Habitacion101/",
+						"pk": "Mueble102",
+						"fk": "Edificio1/Habitacion102/Mueble102/",
 						"data": {
-							"tipo": "Armario",
-							"descripcion": "Armario grande para almacenamiento"
+							"nombre": "Mueble A"
 						}
 					},
 					{
 						"type": "Objeto",
-						"pk": "Computadora1",
-						"fk": "Edificio1/Habitacion101/Escritorio1/",
+						"pk": "Lampara101A",
+						"fk": "Edificio1/Habitacion101/Mueble101/Lampara101A/",
 						"data": {
-							"nombre": "Computadora",
-							"descripcion": "Computadora portátil marca X"
-						}
-					},
-					{
-						"type": "Objeto",
-						"pk": "Lampara1",
-						"fk": "Edificio1/Habitacion101/Escritorio1/",
-						"data": {
-							"nombre": "Lámpara",
-							"descripcion": "Lámpara de escritorio LED",
-							"estado": "apagada"
+							"nombre": "Lámpara A",
+							"estado": "apagado"
 						}
 					},
 					{
 						"type": "Accion",
-						"pk": "AccionEncender1",
-						"fk": "Edificio1/Habitacion101/Escritorio1/Lampara1/",
+						"pk": "AccionEncender101A",
+						"fk": "Edificio1/Habitacion101/Mueble101/Lampara101A/AccionEncender101A/",
 						"data": {
 							"nombre": "Encender",
 							"disponible": true
@@ -67,8 +63,105 @@
 					},
 					{
 						"type": "Accion",
-						"pk": "AccionApagar1",
-						"fk": "Edificio1/Habitacion101/Escritorio1/Lampara1/",
+						"pk": "AccionApagar101A",
+						"fk": "Edificio1/Habitacion101/Mueble101/Lampara101A/AccionApagar101A/",
+						"data": {
+							"nombre": "Apagar",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Objeto",
+						"pk": "Lampara102A",
+						"fk": "Edificio1/Habitacion102/Mueble102/Lampara102A/",
+						"data": {
+							"nombre": "Lámpara A",
+							"estado": "apagado"
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionEncender102A",
+						"fk": "Edificio1/Habitacion102/Mueble102/Lampara102A/AccionEncender102A/",
+						"data": {
+							"nombre": "Encender",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionApagar102A",
+						"fk": "Edificio1/Habitacion102/Mueble102/Lampara102A/AccionApagar102A/",
+						"data": {
+							"nombre": "Apagar",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Mueble",
+						"pk": "Mueble101B",
+						"fk": "Edificio1/Habitacion101/Mueble101B/",
+						"data": {
+							"nombre": "Mueble B"
+						}
+					},
+					{
+						"type": "Objeto",
+						"pk": "Lampara101B",
+						"fk": "Edificio1/Habitacion101/Mueble101B/Lampara101B/",
+						"data": {
+							"nombre": "Lámpara B",
+							"estado": "apagado"
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionEncender101B",
+						"fk": "Edificio1/Habitacion101/Mueble101B/Lampara101B/AccionEncender101B/",
+						"data": {
+							"nombre": "Encender",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionApagar101B",
+						"fk": "Edificio1/Habitacion101/Mueble101B/Lampara101B/AccionApagar101B/",
+						"data": {
+							"nombre": "Apagar",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Mueble",
+						"pk": "Mueble102B",
+						"fk": "Edificio1/Habitacion102/Mueble102B/",
+						"data": {
+							"nombre": "Mueble B"
+						}
+					},
+					{
+						"type": "Objeto",
+						"pk": "Lampara102B",
+						"fk": "Edificio1/Habitacion102/Mueble102B/Lampara102B/",
+						"data": {
+							"nombre": "Lámpara B",
+							"estado": "apagado"
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionEncender102B",
+						"fk": "Edificio1/Habitacion102/Mueble102B/Lampara102B/AccionEncender102B/",
+						"data": {
+							"nombre": "Encender",
+							"disponible": true
+						}
+					},
+					{
+						"type": "Accion",
+						"pk": "AccionApagar102B",
+						"fk": "Edificio1/Habitacion102/Mueble102B/Lampara102B/AccionApagar102B/",
 						"data": {
 							"nombre": "Apagar",
 							"disponible": true
@@ -81,20 +174,158 @@
 					}
 				},
 				"bosque": {
-					"nombre": "Base",
+					"pk": "Base",
+					"data": {},
 					"hijos": [
 						{
-							"nombre": "Edificio1",
+							"pk": "Edificio1",
+							"data": {
+								"nombre": "Edificio Central"
+							},
 							"hijos": [
 								{
-									"nombre": "Habitacion101",
+									"pk": "Habitacion101",
+									"data": {
+										"nombre": "101"
+									},
 									"hijos": [
 										{
-											"nombre": "Escritorio1",
+											"pk": "Mueble101",
+											"data": {
+												"nombre": "Mueble A"
+											},
 											"hijos": [
 												{
-													"nombre": "Lampara1",
-													"hijos": []
+													"pk": "Lampara101A",
+													"data": {
+														"nombre": "Lámpara A",
+														"estado": "apagado"
+													},
+													"hijos": [
+														{
+															"pk": "AccionEncender101A",
+															"data": {
+																"nombre": "Encender",
+																"disponible": true
+															},
+															"hijos": []
+														},
+														{
+															"pk": "AccionApagar101A",
+															"data": {
+																"nombre": "Apagar",
+																"disponible": true
+															},
+															"hijos": []
+														}
+													]
+												}
+											]
+										},
+										{
+											"pk": "Mueble101B",
+											"data": {
+												"nombre": "Mueble B"
+											},
+											"hijos": [
+												{
+													"pk": "Lampara101B",
+													"data": {
+														"nombre": "Lámpara B",
+														"estado": "apagado"
+													},
+													"hijos": [
+														{
+															"pk": "AccionEncender101B",
+															"data": {
+																"nombre": "Encender",
+																"disponible": true
+															},
+															"hijos": []
+														},
+														{
+															"pk": "AccionApagar101B",
+															"data": {
+																"nombre": "Apagar",
+																"disponible": true
+															},
+															"hijos": []
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"pk": "Habitacion102",
+									"data": {
+										"nombre": "102"
+									},
+									"hijos": [
+										{
+											"pk": "Mueble102",
+											"data": {
+												"nombre": "Mueble A"
+											},
+											"hijos": [
+												{
+													"pk": "Lampara102A",
+													"data": {
+														"nombre": "Lámpara A",
+														"estado": "apagado"
+													},
+													"hijos": [
+														{
+															"pk": "AccionEncender102A",
+															"data": {
+																"nombre": "Encender",
+																"disponible": true
+															},
+															"hijos": []
+														},
+														{
+															"pk": "AccionApagar102A",
+															"data": {
+																"nombre": "Apagar",
+																"disponible": true
+															},
+															"hijos": []
+														}
+													]
+												}
+											]
+										},
+										{
+											"pk": "Mueble102B",
+											"data": {
+												"nombre": "Mueble B"
+											},
+											"hijos": [
+												{
+													"pk": "Lampara102B",
+													"data": {
+														"nombre": "Lámpara B",
+														"estado": "apagado"
+													},
+													"hijos": [
+														{
+															"pk": "AccionEncender102B",
+															"data": {
+																"nombre": "Encender",
+																"disponible": true
+															},
+															"hijos": []
+														},
+														{
+															"pk": "AccionApagar102B",
+															"data": {
+																"nombre": "Apagar",
+																"disponible": true
+															},
+															"hijos": []
+														}
+													]
 												}
 											]
 										}
