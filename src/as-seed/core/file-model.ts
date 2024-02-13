@@ -61,4 +61,10 @@ export type AppDirectory = {
      * Contains relation table with compressed tree (branches are segments of fk)
      */
     treeFolder?: IFilePath;
+
+    /**
+     * Contains tmp data for AS SDK BIM Navigator searches resultsnavigationFolder
+     */
+    navigationFolder?: IFilePath;
+
 };

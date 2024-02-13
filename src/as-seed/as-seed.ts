@@ -13,14 +13,15 @@ export const RELEASE_DATE = "0001";
 
 export const DEFAULT_CONFIG: AppDirectory = {
 	"id": "BoilerPlateApp",
-	"baseFolder": " AlephScriptApps",
+	"baseFolder": "AlephScriptApps",
 	"configFolder": "in/config",
 	"chensFolder": "in/chen/domain.data.relational.scada.json",
 	"collectionsFolder": "in/chen/domain.relational.scada.auth.json",
 	"dataFolder": "in/data/data.json",
     "treeFolder": "in/tree/compressed-tree.json",
 
-	"appFolder": "out/bundle"
+	"appFolder": "out/bundle",
+	"navigationFolder": "out/navigation"
 }
 
 export type IBuildID = {
@@ -93,6 +94,8 @@ export class AsSeed implements AsSeed {
         console.log("\t - Read config folder", target);
         const configFiles = fs.readdirSync(target, "utf-8");
         configFiles.forEach((file, index) => {
+
+            if (file.indexOf(".aleph") == -1) return;
 
             console.log("\t - Read file", file);
             const configFile = fs.readFileSync(path.join(target, file), "utf-8");

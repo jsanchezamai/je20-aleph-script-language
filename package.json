@@ -5,6 +5,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "npm run build && ts-node-dev src/FIA/thread.ts",
+    "dev-seed": "npm run build && ts-node-dev src/FIA/as-seed-thread.ts",
+    "dev-sdk": "npm run build && ts-node-dev src/FIA/as-sdk-thread.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
     "deps": "madge --circular ./dist/FIA/thread.js"
@@ -24,11 +26,14 @@
     "onnxruntime-node": "^1.16.1",
     "onnxruntime-web": "^1.16.1",
     "openai": "^4.19.1",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "ts-json-schema": "^1.1.3",
+    "ts-json-schema-generator": "^1.4.0"
   },
   "openai": {
-    "key": "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",
-    "memory": "/Users/morente/Desktop/taller art/discord-bot/memory"
+    "key": "sk-",
+    "memory": "/Users/memory"
   }
 }

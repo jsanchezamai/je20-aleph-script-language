@@ -1,3 +1,5 @@
+import { RTCache } from "../../FIA/engine/kernel/rt-cache";
+import { NavigatorBIM } from "../../as-sdks/bim/navigator/navigator";
 import { AppModelBundle } from "../app.model.bundle/app.model.bundle";
 import { ChenLoader } from "../as-importers/chen-loader";
 import { CollectionLoader } from '../as-importers/collection-loader';
@@ -9,7 +11,7 @@ import { Log } from "../core/compiler";
 import { AppDirectory, IFilePath } from "../core/file-model";
 import { Model } from "../core/model";
 import { ISemanticNetworkModel } from "../core/semantic-network-model";
-
+import path from 'path';
 
 export class AlephScriptBoilerplate {
 
@@ -17,7 +19,7 @@ export class AlephScriptBoilerplate {
 
     app: AppDirectory = {
         "id": "BoilerPlateApp",
-        "baseFolder": " AlephScriptApps",
+        "baseFolder": "AlephScriptApps",
         "configFolder": "in/config",
     };
 
@@ -132,4 +134,37 @@ export class AlephScriptBoilerplate {
 
     }
 
+    navigator() {
+
+        this.init();
+
+        const rt = new RTCache();
+
+        const p = path.join(this.app.baseFolder, this.app.appFolder, "Domain_0001.aleph");
+        const source = rt.recuperRuta(p);
+        console.log(source)
+        const d = source.domain[0].find(d => d.name == "compressed-tree.json");
+        // console.log("The network for ", d)
+        const n = new NavigatorBIM();
+        n.index = d.index;
+        n.bosque = d.bosque;
+
+        console.log("The navigate to \n", "Lámpara", " \n test")
+        const r = n.navegarYSintetizar("Lámpara", 2);
+
+        console.log("The navigation result", r.caminosIndex.map(c => c));
+        console.log("The navigation result", r.caminos[0].map(c => c));
+
+        console.log("Sintesis", r.sintesis);
+
+        const c = path.join(this.app.baseFolder, this.app.navigationFolder, "search" + new Date().getTime() + ".aleph");
+
+        rt.dominio.base = {
+            ...r
+        }
+        rt.archivo = c;
+        rt.persistirRuta();
+        console.log("Persists", c)
+
+    }
 }
