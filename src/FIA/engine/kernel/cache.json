@@ -91,187 +91,187 @@
 				"IDE-app": [
 					{
 						"estado": "¡Arrancando simulación!",
-						"fecha": "2024-02-12T17:14:57.377Z"
+						"fecha": "2024-02-14T00:05:11.491Z"
 					},
 					{
 						"estado": "¡La simulación ha concluído y se cierra! - ¡La simulación ha concluído y se cierra! - ¡La simulación ha concluído y se cierra!",
-						"fecha": "2024-02-12T17:15:08.405Z"
+						"fecha": "2024-02-14T00:05:22.509Z"
 					}
 				],
 				"mundo-raíz-ide": [
 					{
 						"estado": "¡Mundo iniciado! Pulso: 1000",
-						"fecha": "2024-02-12T17:14:57.381Z"
+						"fecha": "2024-02-14T00:05:11.494Z"
 					},
 					{
 						"estado": "¡Más gente en el mundo!, ide.situada, suscriptores: 1",
-						"fecha": "2024-02-12T17:14:57.383Z"
+						"fecha": "2024-02-14T00:05:11.496Z"
 					},
 					{
 						"estado": "Hoy es el día: 1",
-						"fecha": "2024-02-12T17:14:58.383Z"
+						"fecha": "2024-02-14T00:05:12.497Z"
 					},
 					{
 						"estado": "Hoy es el día: 2",
-						"fecha": "2024-02-12T17:14:59.383Z"
+						"fecha": "2024-02-14T00:05:13.497Z"
 					},
 					{
 						"estado": "Hoy es el día: 3",
-						"fecha": "2024-02-12T17:15:00.384Z"
+						"fecha": "2024-02-14T00:05:14.498Z"
 					},
 					{
 						"estado": "Hoy es el día: 4",
-						"fecha": "2024-02-12T17:15:01.395Z"
+						"fecha": "2024-02-14T00:05:15.498Z"
 					},
 					{
 						"estado": "Hoy es el día: 5",
-						"fecha": "2024-02-12T17:15:02.394Z"
+						"fecha": "2024-02-14T00:05:16.499Z"
 					},
 					{
 						"estado": "Hoy es el día: 6",
-						"fecha": "2024-02-12T17:15:03.396Z"
+						"fecha": "2024-02-14T00:05:17.500Z"
 					},
 					{
 						"estado": "Hoy es el día: 7",
-						"fecha": "2024-02-12T17:15:04.397Z"
+						"fecha": "2024-02-14T00:05:18.500Z"
 					},
 					{
 						"estado": "Hoy es el día: 8",
-						"fecha": "2024-02-12T17:15:05.397Z"
+						"fecha": "2024-02-14T00:05:19.501Z"
 					},
 					{
 						"estado": "Hoy es el día: 9",
-						"fecha": "2024-02-12T17:15:06.397Z"
+						"fecha": "2024-02-14T00:05:20.502Z"
 					},
 					{
 						"estado": "Hoy es el día: 10",
-						"fecha": "2024-02-12T17:15:07.398Z"
+						"fecha": "2024-02-14T00:05:21.503Z"
 					},
 					{
 						"estado": "¡Mundo acabado!, deponer ide.situada",
-						"fecha": "2024-02-12T17:15:08.400Z"
+						"fecha": "2024-02-14T00:05:22.504Z"
 					},
 					{
 						"estado": "¡Mundo acabado!, destruir ",
-						"fecha": "2024-02-12T17:15:08.401Z"
+						"fecha": "2024-02-14T00:05:22.505Z"
 					}
 				],
 				"ide.situada": [
 					{
 						"estado": "Hola soy un autómata situado.",
-						"fecha": "2024-02-12T17:14:57.382Z"
+						"fecha": "2024-02-14T00:05:11.495Z"
 					},
 					{
 						"estado": "Modelo resultante.\n:modelo-ide",
-						"fecha": "2024-02-12T17:15:08.404Z"
+						"fecha": "2024-02-14T00:05:22.508Z"
 					}
 				],
 				"fia.sbc": [
 					{
 						"estado": "Efectuando sus al mundo",
-						"fecha": "2024-02-12T17:14:57.384Z"
+						"fecha": "2024-02-14T00:05:11.497Z"
 					},
 					{
 						"estado": "Activando en IDE: Projecto actual: AlephScriptIDE_Proyecto_1",
-						"fecha": "2024-02-12T17:14:59.389Z"
+						"fecha": "2024-02-14T00:05:13.501Z"
 					},
 					{
 						"estado": "Lanzando un sistema basado en conocimiento de tipo CommonKADS...",
-						"fecha": "2024-02-12T17:14:59.392Z"
+						"fecha": "2024-02-14T00:05:13.505Z"
 					},
 					{
 						"estado": "¡Cerrando SBC!",
-						"fecha": "2024-02-12T17:15:08.404Z"
+						"fecha": "2024-02-14T00:05:22.509Z"
 					}
 				],
 				"modelo-ide": [
 					{
 						"estado": "Autómata listo ide-estado transicion.",
-						"fecha": "2024-02-12T17:14:58.386Z"
+						"fecha": "2024-02-14T00:05:12.500Z"
 					}
 				],
 				"aleph-script-assistant": [
 					{
 						"estado": "¡Listo!",
-						"fecha": "2024-02-12T17:14:59.388Z"
+						"fecha": "2024-02-14T00:05:13.500Z"
 					},
 					{
 						"estado": "¡Listo para recibir peticiones de ayuda!",
-						"fecha": "2024-02-12T17:14:59.390Z"
+						"fecha": "2024-02-14T00:05:13.504Z"
 					}
 				],
 				"fia.sbc.common.kads": [
 					{
 						"estado": "Hola, voy a generar un app siguiendo la metodología Common KADS. 3..., 2..., 1..., ¡lanzando!",
-						"fecha": "2024-02-12T17:14:59.393Z"
+						"fecha": "2024-02-14T00:05:13.507Z"
 					},
 					{
 						"estado": "¡Finalizado!",
-						"fecha": "2024-02-12T17:15:08.403Z"
+						"fecha": "2024-02-14T00:05:22.507Z"
 					}
 				],
 				"common.kads": [
 					{
 						"estado": "Ejecutaré 3 fases de construcción. Y, a continuación, monitorizaré la aplicación derivada. ¡Vamos!",
-						"fecha": "2024-02-12T17:15:00.386Z"
+						"fecha": "2024-02-14T00:05:14.500Z"
 					},
 					{
 						"estado": "AVANCE DE ESTADO:  --  Esperando:  -- ",
-						"fecha": "2024-02-12T17:15:00.393Z"
+						"fecha": "2024-02-14T00:05:14.514Z"
 					},
 					{
 						"estado": "Nivel Contextual",
-						"fecha": "2024-02-12T17:15:00.395Z"
+						"fecha": "2024-02-14T00:05:14.515Z"
 					},
 					{
 						"estado": " NCx.01 Realizado estudio de viabilidad:\n             \t\t -AS_OM-01:[modelo-ide]\n\t\t\t -OM-2:[modelo-ide]\n\t\t\t -OM-3:[modelo-ide]\n\t\t\t -OM-4:[modelo-ide]\n\t\t\t -OM-5:[modelo-ide]",
-						"fecha": "2024-02-12T17:15:00.396Z"
+						"fecha": "2024-02-14T00:05:14.516Z"
 					},
 					{
 						"estado": " NCx.02 Realizado estudio de impacto y mejoras:\n             \t\t -AS_TM-01:[modelo-ide]\n\t\t\t -TM-2:[modelo-ide],\n             \t\t -AS_AM-01:[modelo-ide]",
-						"fecha": "2024-02-12T17:15:00.397Z"
+						"fecha": "2024-02-14T00:05:14.518Z"
 					},
 					{
 						"estado": "Período de construcción. Acabada fase: : Nivel Contextual: OTA-1:[modelo-ide - AS_OM-01 - OM-2 - OM-3 - OM-4 - OM-5 - AS_TM-01 - TM-2 - AS_AM-01]",
-						"fecha": "2024-02-12T17:15:00.401Z"
+						"fecha": "2024-02-14T00:05:14.528Z"
 					},
 					{
 						"estado": "AVANCE DE ESTADO: Nivel Contextual Esperando:  -- ",
-						"fecha": "2024-02-12T17:15:00.402Z"
+						"fecha": "2024-02-14T00:05:14.530Z"
 					},
 					{
 						"estado": "Nivel Conceptual",
-						"fecha": "2024-02-12T17:15:00.404Z"
+						"fecha": "2024-02-14T00:05:14.532Z"
 					},
 					{
 						"estado": " NC.01 Realizado modelo de conocimiento:\n             \t\t -KM-1:[<Modelo Vacío>], UML, CML.",
-						"fecha": "2024-02-12T17:15:00.415Z"
+						"fecha": "2024-02-14T00:05:14.541Z"
 					},
 					{
 						"estado": "NC.02 Realizado modelo de comunicaciones:\n             \t\t -CM-1:[ -  -  - <Modelo Vacío>]\n\t\t\t -CM-2:[ -  -  - <Modelo Vacío>]",
-						"fecha": "2024-02-12T17:15:00.417Z"
+						"fecha": "2024-02-14T00:05:14.543Z"
 					},
 					{
 						"estado": "NC.03 ¡Especificación realizada!",
-						"fecha": "2024-02-12T17:15:00.418Z"
+						"fecha": "2024-02-14T00:05:14.543Z"
 					},
 					{
 						"estado": "Período de construcción. Acabada fase: : Nivel Conceptual",
-						"fecha": "2024-02-12T17:15:00.419Z"
+						"fecha": "2024-02-14T00:05:14.544Z"
 					}
 				],
 				"ide": [
 					{
 						"estado": "AS FK CK PROCESS REQUEST:  -- ",
-						"fecha": "2024-02-12T17:15:00.389Z"
+						"fecha": "2024-02-14T00:05:14.504Z"
 					},
 					{
 						"estado": "AS FK CK PROCESS REQUEST: Nivel Contextual",
-						"fecha": "2024-02-12T17:15:00.402Z"
+						"fecha": "2024-02-14T00:05:14.529Z"
 					}
 				]
 			},
-			"fecha": "2024-02-12T17:14:54.097Z"
+			"fecha": "2024-02-14T00:05:07.119Z"
 		},
 		"claveFunciones": [
 			[

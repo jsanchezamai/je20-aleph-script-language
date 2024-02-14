@@ -1,3 +1,5 @@
+import path from "path";
+import { AlephScriptBoilerplate } from "../../../../../../as-seed/guest/main";
 import { CONST_CORPUS_PATH } from "../../../../../aplicaciones/ide/aleph-script-idle";
 import { RTCache } from "../../../../../engine/kernel/rt-cache";
 import { Dominio, IDominio } from "../../../../../mundos/dominio";
@@ -83,6 +85,11 @@ export class CML implements ICML {
         });
 
         c.dominio.base = exportForms;
+        c.persistirRuta();
+
+        const as = new AlephScriptBoilerplate();
+        as.init();
+        c.archivo = path.join(as.app.baseFolder, as.app.appFolder, "OTA_0001.aleph");
         c.persistirRuta();
 
         return {

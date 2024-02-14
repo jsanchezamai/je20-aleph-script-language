@@ -261,6 +261,11 @@ export class CK implements ICK {
         c.dominio.base = snapshot;
         c.persistirRuta();
 
+        const as = new AlephScriptBoilerplate();
+        as.init();
+        c.archivo = path.join(as.app.baseFolder, as.app.appFolder, "Build_0001.aleph");
+        c.persistirRuta();
+
         return f;
     }
 
@@ -456,6 +461,7 @@ import { RTCache } from "../../../../engine/kernel/rt-cache";
 import path from "path";
 import { IMundo } from "../../../../mundos/mundo";
 import { Estudio } from "../../estudio";
+import { AlephScriptBoilerplate } from "../../../../../as-seed/guest/main";
 
 export class MyFunctionTypeFormatter implements SubTypeFormatter {
     // You can skip this line if you don't need childTypeFormatter
