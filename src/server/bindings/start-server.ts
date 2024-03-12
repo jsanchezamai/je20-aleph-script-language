@@ -1,4 +1,4 @@
-import { HaskellServer } from "./haskell/haskell-server";
+import { HaskellServer } from "./haskell/server";
 
 console.log("Create HaskellServer");
 

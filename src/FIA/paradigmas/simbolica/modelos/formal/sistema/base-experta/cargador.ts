@@ -9,8 +9,6 @@ import { Base, COLUMNAS, CabeceraPC, Linea, LineaExterna } from "./dominio/arbol
 import { PC1 } from "./dominio/ejemplo";
 import { GuidExterno, Guid, Valor, CriteriosSensor, FuncionCriterio, Diagnostico, Aferencia } from "./dominio/tipos";
 
-
-
 export const i18_PROCESADOR_ESTADO_AS = {
     NOMBRE: "Procesador estado",
     CARGA: {
@@ -164,7 +162,6 @@ export class CargadorBaseExperta {
             ENTIDADES:
                 [
                     this.componente,
-                    this.alteracion,
                     this.alteracion,
                     ...this.valores,
                     ...this.sensores,

@@ -11,10 +11,11 @@ import { Dominio } from "../../../../../../mundos/dominio";
 import { IModeloFormal } from "../../../../paradigma";
 import { AS_SIMBOLICA_i18 } from "../../../../as-simbolica-i18";
 import { ExportadorDeRed } from "./exportador-red";
+import { Base } from '../base-experta/dominio/arbol';
 
 export interface IRedSemantica extends IModeloFormal {
 
-    red: any;
+    baseR: Base;
 
     cargar(red: any, entidades: IGrafo[]): void;
 
@@ -28,11 +29,11 @@ export interface IRedSemantica extends IModeloFormal {
 
 export class RedSemantica extends Formal implements IRedSemantica {
 
-    red: any;
+    baseR: Base;
 
     crearNodosEntidad(clave: string) {
         // Creación de entidad
-        const valor = this.red.ENTIDADES[clave];
+        const valor = this.baseR.red.ENTIDADES[clave];
 
         // Opcional: mapeo de valores por defecto
         const entidad = Object.assign(
@@ -49,7 +50,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
     crearArcosSubclase(clase_hija: string) {
 
-        const etiqueta_texto = this.red.ARCOS.ESTRUCTURALES.SUBCLASE.texto;
+        const etiqueta_texto = this.baseR.red.ESTRUCTURALES.SUBCLASE.texto;
         if (clase_hija === "texto") {
             return;
         }
@@ -64,7 +65,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
             grafoHija.nombre = clase_hija;
         }
 
-        const padres = this.red.ARCOS.ESTRUCTURALES.SUBCLASE[clase_hija];
+        const padres = this.baseR.red.ESTRUCTURALES.SUBCLASE[clase_hija];
 
         Object.keys(padres).forEach(clase_padre => {
 
@@ -106,7 +107,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
     crearArcosParteDe(clase_padre: string) {
 
-        const etiqueta_texto = this.red.ARCOS.ESTRUCTURALES.PARTE.texto;
+        const etiqueta_texto = this.baseR.red.ESTRUCTURALES.PARTE.texto;
         if (clase_padre === "texto") {
             return;
         }
@@ -121,7 +122,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
             grafoPadre.nombre = clase_padre;
         }
 
-        const partes = this.red.ARCOS.ESTRUCTURALES.PARTE[clase_padre];
+        const partes = this.baseR.red.ESTRUCTURALES.PARTE[clase_padre];
 
         Object.keys(partes).forEach(clase_hijo => {
 
@@ -161,7 +162,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
     crearArcosInstanciaDe(clase_hija: string) {
 
-        const etiqueta_texto = this.red.ARCOS.ESTRUCTURALES.INSTANCIA.texto;
+        const etiqueta_texto = this.baseR.red.ESTRUCTURALES.INSTANCIA.texto;
         if (clase_hija === "texto") {
             return;
         }
@@ -176,7 +177,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
             grafoHijo.nombre = clase_hija;
         }
 
-        const padres = this.red.ARCOS.ESTRUCTURALES.INSTANCIA[clase_hija];
+        const padres = this.baseR.red.ESTRUCTURALES.INSTANCIA[clase_hija];
 
         Object.keys(padres).forEach(clase_padre => {
 
@@ -226,13 +227,13 @@ export class RedSemantica extends Formal implements IRedSemantica {
             grafoPadre.nombre = clase_padre;
         }
 
-        const partes = this.red.ARCOS.DESCRIPTIVOS[clase_padre];
+        const partes = this.baseR.red.DESCRIPTIVOS[clase_padre];
 
         let parametros;
         Object.keys(partes).forEach(clase_hijo => {
 
             if (clase_hijo === "parametros") {
-                const partes = this.red.ARCOS.DESCRIPTIVOS[clase_padre];
+                const partes = this.baseR.red.DESCRIPTIVOS[clase_padre];
                 parametros = partes[clase_hijo];
                 return;
             }
@@ -284,7 +285,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
     cargar(red: any) {
 
-        this.red = red;
+        this.base = red;
 
         const entidades = this.entidades; // árbol a grafo
         /**

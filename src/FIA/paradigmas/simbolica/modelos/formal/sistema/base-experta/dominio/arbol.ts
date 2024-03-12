@@ -58,6 +58,7 @@ export type Base = {
     red: {
         ENTIDADES?: any;
         ESTRUCTURALES?: any;
+        DESCRIPTIVOS?: any;
         lineas?: Linea[]
     };
     cabecera: Cabecera;

@@ -2,8 +2,6 @@
 
 Ejecutar simulacion con la función [BaseExpertaSimulacion](./simuacion.ts):
 
-
-
 ## Descripción
 
 El módulo [Base Experta](./) implementa un **asistente experto** para proveer servicios

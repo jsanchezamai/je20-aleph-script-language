@@ -1,4 +1,3 @@
-import { i18 } from "../../../../../../i18/aleph-script-i18";
 import { IBaseConocimiento } from "../../../../../../mundos/base-conocimiento";
 import { IArcos, Arcos } from "./arco";
 
