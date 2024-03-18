@@ -4,23 +4,20 @@ Ejecutar simulacion con la función [BaseExpertaSimulacion](./simuacion.ts):
 
 ## Descripción
 
-El módulo [Base Experta](./) implementa un **asistente experto** para proveer servicios
-de mantenimiento y supervisión. Para ello, se parte de una **base de datos experta**
-que el asistente carga dinámicamente a partir de una **especificación en lenguaje 
-natural** en una hoja de Excel. El asistente comunicará **la salud del sistema** según
-las telemetrías cambien el estado.
+El módulo [Base Experta](./) implementa un **asistente experto** para proveer servicios de mantenimiento y supervisión. Para ello, se parte de una **base de datos experta** que el asistente carga dinámicamente a partir de una **especificación en lenguaje natural** en una hoja de Excel. 
+
+El asistente comunicará **la salud del sistema** según las telemetrías cambien el estado.
 
 ## Especificación de la base experta
 
-Se considera un archivo Excel con grados de libertad tanto en filas como algunas columnas,
-especificado de la siguiente forma:
+Se considera un archivo Excel con grados de libertad tanto en filas como algunas columnas, especificado de la siguiente forma:
 
 - Cabecera:
     - Columna 1: Etiqueta Componente. (título, nombre de la clase, i.e. : "Componentes")
     - Columna 2: Etiqueta Alteración. (i.e. : "Alteraciones")
     - Columna 3: Etiqueta Tipo. (i.e. : "Tipos")
 
-    - Columnas desde 4 a A: Etiquetas Valor. (i.e.: "V01 - Estrucural", "V02 - Perenne")
+    - Columnas desde 4 a A: Etiquetas Valor. (i.e.: "V01 - Estructural", "V02 - Perenne")
 
     - Columnas desde (A+1) a B: Etiquetas Sensor-Regulado.  (i.e.: "S01 - Temperatura.Leve", "S02 - Temperatura.Grave")
 
@@ -40,7 +37,8 @@ Y cuyo contenido con las siguiente líneas:
 
     - Columnas (B+1)-C: Etiquetas Diagnósticos
         (i.e.: [
-        [ "F01 apagar ventilador", "F01 iniciar procesos mantenimiento"],
+        [ "F01 apagar ventilador", 
+        "F01 iniciar procesos mantenimiento"],
         [ "F01 apagar máquina"]
     ])
 

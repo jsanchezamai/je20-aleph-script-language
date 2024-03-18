@@ -57,7 +57,9 @@ export interface PrimeroEnAnchura extends Control {
 export interface PrimeroEnProfundidad extends Control {
 
     /**
-     * La búsqueda en profundidad no es ni completa ni admisible (puede entrar en una rama infinita y nunca llegar a una solución). Ni poniendo una profundidad límite se garantiza la completitud.
+     * La búsqueda en profundidad no es ni completa ni admisible
+     * (puede entrar en una rama infinita y nunca llegar a una solución).
+     * Ni poniendo una profundidad límite se garantiza la completitud.
      */
     // Siempre encuentra la solución
     completo: false;
