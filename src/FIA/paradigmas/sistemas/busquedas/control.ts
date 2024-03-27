@@ -2,7 +2,6 @@ import { Dominio } from "../../../mundos/dominio";
 import { Modelo } from "../../../mundos/modelo";
 import { Estado } from './estado';
 import { Operador } from "./operador";
-import { Lectura } from '../../simbolica/modelos/formal/sistema/base-experta/dominio/tipos';
 
 export type HashData = {[key: string]: {
     anterior: GrafoS,
@@ -83,7 +82,7 @@ export class Control implements Control {
 
     espacioBusqueda = new GrafoS();
     estadoInicial: GrafoS;
-    metas: GrafoS[];
+    metas: GrafoS[] = [];
 
     busquedaHeuristica(): GrafoS[] {
         throw new Error("Method not implemented.");

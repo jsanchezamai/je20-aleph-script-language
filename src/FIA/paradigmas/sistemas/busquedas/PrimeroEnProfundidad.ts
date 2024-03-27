@@ -17,7 +17,7 @@ export class PrimeroEnProfundidad extends Control {
 
     busquedaNoInformada(): GrafoS[] {
 
-        console.log("Búsqueda no informada. Primero en profunidad");
+        console.log("Búsqueda no informada. Primero en profunidad. Max Prof:", this.maximaProfundidad);
 
         this.abierta = [this.estadoInicial];
 
@@ -46,11 +46,14 @@ export class PrimeroEnProfundidad extends Control {
 
             if (S.length == 0) {
                 const p = this.tabla_a[n.Id()]?.anterior;
-                const limpiar = p.arcos.filter(c => this.abierta.find(a => a.Id() == c.nodo.Id())).length > -1;
-                if (limpiar) {
-                    // console.log("\t Limpiar", p.Id(), this.tabla_a);
-                    delete this.tabla_a[p.Id()];
-                    // console.log("\t Limpiado", p.Id(), this.tabla_a);
+
+                if (p && Array.isArray(p)) {
+                    const limpiar = p.arcos.filter(c => this.abierta.find(a => a.Id() == c.nodo.Id())).length > -1;
+                    if (limpiar) {
+                        // console.log("\t Limpiar", p.Id(), this.tabla_a);
+                        delete this.tabla_a[p.Id()];
+                        // console.log("\t Limpiado", p.Id(), this.tabla_a);
+                    }
                 }
             }
 

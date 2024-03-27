@@ -1,8 +1,14 @@
 import { Control, GrafoS } from "./control";
 import { Operador } from "./operador";
 
-
+export type FuncSucesores = (arcos: Operador[]) => Operador[];
 export class PrimeroEnAnchura extends Control {
+
+    static sucesores: FuncSucesores = (arcos) => arcos;
+
+    constructor(public titulo: string, public sucesores: FuncSucesores) {
+        super();
+    }
 
     // Siempre encuentra la solución
     // Si, encuentra la solución más cercana
@@ -16,7 +22,7 @@ export class PrimeroEnAnchura extends Control {
 
     busquedaNoInformada(): GrafoS[] {
 
-        console.log("Búsqueda no informada. Primero en anchura");
+        console.log("Búsqueda no informada.", this.titulo);
 
         this.abierta = [this.estadoInicial];
 
@@ -37,7 +43,7 @@ export class PrimeroEnAnchura extends Control {
                 return this.metas;
             }
 
-            const S = n.arcos;
+            const S = this.sucesores(n.arcos);
             S.forEach(q => {
                 console.log("\t - Sucesor q: ", q.nodo.Id());
                 const ta = {

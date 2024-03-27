@@ -1,13 +1,12 @@
-import { Runtime } from "./engine/kernel/runtime";
 import { i18 } from "./i18/aleph-script-i18";
 
 import * as http from "http";
 import { systemMessage } from "./systemMessage";
-import { BaseExpertaSimulacion } from "./paradigmas/simbolica/modelos/formal/sistema/base-experta/simuacion";
-import { AlephScriptBoilerplate } from "../as-seed/guest/main";
 import { PrimeroEnAnchura } from "./paradigmas/sistemas/busquedas/PrimeroEnAnchura";
 import { PrimeroEnProfundidad } from "./paradigmas/sistemas/busquedas/PrimeroEnProfundidad";
 import { CosteUniforme } from "./paradigmas/sistemas/busquedas/CosteUniforme";
+import { PrimeroEnProfundidadIterativa } from "./paradigmas/sistemas/busquedas/PrimeroEnProfundidadIterativa";
+import { PrimeroEnAnchuraIterativa } from "./paradigmas/sistemas/busquedas/PrimeroEnAnchuraIterativa";
 
 const host = 'localhost';
 const port = 8000;
@@ -36,13 +35,19 @@ server.listen(port, async () => {
     rt.start();
     await rt.demo();*/
 
-    const b = new PrimeroEnAnchura();
+    const b = new PrimeroEnAnchura("Primero en anchura", PrimeroEnAnchura.sucesores);
     b.test();
 
     const c = new PrimeroEnProfundidad();
     c.test();
 
-    const u = new CosteUniforme();
+    const u = new CosteUniforme("CosteUniforme", CosteUniforme.sucesores);
     u.test();
+
+    const cI = new PrimeroEnProfundidadIterativa();
+    cI.test();
+
+    const bI = new PrimeroEnAnchuraIterativa("Primero en anchura", PrimeroEnAnchura.sucesores);
+    bI.test();
 
 });
