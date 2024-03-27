@@ -641,5 +641,10 @@ Búsqueda no informada. Algoritmo General Búsqueda en Grafos AGBG
          - esObjetivo:  N6
          - Camino desde/a:  N1 N6
                  - ruta:  N7
-  
+                 - ruta:  N1
+>>  N6 2 275
+>>  N7 1 250
+>>  N1 0 0
+Test:  true
+
 ```
