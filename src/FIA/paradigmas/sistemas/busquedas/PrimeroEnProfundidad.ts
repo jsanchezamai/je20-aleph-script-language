@@ -32,7 +32,7 @@ export class PrimeroEnProfundidad extends Control {
         while (this.abierta.length > 0) {
 
             console.log("\t - Abierta: ", this.abierta.length);
-            const n = this.abierta.pop();
+            const n = this.abiertaUltimo();
 
             console.log("\t - Nodo n: ", n.Id());
             if (n.nodo.esObjetivo()) {
@@ -42,7 +42,7 @@ export class PrimeroEnProfundidad extends Control {
             }
 
             let S = [];
-            if (n.profundidad < this.maximaProfundidad) {
+            if (this.tabla_a[n.Id()].profundidad < this.maximaProfundidad) {
                 S = this.izquierda_a_derecha ? n.arcos.reverse() : n.arcos;
             }
 
@@ -85,18 +85,18 @@ export class PrimeroEnProfundidad extends Control {
         const gsB = this.creaNodo("B");
         const gs = this.creaNodo("A");
 
-        gs.arcos.push(new Operador(2, gsB, gs.profundidad + 1));
-        gs.arcos.push(new Operador(5, gsD, gs.profundidad + 1));
-        gs.arcos.push(new Operador(3, gsE, gs.profundidad + 1));
+        gs.arcos.push(new Operador(2, gsB));
+        gs.arcos.push(new Operador(5, gsD));
+        gs.arcos.push(new Operador(3, gsE));
 
-        gsD.arcos.push(new Operador(4, gsC, gsD.profundidad + 1));
-        gsE.arcos.push(new Operador(2, gsF, gsE.profundidad + 1));
+        gsD.arcos.push(new Operador(4, gsC));
+        gsE.arcos.push(new Operador(2, gsF));
 
         this.estadoInicial = gs;
 
         const metas = this.busquedaNoInformada();
 
-        metas.forEach(m => console.log(" >> ", m.Id(), m.profundidad, this.tabla_a[m.Id()]?.coste_desde_inicio));
+        metas.forEach(m => console.log(" >> ", m.Id(), this.tabla_a[m.Id()].profundidad, this.tabla_a[m.Id()].coste_desde_inicio));
 
         const esperado = ["C", "D", "A"];
         const obtenido = metas.map(m => m.Id());
@@ -107,6 +107,7 @@ export class PrimeroEnProfundidad extends Control {
         if (!assert) {
             console.log("Esperado", esperado, "obtenido", obtenido);
         }
+
 
     }
 }

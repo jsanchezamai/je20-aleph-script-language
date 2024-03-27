@@ -7,6 +7,8 @@ import { PrimeroEnProfundidad } from "./paradigmas/sistemas/busquedas/PrimeroEnP
 import { CosteUniforme } from "./paradigmas/sistemas/busquedas/CosteUniforme";
 import { PrimeroEnProfundidadIterativa } from "./paradigmas/sistemas/busquedas/PrimeroEnProfundidadIterativa";
 import { PrimeroEnAnchuraIterativa } from "./paradigmas/sistemas/busquedas/PrimeroEnAnchuraIterativa";
+import { Arbol } from "./paradigmas/sistemas/busquedas/control";
+import { AGBG, GrafoAGBG } from "./paradigmas/sistemas/busquedas/agbg";
 
 const host = 'localhost';
 const port = 8000;
@@ -35,10 +37,10 @@ server.listen(port, async () => {
     rt.start();
     await rt.demo();*/
 
-    const b = new PrimeroEnAnchura("Primero en anchura", PrimeroEnAnchura.sucesores);
+    /*const b = new PrimeroEnAnchura("Primero en anchura", PrimeroEnAnchura.sucesores);
     b.test();
 
-    const c = new PrimeroEnProfundidad();
+    const c = new PrimeroEnProfundidad(new Arbol());
     c.test();
 
     const u = new CosteUniforme("CosteUniforme", CosteUniforme.sucesores);
@@ -48,8 +50,11 @@ server.listen(port, async () => {
     bI.derecha_a_izquierda = true;
     bI.test();
 
-    const cI = new PrimeroEnProfundidadIterativa();
+    const cI = new PrimeroEnProfundidadIterativa(new Arbol());
     cI.izquierda_a_derecha = true;
-    cI.test();
+    cI.test(); */
+
+    const a = new AGBG(new GrafoAGBG());
+    a.test();
 
 });

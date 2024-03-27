@@ -1,9 +1,10 @@
 import { Arbol } from "./control";
 import { Estado } from "./estado";
+import { BGrafo } from "./GrafoS";
 
 export interface Operador {
 
-    nodo: Arbol;
+    nodo: BGrafo;
     coste: number;
 
     // Antes de llamar a transición hay que
@@ -20,9 +21,8 @@ export class Operador implements Operador {
 
     constructor(
         public coste: number,
-        public nodo: Arbol,
-        public profundidad: number) {
-            nodo.profundidad = profundidad;
+        public nodo: BGrafo) {
+
         }
 
     // Antes de llamar a transición hay que

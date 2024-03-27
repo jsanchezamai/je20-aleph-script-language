@@ -9,7 +9,7 @@ export class PrimeroEnAnchura extends Control {
     derecha_a_izquierda: boolean = false;
 
     constructor(public titulo: string, public sucesores: FuncSucesores) {
-        super();
+        super(new Arbol());
     }
 
     // Siempre encuentra la solución
@@ -30,13 +30,14 @@ export class PrimeroEnAnchura extends Control {
 
         this.tabla_a[this.estadoInicial?.Id()] = {
             anterior: null,
-            coste_desde_inicio: 0
+            coste_desde_inicio: 0,
+            profundidad: 0
         };
 
         while (this.abierta.length > 0) {
 
             console.log("\t - Abierta: ", this.abierta.length);
-            const n = this.abierta.splice(0, 1)[0];
+            const n = this.abiertaPrimero();
 
             console.log("\t - Nodo n: ", n.Id());
             if (n.nodo.esObjetivo()) {
@@ -50,7 +51,8 @@ export class PrimeroEnAnchura extends Control {
                 console.log("\t - Sucesor q: ", q.nodo.Id());
                 const ta = {
                     anterior: n,
-                    coste_desde_inicio: (this.tabla_a[n.Id()]?.coste_desde_inicio || 0) + q.coste
+                    coste_desde_inicio: (this.tabla_a[n.Id()]?.coste_desde_inicio || 0) + q.coste,
+                    profundidad: n.profundidad + 1
                 };
 
                 this.tabla_a[q.nodo.Id()] = ta;
@@ -71,12 +73,12 @@ export class PrimeroEnAnchura extends Control {
         const gsB = this.creaNodo("B");
         const gs = this.creaNodo("A");
 
-        gs.arcos.push(new Operador(2, gsB, gs.profundidad + 1));
-        gs.arcos.push(new Operador(5, gsD, gs.profundidad + 1));
-        gs.arcos.push(new Operador(3, gsE, gs.profundidad + 1));
+        gs.arcos.push(new Operador(2, gsB));
+        gs.arcos.push(new Operador(5, gsD));
+        gs.arcos.push(new Operador(3, gsE));
 
-        gsD.arcos.push(new Operador(4, gsC, gsD.profundidad + 1));
-        gsE.arcos.push(new Operador(2, gsF, gsE.profundidad + 1));
+        gsD.arcos.push(new Operador(4, gsC));
+        gsE.arcos.push(new Operador(2, gsF));
 
         this.estadoInicial = gs;
 

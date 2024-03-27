@@ -29,6 +29,8 @@ NOTA: SIN REVISAR, PUEDE CONTENER ERRORES
 sistema> Arrancando el sistema
 
 # Búsqueda no informada. Primero en anchura
+
+```
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
@@ -83,10 +85,12 @@ sistema> Arrancando el sistema
  >>  D 2 5
  >>  A 1 0
 Test:  true
-
+```
 
 
 # Búsqueda no informada. Primero en profunidad. Max Prof: 10
+
+```
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
@@ -142,9 +146,11 @@ Test:  true
  >>  D 2 5
  >>  A 1 0
 Test:  true
+```
 
 
 # Búsqueda no informada. CosteUniforme
+```
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
@@ -210,11 +216,13 @@ Test:  true
  >>  D 2 5
  >>  A 1 0
 Test:  true
-
+```
 
 # Búsqueda no informada. Primero en anchura iterativa.
-## Búsqueda no informada. Primero en anchura iterativa. Anchura 0
-### Búsqueda no informada. Primero en anchura
+```
+Búsqueda no informada. Primero en anchura iterativa. Anchura 0
+Búsqueda no informada. Primero en anchura
+
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  E
@@ -241,10 +249,8 @@ Test:  true
   '[E]->[F]: coste(inicio, n): 5 - p:  - '
 ]
 
-
-
-# Búsqueda no informada. Primero en anchura iterativa. Anchura 1
-## Búsqueda no informada. Primero en anchura
+Búsqueda no informada. Primero en anchura iterativa. Anchura 1
+Búsqueda no informada. Primero en anchura
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
@@ -289,15 +295,16 @@ Test:  true
  >>  D 2 5
  >>  A 1 0
 Test:  true
-
+```
 
 # Búsqueda no informada. Primero en Profundidad Iterativa
-## Búsqueda no informada. Primero en profunidad. Max Prof: 1
+```
+Búsqueda no informada. Primero en profunidad. Max Prof: 1
          - Abierta:  1
          - Nodo n:  A
                  - Abierta []
                  - Tabla_A [ '[ - ]->[A]: coste(inicio, n): 0 - p:  - ' ]
-## Búsqueda no informada. Primero en profunidad. Max Prof: 2
+Búsqueda no informada. Primero en profunidad. Max Prof: 2
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  E
@@ -337,7 +344,7 @@ Test:  true
   '[A]->[D]: coste(inicio, n): 5 - p: 1',
   '[A]->[B]: coste(inicio, n): 2 - p: 1'
 ]
-## Búsqueda no informada. Primero en profunidad. Max Prof: 3
+Búsqueda no informada. Primero en profunidad. Max Prof: 3
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
@@ -393,3 +400,136 @@ Test:  true
  >>  D 2 5
  >>  A 1 0
 Test:  true
+```
+
+# Búsqueda no informada. Algoritmo General Búsqueda en Grafos AGBG
+
+```ts
+    const a = new AGBG(new GrafoAGBG());
+    a.test();
+```
+
+![](grafo.png)
+
+```
+Búsqueda no informada. Algoritmo General Búsqueda en Grafos AGBG
+         - Abierta:  1
+         - Nodo n:  N1 0
+                 - Actualizando sucesores de N1: 6
+         - Sucesor q:  N2
+         - Sucesor q:  N3
+         - Sucesor q:  N4
+         - Sucesor q:  N5
+         - Sucesor q:  N6
+         - Sucesor q:  N7
+                 - Abierta [ 'N3', 'N4', 'N2', 'N5', 'N7', 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 0',
+  '[N1]->[N5]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N6]: coste(inicio, n): 325 - p: 1; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 0'
+]
+         - Abierta:  6
+         - Nodo n:  N3 1
+                 - Actualizando sucesores de N3: 0
+                 - Abierta [ 'N4', 'N2', 'N5', 'N7', 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 0',
+  '[N1]->[N5]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N6]: coste(inicio, n): 325 - p: 1; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 0'
+]
+         - Abierta:  5
+         - Nodo n:  N4 1
+                 - Actualizando sucesores de N4: 2
+         - Sucesor q:  N3
+                 Rectificar lista: N4, T_a:  [N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2
+                         [n: N3(1)]/[p: N4(1)]Coste(inicio, p) 40 + CosteNP 35 < Coste(inicio, n) 30
+                         [n: N5(1)]/[p: N4(1)]Coste(inicio, p) 40 + CosteNP 150 < Coste(inicio, n) 200
+                         Nuevo valor: N5, T_a:  [N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 0
+         - Sucesor q:  N5
+                 Rectificar lista: N4, T_a:  [N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2
+                         [n: N3(1)]/[p: N4(1)]Coste(inicio, p) 40 + CosteNP 35 < Coste(inicio, n) 30
+                         [n: N5(2)]/[p: N4(1)]Coste(inicio, p) 40 + CosteNP 150 < Coste(inicio, n) 190
+                 - Abierta [ 'N5', 'N2', 'N7', 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2',
+  '[N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 0',
+  '[N1]->[N6]: coste(inicio, n): 325 - p: 1; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 0'
+]
+         - Abierta:  4
+         - Nodo n:  N5 2
+                 - Actualizando sucesores de N5: 1
+         - Sucesor q:  N6
+                 Rectificar lista: N5, T_a:  [N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 1
+                         [n: N6(1)]/[p: N5(2)]Coste(inicio, p) 190 + CosteNP 100 < Coste(inicio, n) 325
+                         Nuevo valor: N6, T_a:  [N5]->[N6]: coste(inicio, n): 290 - p: 3; s: 0
+                 - Abierta [ 'N2', 'N7', 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 0',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2',
+  '[N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 1',
+  '[N5]->[N6]: coste(inicio, n): 290 - p: 3; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 0'
+]
+         - Abierta:  3
+         - Nodo n:  N2 1
+                 - Actualizando sucesores de N2: 2
+         - Sucesor q:  N3
+                 Rectificar lista: N2, T_a:  [N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 2
+                         [n: N3(1)]/[p: N2(1)]Coste(inicio, p) 200 + CosteNP 25 < Coste(inicio, n) 30
+                         [n: N7(1)]/[p: N2(1)]Coste(inicio, p) 200 + CosteNP 100 < Coste(inicio, n) 250
+         - Sucesor q:  N7
+                 Rectificar lista: N2, T_a:  [N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 2
+                         [n: N3(1)]/[p: N2(1)]Coste(inicio, p) 200 + CosteNP 25 < Coste(inicio, n) 30
+                         [n: N7(1)]/[p: N2(1)]Coste(inicio, p) 200 + CosteNP 100 < Coste(inicio, n) 250
+                 - Abierta [ 'N7', 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 2',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2',
+  '[N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 1',
+  '[N5]->[N6]: coste(inicio, n): 290 - p: 3; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 0'
+]
+         - Abierta:  2
+         - Nodo n:  N7 1
+                 - Actualizando sucesores de N7: 1
+         - Sucesor q:  N6
+                 Rectificar lista: N7, T_a:  [N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 1
+                         [n: N6(3)]/[p: N7(1)]Coste(inicio, p) 250 + CosteNP 25 < Coste(inicio, n) 290
+                         Nuevo valor: N6, T_a:  [N7]->[N6]: coste(inicio, n): 275 - p: 2; s: 0
+                 - Abierta [ 'N6' ]
+                 - Tabla_A [
+  '[ - ]->[N1]: coste(inicio, n): 0 - p: - ; s: 6',
+  '[N1]->[N2]: coste(inicio, n): 200 - p: 1; s: 2',
+  '[N1]->[N3]: coste(inicio, n): 30 - p: 1; s: 0',
+  '[N1]->[N4]: coste(inicio, n): 40 - p: 1; s: 2',
+  '[N4]->[N5]: coste(inicio, n): 190 - p: 2; s: 1',
+  '[N7]->[N6]: coste(inicio, n): 275 - p: 2; s: 0',
+  '[N1]->[N7]: coste(inicio, n): 250 - p: 1; s: 1'
+]
+         - Abierta:  1
+         - Nodo n:  N6 2
+         - esObjetivo:  N6
+         - Camino desde/a:  N1 N6
+                 - ruta:  N7
+                 - ruta:  N1
+ >>  N6 2 275
+ >>  N7 1 250
+ >>  N1 0 0
+Test:  true
+```

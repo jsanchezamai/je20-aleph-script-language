@@ -1,72 +1,34 @@
 import { Dominio } from "../../../mundos/dominio";
 import { Modelo } from "../../../mundos/modelo";
 import { Estado } from './estado';
-import { Operador } from "./operador";
+import { BGrafo, HashData, TablaA_Id } from "./GrafoS";
+import { FuncSucesores } from "./PrimeroEnAnchura";
 
-export type TablaA_Id = string;
-export type HashDataItem = {
-    anterior: Arbol,
-    coste_desde_inicio: number,
-    profundidad?: number
-}
-export type HashData = {[key: string]: HashDataItem};
-
-/**
- * Un grafo dirigido o digrafo (oposición, no dirigido):
- * es un tipo de grafo en el cual las aristas tienen
- * un sentido definido.
- *
- * Grafos simple (por oposición a Multigrafo):
- * Es un tipo de grafo el cual no incluye ciclos ni
- * aristas paralelas.
- */
-export interface GrafoS {
-
-    profundidad: number;
-    nodo: Estado;
-    arcos: Operador[];
-
-}
-
-export class GrafoS implements GrafoS {
-
-    profundidad = 0;
-    nodo: Estado;
-    arcos: Operador[] = [];
-
-    coste(inicio: Estado, destino: Estado): number {
-
-        return 0;
-    }
-
-    Id(): string {
-        return this.nodo.modelo.dominio.base as string;
-    }
-}
-
-export class Arbol extends GrafoS {}
+export class Arbol extends BGrafo {}
 
 export interface Control {
 
-    abierta: Arbol[];
+    abierta: BGrafo[];
     tabla_a: HashData;
 
-    camino(inicio: Arbol, destino: Arbol): Arbol[];
+    sucesores: FuncSucesores;
+
+    camino(inicio: BGrafo, destino: BGrafo): BGrafo[];
     coste(inicio: Estado, destino: Estado): number;
 
-    espacioBusqueda: Arbol;
+    espacioBusqueda: BGrafo;
 
-    estadoInicial: Arbol;
+    estadoInicial: BGrafo;
 
-    metas: Arbol[];
+    metas: BGrafo[];
 
-    camino(inicio: Arbol, destino: Arbol): Arbol[];
+    camino(inicio: BGrafo, destino: BGrafo): BGrafo[];
 
-    busquedaNoInformada(): Arbol[];
+    busquedaNoInformada(): BGrafo[];
 
-    busquedaHeuristica(): Arbol[];
+    busquedaHeuristica(): BGrafo[];
 
-    creaNodo(valor: string): Arbol;
+    creaNodo(valor: string): BGrafo;
 
     imprimir(abierta: boolean, tabla_a: boolean);
 
@@ -83,31 +45,40 @@ export interface Control {
 
 export class Control implements Control {
 
-    abierta: Arbol[] = [];
+    abierta: BGrafo[] = [];
     tabla_a: HashData = {};
 
-    espacioBusqueda = new Arbol();
-    estadoInicial: Arbol;
-    metas: Arbol[] = [];
+    sucesores: FuncSucesores = (arcos) => arcos;
 
-    busquedaHeuristica(): Arbol[] {
-        throw new Error("Method not implemented.");
+    estadoInicial: BGrafo;
+    metas: BGrafo[] = [];
+
+    constructor(public espacioBusqueda: BGrafo) {
     }
 
-    camino(inicio: Arbol, destino: Arbol): Arbol[] {
+    abiertaPrimero(): BGrafo {
+        return this.abierta.splice(0, 1)[0];
+    }
+
+    abiertaUltimo(): BGrafo {
+        return this.abierta.pop();
+    }
+
+    camino(inicio: BGrafo, destino: BGrafo): BGrafo[] {
 
         console.log("\t - Camino desde/a: ", inicio.Id(), destino.Id());
 
         let index = 0;
-        let nodo: Arbol = destino;
-        const camino: Arbol[] = [];
+        let nodo: BGrafo = destino;
+        const camino: BGrafo[] = [];
         do {
 
             camino.push(nodo);
             nodo = this.tabla_a[nodo.Id()]?.anterior;
             console.log("\t\t - ruta: ", nodo.Id());
             index++;
-        } while (nodo != null && inicio != nodo && index < 10);
+
+        } while (nodo != null && inicio != nodo && index < 10000000);
 
         if (inicio == nodo) {
             camino.push(inicio);
@@ -115,16 +86,15 @@ export class Control implements Control {
         return camino;
     }
 
-    creaNodo(valor: string, objetivo: boolean = false): Arbol {
+    creaNodo(valor: string, objetivo: boolean = false): BGrafo {
 
         const g = new Estado();
         g.esObjetivo = () => objetivo;
         g.modelo = new Modelo();
         g.modelo.dominio = new Dominio({});
         g.modelo.dominio.base = valor;
-        const gs = new Arbol();
+        const gs = new BGrafo();
         gs.nodo = g;
-        gs.profundidad = 1;
         return gs;
     }
 
@@ -142,7 +112,10 @@ export class Control implements Control {
 
         const i = this.tabla_a[ta];
         if (!i) return "[T_a vacía]";
-        return `[${i.anterior?.Id() || " - "}]->[${ta}]: coste(inicio, n): ${i.coste_desde_inicio} - p: ${i.profundidad || " - "}`;
+        const ids = `[${i.anterior?.Id() || " - "}]->[${ta}]: `
+        const coste = `coste(inicio, n): ${i.coste_desde_inicio} - p: ${i.profundidad || "- "}; `;
+        const sucesores = `s: ${(i.sucesores || []).length}`
+        return ids + coste + sucesores;
     }
 }
 
