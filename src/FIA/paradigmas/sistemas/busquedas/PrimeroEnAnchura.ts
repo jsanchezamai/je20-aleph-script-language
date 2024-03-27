@@ -52,7 +52,7 @@ export class PrimeroEnAnchura extends Control {
                 const ta = {
                     anterior: n,
                     coste_desde_inicio: (this.tabla_a[n.Id()]?.coste_desde_inicio || 0) + q.coste,
-                    profundidad: n.profundidad + 1
+                    profundidad: this.tabla_a[n.Id()].profundidad + 1
                 };
 
                 this.tabla_a[q.nodo.Id()] = ta;
@@ -84,7 +84,7 @@ export class PrimeroEnAnchura extends Control {
 
         const metas = this.busquedaNoInformada();
 
-        metas.forEach(m => console.log(" >> ", m.Id(), m.profundidad, this.tabla_a[m.Id()].coste_desde_inicio));
+        metas.forEach(m => console.log(" >> ", m.Id(), this.tabla_a[m.Id()].profundidad, this.tabla_a[m.Id()].coste_desde_inicio));
 
         const esperado = ["C", "D", "A"];
         const obtenido = metas.map(m => m.Id());

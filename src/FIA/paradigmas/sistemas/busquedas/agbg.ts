@@ -29,6 +29,7 @@ export class GrafoAGBG extends BGrafo {
  * Algoritmo General Busqueda de Grafos
  */
 export class AGBG extends Control {
+    esperado: string[];
 
     busqueda(): BGrafo[] {
 
@@ -81,15 +82,16 @@ export class AGBG extends Control {
                     this.tabla_a[q.nodo.Id()] = ta;
                     this.abierta.push(q.nodo);
                 }
-
-                const t = this.tabla_a;
-                this.abierta.sort((a, b) =>
-                    t[a.Id()].coste_desde_inicio < t[b.Id()].coste_desde_inicio ? -1 : 1);
+                this.ordenarAbierta();
             });
             this.imprimir(true, true);
         }
 
         return this.metas;
+    }
+
+    ordenarAbierta() {
+        // Completo: sí, // admisible: no
     }
 
     Rectificar(n: GrafoAGBG, p: GrafoAGBG, costePN) {
@@ -161,14 +163,17 @@ export class AGBG extends Control {
 
         metas.forEach(m => console.log(" >> ", m.Id(), this.tabla_a[m.Id()].profundidad, this.tabla_a[m.Id()]?.coste_desde_inicio));
 
-        const esperado = ["N6", "N7", "N1"];
         const obtenido = metas.map(m => m.Id());
 
-        const assert = esperado.every((element, index) => element === obtenido[index]);
+        if (this.esperado == null) {
+            this.esperado = ['N6', 'N5', 'N4', 'N1'];
+        }
+
+        const assert = this.esperado.every((element, index) => element === obtenido[index]);
         console.log("Test: ", assert);
 
         if (!assert) {
-            console.log("Esperado", esperado, "obtenido", obtenido);
+            console.log("Esperado", this.esperado, "obtenido", obtenido);
         }
 
     }
