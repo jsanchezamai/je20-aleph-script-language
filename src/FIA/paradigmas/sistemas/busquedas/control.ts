@@ -3,11 +3,13 @@ import { Modelo } from "../../../mundos/modelo";
 import { Estado } from './estado';
 import { Operador } from "./operador";
 
-export type HashData = {[key: string]: {
-    anterior: GrafoS,
+export type TablaA_Id = string;
+export type HashDataItem = {
+    anterior: Arbol,
     coste_desde_inicio: number,
     profundidad?: number
-}};
+}
+export type HashData = {[key: string]: HashDataItem};
 
 /**
  * Un grafo dirigido o digrafo (oposición, no dirigido):
@@ -42,27 +44,31 @@ export class GrafoS implements GrafoS {
     }
 }
 
+export class Arbol extends GrafoS {}
+
 export interface Control {
 
-    abierta: GrafoS[];
+    abierta: Arbol[];
     tabla_a: HashData;
 
-    camino(inicio: GrafoS, destino: GrafoS): GrafoS[];
+    camino(inicio: Arbol, destino: Arbol): Arbol[];
     coste(inicio: Estado, destino: Estado): number;
 
-    espacioBusqueda: GrafoS;
+    espacioBusqueda: Arbol;
 
-    estadoInicial: GrafoS;
+    estadoInicial: Arbol;
 
-    metas: GrafoS[];
+    metas: Arbol[];
 
-    camino(inicio: GrafoS, destino: GrafoS): GrafoS[];
+    camino(inicio: Arbol, destino: Arbol): Arbol[];
 
-    busquedaNoInformada(): GrafoS[];
+    busquedaNoInformada(): Arbol[];
 
-    busquedaHeuristica(): GrafoS[];
+    busquedaHeuristica(): Arbol[];
 
-    creaNodo(valor: string): GrafoS;
+    creaNodo(valor: string): Arbol;
+
+    imprimir(abierta: boolean, tabla_a: boolean);
 
     /**
      * Si el factor de ramificación (número medio de sucesores de un nodo) es b, la profundidad (número de arcos del nodo inicial hasta la solución) es d, los órdenes de magnitud de las complejidades espacial y temporal son:
@@ -77,24 +83,24 @@ export interface Control {
 
 export class Control implements Control {
 
-    abierta: GrafoS[] = [];
+    abierta: Arbol[] = [];
     tabla_a: HashData = {};
 
-    espacioBusqueda = new GrafoS();
-    estadoInicial: GrafoS;
-    metas: GrafoS[] = [];
+    espacioBusqueda = new Arbol();
+    estadoInicial: Arbol;
+    metas: Arbol[] = [];
 
-    busquedaHeuristica(): GrafoS[] {
+    busquedaHeuristica(): Arbol[] {
         throw new Error("Method not implemented.");
     }
 
-    camino(inicio: GrafoS, destino: GrafoS): GrafoS[] {
+    camino(inicio: Arbol, destino: Arbol): Arbol[] {
 
         console.log("\t - Camino desde/a: ", inicio.Id(), destino.Id());
 
         let index = 0;
-        let nodo: GrafoS = destino;
-        const camino: GrafoS[] = [];
+        let nodo: Arbol = destino;
+        const camino: Arbol[] = [];
         do {
 
             camino.push(nodo);
@@ -109,17 +115,34 @@ export class Control implements Control {
         return camino;
     }
 
-    creaNodo(valor: string, objetivo: boolean = false): GrafoS {
+    creaNodo(valor: string, objetivo: boolean = false): Arbol {
 
         const g = new Estado();
         g.esObjetivo = () => objetivo;
         g.modelo = new Modelo();
         g.modelo.dominio = new Dominio({});
         g.modelo.dominio.base = valor;
-        const gs = new GrafoS();
+        const gs = new Arbol();
         gs.nodo = g;
         gs.profundidad = 1;
         return gs;
+    }
+
+    imprimir(abierta: boolean, tabla_a: boolean)
+    {
+        if (abierta) console.log("\t\t - Abierta", this.abierta.map(a => a.Id()))
+        if (tabla_a) console.log("\t\t - Tabla_A",
+            Object.keys(this.tabla_a)
+                .map(a => this.imprimir_tabla_a(a)
+            )
+        );
+    }
+
+    imprimir_tabla_a(ta: TablaA_Id) {
+
+        const i = this.tabla_a[ta];
+        if (!i) return "[T_a vacía]";
+        return `[${i.anterior?.Id() || " - "}]->[${ta}]: coste(inicio, n): ${i.coste_desde_inicio} - p: ${i.profundidad || " - "}`;
     }
 }
 

@@ -1,4 +1,4 @@
-import { Control, GrafoS } from "./control";
+import { Control, Arbol } from "./control";
 import { Operador } from "./operador";
 
 export type FuncSucesores = (arcos: Operador[]) => Operador[];
@@ -22,7 +22,7 @@ export class PrimeroEnAnchura extends Control {
     // entonces sí sería admisible.
     admisible: false;
 
-    busquedaNoInformada(): GrafoS[] {
+    busquedaNoInformada(): Arbol[] {
 
         console.log("Búsqueda no informada.", this.titulo);
 
@@ -56,6 +56,7 @@ export class PrimeroEnAnchura extends Control {
                 this.tabla_a[q.nodo.Id()] = ta;
                 this.abierta.push(q.nodo);
             });
+            this.imprimir(true, true);
         }
 
         return this.metas;

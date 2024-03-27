@@ -26,6 +26,7 @@ NOTA: SIN REVISAR, PUEDE CONTENER ERRORES
     cI.izquierda_a_derecha = true;
     cI.test();
 ```
+sistema> Arrancando el sistema
 
 # Búsqueda no informada. Primero en anchura
          - Abierta:  1
@@ -33,14 +34,45 @@ NOTA: SIN REVISAR, PUEDE CONTENER ERRORES
          - Sucesor q:  B
          - Sucesor q:  D
          - Sucesor q:  E
+                 - Abierta [ 'B', 'D', 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - '
+]
          - Abierta:  3
          - Nodo n:  B
+                 - Abierta [ 'D', 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  D
          - Sucesor q:  C
+                 - Abierta [ 'E', 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[D]->[C]: coste(inicio, n): 9 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  E
          - Sucesor q:  F
+                 - Abierta [ 'C', 'F' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[D]->[C]: coste(inicio, n): 9 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  C
          - esObjetivo:  C
@@ -51,6 +83,8 @@ NOTA: SIN REVISAR, PUEDE CONTENER ERRORES
  >>  D 2 5
  >>  A 1 0
 Test:  true
+
+
 
 # Búsqueda no informada. Primero en profunidad. Max Prof: 10
          - Abierta:  1
@@ -58,14 +92,46 @@ Test:  true
          - Sucesor q:  B
          - Sucesor q:  D
          - Sucesor q:  E
+                 - Abierta [ 'B', 'D', 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1'
+]
          - Abierta:  3
          - Nodo n:  E
          - Sucesor q:  F
+                 - Abierta [ 'B', 'D', 'F' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2'
+]
          - Abierta:  3
          - Nodo n:  F
+                 - Abierta [ 'B', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2'
+]
          - Abierta:  2
          - Nodo n:  D
          - Sucesor q:  C
+                 - Abierta [ 'B', 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2',
+  '[D]->[C]: coste(inicio, n): 9 - p: 2'
+]
          - Abierta:  2
          - Nodo n:  C
          - esObjetivo:  C
@@ -76,6 +142,7 @@ Test:  true
  >>  D 2 5
  >>  A 1 0
 Test:  true
+
 
 # Búsqueda no informada. CosteUniforme
          - Abierta:  1
@@ -83,16 +150,56 @@ Test:  true
          - Sucesor q:  B
          - Sucesor q:  E
          - Sucesor q:  D
+                 - Abierta [ 'B', 'E', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  3
          - Nodo n:  B
+                 - Abierta [ 'E', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  E
          - Sucesor q:  F
+                 - Abierta [ 'D', 'F' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  D
          - Sucesor q:  C
+                 - Abierta [ 'F', 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - ',
+  '[D]->[C]: coste(inicio, n): 9 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  F
+                 - Abierta [ 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - ',
+  '[D]->[C]: coste(inicio, n): 9 - p:  - '
+]
          - Abierta:  1
          - Nodo n:  C
          - esObjetivo:  C
@@ -104,28 +211,74 @@ Test:  true
  >>  A 1 0
 Test:  true
 
-# Búsqueda no informada. Primero en anchura iterativa. (derecha_a_izquierda)
-Búsqueda no informada. Primero en anchura iterativa. Anchura 0
-Búsqueda no informada. Primero en anchura
+
+# Búsqueda no informada. Primero en anchura iterativa.
+## Búsqueda no informada. Primero en anchura iterativa. Anchura 0
+### Búsqueda no informada. Primero en anchura
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  E
+                 - Abierta [ 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - '
+]
          - Abierta:  1
          - Nodo n:  E
          - Sucesor q:  F
+                 - Abierta [ 'F' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  1
          - Nodo n:  F
-Búsqueda no informada. Primero en anchura iterativa. Anchura 1
-Búsqueda no informada. Primero en anchura
+                 - Abierta []
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - '
+]
+
+
+
+# Búsqueda no informada. Primero en anchura iterativa. Anchura 1
+## Búsqueda no informada. Primero en anchura
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
          - Sucesor q:  D
+                 - Abierta [ 'B', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  2
          - Nodo n:  B
+                 - Abierta [ 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - '
+]
          - Abierta:  1
          - Nodo n:  D
          - Sucesor q:  C
+                 - Abierta [ 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p:  - ',
+  '[E]->[F]: coste(inicio, n): 5 - p:  - ',
+  '[A]->[B]: coste(inicio, n): 2 - p:  - ',
+  '[A]->[D]: coste(inicio, n): 5 - p:  - ',
+  '[D]->[C]: coste(inicio, n): 9 - p:  - '
+]
          - Abierta:  1
          - Nodo n:  C
          - esObjetivo:  C
@@ -137,36 +290,99 @@ Búsqueda no informada. Primero en anchura
  >>  A 1 0
 Test:  true
 
-# Búsqueda no informada. Primero en Profundidad Iterativa (izquierda_a_derecha)
-Búsqueda no informada. Primero en profunidad. Max Prof: 1
+
+# Búsqueda no informada. Primero en Profundidad Iterativa
+## Búsqueda no informada. Primero en profunidad. Max Prof: 1
          - Abierta:  1
          - Nodo n:  A
-Búsqueda no informada. Primero en profunidad. Max Prof: 2
+                 - Abierta []
+                 - Tabla_A [ '[ - ]->[A]: coste(inicio, n): 0 - p:  - ' ]
+## Búsqueda no informada. Primero en profunidad. Max Prof: 2
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  E
          - Sucesor q:  D
          - Sucesor q:  B
+                 - Abierta [ 'E', 'D', 'B' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1'
+]
          - Abierta:  3
          - Nodo n:  B
+                 - Abierta [ 'E', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1'
+]
          - Abierta:  2
          - Nodo n:  D
+                 - Abierta [ 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1'
+]
          - Abierta:  1
          - Nodo n:  E
-Búsqueda no informada. Primero en profunidad. Max Prof: 3
+                 - Abierta []
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1'
+]
+## Búsqueda no informada. Primero en profunidad. Max Prof: 3
          - Abierta:  1
          - Nodo n:  A
          - Sucesor q:  B
          - Sucesor q:  D
          - Sucesor q:  E
+                 - Abierta [ 'B', 'D', 'E' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1'
+]
          - Abierta:  3
          - Nodo n:  E
          - Sucesor q:  F
+                 - Abierta [ 'B', 'D', 'F' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2'
+]
          - Abierta:  3
          - Nodo n:  F
+                 - Abierta [ 'B', 'D' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2'
+]
          - Abierta:  2
          - Nodo n:  D
          - Sucesor q:  C
+                 - Abierta [ 'B', 'C' ]
+                 - Tabla_A [
+  '[ - ]->[A]: coste(inicio, n): 0 - p:  - ',
+  '[A]->[E]: coste(inicio, n): 3 - p: 1',
+  '[A]->[D]: coste(inicio, n): 5 - p: 1',
+  '[A]->[B]: coste(inicio, n): 2 - p: 1',
+  '[E]->[F]: coste(inicio, n): 5 - p: 2',
+  '[D]->[C]: coste(inicio, n): 9 - p: 2'
+]
          - Abierta:  2
          - Nodo n:  C
          - esObjetivo:  C

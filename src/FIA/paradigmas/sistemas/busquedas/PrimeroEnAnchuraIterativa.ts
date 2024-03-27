@@ -1,4 +1,4 @@
-import { GrafoS } from "./control";
+import { Arbol } from "./control";
 import { Operador } from "./operador";
 import { PrimeroEnAnchura } from "./PrimeroEnAnchura";
 
@@ -8,7 +8,7 @@ export class PrimeroEnAnchuraIterativa extends PrimeroEnAnchura {
     anchuraLimiteMaxima: number = 10;
     anchuraLimite: number = 0;
 
-    busquedaNoInformadaIterativa(): GrafoS[] {
+    busquedaNoInformadaIterativa(): Arbol[] {
 
         console.log("Búsqueda no informada. Primero en anchura iterativa.");
 

@@ -1,10 +1,10 @@
-import { GrafoS } from "./control";
+import { Arbol } from "./control";
 import { Operador } from "./operador";
 import { PrimeroEnProfundidad } from "./PrimeroEnProfundidad";
 
 export class PrimeroEnProfundidadIterativa extends PrimeroEnProfundidad {
 
-    busquedaNoInformadaIterativa(): GrafoS[] {
+    busquedaNoInformadaIterativa(): Arbol[] {
 
         console.log("Búsqueda no informada. Primero en Profundidad Iterativa");
 

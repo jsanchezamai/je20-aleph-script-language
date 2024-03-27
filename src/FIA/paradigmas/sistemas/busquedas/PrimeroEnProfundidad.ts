@@ -1,4 +1,4 @@
-import { Control, GrafoS } from "./control";
+import { Control, Arbol } from "./control";
 import { Operador } from "./operador";
 
 export class PrimeroEnProfundidad extends Control {
@@ -17,7 +17,7 @@ export class PrimeroEnProfundidad extends Control {
     // Siempre encuentra la solución óptima
     admisible: false;
 
-    busquedaNoInformada(): GrafoS[] {
+    busquedaNoInformada(): Arbol[] {
 
         console.log("Búsqueda no informada. Primero en profunidad. Max Prof:", this.maximaProfundidad);
 
@@ -70,6 +70,7 @@ export class PrimeroEnProfundidad extends Control {
                 this.tabla_a[q.nodo.Id()] = ta;
                 this.abierta.push(q.nodo);
             });
+            this.imprimir(true, true);
         }
 
         return this.metas;

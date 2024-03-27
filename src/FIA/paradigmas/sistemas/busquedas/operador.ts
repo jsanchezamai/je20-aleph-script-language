@@ -1,9 +1,9 @@
-import { GrafoS } from "./control";
+import { Arbol } from "./control";
 import { Estado } from "./estado";
 
 export interface Operador {
 
-    nodo: GrafoS;
+    nodo: Arbol;
     coste: number;
 
     // Antes de llamar a transición hay que
@@ -12,7 +12,7 @@ export interface Operador {
 
     transicion(estado: Estado): {
         coste: number,
-        nodo: GrafoS
+        nodo: Arbol
     }
 }
 
@@ -20,7 +20,7 @@ export class Operador implements Operador {
 
     constructor(
         public coste: number,
-        public nodo: GrafoS,
+        public nodo: Arbol,
         public profundidad: number) {
             nodo.profundidad = profundidad;
         }
@@ -33,7 +33,7 @@ export class Operador implements Operador {
 
     transicion(estado: Estado): {
         coste: number,
-        nodo: GrafoS
+        nodo: Arbol
     } {
         return {
             coste: this.coste,
