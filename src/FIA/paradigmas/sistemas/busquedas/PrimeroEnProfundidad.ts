@@ -3,6 +3,8 @@ import { Operador } from "./operador";
 
 export class PrimeroEnProfundidad extends Control {
 
+    izquierda_a_derecha: boolean = false;
+
     maximaProfundidad: number = 10;
     /**
      * La búsqueda en profundidad no es ni completa ni admisible
@@ -41,7 +43,7 @@ export class PrimeroEnProfundidad extends Control {
 
             let S = [];
             if (n.profundidad < this.maximaProfundidad) {
-                S = n.arcos;
+                S = this.izquierda_a_derecha ? n.arcos.reverse() : n.arcos;
             }
 
             if (S.length == 0) {

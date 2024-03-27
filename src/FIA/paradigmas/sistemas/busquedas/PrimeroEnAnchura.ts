@@ -6,6 +6,8 @@ export class PrimeroEnAnchura extends Control {
 
     static sucesores: FuncSucesores = (arcos) => arcos;
 
+    derecha_a_izquierda: boolean = false;
+
     constructor(public titulo: string, public sucesores: FuncSucesores) {
         super();
     }
@@ -43,7 +45,7 @@ export class PrimeroEnAnchura extends Control {
                 return this.metas;
             }
 
-            const S = this.sucesores(n.arcos);
+            const S = this.sucesores(this.derecha_a_izquierda ? n.arcos.reverse() : n.arcos);
             S.forEach(q => {
                 console.log("\t - Sucesor q: ", q.nodo.Id());
                 const ta = {

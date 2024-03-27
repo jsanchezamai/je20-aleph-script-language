@@ -44,10 +44,12 @@ server.listen(port, async () => {
     const u = new CosteUniforme("CosteUniforme", CosteUniforme.sucesores);
     u.test();
 
-    const cI = new PrimeroEnProfundidadIterativa();
-    cI.test();
-
     const bI = new PrimeroEnAnchuraIterativa("Primero en anchura", PrimeroEnAnchura.sucesores);
+    bI.derecha_a_izquierda = true;
     bI.test();
+
+    const cI = new PrimeroEnProfundidadIterativa();
+    cI.izquierda_a_derecha = true;
+    cI.test();
 
 });
