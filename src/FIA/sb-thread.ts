@@ -5,7 +5,9 @@ import * as http from "http";
 import { systemMessage } from "./systemMessage";
 import { BaseExpertaSimulacion } from "./paradigmas/simbolica/modelos/formal/sistema/base-experta/simuacion";
 import { AlephScriptBoilerplate } from "../as-seed/guest/main";
-import { PrimeroEnAnchura, PrimeroEnProfundidad } from "./paradigmas/sistemas/busquedas/control";
+import { PrimeroEnAnchura } from "./paradigmas/sistemas/busquedas/PrimeroEnAnchura";
+import { PrimeroEnProfundidad } from "./paradigmas/sistemas/busquedas/PrimeroEnProfundidad";
+import { CosteUniforme } from "./paradigmas/sistemas/busquedas/CosteUniforme";
 
 const host = 'localhost';
 const port = 8000;
@@ -39,5 +41,8 @@ server.listen(port, async () => {
 
     const c = new PrimeroEnProfundidad();
     c.test();
+
+    const u = new CosteUniforme();
+    u.test();
 
 });
