@@ -1,9 +1,7 @@
 import { GrafoAGBG, OperadorFinito } from './agbg';
 import { PrimeroElMejor } from './BestFirst';
-import { CosteUniforme } from './CosteUniforme';
 import { BGrafo, HashDataItem } from "./GrafoS";
 import { Operador } from "./operador";
-import { FuncSucesores } from './PrimeroEnAnchura';
 
 export type HashData = {[key: string]: HashDataItem};
 
@@ -30,7 +28,7 @@ export class AEstrella extends PrimeroElMejor {
 
     busqueda(): BGrafo[] {
 
-        console.log("Búsqueda no informada. A*");
+        console.log("Búsqueda Heurística. A*");
 
         this.abierta = [this.estadoInicial];
 

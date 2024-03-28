@@ -651,7 +651,7 @@ Test:  false Coste:  290
 
 ```
 
-# Búsqueda no informada. A*
+# Búsqueda Heurística. A*
 
 ![](grafo.png)
 
@@ -659,12 +659,9 @@ Test:  false Coste:  290
     const ae = new AEstrella();
     ae.test();
 ```
-Búsqueda no informada. A*
-
 Nota: Dado que no se cumple h(n) <= h*(n) cuando n = n7, ya que h(n7) = 45 y h*(n7) = 25 el algoritmo no será admisible.
 
 ```
-Búsqueda no informada. A*
                  - Abierta [ 'N1(0 + 100)' ]
                  - Tabla_A [ '[ - ]->[N1]: coste(inicio, n): 0; p: - ; s: 0' ]
          - Abierta:  1
