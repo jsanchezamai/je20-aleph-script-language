@@ -7,7 +7,10 @@ export type HashDataItem = {
     anterior: BGrafo,
     coste_desde_inicio: number,
     profundidad: number,
-    sucesores?: (OperadorFinito | OperadorInfinito) []
+    sucesores?: (OperadorFinito | OperadorInfinito) [],
+
+    g?: number,
+    h?: number
 }
 export type HashData = {[key: string]: HashDataItem};
 
@@ -32,11 +35,7 @@ export class BGrafo implements BGrafo {
 
     nodo: Estado;
     arcos: Operador[] = [];
-
-    coste(inicio: Estado, destino: Estado): number {
-
-        return 0;
-    }
+    estimado: number;
 
     Id(): string {
         return this.nodo.modelo.dominio.base as string;

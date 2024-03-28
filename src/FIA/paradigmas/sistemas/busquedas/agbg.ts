@@ -114,7 +114,7 @@ export class AGBG extends Control {
         const taN = this.tabla_a[n.Id()];
 
         console.log(`\t\t Rectificar lista: ${n.Id()}, T_a: `, this.imprimir_tabla_a(n.Id()))
-        const lista = this.tabla_a[n.Id()]?.sucesores || [];
+        const lista = taN?.sucesores || [];
         lista.forEach(
             l => this.Rectificar(
                 l.nodo, n, l.coste

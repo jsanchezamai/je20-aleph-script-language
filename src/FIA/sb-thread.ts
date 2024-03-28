@@ -10,6 +10,7 @@ import { PrimeroEnAnchuraIterativa } from "./paradigmas/sistemas/busquedas/Prime
 import { Arbol } from "./paradigmas/sistemas/busquedas/control";
 import { AGBG, GrafoAGBG } from "./paradigmas/sistemas/busquedas/agbg";
 import { PrimeroElMejor } from "./paradigmas/sistemas/busquedas/BestFirst";
+import { AEstrella } from "./paradigmas/sistemas/busquedas/AEstrella";
 
 const host = 'localhost';
 const port = 8000;
@@ -53,12 +54,16 @@ server.listen(port, async () => {
 
     const cI = new PrimeroEnProfundidadIterativa(new Arbol());
     cI.izquierda_a_derecha = true;
-    cI.test(); */
+    cI.test(); 
 
     const a = new AGBG(new GrafoAGBG());
     a.test();
 
     const bf = new PrimeroElMejor(new GrafoAGBG());
-    bf.test();
+    bf.test();*/
+
+    const ae = new AEstrella();
+    ae.test();
+    ae.test2();
 
 });

@@ -86,6 +86,12 @@ export class Control implements Control {
         return camino;
     }
 
+    creaNodoE(valor: string, estimado: number, objetivo: boolean = false): BGrafo {
+        const gs = this.creaNodo(valor, objetivo);
+        gs.estimado = estimado;
+        return gs;
+    }
+
     creaNodo(valor: string, objetivo: boolean = false): BGrafo {
 
         const g = new Estado();
@@ -113,9 +119,8 @@ export class Control implements Control {
         const i = this.tabla_a[ta];
         if (!i) return "[T_a vacía]";
         const ids = `[${i.anterior?.Id() || " - "}]->[${ta}]: `
-        const coste = `coste(inicio, n): ${i.coste_desde_inicio} - p: ${i.profundidad || "- "}; `;
+        const coste = `coste(inicio, n): ${i.coste_desde_inicio}; p: ${i.profundidad || "- "}; `;
         const sucesores = `s: ${(i.sucesores || []).length}`
         return ids + coste + sucesores;
     }
 }
-
